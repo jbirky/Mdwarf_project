@@ -1,0 +1,465 @@
+\documentclass[compress]{beamer}
+\usetheme{sthlm}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        LOADING BEAMER PACKAGES
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\usepackage{
+booktabs,
+datetime,
+dtk-logos,
+graphicx,
+multicol,
+pgfplots,
+ragged2e,
+tabularx,
+tikz,
+wasysym,
+animate
+}
+
+\pgfplotsset{compat=1.8}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,newpxmath}
+\usepackage{listings}
+
+\lstset{ %
+language=[LaTeX]TeX,
+basicstyle=\normalsize\ttfamily,
+keywordstyle=,
+numbers=left,
+numberstyle=\tiny\ttfamily,
+stepnumber=1,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+breaklines=true,
+frame=tb,
+framerule=0.5pt,
+tabsize=4,
+framexleftmargin=0.5em,
+framexrightmargin=0.5em,
+xleftmargin=0.5em,
+xrightmargin=0.5em
+}
+
+
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        LOADING TIKZ LIBRARIES
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\usetikzlibrary{
+backgrounds,
+mindmap
+}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        BEAMER OPTIONS
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\setbeameroption{show notes}
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        BEAMER COMMANDS
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	PRESENTATION INFORMATION
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\title{Data-driven cannon Models for APOGEE M dwarfs}
+\subtitle{\textcolor{sthlmDarkGreen}{Milky Way Group Meeting}}
+\date{\small{16 August 2017}}
+\author{\texttt{Jessica Birky - UC San Diego}}
+\institute{\texttt{Advisor: David Hogg - NYU/MPIA/Simons}}
+
+\hypersetup{
+pdfauthor = {Egmon Pereira: @Egmon},      
+pdfsubject = {Teologia, },
+pdfkeywords = {},  
+pdfmoddate= {D:\pdfdate},          
+pdfcreator = {WriteLaTeX}
+}
+
+\begin{document}
+
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+\begin{frame}{Motivation}
+
+\Large Data-driven models are physically informative
+\begin{enumerate} \large
+	\item[•] The Cannon allows us to systematically search for features/indices that are sensitive to physical parameters of interest
+	\pause
+	\item[•] Cannon successes:
+	\begin{enumerate}
+		\item[•] Stellar parameters $T_{eff}$, logg, [Fe/H] (Ness 2015)
+		\begin{enumerate}
+			\item[•] Currently implemented into the APOGEE DR14 pipeline
+		\end{enumerate}
+		\item[•] Survey 1 $\Rightarrow$ Survey 2 (LAMOST $\Rightarrow$ APOGEE, Ho 2015)
+	\end{enumerate}
+	\pause
+	\item[•] Potential ideas for M dwarf regime:
+	\begin{enumerate}
+		\item[•] Optical $\Rightarrow$ Infrared (K band $\Rightarrow$ H band)
+		\item[•] Magnetic activity (H$_{\alpha}$), any indices that would be interesting
+	\end{enumerate}
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Motivation}
+
+\Large Potential with the \textcolor{sthlmDarkGreen}{APOGEE} survey
+\begin{enumerate} \large
+	\item[•] Specifications: H band (1.5 - 1.7 $\mu$m), R $\sim$ 22,000
+	\item[•] aspcap pipeline does not attempt to model the M dwarf spectra
+\end{enumerate}
+
+\pause
+\begin{enumerate} \large
+	\item[$\Rightarrow$] There are many M dwarfs (1400+, Desphande 2013), most which are not labeled or classified
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Background: The Cannon}
+\Large 
+Assumptions: 
+\begin{enumerate} \large
+	\item[•] Spectral with identical labels have identical looking spectra
+	\item[•] Flux at each wavelength pixel varies smoothly with change in parameter
+\end{enumerate}
+
+\pause
+Requirements:
+\begin{enumerate} \large
+	\item[•] \textcolor{sthlmDarkGreen}{Training Set:} set of objects with known parameters (ideally consistent and very accurate) 
+	\item[•] \textcolor{sthlmDarkGreen}{Test Set:} all objects (with unknown or unreliable parameters) that lie within the parameter span of the training set
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Background: The Cannon}
+\Large 
+Cannon Model:
+\[\textcolor{sthlmDarkGreen}{f_{n\lambda} = \theta^{T} \cdot l_{n} + noise} \]
+
+\pause
+$\theta$: Spectral model coefficients (at each $\lambda$) \\
+1D Cannon Model: 
+\begin{enumerate} \large
+	\item[•] $l_{n} = [1, SPT, SPT^{2}]$ 
+\end{enumerate}
+3D Cannon Model: 
+\begin{enumerate} \large
+	\item[•] $l_{n} = [1, Teff, log g, [Fe/H], Teff^{2}, Teff \cdot log g, Teff \cdot [Fe/H], log g^{2}, log g \cdot [Fe/H], [Fe/H]^{2}]$ 
+\end{enumerate}
+\end{frame}
+ 
+
+\begin{frame}{Project Scope}
+\large Constructing a training set
+\begin{enumerate} \large
+	\item[•] Literature sample: 44 sources from Simbad \textcolor{sthlmDarkGreen}{\{Teff, [Fe/H]\}}
+	\begin{enumerate}
+		\item[•] Inconsistent training labels, inconsistent results
+	\end{enumerate}
+
+	\pause
+	\item[•] Rajpurohit 2017: 45 sources \textcolor{sthlmDarkGreen}{\{Teff, logg, [Fe/H]\}}, or \textcolor{sthlmDarkGreen}{\{Spectral type\}}
+	\begin{enumerate}
+		\item[•] Temperatures concentrated 3000-3300K range
+		\item[•] Labels derived are inconsistent with training labels
+	\end{enumerate}
+
+	\pause
+	\item[•] West 2011: 69/70,841 sources matched \textcolor{sthlmDarkGreen}{\{Spectral type\}}
+	\begin{enumerate}
+		\item[•] Most consistent training set
+	\end{enumerate}
+
+\end{enumerate}
+
+\pause 
+\textcolor{red}{Objective:} Spectral type all APOGEE M dwarfs using data-driven models  
+
+\pause
+\textcolor{sthlmDarkGreen}{Broad scope:} we hope in some way data-driven models can be used to improve physical ones.
+\end{frame}
+
+
+\begin{frame}{Selecting the Test Set}
+Sorting by photometry
+\begin{enumerate} \small
+	\item[•] All APOGEE sources vs. 340 known M dwarfs (West 2011, Rajpurohit 2017, Desphande 2013, Aganze's brown dwarf xmatch)
+\end{enumerate}
+\begin{figure}
+	\includegraphics[width=.7\textwidth, keepaspectratio]{photos/dwarfs_aspcap} 
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Selecting the Test Set}
+Comparison: sources labeled vs. not labeled by aspcap:
+\begin{figure}
+	\includegraphics[height=.45\textheight]{photos/aspcap_by_teff}  
+	\includegraphics[height=.45\textheight]{photos/aspcap_by_logg}  
+\end{figure}
+\textcolor{sthlmDarkGreen}{Left}: all APOGEE sources colored by aspcap \textcolor{sthlmDarkGreen}{Teff} \\
+\textcolor{sthlmDarkGreen}{Right}: all APOGEE sources colored by aspcap \textcolor{sthlmDarkGreen}{logg} 
+\end{frame}
+
+
+\begin{frame}{Selecting the Test Set}
+Sorting by spectra
+\begin{figure}
+	\includegraphics[width=\textwidth, keepaspectratio]{photos/templates.pdf} 
+	\caption{M dwarf vs. M giant}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Selecting the Test Set}
+Template sorting and SNR cut
+\begin{figure}
+	\includegraphics[width=.45\textwidth]{photos/known_mdwarfs_sorted.png} 
+	\includegraphics[width=.6\textwidth]{photos/Chi_Squared_Scatter_SNR.pdf} 
+\end{figure}
+
+\pause
+Proceedure (in progress): 1) Color cut, 2) Sort by comparing to M dwarf and M giant templates, 3) Cut SNR > 100
+\end{frame}
+
+
+\begin{frame}{West Sample: Training with Spectral Types}
+Sample Specifications
+\begin{enumerate} \small
+	\item[•] \textcolor{sthlmDarkGreen}{51 sources M0-M9} with SNR > 40
+	\item[•] Consistent SPT labels obtained from SDSS spectra 
+	\begin{enumerate} 
+		\item[•] using The Hammer + visual inspection 
+	\end{enumerate}
+	\item[•] Spectral Types: not the most physically informative parameter, but useful start to indentifying M dwarfs and for later modelling Teff and [Fe/H]
+\end{enumerate}
+
+
+\begin{figure}
+	\includegraphics[width=.5\textwidth]{photos/west_spt_dist} 
+	\includegraphics[width=.5\textwidth]{photos/west_color_mag} 
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{West Spectral sequence}
+\begin{figure}
+	\includegraphics[width=.42\textwidth]{photos/desphande_spec_seq} 
+	\includegraphics[width=.57\textwidth]{photos/west_spec_seq} 
+\end{figure}
+\small
+\textcolor{sthlmDarkGreen}{Left}: Desphande 2013; Spectral Types apporoximated by binned V-J color
+\hangindent=7.8mm Highlights: Spectral type sensitive regions identified by Desphande
+
+\textcolor{sthlmDarkGreen}{Right}: 9 selected spectral with types from West 2011
+\end{frame}
+
+
+\begin{frame}{West Spectral sequence}
+\begin{figure}
+	\includegraphics[width=.5\textwidth]{photos/bochanski_spec_seq} 
+	\includegraphics[width=.5\textwidth]{photos/west_sdss_spec_seq} 
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{West-trained sample: results}
+\small \textcolor{sthlmDarkGreen}{SPT Scatter:} \textcolor{red}{0.617}
+\begin{figure}
+	\includegraphics[width=.55\textwidth]{photos/west_self_test} 
+	\includegraphics[width=.45\textwidth]{photos/west_crv} 
+\end{figure}
+\small \textcolor{sthlmDarkGreen}{Left}: Self-consistency test 
+\footnotesize
+\hangindent=15mm -- train on 51 spectra, re-derive labels for all 51 spectra \\
+\small
+\textcolor{sthlmDarkGreen}{Right}: Cross-validation test
+\footnotesize
+\hangindent=15mm -- leave out spectrum n, train on 50 spectra, derive label for spectrum n; repeat for all 51 spectra \\
+\end{frame}
+
+
+\begin{frame}{West-trained sample: results}
+Training with magnetic activity (including EW of H$_{\alpha}$) \\
+\small \textcolor{sthlmDarkGreen}{SPT Scatter:} \textcolor{red}{0.556}
+\begin{figure}
+	\includegraphics[width=.5\textwidth]{photos/west_2_1} 
+	\includegraphics[width=.5\textwidth]{photos/west_2_2} 
+\end{figure}
+\small \textcolor{sthlmDarkGreen}{Left}: Teff Self-consistency test; \textcolor{sthlmDarkGreen}{Right}: H$_{\alpha}$ Self-consistency test
+\end{frame}
+
+
+\begin{frame}{West-trained models: Spectral sequence}
+\begin{figure}
+	\includegraphics[width=.5\textwidth]{photos/desphande_spec_seq} 
+	\includegraphics[width=.52\textwidth]{photos/cannon_spec_seq} 
+\end{figure}
+\small \textcolor{sthlmDarkGreen}{Left}: Desphande 2013; \textcolor{sthlmDarkGreen}{Right}: West-trained Cannon models
+\end{frame}
+
+
+\begin{frame}{Spectral sequence: data vs. Cannon models}
+\begin{figure}
+	\includegraphics[width=\textwidth]{photos/1_Spectral_Sequence.pdf} 
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Spectral sequence: data vs. Cannon models}
+\begin{figure}
+	\includegraphics[height=.45\textheight]{photos/2_Spectral_Sequence.pdf}  \\
+	\includegraphics[height=.45\textheight]{photos/3_Spectral_Sequence.pdf}  
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Rajpurohit-trained Cannon Models}
+Sample specifications
+\begin{enumerate} 
+	\item[•] \textcolor{sthlmDarkGreen}{45 sources} with labels \textcolor{sthlmDarkGreen}{\{Teff, logg, [Fe/H], Spectral type\}}
+	\item[•] Labels derived from BT-Settl model grid (Homeier, unpublished)
+\end{enumerate}
+
+2 label results: \textcolor{sthlmDarkGreen}{\{Teff, [Fe/H], Spectral type\}}
+\begin{figure}
+	\includegraphics[height=.4\textheight]{photos/raj_2_1}  
+	\includegraphics[height=.4\textheight]{photos/raj_2_2}   
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Rajpurohit-trained Cannon Models}
+3 label results: \textcolor{sthlmDarkGreen}{\{Teff, logg, [Fe/H], Spectral type\}}
+\begin{figure}
+	\includegraphics[height=.4\textheight]{photos/raj_3_1}  \\
+	\includegraphics[height=.4\textheight]{photos/raj_3_2}  
+	\includegraphics[height=.4\textheight]{photos/raj_3_3} 
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Summary}
+We have consistent results for spectral-typing APOGEE M dwarfs. \\
+
+Current {Teff, [Fe/H]} training set does not span parameter range well enough
+\begin{enumerate} 
+	\item[•] But features are modelled well and may be useful for precise RVs/finding binaries
+\end{enumerate}
+
+Fixing systematic issues within The Cannon/aspcap may improve model fits
+\begin{enumerate} 
+	\item[•] Cannon optimizer is often converging to a local minimum
+	\item[•] Continuum normalization producing artificial spikes in the data
+	\item[•] Removing outliers in polynomial interpolation
+\end{enumerate}
+\end{frame}
+
+
+\section{Model Fits}
+
+
+\begin{frame}{Model fits: 2M11091225-0436249}
+Rajpurohit-trained model synthesized to \textcolor{sthlmDarkGreen}{Training Labels}
+\begin{figure}
+	\includegraphics[width=\textwidth]{photos/train_fit}   
+\end{figure}
+Rajpurohit-trained model synthesized to \textcolor{sthlmDarkGreen}{Test Labels}
+\begin{figure}
+	\includegraphics[width=\textwidth]{photos/test_fit}   
+\end{figure}
+\small
+Notice $\chi^{2}$ of test fit is lower than $\chi^{2}$ of training fit -- there is a bug in The Cannon optimizer, but at least the model coefficients are not skewed at the edge of the training set.
+\end{frame}
+
+
+\section{Future Work}
+
+
+\begin{frame}{Future Work} \large
+Would ideally like to train on 3 stellar parameters (Teff, logg, [Fe/H]) -- constructing a complete training data set is the biggest challenge
+\begin{enumerate} \normalsize
+	\item[•] Ideally my training set would be larger in number and span a larger parameter range
+	\item[•] APOGEE was not designed to study cool main-sequence stars (rather giant and hotter stars) - APOGEE lacks benchmark sources for M dwarfs
+\end{enumerate}
+
+\pause
+Solutions:
+\begin{enumerate} \normalsize
+	\item[•] Model more M dwarfs with unknown parameters
+	\item[•] Obtain more known sources (plans for SpeX/NIRSPEC observing with Adam Burgasser)
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Future Work/Questions} \large
+Obtaining accurate metallicities: \textcolor{sthlmDarkGreen}{FGK-M dwarf pairs}
+\begin{enumerate} \normalsize
+	\item[•] Use FGK pairs as the training set (but only 5 overlap with APOGEE -- xmatch Newton + Neves samples with DR14)
+	\pause
+	\item[•] Use empirical calibrations derived in these studies
+\end{enumerate}
+\small
+Terrien 2012: [Fe/H] = .34(EW$_{Ca}$) + .407(EW$_{K}$) + .436(H$_{2}$O - H) - 1.485
+\begin{figure}
+	\includegraphics[width=\textwidth]{photos/bonfils_table}
+	\caption{M dwarf comparative study of photometric metallicity scales (Neves 2011)}   
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Training parameters} 
+The Cannon (in principle) can be trained on any label/parameter.
+Parameters we have:
+	\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+	 \hline
+	 Parameter & West Sample & Rajpurohit Sample \\ 
+	 \hline
+	 \hline
+	 Spectra & APOGEE 	& APOGEE \\ 
+	 		 & SDSS 	&  \\ 
+	 \hline 
+	 Stellar & Spectral Type & Spectral Type \\
+	 Parameters & & Teff, logg, [Fe/H] \\
+	 \hline
+	 Photometry & JHK, ugriz & JHK \\
+	 \hline
+	 Distance   & Photometric estimates & -- \\
+	 \hline
+	 EW & H$_{\alpha}$, H$_{\beta}$, H$_{\gamma}$ & -- \\
+	 measurements & TiO$_{5}$, TiO$_{2}$  & -- \\
+	 \hline
+	\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\section{End}
+
+
+\end{document}
+
