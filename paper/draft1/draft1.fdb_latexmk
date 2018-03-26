@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex draft1"] 1522086957 "draft1.aux" "draft1.bbl" "draft1" 1522086959
+["bibtex draft1"] 1522096117 "draft1.aux" "draft1.bbl" "draft1" 1522096845
   "/usr/share/texlive/texmf-dist/bibtex/bst/aastex/aasjournal.bst" 1457045297 33461 7890dd95f8d54a3591b8704229ec0807 ""
-  "draft1.aux" 1522086959 9019 b04f1189b1f753695ad4dd8b72d4cba2 ""
-  "ref.bib" 1522068731 29012 0ce136311ad7fe9954cb7e9b859f133c ""
+  "draft1.aux" 1522096845 9248 5161391c3bbea1e298318a5b000815d7 ""
+  "ref.bib" 1522090164 29879 a771b4ed8eb99769e3469eb904425afa ""
   (generated)
   "draft1.bbl"
   "draft1.blg"
-["pdflatex"] 1522086957 "draft1.tex" "draft1.pdf" "draft1" 1522086959
+["pdflatex"] 1522096843 "draft1.tex" "draft1.pdf" "draft1" 1522096845
   "/home/jess/.cache/texlive/texmf-var/web2c/pdftex/pdflatex.fmt" 1513999429 719144 4ae9faaff5c3554eaa87504ae36eca88 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1463015741 1888031 5317a64a246c13fa560847c387843238 ""
@@ -103,9 +103,9 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1463002160 55589 34128738f682d033422ca125f82e5d62 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1501961251 31949 3ae02a131d161fd383f5b89f8ad0930c ""
   "aastex62.cls" 1515419525 210522 3ccb99937c19b008a65ac39ebedf9ee4 ""
-  "draft1.aux" 1522086959 9019 b04f1189b1f753695ad4dd8b72d4cba2 ""
-  "draft1.bbl" 1522086957 8089 50d2ff9e6448b7d8a838e6f112129d12 "bibtex draft1"
-  "draft1.tex" 1522086955 12051 24fc33d1ccaf577601eab8feafbec0f6 ""
+  "draft1.aux" 1522096845 9248 5161391c3bbea1e298318a5b000815d7 ""
+  "draft1.bbl" 1522096117 8209 df9e41ff091c024473cee21a62a114e1 "bibtex draft1"
+  "draft1.tex" 1522096843 13931 3a54124731142b4f300a9f43168fe4d2 ""
   "figures/1_Spectral_Sequence.pdf" 1511638196 623592 71abd85bfaa14eae85bba8e1171ef133 ""
   "figures/1_physical_model.png" 1522077842 291136 4b09f05467a2dc6a6207e367e3a90d42 ""
   "figures/2_Spectral_Sequence.pdf" 1511638196 535314 a1194ce807cdbf46f825de1e8bde6413 ""
@@ -116,9 +116,9 @@
   "figures/mann_feh_self_test.png" 1520488013 51004 b9de4f1bbf8cda18607a98a4c88dfe43 ""
   "figures/mann_teff_derivative.png" 1522082054 183909 33aedfbec1fbf99281efe1a0fd08663a ""
   "figures/mann_teff_self_test.png" 1520488009 52336 dc9a6844d39c23b4cdf8f806751f9f19 ""
-  "figures/west_spt_derivative.png" 1522086863 142304 d612e60355adfcd463c129d4b204d5c4 ""
+  "figures/west_spt_derivative.png" 1522091656 199392 2b9ff3c69d5376ba2bce30866d173cb8 ""
   "figures/west_spt_self_test.png" 1512224672 56369 f502dbfdd6e68bc0c710fe2b16a7f9b2 ""
   (generated)
-  "draft1.log"
   "draft1.aux"
   "draft1.pdf"
+  "draft1.log"

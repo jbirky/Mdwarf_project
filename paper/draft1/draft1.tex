@@ -89,26 +89,43 @@ A number of M dwarf studies
 % \item[-] Some M dwarfs in APOGEE proposed as ancilliary targets (Blake/Covey sources), plus an unknown number observed unintentionally \citep{Desphande:2013}.
 % \end{enumerate}
 
-The APOGEE survey \citep{Majewski:2015} of the Sloan Digital Sky Survey IV (SDSS-IV) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m) survey which has observed over 260,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). While APOGEE is primarily targeted for bright stellar populations (descirbe cuts \citealt{Zasowski:2013}) with the objective of studying galactic composition and evolution, numerous cool, main sequence have also been observed either as targets proposed by the M dwarf ancilliary survey \citep{Desphande:2013}
+The APOGEE survey \citep{Majewski:2015} of the Sloan Digital Sky Survey IV (SDSS-IV) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m) survey which has observed over 260,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the APOGEE Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure to fit ATLAS9 radiative transfer models to determine atmospheric parameters (temperature, surface gravity, metallicity) and 15 chemical abundances \citep{Meszaros:2012}. 
 
-Fundamental parameters for each of these stars (including temperature, surface gravity, metallicity and 15 chemical abundances) are estimated by the APOGEE Stellar Parameter
-and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016})
+APOGEE is primarily targeted for bright stellar populations, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous (specific estimate based on Gaia?) cool, main sequence sources have also been observed either accidentally, or as targets proposed by the M dwarf ancilliary survey \citep{Desphande:2013}.
+
 
 \subsection{Training Samples}
-\begin{enumerate}
-\item[-] Describe the spectral-type training data \citep{West:2011}. One paragraph plus citations. Include any cuts we apply. \color{red}{Make diagnostic plots.}\color{black}
 
-\item[-] Describe the Teff, Fe/H training data \citep{Mann:2015}. Same; Include any cuts. \color{red}{Make diagnostic plots.}\color{black}
-\end{enumerate}
+The Cannon uses a \emph{data-driven} approach for constructing a model which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels, a flexible number of parameters chosen by the user. The basic principle 
+
+For the purpose of this study we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second a two-dimensional \emph{physical parameter model} (the choice of training labels and dimensionality of our data set we discuss further in Section \ref{sec:discussion}).
+
+The spectral type sample consists of 51 sources from \citealt{West:2011}, spanning M0-M9 
+
+% \begin{enumerate}
+% \item[-] Describe the spectral-type training data \citep{West:2011}. One paragraph plus citations. Include any cuts we apply. \color{red}{Make diagnostic plots.}\color{black}
+
+% \item[-] Describe the Teff, Fe/H training data \citep{Mann:2015}. Same; Include any cuts. \color{red}{Make diagnostic plots.}\color{black}
+% \end{enumerate}
+
+\subsection{Data Processing}
+Describe ASPCAP spectra files and Ness continuum normalization procedure.
 
 
 %%==========================================================================================
 \section{Methods} \label{sec:cannon}
 
 \subsection{The Cannon: A Data-Driven Approach}
+
 \begin{enumerate}
 \item[-] A few-paragraph summary of what The Cannon does, with references (\citealt{Ness:2015}, \citealt{Casey:2016}, \citealt{Ho:2017a}, \citealt{Ho:2017b})
 \end{enumerate}
+
+Constructing such a model requires two steps: first a \emph{training step} in which a polynomial model is 
+
+
+The key advantages of The Cannon being:
+Data-driven models take away the challenge of directly infering labels from a survey, instead we \emph{transfer labels} from another survery that is more accurate or easier to model.
 
 \subsection{Data-Driven Model}
 \begin{enumerate}
@@ -142,6 +159,13 @@ and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016})
 \caption{ Spectral sequence of dwarfs in training set M0-M9; chip 1 of APOGEE
 spectrum with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
 \end{figure}
+
+
+\begin{enumerate}
+\item[-] For the physical parameter model we trained The Cannon on 30 M dwarfs with a two-dimensional with temperature/metallicity labels, and was able to achieve precisions of 44K/0.05dex respectively, more precise than both of the original training label uncertainties of 60K/0.08dex.
+
+\item[-] Two tests of consistency were used to assess the validity of our derived test labels: Figure \ref{fig:west_selftest} displays the label self-test for the spectral type model, and Figure 2 displays 
+\end{enumerate}
 
 
 
