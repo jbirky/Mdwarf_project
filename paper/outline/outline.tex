@@ -53,14 +53,18 @@ The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and pa
 \section{Introduction} \label{sec:intro}
 
 \begin{enumerate}
-\item[-] Why M-dwarfs are important: most abundant type of star, are planet hosts (Trappist 1, other examples?), have lifespans longer than the age of the universe (billions or up to trillions of years) making them an interesting probe of Milky way populations. \color{red}{Need citations!}
+\item[-] Why M-dwarfs are important: most abundant type of star, are planet hosts (The CARMENES search for exoplanets around M dwarfs \citealt{Trifonov:2018}; some famous examples: Trappist 1 (M8) -- \citealt{Gillon:2017}; Kepler-186, Kepler-138... other examples?), have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}. \color{red}{Need citations!}
 \end{enumerate}
 
 \subsection{M dwarf Challenge}
 \begin{enumerate}
-\item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources... other catalogs? -- \color{red}{Need citations!}\color{black}) 
+\item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources; \citealt{Deacon:2014} -- \color{red}{Need citations!}\color{black}) 
 
-\item[-] Why is there a problem labeling M dwarfs? Generally, two kinds of approaches to labeling: (1) model the spectra using atmospheric models (BTSettl, PHOENIX, KURUCZ, MARCS, ATLAS, etc.) find some places in literature where people have tried these on M dwarfs (\color{red}{Need citations... }\color{black} look at Burgasser, Blake...) - however missing opacities, and complexities due to molecules/clouds/chemistry make this difficult (\color{red}{Need citations... }\color{black} look at Allard, Homeier...); (2) model narrow wavelegth region where models are good, look at specific features (\citealt{Rojas-Ayala:2012}...), or reduce resolution (use photometries) -- however we want to use \emph{all} of the data!
+\item[-] Why is there a problem labeling M dwarfs? Generally, two kinds of approaches to labeling:
+
+ (1) model the spectra using atmospheric models (BTSettl, PHOENIX, KURUCZ, MARCS, ATLAS, etc.) find some places in literature where people have tried these on M dwarfs (\color{red}{Need citations... }\color{black} look at Burgasser, Blake...) - however missing opacities, and complexities due to molecules/clouds/chemistry make this difficult (\color{red}{Need citations... }\color{black} \citealt{Allard:2013}); 
+
+ (2) model narrow wavelegth region where models are good, look at specific features (\citealt{Rojas-Ayala:2012}...), or reduce resolution (\citealt{Casagrande:2008} estimated effective temperatures, bolometric luminosities, and metallicities using optical and infrared photometries) -- however we want to use \emph{all} of the data!
 
 % \item[-] The idea in general of The Cannon, and the fact that it could be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects. Make the point that The Cannon does not require us to have good M-dwarf models in the APOGEE wavelength range at all!
 
@@ -161,15 +165,22 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 \end{enumerate}
 
 %%==========================================================================================
+\section{Future Work} \label{sec:future}
 
+\begin{enumerate}
+\item[-] M dwarf pipeline: with The Cannon we can identify and label \emph{all} of the M dwarfs in APOGEE.
+\item[-] Describe ideal Cannon input (for example using FGK pairs for very accurate metallicites).
+\end{enumerate}
+
+%%==========================================================================================
+\section{Conclusion} \label{sec:conclusion}
+Reiterate findings.
+
+%%==========================================================================================
+\clearpage
 \bibliographystyle{aasjournal}
 \bibliography{ref}
 
 \end{document}
-
-
-
-
-
 
 

@@ -1,10 +1,30 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[{{Allard} {et~al.}(2013){Allard}, {Homeier}, {Freytag},
+  {Schaffenberger}, {}, \& {Rajpurohit}}]{Allard:2013}
+{Allard}, F., {Homeier}, D., {Freytag}, B., {et~al.} 2013, Memorie della
+  Societa Astronomica Italiana Supplementi, 24, 128
+
+\bibitem[{{Bochanski} {et~al.}(2007){Bochanski}, {Munn}, {Hawley}, {West},
+  {Covey}, \& {Schneider}}]{Bochanski:2007}
+{Bochanski}, J.~J., {Munn}, J.~A., {Hawley}, S.~L., {et~al.} 2007, \aj, 134,
+  2418
+
+\bibitem[{{Casagrande} {et~al.}(2008){Casagrande}, {Flynn}, \&
+  {Bessell}}]{Casagrande:2008}
+{Casagrande}, L., {Flynn}, C., \& {Bessell}, M. 2008, \mnras, 389, 585
+
 \bibitem[{{Casey} {et~al.}(2016){Casey}, {Hogg}, {Ness}, {Rix}, {Ho}, \&
   {Gilmore}}]{Casey:2016}
 {Casey}, A.~R., {Hogg}, D.~W., {Ness}, M., {et~al.} 2016, ArXiv e-prints,
   arXiv:1603.03040
+
+\bibitem[{{Deacon} {et~al.}(2014){Deacon}, {Liu}, {Magnier}, {Aller}, {Best},
+  {Dupuy}, {Bowler}, {Mann}, {Redstone}, {Burgett}, {Chambers}, {Draper},
+  {Flewelling}, {Hodapp}, {Kaiser}, {Kudritzki}, {Morgan}, {Metcalfe}, {Price},
+  {Tonry}, \& {Wainscoat}}]{Deacon:2014}
+{Deacon}, N.~R., {Liu}, M.~C., {Magnier}, E.~A., {et~al.} 2014, \apj, 792, 119
 
 \bibitem[{{Deshpande} {et~al.}(2013){Deshpande}, {Blake}, {Bender},
   {Mahadevan}, {Terrien}, {Carlberg}, {Zasowski}, {Crepp}, {Rajpurohit},
@@ -25,6 +45,14 @@
 {Garc{\'{\i}}a P{\'e}rez}, A.~E., {Allende Prieto}, C., {Holtzman}, J.~A.,
   {et~al.} 2016, \aj, 151, 144
 
+\bibitem[{{Gillon} {et~al.}(2017){Gillon}, {Triaud}, {Demory}, {Jehin}, {Agol},
+  {Deck}, {Lederer}, {de Wit}, {Burdanov}, {Ingalls}, {Bolmont}, {Leconte},
+  {Raymond}, {Selsis}, {Turbet}, {Barkaoui}, {Burgasser}, {Burleigh}, {Carey},
+  {Chaushev}, {Copperwheat}, {Delrez}, {Fernandes}, {Holdsworth}, {Kotze}, {Van
+  Grootel}, {Almleaky}, {Benkhaldoun}, {Magain}, \& {Queloz}}]{Gillon:2017}
+{Gillon}, M., {Triaud}, A.~H.~M.~J., {Demory}, B.-O., {et~al.} 2017, \nat, 542,
+  456
+
 \bibitem[{{Ho} {et~al.}(2017{\natexlab{a}}){Ho}, {Rix}, {Ness}, {Hogg}, {Liu},
   \& {Ting}}]{Ho:2017b}
 {Ho}, A.~Y.~Q., {Rix}, H.-W., {Ness}, M.~K., {et~al.} 2017{\natexlab{a}}, \apj,
@@ -34,6 +62,10 @@
   {Yang}, {Zhang}, {Hou}, \& {Wang}}]{Ho:2017a}
 {Ho}, A.~Y.~Q., {Ness}, M.~K., {Hogg}, D.~W., {et~al.} 2017{\natexlab{b}},
   \apj, 836, 5
+
+\bibitem[{{Laughlin} {et~al.}(1997){Laughlin}, {Bodenheimer}, \&
+  {Adams}}]{Laughlin:1997}
+{Laughlin}, G., {Bodenheimer}, P., \& {Adams}, F.~C. 1997, \apj, 482, 420
 
 \bibitem[{{Majewski} {et~al.}(2015){Majewski}, {Schiavon}, {Frinchaboy},
   {Allende Prieto}, {Barkhouser}, {Bizyaev}, {Blank}, {Brunner}, {Burton},
@@ -85,6 +117,43 @@
   {Stassun}}]{Souto:2017}
 {Souto}, D., {Cunha}, K., {Garc{\'{\i}}a-Hern{\'a}ndez}, D.~A., {et~al.} 2017,
   \apj, 835, 239
+
+\bibitem[{{Trifonov} {et~al.}(2018){Trifonov}, {K{\"u}rster}, {Zechmeister},
+  {Tal-Or}, {Caballero}, {Quirrenbach}, {Amado}, {Ribas}, {Reiners}, {Reffert},
+  {Dreizler}, {Hatzes}, {Kaminski}, {Launhardt}, {Henning}, {Montes},
+  {B{\'e}jar}, {Mundt}, {Pavlov}, {Schmitt}, {Seifert}, {Morales}, {Nowak},
+  {Jeffers}, {Rodr{\'{\i}}guez-L{\'o}pez}, {del Burgo}, {Anglada-Escud{\'e}},
+  {L{\'o}pez-Santiago}, {Mathar}, {Ammler-von Eiff}, {Guenther}, {Barrado},
+  {Gonz{\'a}lez Hern{\'a}ndez}, {Mancini}, {St{\"u}rmer}, {Abril}, {Aceituno},
+  {Alonso-Floriano}, {Antona}, {Anwand-Heerwart}, {Arroyo-Torres}, {Azzaro},
+  {Baroch}, {Bauer}, {Becerril}, {Ben{\'{\i}}tez}, {Berdi{\~n}as}, {Bergond},
+  {Bl{\"u}mcke}, {Brinkm{\"o}ller}, {Cano}, {C{\'a}rdenas V{\'a}zquez},
+  {Casal}, {Cifuentes}, {Claret}, {Colom{\'e}}, {Cort{\'e}s-Contreras},
+  {Czesla}, {D{\'{\i}}ez-Alonso}, {Feiz}, {Fern{\'a}ndez}, {Ferro},
+  {Fuhrmeister}, {Galad{\'{\i}}-Enr{\'{\i}}quez}, {Garcia-Piquer},
+  {Garc{\'{\i}}a Vargas}, {Gesa}, {G{\'o}mez Galera}, {Gonz{\'a}lez-Peinado},
+  {Gr{\"o}zinger}, {Grohnert}, {Gu{\`a}rdia}, {Guijarro}, {de Guindos},
+  {Guti{\'e}rrez-Soto}, {Hagen}, {Hauschildt}, {Hedrosa}, {Helmling},
+  {Hermelo}, {Hern{\'a}ndez Arab{\'{\i}}}, {Hern{\'a}ndez Casta{\~n}o},
+  {Hern{\'a}ndez Hernando}, {Herrero}, {Huber}, {Huke}, {Johnson}, {de Juan},
+  {Kim}, {Klein}, {Kl{\"u}ter}, {Klutsch}, {Lafarga}, {Lamp{\'o}n}, {Lara},
+  {Laun}, {Lemke}, {Lenzen}, {L{\'o}pez del Fresno}, {L{\'o}pez-Gonz{\'a}lez},
+  {L{\'o}pez-Puertas}, {L{\'o}pez Salas}, {Luque}, {Mag{\'a}n Madinabeitia},
+  {Mall}, {Mandel}, {Marfil}, {Mar{\'{\i}}n Molina}, {Maroto Fern{\'a}ndez},
+  {Mart{\'{\i}}n}, {Mart{\'{\i}}n-Ruiz}, {Marvin}, {Mirabet}, {Moya},
+  {Moreno-Raya}, {Nagel}, {Naranjo}, {Nortmann}, {Ofir}, {Oreiro}, {Pall{\'e}},
+  {Panduro}, {Pascual}, {Passegger}, {Pedraz}, {P{\'e}rez-Calpena}, {P{\'e}rez
+  Medialdea}, {Perger}, {Perryman}, {Pluto}, {Rabaza}, {Ram{\'o}n}, {Rebolo},
+  {Redondo}, {Reinhardt}, {Rhode}, {Rix}, {Rodler}, {Rodr{\'{\i}}guez},
+  {Rodr{\'{\i}}guez Trinidad}, {Rohloff}, {Rosich}, {Sadegi},
+  {S{\'a}nchez-Blanco}, {S{\'a}nchez Carrasco}, {S{\'a}nchez-L{\'o}pez},
+  {Sanz-Forcada}, {Sarkis}, {Sarmiento}, {Sch{\"a}fer}, {Schiller},
+  {Sch{\"o}fer}, {Schweitzer}, {Solano}, {Stahl}, {Strachan}, {Su{\'a}rez},
+  {Tabernero}, {Tala}, {Tulloch}, {Veredas}, {Vico Linares}, {Vilardell},
+  {Wagner}, {Winkler}, {Wolthoff}, {Xu}, {Yan}, \& {Zapatero
+  Osorio}}]{Trifonov:2018}
+{Trifonov}, T., {K{\"u}rster}, M., {Zechmeister}, M., {et~al.} 2018, \aap, 609,
+  A117
 
 \bibitem[{{West} {et~al.}(2011){West}, {Morgan}, {Bochanski}, {Andersen},
   {Bell}, {Kowalski}, {Davenport}, {Hawley}, {Schmidt}, {Bernat}, {Hilton},
