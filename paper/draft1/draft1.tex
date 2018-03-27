@@ -3,6 +3,7 @@
 \usepackage{color}
 \usepackage{amsmath}
 \usepackage{enumitem}
+\usepackage{graphicx}
 
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
@@ -55,8 +56,7 @@ The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and pa
 % \begin{enumerate}
 % \item[-] Why M-dwarfs are important: most abundant type of star, are planet hosts (The CARMENES search for exoplanets around M dwarfs \citealt{Trifonov:2018}; some famous examples: Trappist 1 (M8) -- \citealt{Gillon:2017}; Kepler-186, Kepler-138... other examples?), have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}.
 % \end{enumerate}
-Very low mass (VLM) are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and $\sim 40 \%$ by mass 
- are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}.
+Very low mass (VLM) are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and $\sim 40 \%$ by mass are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}.
 
 \subsection{M dwarf Challenge}
 \begin{enumerate}
@@ -89,24 +89,26 @@ A number of M dwarf studies
 % \item[-] Some M dwarfs in APOGEE proposed as ancilliary targets (Blake/Covey sources), plus an unknown number observed unintentionally \citep{Desphande:2013}.
 % \end{enumerate}
 
-The APOGEE survey \citep{Majewski:2015} of the Sloan Digital Sky Survey IV (SDSS-IV) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m) survey which has observed over 260,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the APOGEE Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure to fit ATLAS9 radiative transfer models to determine atmospheric parameters (temperature, surface gravity, metallicity) and 15 chemical abundances \citep{Meszaros:2012}. 
+The APOGEE survey \citep{Majewski:2015} of the Sloan Digital Sky Survey IV (SDSS-IV) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m) survey which has observed over 260,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the APOGEE Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the FERRE code to fit ATLAS9 radiative transfer models \citep{Castelli:2004} to determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters (T$_{\rm eff}$, log g, [Fe/H], [α/M], [C/M], [N/M]; \citealt{Meszaros:2012}). 
 
-APOGEE is primarily targeted for bright stellar populations, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous (specific estimate based on Gaia?) cool, main sequence sources have also been observed either accidentally, or as targets proposed by the M dwarf ancilliary survey \citep{Desphande:2013}.
+APOGEE is primarily targeted for bright stellar populations, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either accidentally, or as targets proposed by the M dwarf ancilliary survey \citep{Desphande:2013} (specific estimate based on Gaia?).
 
 
 \subsection{Training Samples}
 
-The Cannon uses a \emph{data-driven} approach for constructing a model which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels, a flexible number of parameters chosen by the user. The basic principle 
+The Cannon is a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:cannon}). The model in this sense is used to \emph{transfer} labels from spectra which we know parameters for to those which we do not. Hence this data-driven approach effectively removes the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (ideally very accurately measured) \emph{reference labels} that can be measured from other surveys/methods that are easier to infer from. 
 
-For the purpose of this study we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second a two-dimensional \emph{physical parameter model} (the choice of training labels and dimensionality of our data set we discuss further in Section \ref{sec:discussion}).
+For the purpose of this study we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second a two-dimensional \emph{physical parameter model} which describes the temperature and metallicity. The choice of training labels, dimensionality of our data set, and requirements for a good training set we discuss further in Section \ref{sec:discussion}.
 
-The spectral type sample consists of 51 sources from \citealt{West:2011}, spanning M0-M9 
+The spectral type sample consists of 51 sources, spanning M0-M9 (Figure \ref{fig:train_dist}) cross-matched from the \citealt{West:2011} catalog of 78,841 M dwarfs from SDSS. For each source in the catalog, spectral types were determined both through an automated routine using The Hammer \citep{Covey:2007} and by visual inspection.
 
-% \begin{enumerate}
-% \item[-] Describe the spectral-type training data \citep{West:2011}. One paragraph plus citations. Include any cuts we apply. \color{red}{Make diagnostic plots.}\color{black}
+The physical parameter sample consists of 30 sources distributed over $3072 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 (Figure \ref{fig:train_dist}) drawn from \citealt{Mann:2015}.
+\color{red}{why logg not included as atmospheric parameter?}\color{black}
 
-% \item[-] Describe the Teff, Fe/H training data \citep{Mann:2015}. Same; Include any cuts. \color{red}{Make diagnostic plots.}\color{black}
-% \end{enumerate}
+\begin{figure}[ht]
+\plottwo{figures/west_train_dist.png}{figures/mann_train_dist.png}
+\caption{Spectral type model: training label vs. test label.} \label{fig:west_selftest} \label{fig:train_dist}
+\end{figure}
 
 \subsection{Data Processing}
 Describe ASPCAP spectra files and Ness continuum normalization procedure.
@@ -121,11 +123,10 @@ Describe ASPCAP spectra files and Ness continuum normalization procedure.
 \item[-] A few-paragraph summary of what The Cannon does, with references (\citealt{Ness:2015}, \citealt{Casey:2016}, \citealt{Ho:2017a}, \citealt{Ho:2017b})
 \end{enumerate}
 
-Constructing such a model requires two steps: first a \emph{training step} in which a polynomial model is 
+Constructing such a model requires two steps: first the \emph{training step} in which the generative model is constructed at each pixel from the set of reference labels and fluxes, and second the \emph{test step} in which the model is applied to determine the labels of a spectrum 
 
-
-The key advantages of The Cannon being:
-Data-driven models take away the challenge of directly infering labels from a survey, instead we \emph{transfer labels} from another survery that is more accurate or easier to model.
+% The key advantages of The Cannon being:
+% Data-driven models take away the challenge of directly infering labels from a survey, instead we \emph{transfer labels} from another survery that is more accurate or easier to model.
 
 \subsection{Data-Driven Model}
 \begin{enumerate}

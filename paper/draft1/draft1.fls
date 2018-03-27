@@ -160,10 +160,16 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT figures/west_train_dist.png
+INPUT ./figures/west_train_dist.png
+INPUT ./figures/west_train_dist.png
+INPUT figures/mann_train_dist.png
+INPUT ./figures/mann_train_dist.png
+INPUT ./figures/mann_train_dist.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT figures/west_spt_self_test.png
 INPUT ./figures/west_spt_self_test.png
 INPUT ./figures/west_spt_self_test.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT figures/1_Spectral_Sequence.pdf
 INPUT ./figures/1_Spectral_Sequence.pdf
 INPUT ./figures/1_Spectral_Sequence.pdf

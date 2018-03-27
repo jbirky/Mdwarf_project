@@ -42,6 +42,13 @@
 {Castelli}, F., \& {Kurucz}, R.~L. 2004, ArXiv Astrophysics e-prints,
   astro-ph/0405087
 
+\bibitem[{{Covey} {et~al.}(2007){Covey}, {Ivezi{\'c}}, {Schlegel},
+  {Finkbeiner}, {Padmanabhan}, {Lupton}, {Ag{\"u}eros}, {Bochanski}, {Hawley},
+  {West}, {Seth}, {Kimball}, {Gogarten}, {Claire}, {Haggard}, {Kaib},
+  {Schneider}, \& {Sesar}}]{Covey:2007}
+{Covey}, K.~R., {Ivezi{\'c}}, {\v Z}., {Schlegel}, D., {et~al.} 2007, \aj, 134,
+  2398
+
 \bibitem[{{Deacon} {et~al.}(2014){Deacon}, {Liu}, {Magnier}, {Aller}, {Best},
   {Dupuy}, {Bowler}, {Mann}, {Redstone}, {Burgett}, {Chambers}, {Draper},
   {Flewelling}, {Hodapp}, {Kaiser}, {Kudritzki}, {Morgan}, {Metcalfe}, {Price},
@@ -107,6 +114,11 @@
   {Weinberg}, \& {Zamora}}]{Majewski:2015}
 {Majewski}, S.~R., {Schiavon}, R.~P., {Frinchaboy}, P.~M., {et~al.} 2015, \aj,
   154, 94
+
+\bibitem[{{Mann} {et~al.}(2015){Mann}, {Feiden}, {Gaidos}, {Boyajian}, \& {von
+  Braun}}]{Mann:2015}
+{Mann}, A.~W., {Feiden}, G.~A., {Gaidos}, E., {Boyajian}, T., \& {von Braun},
+  K. 2015, \apj, 804, 64
 
 \bibitem[{{M{\'e}sz{\'a}ros} {et~al.}(2012){M{\'e}sz{\'a}ros}, {Allende
   Prieto}, {Edvardsson}, {Castelli}, {Garc{\'{\i}}a P{\'e}rez}, {Gustafsson},
