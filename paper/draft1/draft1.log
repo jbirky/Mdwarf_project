@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.12.22)  30 MAR 2018 09:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.12.22)  30 MAR 2018 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -691,10 +691,10 @@ test.png>] [8 <./figures/1_physical_model.png> <./figures/2_physical_model.png>
  <./figures/3_physical_model.png>]
 [9 <./figures/west_spt_derivative.png> <./figures/mann_teff_derivative.png> <./
 figures/mann_feh_derivative.png>]) [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 234.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 236.
  (./draft1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 234.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 234.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 236.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 236.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -720,7 +720,7 @@ amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
 fb>
-Output written on draft1.pdf (10 pages, 2713044 bytes).
+Output written on draft1.pdf (10 pages, 2713318 bytes).
 PDF statistics:
  340 PDF objects out of 1000 (max. 8388607)
  286 compressed objects within 3 object streams
