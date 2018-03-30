@@ -60,7 +60,7 @@ Very low mass (VLM) are the most abundant type of star, comprising $\sim 70 \%$ 
 
 \subsection{M dwarf Challenge}
 \begin{enumerate}
-\item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources...) 
+\item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources; \citealt{Deacon:2014} -- \color{red}{Need citations!}\color{black}) 
 
 \item[-] Why is there a problem labeling M dwarfs? Generally, two kinds of approaches to labeling:
 
@@ -89,7 +89,7 @@ A number of M dwarf studies
 % \item[-] Some M dwarfs in APOGEE proposed as ancilliary targets (Blake/Covey sources), plus an unknown number observed unintentionally \citep{Desphande:2013}.
 % \end{enumerate}
 
-The APOGEE survey \citep{Majewski:2015} of the Sloan Digital Sky Survey III (SDSS-III; \citealt{Eisenstein:2011}) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m) survey which has observed over 260,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the APOGEE Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the FERRE code to fit ATLAS9 radiative transfer models \citep{Castelli:2004} to determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters (T$_{\rm eff}$, log g, [Fe/H], [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). 
+The APOGEE survey \citep{Majewski:2015} of the Sloan Digital Sky Survey IV (SDSS-IV) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m) survey which has observed over 260,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the APOGEE Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the FERRE code to fit ATLAS9 radiative transfer models \citep{Castelli:2004} to determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters (T$_{\rm eff}$, log g, [Fe/H], [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). 
 
 APOGEE is primarily targeted for bright stellar populations, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either accidentally, or as targets proposed by the M dwarf ancilliary survey \citep{Desphande:2013} (specific estimate based on Gaia?).
 
@@ -102,8 +102,7 @@ For the purpose of this study we have constructed two different training samples
 
 The spectral type sample consists of 51 sources, spanning M0-M9 (Figure \ref{fig:train_dist}) cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from SDSS. For each source in the catalog, spectral types were determined both through an automated routine using The Hammer \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
 
-The physical parameter sample consists of 30 sources with reference labels distributed over $3072 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 (Figure \ref{fig:train_dist}) drawn from \citealt{Mann:2015} (hereafter M15). The M15 catalog in total contains 183 sources selected from CONCH-SHELL \citep{Gaidos:2013} and with infrared spectra taken in follow up from the SpeX Spectograph. Effective temperatures are measured by comparison of BT-SETTL atmospheric models \citep{Allard:2011} to optical spectra. A subsample of 29 sources with measured angular diameters and bolometric fluxes from long-baseline optical interferometry are used to callibrate effective temperature measurements. Relative uncertainty from the callibration sample is measured to be \color{red}{$\sim$30K (check this)}\color{black}, which added in quadrature to the scatter from model comparison gives a total reported uncertainty of $\sim$60K in T$_{\rm eff}$.
-
+The physical parameter sample consists of 30 sources with reference labels distributed over $3072 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 (Figure \ref{fig:train_dist}) drawn from \citealt{Mann:2015} (hereafter M15). The M15 catalog in total contains 183 sources selected from CONCH-SHELL \citep{Gaidos:2013} and \citealt{Lepine:2011} \color{red}{these have optical specs?}\color{black} with infrared spectra taken in follow up from the SpeX Spectograph. Effective temperatures are measured by comparison of BT-SETTL atmospheric models \citep{Allard:2011} to optical spectra. A subsample of 29 sources with measured angular diameters and bolometric fluxes
 
 Spectral types reported by M15 for the sources using optical molecular band indices (by the method of \citealt{Lepine:2013}) and ranged K7.3--M4.9 for the subsample we used, although these labels were not included in the model training.
 
@@ -116,7 +115,7 @@ Spectral types reported by M15 for the sources using optical molecular band indi
 
 \subsection{Data Processing}
 
-APOGEE data products come in several types of files: ap1D, apVisit, apStar, and aspcapStar. SNR of stars in our sample.
+APOGEE data products come in several types of files: ap1D, apVisit, apStar, and aspcapStar.
 
 Describe ASPCAP spectra files and Ness continuum normalization procedure.
 
@@ -173,8 +172,6 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 \item[-] For the physical parameter model we trained The Cannon on 30 M dwarfs with a two-dimensional with temperature/metallicity labels, and was able to achieve precisions of 44K/0.05dex respectively, more precise than both of the original training label uncertainties of 60K/0.08dex.
 
 \item[-] Two tests of consistency were used to assess the validity of our derived test labels: Figure \ref{fig:west_selftest} displays the label self-test for the spectral type model, and Figure 2 displays 
-
-\item[-] Vsini and logg were not included as training parameters. Vsini is less import of a parameter as the sample consists of mainly old, slowly rotating sources (check what are ages?). Logg because?
 \end{enumerate}
 
 
@@ -221,10 +218,6 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 \caption{Derivative plots for physical parameter model. \textit{Top:} Derivative of flux with repsect to temperature. \textit{Bottom:} Derivative of flux with repsect to metallicity.} \label{fig:mann_derivative}
 \end{figure}
 
-
-%%==========================================================================================
-\acknowledgements
-We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Hans Walter Rix (MPIA), Christina Eilers (MPIA), Anna Ho (Caltech), Jackie Faherty (AMNH), Bertrand Goldman (MPIA), MPIA internship program and grants and stuff.
 
 %%==========================================================================================
 \clearpage

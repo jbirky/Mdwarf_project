@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.12.22)  27 MAR 2018 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.12.22)  30 MAR 2018 09:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -571,118 +571,91 @@ Overfull \hbox (8.6399pt too wide) in paragraph at lines 54--54
 Overfull \vbox (7.6371pt too high) has occurred while \output is active []
 
 
-[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-Missing character: There is no Î in font cmr12!
-Missing character: There is no ± in font cmr12!
- [2]
-<figures/west_train_dist.png, id=115, 387.4475pt x 284.06125pt>
+[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] [2]
+[3] <figures/west_train_dist.png, id=140, 387.4475pt x 284.06125pt>
 File: figures/west_train_dist.png Graphic file (type png)
 
 <use figures/west_train_dist.png>
-Package pdftex.def Info: figures/west_train_dist.png used on input line 109.
+Package pdftex.def Info: figures/west_train_dist.png used on input line 113.
 (pdftex.def)             Requested size: 184.28981pt x 135.11685pt.
 
-<figures/mann_train_dist.png, id=117, 400.49625pt x 284.06125pt>
+<figures/mann_train_dist.png, id=142, 400.49625pt x 284.06125pt>
 File: figures/mann_train_dist.png Graphic file (type png)
 
 <use figures/mann_train_dist.png>
-Package pdftex.def Info: figures/mann_train_dist.png used on input line 109.
+Package pdftex.def Info: figures/mann_train_dist.png used on input line 113.
 (pdftex.def)             Requested size: 184.28981pt x 130.71309pt.
- [3]
-<figures/west_spt_self_test.png, id=147, 722.7pt x 433.62pt>
+ [4 <./figures/west_train_dist.png> <./figures/mann_train_dist.png>]
+<figures/west_spt_self_test.png, id=169, 722.7pt x 433.62pt>
 File: figures/west_spt_self_test.png Graphic file (type png)
 
 <use figures/west_spt_self_test.png>
-Package pdftex.def Info: figures/west_spt_self_test.png used on input line 151.
+Package pdftex.def Info: figures/west_spt_self_test.png used on input line 158.
 
 (pdftex.def)             Requested size: 368.57964pt x 221.14989pt.
 
-<figures/1_Spectral_Sequence.pdf, id=148, 1156.32pt x 578.16pt>
+<figures/1_Spectral_Sequence.pdf, id=170, 1156.32pt x 578.16pt>
 File: figures/1_Spectral_Sequence.pdf Graphic file (type pdf)
 
 <use figures/1_Spectral_Sequence.pdf>
-Package pdftex.def Info: figures/1_Spectral_Sequence.pdf used on input line 157
+Package pdftex.def Info: figures/1_Spectral_Sequence.pdf used on input line 164
 .
 (pdftex.def)             Requested size: 368.57964pt x 184.28275pt.
 
-<figures/2_Spectral_Sequence.pdf, id=149, 1156.32pt x 578.16pt>
+<figures/2_Spectral_Sequence.pdf, id=171, 1156.32pt x 578.16pt>
 File: figures/2_Spectral_Sequence.pdf Graphic file (type pdf)
 
 <use figures/2_Spectral_Sequence.pdf>
-Package pdftex.def Info: figures/2_Spectral_Sequence.pdf used on input line 158
+Package pdftex.def Info: figures/2_Spectral_Sequence.pdf used on input line 165
 .
 (pdftex.def)             Requested size: 368.57964pt x 184.28275pt.
 
-<figures/3_Spectral_Sequence.pdf, id=150, 1156.32pt x 578.16pt>
+<figures/3_Spectral_Sequence.pdf, id=172, 1156.32pt x 578.16pt>
 File: figures/3_Spectral_Sequence.pdf Graphic file (type pdf)
 
 <use figures/3_Spectral_Sequence.pdf>
-Package pdftex.def Info: figures/3_Spectral_Sequence.pdf used on input line 159
+Package pdftex.def Info: figures/3_Spectral_Sequence.pdf used on input line 166
 .
 (pdftex.def)             Requested size: 368.57964pt x 184.28275pt.
- [4 <./figures/west_train_dist.png> <./figures/mann_train_dist.png>]
-<figures/mann_teff_self_test.png, id=171, 722.7pt x 433.62pt>
+
+<figures/mann_teff_self_test.png, id=178, 722.7pt x 433.62pt>
 File: figures/mann_teff_self_test.png Graphic file (type png)
 
 <use figures/mann_teff_self_test.png>
-Package pdftex.def Info: figures/mann_teff_self_test.png used on input line 175
+Package pdftex.def Info: figures/mann_teff_self_test.png used on input line 184
 .
 (pdftex.def)             Requested size: 184.28981pt x 110.57494pt.
 
-<figures/mann_feh_self_test.png, id=172, 722.7pt x 433.62pt>
+<figures/mann_feh_self_test.png, id=179, 722.7pt x 433.62pt>
 File: figures/mann_feh_self_test.png Graphic file (type png)
 
 <use figures/mann_feh_self_test.png>
-Package pdftex.def Info: figures/mann_feh_self_test.png used on input line 175.
+Package pdftex.def Info: figures/mann_feh_self_test.png used on input line 184.
 
 (pdftex.def)             Requested size: 184.28981pt x 110.57494pt.
 
-<figures/1_physical_model.png, id=173, 1200.58537pt x 639.5895pt>
+<figures/1_physical_model.png, id=180, 1200.58537pt x 639.5895pt>
 File: figures/1_physical_model.png Graphic file (type png)
 
 <use figures/1_physical_model.png>
-Package pdftex.def Info: figures/1_physical_model.png used on input line 180.
+Package pdftex.def Info: figures/1_physical_model.png used on input line 189.
 (pdftex.def)             Requested size: 368.57964pt x 196.3481pt.
 
-<figures/2_physical_model.png, id=174, 1203.2955pt x 639.5895pt>
+<figures/2_physical_model.png, id=181, 1203.2955pt x 639.5895pt>
 File: figures/2_physical_model.png Graphic file (type png)
 
 <use figures/2_physical_model.png>
-Package pdftex.def Info: figures/2_physical_model.png used on input line 181.
+Package pdftex.def Info: figures/2_physical_model.png used on input line 190.
 (pdftex.def)             Requested size: 368.57964pt x 195.90892pt.
 
-<figures/3_physical_model.png, id=175, 1206.909pt x 639.5895pt>
+<figures/3_physical_model.png, id=182, 1206.909pt x 639.5895pt>
 File: figures/3_physical_model.png Graphic file (type png)
 
 <use figures/3_physical_model.png>
-Package pdftex.def Info: figures/3_physical_model.png used on input line 182.
+Package pdftex.def Info: figures/3_physical_model.png used on input line 191.
 (pdftex.def)             Requested size: 368.57964pt x 195.32336pt.
-
-<figures/west_spt_derivative.png, id=176, 1215.94275pt x 645.91313pt>
-File: figures/west_spt_derivative.png Graphic file (type png)
-
-<use figures/west_spt_derivative.png>
-Package pdftex.def Info: figures/west_spt_derivative.png used on input line 205
-.
-(pdftex.def)             Requested size: 368.57964pt x 195.78603pt.
-
-<figures/mann_teff_derivative.png, id=177, 1202.39212pt x 639.5895pt>
-File: figures/mann_teff_derivative.png Graphic file (type png)
-
-<use figures/mann_teff_derivative.png>
-Package pdftex.def Info: figures/mann_teff_derivative.png used on input line 21
-0.
-(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
-
-<figures/mann_feh_derivative.png, id=178, 1202.39212pt x 639.5895pt>
-File: figures/mann_feh_derivative.png Graphic file (type png)
-
-<use figures/mann_feh_derivative.png>
-Package pdftex.def Info: figures/mann_feh_derivative.png used on input line 211
-.
-(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
- (./draft1.bbl [5 <./figures/west_spt_self_test.png>] [6 <./figures/1_Spectral_
-Sequence.pdf> <./figures/2_Spectral_Sequence.pdf
+ [5 <./figures/west_spt_self_test.png>]
+[6 <./figures/1_Spectral_Sequence.pdf> <./figures/2_Spectral_Sequence.pdf
 
 pdfTeX warning: pdflatex (file ./figures/2_Spectral_Sequence.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
@@ -690,27 +663,51 @@ n: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ./figures/3_Spectral_Sequence.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
->] [7 <./figures/mann_teff_self_test.png> <./figures/mann_feh_self_test.png>]
-[8 <./figures/1_physical_model.png> <./figures/2_physical_model.png> <./figures
-/3_physical_model.png>] [9 <./figures/west_spt_derivative.png> <./figures/mann_
-teff_derivative.png> <./figures/mann_feh_derivative.png>]) [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 221.
+>] <figures/west_spt_derivative.png, id=261, 1215.94275pt x 645.91313pt>
+File: figures/west_spt_derivative.png Graphic file (type png)
+
+<use figures/west_spt_derivative.png>
+Package pdftex.def Info: figures/west_spt_derivative.png used on input line 214
+.
+(pdftex.def)             Requested size: 368.57964pt x 195.78603pt.
+
+<figures/mann_teff_derivative.png, id=262, 1202.39212pt x 639.5895pt>
+File: figures/mann_teff_derivative.png Graphic file (type png)
+
+<use figures/mann_teff_derivative.png>
+Package pdftex.def Info: figures/mann_teff_derivative.png used on input line 21
+9.
+(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
+
+<figures/mann_feh_derivative.png, id=263, 1202.39212pt x 639.5895pt>
+File: figures/mann_feh_derivative.png Graphic file (type png)
+
+<use figures/mann_feh_derivative.png>
+Package pdftex.def Info: figures/mann_feh_derivative.png used on input line 220
+.
+(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
+ (./draft1.bbl [7 <./figures/mann_teff_self_test.png> <./figures/mann_feh_self_
+test.png>] [8 <./figures/1_physical_model.png> <./figures/2_physical_model.png>
+ <./figures/3_physical_model.png>]
+[9 <./figures/west_spt_derivative.png> <./figures/mann_teff_derivative.png> <./
+figures/mann_feh_derivative.png>]) [10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 234.
  (./draft1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 221.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 221.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 234.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 234.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9774 strings out of 494946
- 136321 string characters out of 6180980
- 290377 words of memory out of 5000000
- 12887 multiletter control sequences out of 15000+600000
+ 9790 strings out of 494946
+ 136645 string characters out of 6180980
+ 293596 words of memory out of 5000000
+ 12900 multiletter control sequences out of 15000+600000
  15735 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,7n,37p,1111b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,7n,37p,1111b,435s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
@@ -723,10 +720,10 @@ amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
 fb>
-Output written on draft1.pdf (10 pages, 2711300 bytes).
+Output written on draft1.pdf (10 pages, 2713044 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 275 compressed objects within 3 object streams
- 60 named destinations out of 1000 (max. 500000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

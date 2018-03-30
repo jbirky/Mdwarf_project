@@ -49,12 +49,6 @@
 {Covey}, K.~R., {Ivezi{\'c}}, {\v Z}., {Schlegel}, D., {et~al.} 2007, \aj, 134,
   2398
 
-\bibitem[{{Deacon} {et~al.}(2014){Deacon}, {Liu}, {Magnier}, {Aller}, {Best},
-  {Dupuy}, {Bowler}, {Mann}, {Redstone}, {Burgett}, {Chambers}, {Draper},
-  {Flewelling}, {Hodapp}, {Kaiser}, {Kudritzki}, {Morgan}, {Metcalfe}, {Price},
-  {Tonry}, \& {Wainscoat}}]{Deacon:2014}
-{Deacon}, N.~R., {Liu}, M.~C., {Magnier}, E.~A., {et~al.} 2014, \apj, 792, 119
-
 \bibitem[{{Deshpande} {et~al.}(2013){Deshpande}, {Blake}, {Bender},
   {Mahadevan}, {Terrien}, {Carlberg}, {Zasowski}, {Crepp}, {Rajpurohit},
   {Reyl{\'e}}, {Nidever}, {Schneider}, {Allende Prieto}, {Bizyaev}, {Ebelke},
@@ -63,6 +57,16 @@
   {Schiavon}, {Shetrone}, {Simmons}, {Stassun}, {Wilson}, \&
   {Wisniewski}}]{Desphande:2013}
 {Deshpande}, R., {Blake}, C.~H., {Bender}, C.~F., {et~al.} 2013, \aj, 146, 156
+
+\bibitem[{{Eisenstein} {et~al.}(2011){Eisenstein}, {Weinberg}, {Agol},
+  {Aihara}, {Allende Prieto}, {Anderson}, {Arns}, {Aubourg}, {Bailey},
+  {Balbinot}, \& et~al.}]{Eisenstein:2011}
+{Eisenstein}, D.~J., {Weinberg}, D.~H., {Agol}, E., {et~al.} 2011, \aj, 142, 72
+
+\bibitem[{{Gaidos} {et~al.}(2013){Gaidos}, {Fischer}, {Mann}, \&
+  {Howard}}]{Gaidos:2013}
+{Gaidos}, E., {Fischer}, D.~A., {Mann}, A.~W., \& {Howard}, A.~W. 2013, \apj,
+  771, 18
 
 \bibitem[{{Garc{\'{\i}}a P{\'e}rez} {et~al.}(2016){Garc{\'{\i}}a P{\'e}rez},
   {Allende Prieto}, {Holtzman}, {Shetrone}, {M{\'e}sz{\'a}ros}, {Bizyaev},
@@ -97,6 +101,10 @@
 \bibitem[{{Laughlin} {et~al.}(1997){Laughlin}, {Bodenheimer}, \&
   {Adams}}]{Laughlin:1997}
 {Laughlin}, G., {Bodenheimer}, P., \& {Adams}, F.~C. 1997, \apj, 482, 420
+
+\bibitem[{{L{\'e}pine} {et~al.}(2013){L{\'e}pine}, {Hilton}, {Mann}, {Wilde},
+  {Rojas-Ayala}, {Cruz}, \& {Gaidos}}]{Lepine:2013}
+{L{\'e}pine}, S., {Hilton}, E.~J., {Mann}, A.~W., {et~al.} 2013, \aj, 145, 102
 
 \bibitem[{{Majewski} {et~al.}(2015){Majewski}, {Schiavon}, {Frinchaboy},
   {Allende Prieto}, {Barkhouser}, {Bizyaev}, {Blank}, {Brunner}, {Burton},
@@ -135,6 +143,11 @@
   {Homeier}, {Rajpurohit}, \& {Mousis}}]{Rajpurohit:2018}
 {Rajpurohit}, A.~S., {Allard}, F., {Teixeira}, G.~D.~C., {et~al.} 2018, \aap,
   610, A19
+
+\bibitem[{{Rajpurohit} {et~al.}(2014){Rajpurohit}, {Reyl{\'e}}, {Allard},
+  {Scholz}, {Homeier}, {Schultheis}, \& {Bayo}}]{Rajpurohit:2014}
+{Rajpurohit}, A.~S., {Reyl{\'e}}, C., {Allard}, F., {et~al.} 2014, \aap, 564,
+  A90
 
 \bibitem[{{Rojas-Ayala} {et~al.}(2012){Rojas-Ayala}, {Covey}, {Muirhead}, \&
   {Lloyd}}]{Rojas-Ayala:2012}
