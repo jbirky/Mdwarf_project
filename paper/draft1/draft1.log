@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.12.22)  30 MAR 2018 18:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.12.22)  11 APR 2018 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -474,15 +474,24 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box58
 \enitdp@description=\count159
 )
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup7
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
 Class revtex4-1 Info: Unrecognized array package. Please update this document c
-lass! (Proceeding with fingers crossed.) on input line 25.
+lass! (Proceeding with fingers crossed.) on input line 28.
 Class revtex4-1 Info: Patching unrecognized longtable package. (Proceeding with
- fingers crossed) on input line 25.
-Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 25.
+ fingers crossed) on input line 28.
+Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 28.
 
-Class revtex4-1 Info: cite was not loaded (OK!) on input line 25.
-Class revtex4-1 Info: mcite was not loaded (OK!) on input line 25.
-Class revtex4-1 Info: multicol was not loaded (OK!) on input line 25.
+Class revtex4-1 Info: cite was not loaded (OK!) on input line 28.
+Class revtex4-1 Info: mcite was not loaded (OK!) on input line 28.
+Class revtex4-1 Info: multicol was not loaded (OK!) on input line 28.
  (./draft1.aux
 
 LaTeX Warning: Label `fig:west_selftest' multiply defined.
@@ -490,20 +499,20 @@ LaTeX Warning: Label `fig:west_selftest' multiply defined.
 )
 \openout1 = `draft1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count160
@@ -535,7 +544,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring ON on input line 25.
+Package hyperref Info: Link coloring ON on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -545,76 +554,142 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count166
 )
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 30.
+LaTeX Info: Redefining \ref on input line 28.
+LaTeX Info: Redefining \pageref on input line 28.
+LaTeX Info: Redefining \nameref on input line 28.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (8.6399pt too wide) in paragraph at lines 56--56
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 33.
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+Overfull \hbox (8.6399pt too wide) in paragraph at lines 64--64
 [][][] 
  []
 
 [1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] [2]
-[3] <figures/west_train_dist.png, id=141, 387.4475pt x 284.06125pt>
+[3] <figures/west_train_dist.png, id=145, 387.4475pt x 284.06125pt>
 File: figures/west_train_dist.png Graphic file (type png)
 
 <use figures/west_train_dist.png>
-Package pdftex.def Info: figures/west_train_dist.png used on input line 115.
+Package pdftex.def Info: figures/west_train_dist.png used on input line 123.
 (pdftex.def)             Requested size: 184.28981pt x 135.11685pt.
 
-<figures/mann_train_dist.png, id=143, 400.49625pt x 284.06125pt>
+<figures/mann_train_dist.png, id=147, 400.49625pt x 284.06125pt>
 File: figures/mann_train_dist.png Graphic file (type png)
 
 <use figures/mann_train_dist.png>
-Package pdftex.def Info: figures/mann_train_dist.png used on input line 115.
+Package pdftex.def Info: figures/mann_train_dist.png used on input line 123.
 (pdftex.def)             Requested size: 184.28981pt x 130.71309pt.
  [4 <./figures/west_train_dist.png> <./figures/mann_train_dist.png>]
-<figures/west_spt_self_test.png, id=170, 722.7pt x 433.62pt>
+<figures/west_spt_self_test.png, id=180, 722.7pt x 433.62pt>
 File: figures/west_spt_self_test.png Graphic file (type png)
 
 <use figures/west_spt_self_test.png>
-Package pdftex.def Info: figures/west_spt_self_test.png used on input line 160.
+Package pdftex.def Info: figures/west_spt_self_test.png used on input line 182.
 
 (pdftex.def)             Requested size: 368.57964pt x 221.14989pt.
 
-<figures/1_Spectral_Sequence.pdf, id=171, 1156.32pt x 578.16pt>
+<figures/1_Spectral_Sequence.pdf, id=181, 1156.32pt x 578.16pt>
 File: figures/1_Spectral_Sequence.pdf Graphic file (type pdf)
 
 <use figures/1_Spectral_Sequence.pdf>
-Package pdftex.def Info: figures/1_Spectral_Sequence.pdf used on input line 166
+Package pdftex.def Info: figures/1_Spectral_Sequence.pdf used on input line 188
 .
 (pdftex.def)             Requested size: 368.57964pt x 184.28275pt.
 
-<figures/2_Spectral_Sequence.pdf, id=172, 1156.32pt x 578.16pt>
+<figures/2_Spectral_Sequence.pdf, id=182, 1156.32pt x 578.16pt>
 File: figures/2_Spectral_Sequence.pdf Graphic file (type pdf)
 
 <use figures/2_Spectral_Sequence.pdf>
-Package pdftex.def Info: figures/2_Spectral_Sequence.pdf used on input line 167
+Package pdftex.def Info: figures/2_Spectral_Sequence.pdf used on input line 189
 .
 (pdftex.def)             Requested size: 368.57964pt x 184.28275pt.
 
-<figures/3_Spectral_Sequence.pdf, id=173, 1156.32pt x 578.16pt>
+<figures/3_Spectral_Sequence.pdf, id=183, 1156.32pt x 578.16pt>
 File: figures/3_Spectral_Sequence.pdf Graphic file (type pdf)
 
 <use figures/3_Spectral_Sequence.pdf>
-Package pdftex.def Info: figures/3_Spectral_Sequence.pdf used on input line 168
+Package pdftex.def Info: figures/3_Spectral_Sequence.pdf used on input line 190
 .
 (pdftex.def)             Requested size: 368.57964pt x 184.28275pt.
- [5 <./figures/west_spt_self_test.png>]
-[6 <./figures/1_Spectral_Sequence.pdf> <./figures/2_Spectral_Sequence.pdf
+
+<figures/mann_teff_self_test.png, id=189, 722.7pt x 433.62pt>
+File: figures/mann_teff_self_test.png Graphic file (type png)
+
+<use figures/mann_teff_self_test.png>
+Package pdftex.def Info: figures/mann_teff_self_test.png used on input line 207
+.
+(pdftex.def)             Requested size: 184.28981pt x 110.57494pt.
+
+<figures/mann_feh_self_test.png, id=190, 722.7pt x 433.62pt>
+File: figures/mann_feh_self_test.png Graphic file (type png)
+
+<use figures/mann_feh_self_test.png>
+Package pdftex.def Info: figures/mann_feh_self_test.png used on input line 207.
+
+(pdftex.def)             Requested size: 184.28981pt x 110.57494pt.
+
+<figures/1_physical_model.png, id=191, 1200.58537pt x 639.5895pt>
+File: figures/1_physical_model.png Graphic file (type png)
+
+<use figures/1_physical_model.png>
+Package pdftex.def Info: figures/1_physical_model.png used on input line 212.
+(pdftex.def)             Requested size: 368.57964pt x 196.3481pt.
+
+<figures/2_physical_model.png, id=192, 1203.2955pt x 639.5895pt>
+File: figures/2_physical_model.png Graphic file (type png)
+
+<use figures/2_physical_model.png>
+Package pdftex.def Info: figures/2_physical_model.png used on input line 213.
+(pdftex.def)             Requested size: 368.57964pt x 195.90892pt.
+
+<figures/3_physical_model.png, id=193, 1206.909pt x 639.5895pt>
+File: figures/3_physical_model.png Graphic file (type png)
+
+<use figures/3_physical_model.png>
+Package pdftex.def Info: figures/3_physical_model.png used on input line 214.
+(pdftex.def)             Requested size: 368.57964pt x 195.32336pt.
+ [5]
+<figures/west_spt_derivative.png, id=207, 1215.94275pt x 645.91313pt>
+File: figures/west_spt_derivative.png Graphic file (type png)
+
+<use figures/west_spt_derivative.png>
+Package pdftex.def Info: figures/west_spt_derivative.png used on input line 241
+.
+(pdftex.def)             Requested size: 368.57964pt x 195.78603pt.
+
+<figures/mann_teff_derivative.png, id=208, 1202.39212pt x 639.5895pt>
+File: figures/mann_teff_derivative.png Graphic file (type png)
+
+<use figures/mann_teff_derivative.png>
+Package pdftex.def Info: figures/mann_teff_derivative.png used on input line 24
+6.
+(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
+
+<figures/mann_feh_derivative.png, id=209, 1202.39212pt x 639.5895pt>
+File: figures/mann_feh_derivative.png Graphic file (type png)
+
+<use figures/mann_feh_derivative.png>
+Package pdftex.def Info: figures/mann_feh_derivative.png used on input line 247
+.
+(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
+ (./draft1.bbl [6 <./figures/west_spt_self_test.png>] [7 <./figures/1_Spectral_
+Sequence.pdf> <./figures/2_Spectral_Sequence.pdf
 
 pdfTeX warning: pdflatex (file ./figures/2_Spectral_Sequence.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
@@ -622,104 +697,42 @@ n: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ./figures/3_Spectral_Sequence.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
->] <figures/mann_teff_self_test.png, id=256, 722.7pt x 433.62pt>
-File: figures/mann_teff_self_test.png Graphic file (type png)
-
-<use figures/mann_teff_self_test.png>
-Package pdftex.def Info: figures/mann_teff_self_test.png used on input line 186
-.
-(pdftex.def)             Requested size: 184.28981pt x 110.57494pt.
-
-<figures/mann_feh_self_test.png, id=257, 722.7pt x 433.62pt>
-File: figures/mann_feh_self_test.png Graphic file (type png)
-
-<use figures/mann_feh_self_test.png>
-Package pdftex.def Info: figures/mann_feh_self_test.png used on input line 186.
-
-(pdftex.def)             Requested size: 184.28981pt x 110.57494pt.
-
-<figures/1_physical_model.png, id=258, 1200.58537pt x 639.5895pt>
-File: figures/1_physical_model.png Graphic file (type png)
-
-<use figures/1_physical_model.png>
-Package pdftex.def Info: figures/1_physical_model.png used on input line 191.
-(pdftex.def)             Requested size: 368.57964pt x 196.3481pt.
-
-<figures/2_physical_model.png, id=259, 1203.2955pt x 639.5895pt>
-File: figures/2_physical_model.png Graphic file (type png)
-
-<use figures/2_physical_model.png>
-Package pdftex.def Info: figures/2_physical_model.png used on input line 192.
-(pdftex.def)             Requested size: 368.57964pt x 195.90892pt.
-
-<figures/3_physical_model.png, id=260, 1206.909pt x 639.5895pt>
-File: figures/3_physical_model.png Graphic file (type png)
-
-<use figures/3_physical_model.png>
-Package pdftex.def Info: figures/3_physical_model.png used on input line 193.
-(pdftex.def)             Requested size: 368.57964pt x 195.32336pt.
-
-<figures/west_spt_derivative.png, id=261, 1215.94275pt x 645.91313pt>
-File: figures/west_spt_derivative.png Graphic file (type png)
-
-<use figures/west_spt_derivative.png>
-Package pdftex.def Info: figures/west_spt_derivative.png used on input line 216
-.
-(pdftex.def)             Requested size: 368.57964pt x 195.78603pt.
-
-<figures/mann_teff_derivative.png, id=262, 1202.39212pt x 639.5895pt>
-File: figures/mann_teff_derivative.png Graphic file (type png)
-
-<use figures/mann_teff_derivative.png>
-Package pdftex.def Info: figures/mann_teff_derivative.png used on input line 22
-1.
-(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
-
-<figures/mann_feh_derivative.png, id=263, 1202.39212pt x 639.5895pt>
-File: figures/mann_feh_derivative.png Graphic file (type png)
-
-<use figures/mann_feh_derivative.png>
-Package pdftex.def Info: figures/mann_feh_derivative.png used on input line 222
-.
-(pdftex.def)             Requested size: 368.57964pt x 196.05531pt.
- (./draft1.bbl [7 <./figures/mann_teff_self_test.png> <./figures/mann_feh_self_
-test.png>] [8 <./figures/1_physical_model.png> <./figures/2_physical_model.png>
- <./figures/3_physical_model.png>]
-[9 <./figures/west_spt_derivative.png> <./figures/mann_teff_derivative.png> <./
-figures/mann_feh_derivative.png>]) [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 238.
+>] [8 <./figures/mann_teff_self_test.png> <./figures/mann_feh_self_test.png>]
+[9 <./figures/1_physical_model.png> <./figures/2_physical_model.png> <./figures
+/3_physical_model.png>] [10 <./figures/west_spt_derivative.png> <./figures/mann
+_teff_derivative.png> <./figures/mann_feh_derivative.png>]) [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 263.
  (./draft1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 238.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 238.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 263.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 263.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9790 strings out of 494946
- 136642 string characters out of 6180980
- 293596 words of memory out of 5000000
- 12900 multiletter control sequences out of 15000+600000
- 15735 words of font info for 63 fonts, out of 8000000 for 9000
+ 9840 strings out of 494946
+ 137589 string characters out of 6180980
+ 293819 words of memory out of 5000000
+ 12933 multiletter control sequences out of 15000+600000
+ 16889 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,7n,37p,1111b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,7n,37p,1134b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
-fb>
-Output written on draft1.pdf (10 pages, 2714775 bytes).
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on draft1.pdf (11 pages, 2725268 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
- 287 compressed objects within 3 object streams
- 63 named destinations out of 1000 (max. 500000)
+ 365 PDF objects out of 1000 (max. 8388607)
+ 308 compressed objects within 4 object streams
+ 67 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
