@@ -4,7 +4,7 @@
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{graphicx}
-\usepackage{mathrsfs}r
+\usepackage{mathrsfs}
 
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
@@ -61,27 +61,37 @@ The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and pa
 \section{Introduction} \label{sec:intro}
 
 % \begin{enumerate}
-% \item[-] Why M-dwarfs are important: most abundant type of star, are planet hosts (The CARMENES search for exoplanets around M dwarfs \citealt{Trifonov:2018}; some famous examples: Trappist 1 (M8) -- \citealt{Gillon:2017}; Kepler-186, Kepler-138... other examples?), have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}.
-% \end{enumerate}
 Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and $\sim 40 \%$ by mass are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}.
+
+
+%define 'labels' - could be physical parameters or more empirical 
+
 
 \subsection{M dwarf Challenge}
 \begin{enumerate}
-\item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources...) 
+\item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources... Terrien, Mann, Newton, Dressing catalogs) 
 
-\item[-] Why is there a problem labeling M dwarfs? Generally, two kinds of approaches to labeling:
+\item[-] Why is there a problem labeling M dwarfs? Generally, two kinds of approaches to determing physical parameters:
 
- (1) model the spectra using atmospheric models (BTSettl, \citealt{Allard:2011}; PHOENIX, \citealt{Husser:2013}, MARCS \citealt{Gustafsson:2008}, ATLAS \citealt{Castelli:2004}, etc.) find some places in literature where people have tried these on M dwarfs (\citealt{Rajpurohit:2014}, \citealt{Rajpurohit:2018}) - however missing opacities, and complexities due to molecules/clouds/chemistry make this difficult (\citealt{Allard:2013}); 
+ (1) model the spectra using atmospheric models (BTSettl, \citealt{Allard:2011}; PHOENIX, \citealt{Husser:2013}, MARCS \citealt{Gustafsson:2008}, ATLAS \citealt{Castelli:2004}, etc.) find some places in literature where people have tried these on M dwarfs (\citealt{Rajpurohit:2014}, \citealt{Rajpurohit:2018}) - however missing opacities, and complexities due to molecules/clouds/chemistry make this difficult (\citealt{Allard:2013})--models don't accurately reproduce spectra plus unquantified systematic errors; 
 
  (2) model narrow wavelegth region where models are good, look at specific features (\citealt{Rojas-Ayala:2012}...), or reduce resolution (\citealt{Casagrande:2008} estimated effective temperatures, bolometric luminosities, and metallicities using optical and infrared photometries) -- however we want to use \emph{all} of the data!
-
-% \item[-] The idea in general of The Cannon, and the fact that it could be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects. Make the point that The Cannon does not require us to have good M-dwarf models in the APOGEE wavelength range at all!
 
 \item[-] Why The Cannon approach? Can be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects; Make the point that The Cannon does not require us to have good M-dwarf models in the APOGEE wavelength range at all!
 
 \item[-] Describe M dwarf studies that have already been conducted in APOGEE (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity)
 
 \end{enumerate}
+
+%using empirical classifications/templates/standards - SPT, luminosity class - this is a relative system but does not provide an absolute standard for measuring physical parameters
+
+%brief importance statment about APOGEE - new instrumentation has allowed for new opportunity - high resolution and large datasets of Mdwarfs are now available
+
+%brief importance statment cannon - better than template matching in that it is using less sparsely sampled known mdwarfs
+
+%ISSUES: models dont accurately reproduce data; empirical standards are relative not absolute
+
+%photometric data, HR digram, comparison to evolutionary models
 
 A number of M dwarf studies
 
