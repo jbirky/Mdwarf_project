@@ -66,34 +66,35 @@ Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 7
 
 %define 'labels' - could be physical parameters or more empirical 
 
-
-\subsection{M dwarf Challenge}
 \begin{enumerate}
+
+\item[-] Define what parameters/classifications are important for Mdwarfs. We want to estimate physical parameters (such as Teff, logg, metallicity) and empirical parameters/classifications (SPT, etc.), which we will refer to as \emph{stellar labels}.
+
 \item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources... Terrien, Mann, Newton, Dressing catalogs) 
 
-\item[-] Why is there a problem labeling M dwarfs? Generally, two kinds of approaches to determing physical parameters:
+\item[-] brief importance statment about APOGEE - new instrumentation has allowed for new opportunity - high resolution and large datasets of Mdwarfs are now available
+
+\item[-] Describe M dwarf studies that have already been conducted in APOGEE (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity). \citealt{Gilhool:2018}; \citealt{Skinner:2018}.
+
+\item[-] Why is there a problem labeling M dwarfs (and especially for high res APOGEE spectra)? Emphasize issues: models dont accurately reproduce data; empirical standards are relative not absolute. 
 
  (1) model the spectra using atmospheric models (BTSettl, \citealt{Allard:2011}; PHOENIX, \citealt{Husser:2013}, MARCS \citealt{Gustafsson:2008}, ATLAS \citealt{Castelli:2004}, etc.) find some places in literature where people have tried these on M dwarfs (\citealt{Rajpurohit:2014}, \citealt{Rajpurohit:2018}) - however missing opacities, and complexities due to molecules/clouds/chemistry make this difficult (\citealt{Allard:2013})--models don't accurately reproduce spectra plus unquantified systematic errors; 
 
  (2) model narrow wavelegth region where models are good, look at specific features (\citealt{Rojas-Ayala:2012}...), or reduce resolution (\citealt{Casagrande:2008} estimated effective temperatures, bolometric luminosities, and metallicities using optical and infrared photometries) -- however we want to use \emph{all} of the data!
 
-\item[-] Why The Cannon approach? Can be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects; Make the point that The Cannon does not require us to have good M-dwarf models in the APOGEE wavelength range at all!
+ (3) using empirical classifications/templates/standards - SPT, luminosity class - this is a relative system but does not provide an absolute standard for measuring physical parameters
 
-\item[-] Describe M dwarf studies that have already been conducted in APOGEE (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity)
+\item[-] Why The Cannon approach? brief importance statment cannon and what it does (cite \citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016})
+
+ (1) Can be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects; 
+
+ (2) Make the point that The Cannon does not require us to have good M-dwarf models in the APOGEE wavelength range at all 
+
+ (3) better than template matching in that it is using less sparsely sampled known mdwarfs
 
 \end{enumerate}
 
-%using empirical classifications/templates/standards - SPT, luminosity class - this is a relative system but does not provide an absolute standard for measuring physical parameters
-
-%brief importance statment about APOGEE - new instrumentation has allowed for new opportunity - high resolution and large datasets of Mdwarfs are now available
-
-%brief importance statment cannon - better than template matching in that it is using less sparsely sampled known mdwarfs
-
-%ISSUES: models dont accurately reproduce data; empirical standards are relative not absolute
-
 %photometric data, HR digram, comparison to evolutionary models
-
-A number of M dwarf studies
 
 
 %%==========================================================================================
@@ -117,23 +118,25 @@ The Cannon is a \emph{generative model} which parameterizes the flux at each pix
 
 For the purpose of this study we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second a two-dimensional \emph{physical parameter model} which describes the temperature and metallicity. The choice of training labels, dimensionality of our data set, and requirements for a good training set we discuss further in Section \ref{sec:discussion}.
 
-The spectral type sample consists of 51 sources, spanning M0-M9 (Figure \ref{fig:train_dist}) cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from SDSS. For each source in the catalog, spectral types were determined both through an automated routine using The Hammer \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
+The spectral type sample consists of 51 sources, spanning M0-M9 cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from SDSS. For each source in the catalog, spectral types were determined both through an automated routine using The Hammer \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
 
-The physical parameter sample consists of 30 sources with reference labels distributed over $3072 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 (Figure \ref{fig:train_dist}) drawn from \citealt{Mann:2015} (hereafter M15). The M15 catalog in total contains 183 sources selected from CONCH-SHELL \citep{Gaidos:2013} and with infrared spectra taken in follow up from the SpeX Spectograph. Effective temperatures are measured by comparison of BT-SETTL atmospheric models \citep{Allard:2011} to optical spectra. A subsample of 29 sources with measured angular diameters and bolometric fluxes from long-baseline optical interferometry are used to callibrate effective temperature measurements. Relative uncertainty from the callibration sample is measured to be \color{red}{$\sim$30K (check this)}\color{black}, which added in quadrature to the scatter from model comparison gives a total reported uncertainty of $\sim$60K in T$_{\rm eff}$. Metallicities are measured 
+The physical parameter sample consists of 30 sources with reference labels distributed over $3072 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 drawn from \citealt{Mann:2015} (hereafter M15). The M15 catalog in total contains 183 sources selected from CONCH-SHELL \citep{Gaidos:2013} and with infrared spectra taken in follow up from the SpeX Spectograph. Effective temperatures are measured by comparison of BT-SETTL atmospheric models \citep{Allard:2011} to optical spectra. A subsample of 29 sources with measured angular diameters and bolometric fluxes from long-baseline optical interferometry are used to callibrate effective temperature measurements. Relative uncertainty from the callibration sample is measured to be \color{red}{$\sim$30K (check this)}\color{black}, which added in quadrature to the scatter from model comparison gives a total reported uncertainty of $\sim$60K in T$_{\rm eff}$. 
 
 
 Spectral types reported by M15 for the sources using optical molecular band indices (by the method of \citealt{Lepine:2013}) and ranged K7.3--M4.9 for the subsample we used, although these labels were not included in the model training.
 
 We note that surface gravity (logg) and rotational velocity (vsini) parameters are not included as training labels because...
 
-\begin{figure}[ht]
-\plottwo{figures/west_train_dist.png}{figures/mann_train_dist.png}
-\caption{Spectral type model: training label vs. test label.} \label{fig:west_selftest} \label{fig:train_dist}
-\end{figure}
+% \begin{figure}[ht]
+% \plottwo{figures/west_train_dist.png}{figures/mann_train_dist.png}
+% \caption{Spectral type model: training label vs. test label.} \label{fig:west_selftest} \label{fig:train_dist}
+% \end{figure}
 
 \subsection{Data Processing}
 
-APOGEE data products come in several types of files: ap1D, apVisit, apStar, and aspcapStar. SNR of stars in our sample \citealt{Perez:2016}.
+We use the aspcapStar spectra (see \citealt{Perez:2016} for a complete description of the pipeline).
+
+APOGEE data products come in several types of files: ap1D, apVisit, apStar, and aspcapStar. SNR of stars in our sample .
 
 Describe ASPCAP spectra files and Ness continuum normalization procedure.
 
@@ -144,8 +147,7 @@ Describe ASPCAP spectra files and Ness continuum normalization procedure.
 \subsection{The Cannon: A Data-Driven Approach}
 
 \begin{enumerate}
-\item[-] A few-paragraph summary of what The Cannon does, with references (\citealt{Ness:2015}, \citealt{Casey:2016}, \citealt{Ho:2017a}, \citealt{Ho:2017b})
-\item[-] Describe assumptions of the model: (1) Sources with identical labels have near-identical flux at each pixel; (2) Expected flux at each pixel varies continuosly with change in label. 
+\item[-] Describe the assumptions of the model: (1) Sources with identical labels have near-identical flux at each pixel; (2) Expected flux at each pixel varies continuosly with change in label. 
 \item[-] Briefly describe modeling procedure (training step, test step, quadratic labels, etc.), refer to \citealt{Ness:2015} for full description.
 \item[-] Briefly describe model inputs and outputs (1D spectral type model and 2D teff/metallicity and label vectors for those). Mention other models we've tested.
 \end{enumerate}
@@ -155,7 +157,7 @@ Constructing such a model requires two steps: first the \emph{training step} in 
 % The key advantages of The Cannon being:
 % Data-driven models take away the challenge of directly infering labels from a survey, instead we \emph{transfer labels} from another survery that is more accurate or easier to model.
 
-Following from \citealt{Ness:2015} and \citealt{Ho:2017a} 
+Following from the procedure of \citealt{Ness:2015} and \citealt{Ho:2017a} we adopt a model that assumes the flux at each pixel of the spectrum is parameterized as a function \textit{g} 
 \begin{equation}
 	f_{n\lambda} = g(\ell_n | \theta_{\lambda}) + {\rm noise}
 \end{equation}
@@ -185,21 +187,6 @@ Quadratic label vectors:
 \end{enumerate}
 
 
-\begin{figure}[ht]
-\plotone{figures/west_spt_self_test.png}
-\caption{Spectral type model: training label vs. test label.} \label{fig:west_selftest}
-\end{figure}
-
-
-\begin{figure}[ht]
-\plotone{figures/1_Spectral_Sequence.pdf}
-\plotone{figures/2_Spectral_Sequence.pdf}
-\plotone{figures/3_Spectral_Sequence.pdf}
-\caption{ Spectral sequence of dwarfs in training set M0-M9; chip 1 of APOGEE
-spectrum with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
-\end{figure}
-
-
 \begin{enumerate}
 \item[-] For the physical parameter model we trained The Cannon on 30 M dwarfs with a two-dimensional with temperature/metallicity labels, and was able to achieve precisions of 44K/0.05dex respectively, more precise than both of the original training label uncertainties of 60K/0.08dex.
 
@@ -208,25 +195,9 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 \item[-] Vsini and logg were not included as training parameters. Vsini is less import of a parameter as the sample consists of mainly old, slowly rotating sources (check what are ages?). Logg because?
 \end{enumerate}
 
-
-\subsection{Temperature/Metallicity Model}
-\begin{figure}[ht]
-\plottwo{figures/mann_teff_self_test.png}{figures/mann_feh_self_test.png}
-\caption{Temperature and Metallicity label self test.} \label{fig:mann_selftest}
-\end{figure}
-
-\begin{figure}[ht]
-\plotone{figures/1_physical_model.png}
-\plotone{figures/2_physical_model.png}
-\plotone{figures/3_physical_model.png}
-\caption{\textit{Top two panels:} Mann-trained model for varying temperatures; \textit{bottom two panels:} Mann-trained model for varying metallicities. \color{red}{Things to add: line list and model - data difference}\color{black}} \label{fig:mann_demo}
-\end{figure}
-
-
 \begin{enumerate}
 \item[-] Describe derivative plots and jacknife error estimation.
 \end{enumerate}
-
 
 
 %%==========================================================================================
@@ -244,23 +215,72 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 \item[-] The Cannon as a test of evaluating training parameter accuracy? 
 \end{enumerate}
 
-\begin{figure}[ht]
-\plotone{figures/west_spt_derivative.png}
-\caption{Derivative plots for spectral type model.} \label{fig:west_derivative}
-\end{figure}
-
-\begin{figure}[ht]
-\plotone{figures/mann_teff_derivative.png}
-\plotone{figures/mann_feh_derivative.png}
-\caption{Derivative plots for physical parameter model. \textit{Top:} Derivative of flux with repsect to temperature. \textit{Bottom:} Derivative of flux with repsect to metallicity.} \label{fig:mann_derivative}
-\end{figure}
-
-
 %%==========================================================================================
 \acknowledgements
 We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Hans Walter Rix (MPIA), Anna-Christina Eilers (MPIA), Anna Ho (Caltech), and Jackie Faherty (AMNH) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality. \color{red}Software: The Cannon, numpy, matplotlib... \color{black}
 
 \color{gcolor}{HOGG: SDSS acknowledgments... Grants and stuff...}\color{black}  
+
+%%==========================================================================================
+%% Figures
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=16cm]{figures/west_self_test_spt.png}
+\end{center}
+\caption{Spectral type model: training label vs. test label.} \label{fig:west_selftest}
+\end{figure}
+
+\subsection{Temperature/Metallicity Model}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=16cm]{figures/self_and_validation_test_teff.png}
+\includegraphics[width=16cm]{figures/self_and_validation_test_fe_h.png}
+\end{center}
+\caption{Temperature and Metallicity label self test.} \label{fig:mann_selftest}
+\end{figure}
+
+
+\begin{figure}[ht]
+\plotone{figures/1_Spectral_Sequence.pdf}
+\plotone{figures/2_Spectral_Sequence.pdf}
+\plotone{figures/3_Spectral_Sequence.pdf}
+\caption{ Spectral sequence of dwarfs in training set M0-M9; chip 1 of APOGEE
+spectrum with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=16cm]{figures/demo_derivatives_teff1.png}
+\includegraphics[width=16cm]{figures/demo_derivatives_teff2.png}
+\includegraphics[width=16cm]{figures/demo_derivatives_teff3.png}
+\end{center}
+\caption{\textit{Top two panels:} Mann-trained model for varying temperatures.} \label{fig:demo_teff}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=16cm]{figures/demo_derivatives_feh1.png}
+\includegraphics[width=16cm]{figures/demo_derivatives_feh2.png}
+\includegraphics[width=16cm]{figures/demo_derivatives_feh3.png}
+\end{center}
+\caption{\textit{Top two panels:} Mann-trained model for varying metallicities.} \label{fig:demo_feh}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=12cm]{figures/west_spt_derivative.png}
+\end{center}
+\caption{Derivative plots for spectral type model.} \label{fig:west_derivative}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{figures/derivative_jackknife_teff.png}
+\includegraphics[width=15cm]{figures/derivative_jackknife_feh.png}
+\end{center}
+\caption{Derivative plots for physical parameter model. \textit{Top:} Derivative of flux with repsect to temperature. \textit{Bottom:} Derivative of flux with repsect to metallicity.} \label{fig:mann_derivative}
+\end{figure}
 
 %%==========================================================================================
 \clearpage
