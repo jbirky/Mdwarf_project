@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{mathrsfs}
 \usepackage{booktabs}
+\usepackage{morefloats}
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
 \definecolor{gcolor}{RGB}{51, 153, 51}
@@ -51,7 +52,7 @@ Broadway, New York, NY 10003, USA}
 
 \begin{abstract}
 
-The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (APOGEE; $\lambda/\Delta\lambda\sim22,500$, $1.5-1.7 \mu m$) spectra of giant stars to estimate stellar labels (T$_{\rm eff}$, logg, [Fe/H], and chemical abundances) to precisions higher than the model-grid pipeline. The lack of reliable stellar parameters reported by the APOGEE pipeline for temperatures less than $\sim3550K$ \citep{Schmidt:2016}, motivates the extension of this approach to M dwarf stars. Using a training set of 51 M dwarfs with spectral types ranging M0-M9 obtained from SDSS optical spectra, we demonstrate that The Cannon can infer spectral types to a precision of 0.6 types. We then use 30 M dwarfs ranging $3072 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 to train a two-parameter model precise to 44K and 0.05 dex respectively. Finally we compare our temperature/metallicty model to theoretical models of M dwarf atmospheres (PHOENIX, \citealt{Husser:2013}; BTSETTL, \citealt{Allard:2011}) and identify features of missing line strengths.
+The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (APOGEE; $\lambda/\Delta\lambda\sim22,500$, $1.5-1.7 \mu m$) spectra of giant stars to estimate stellar labels (T$_{\rm eff}$, logg, [Fe/H], and chemical abundances) to precisions higher than the model-grid pipeline. The lack of reliable stellar parameters reported by the APOGEE pipeline for temperatures less than $\sim3550K$ \citep{Schmidt:2016}, motivates the extension of this approach to M dwarf stars. Using a training set of \textcolor{red}{51 M dwarfs}\textcolor{black} with spectral types ranging M0-M9 obtained from SDSS optical spectra, we demonstrate that The Cannon can infer spectral types to a precision of \textcolor{red}{0.6 types}\textcolor{black}. We then use \textcolor{red}{30 M dwarfs}\textcolor{black} ranging \textcolor{red}{$3072 < T_{\rm eff} < 4131K$}\textcolor{black}, and \textcolor{red}{-0.48 $<$ [Fe/H] $<$ 0.49}\textcolor{black} to train a two-parameter model precise to \textcolor{red}{44K and 0.05 dex}\textcolor{black} respectively. Finally we compare our temperature/metallicty model to theoretical models of M dwarf atmospheres (PHOENIX, \citealt{Husser:2013}; BTSETTL, \citealt{Allard:2011}) and identify features of missing line strengths.
 
 \end{abstract}
 
@@ -61,22 +62,20 @@ The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and pa
 \section{Introduction} \label{sec:intro}
 
 % \begin{enumerate}
-Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and $\sim 40 \%$ by mass are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}.
+Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and $\sim 40 \%$ by mass and are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of Milky way populations \citep{Bochanski:2007}.
 
 
-%define 'labels' - could be physical parameters or more empirical 
+Define what parameters/classifications are important for Mdwarfs. We want to estimate physical parameters (such as Teff, logg, metallicity) and empirical parameters/classifications (SPT, etc.), which we will refer to as \emph{stellar labels}. In the context of this paper we will 
 
-\begin{enumerate}
+% Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them: 
 
-\item[-] Define what parameters/classifications are important for Mdwarfs. We want to estimate physical parameters (such as Teff, logg, metallicity) and empirical parameters/classifications (SPT, etc.), which we will refer to as \emph{stellar labels}.
+Advances in instrumentation and the lauch of many large scale spectroscopic stellar surveys in the past decade have dramatically increased the sample of known M dwarfs, including the \citealt{West:2011} M dwarf catalog with 70,0841 sources obtained from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and \citealt{Yi:2014} with  58,360 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012})
 
-\item[-] Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them (\citealt{West:2011} is the largest M dwarf catalog of $\sim$ 70k sources... Terrien, Mann, Newton, Dressing catalogs) 
+APOGEE instrumentation has allowed for new opportunity - high resolution and large datasets of Mdwarfs are now available
 
-\item[-] brief importance statment about APOGEE - new instrumentation has allowed for new opportunity - high resolution and large datasets of Mdwarfs are now available
+Describe M dwarf studies that have already been conducted in APOGEE (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity). \citealt{Gilhool:2018}; \citealt{Skinner:2018}.
 
-\item[-] Describe M dwarf studies that have already been conducted in APOGEE (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity). \citealt{Gilhool:2018}; \citealt{Skinner:2018}.
-
-\item[-] Why is there a problem labeling M dwarfs (and especially for high res APOGEE spectra)? Emphasize issues: models dont accurately reproduce data; empirical standards are relative not absolute. 
+Why is there a problem labeling M dwarfs (and especially for high res APOGEE spectra)? Emphasize issues: models dont accurately reproduce data; empirical standards are relative not absolute. 
 
  (1) model the spectra using atmospheric models (BTSettl, \citealt{Allard:2011}; PHOENIX, \citealt{Husser:2013}, MARCS \citealt{Gustafsson:2008}, ATLAS \citealt{Castelli:2004}, etc.) find some places in literature where people have tried these on M dwarfs (\citealt{Rajpurohit:2014}, \citealt{Rajpurohit:2018}) - however missing opacities, and complexities due to molecules/clouds/chemistry make this difficult (\citealt{Allard:2013})--models don't accurately reproduce spectra plus unquantified systematic errors; 
 
@@ -84,7 +83,7 @@ Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 7
 
  (3) using empirical classifications/templates/standards - SPT, luminosity class - this is a relative system but does not provide an absolute standard for measuring physical parameters
 
-\item[-] Why The Cannon approach? brief importance statment cannon and what it does (cite \citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016})
+Why The Cannon approach? brief importance statment cannon and what it does (cite \citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016})
 
  (1) Can be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects; 
 
@@ -92,7 +91,6 @@ Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 7
 
  (3) better than template matching in that it is using less sparsely sampled known mdwarfs
 
-\end{enumerate}
 
 %photometric data, HR digram, comparison to evolutionary models
 
@@ -102,7 +100,7 @@ Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 7
 
 \subsection{APOGEE Survey}
 % \begin{enumerate}
-% \item[-] Describe the APOGEE data (survey mission: \citealt{Majewski:2015}; target selection: \citealt{Zasowski:2013}; ASPCAP pipeline: \citealt{Perez:2016}). 
+% Describe the APOGEE data (survey mission: \citealt{Majewski:2015}; target selection: \citealt{Zasowski:2013}; ASPCAP pipeline: \citealt{Perez:2016}). 
 
 % \item[-] Some M dwarfs in APOGEE proposed as ancilliary targets (Blake/Covey sources), plus an unknown number observed unintentionally \citep{Desphande:2013}.
 % \end{enumerate}
@@ -228,35 +226,35 @@ We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgan
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=18cm]{figures/self_and_validation_test_spt.png}
+\includegraphics[width=18cm]{figures/self_and_validation_test_spt_snr.png}
 \end{center}
-\caption{Spectral type model: training label vs. test label.} \label{fig:west_selftest}
+\caption{Consistency test for the West-trained spectral type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}.} \label{fig:west_selftest}
 \end{figure}
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=18cm]{figures/self_and_validation_test_teff.png}
-\includegraphics[width=18cm]{figures/self_and_validation_test_fe_h.png}
+\includegraphics[width=18cm]{figures/self_and_validation_test_teff_snr.png}
+\includegraphics[width=18cm]{figures/self_and_validation_test_fe_h_snr.png}
 \end{center}
-\caption{Temperature and Metallicity label self test.} \label{fig:mann_selftest}
+\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}.} \label{fig:mann_selftest}
 \end{figure}
 
-
+%---------------------------
 \begin{figure}[ht]
-\plotone{figures/1_Spectral_Sequence.pdf}
-\plotone{figures/2_Spectral_Sequence.pdf}
-\plotone{figures/3_Spectral_Sequence.pdf}
-\caption{ Spectral sequence of dwarfs in training set M0-M9; chip 1 of APOGEE
-spectrum with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
+\plotone{figures/Spectral_Sequence_1.pdf}
+\plotone{figures/Spectral_Sequence_2.pdf}
+\plotone{figures/Spectral_Sequence_3.pdf}
+\caption{ Spectral sequence of dwarfs in training set M0-M9; separate plots show three detector chips of APOGEE spectrum (black), the best fit Cannon trained model (red) with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
 \end{figure}
 
+%---------------------------
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff1.png}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff2.png}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff3.png}
 \end{center}
-\caption{\textit{Top two panels:} Mann-trained model for varying temperatures.} \label{fig:demo_teff}
+\caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallcities. \textit{Third panel:} Derivative of the Cannon model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463 K$}. \label{fig:demo_teff}
 \end{figure}
 
 \begin{figure}[ht]
@@ -265,7 +263,7 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 \includegraphics[width=16cm]{figures/demo_derivatives_feh2.png}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh3.png}
 \end{center}
-\caption{\textit{Top two panels:} Mann-trained model for varying metallicities.} \label{fig:demo_feh}
+\caption{\textit{Top two panels of each plot:} Mann-trained model for varying metallicities and similar temperatures. \textit{Third panel:} Derivative of the Cannon model with respect to metallicity, taken at the median training metallicity, [Fe/H]$=-0.03$.} \label{fig:demo_feh}
 \end{figure}
 
 \begin{figure}[ht]
@@ -294,8 +292,6 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 \tablecaption{Cannon results for Temperature/Metallicity model \label{mann_results}}
 \tabletypesize{\scriptsize}
 \tablehead{
-% \colhead{Designation} & \colhead{RA} & \colhead{DEC} & \colhead{$T_{\rm eff}$} & \colhead{[Fe/H]} \\
-% \colhead{(2MASS)} & \colhead{(deg)} & \colhead{(deg)} & \colhead{(K)} & \colhead{(dex)}
 \multicolumn{3}{c}{\underline{Designation}} & \multicolumn{3}{c}{\underline{Temperature (K)}} & \multicolumn{3}{c}{\underline{Metallicity (dex)}} \\
 	  \colhead{2MASS ID} & \colhead{RA}   & \colhead{DEC}
     & \colhead{Training} & \colhead{Test} & \colhead{LOOCV}
@@ -390,10 +386,124 @@ spectrum with highlighted spectral type sensitive regions identified in \citealt
 2M23060482+6355339 & 346.52011 & 63.92622  & 3700        & 3770       & 3780        & 0.19       & 0.14      & 0.11       \\
 2M23315208+1956142 & 352.96732 & 19.93727  & 3353        & 3278       & 3274        & 0.03       & 0.05      & 0.05       \\
 2M23315244+1956138 & 352.9689  & 19.93719  & 3072        & 3266       & 3296        & 0.03       & 0.04      & 0.03       \\
-2M23491255+0224037 & 357.30206 & 2.40136   & 3646        & 3604       & 3560        & -0.45      & -0.46     & -0.4    
+2M23491255+0224037 & 357.30206 & 2.40136   & 3646        & 3604       & 3560        & -0.45      & -0.46     & -0.4        
 \enddata
 \end{deluxetable*}
 % \end{longrotatetable}
+
+\newpage 
+
+
+\startlongtable
+\begin{deluxetable*}{ccc|ccc}
+\tablecaption{Cannon results for Spectral Type model \label{west_results}}
+\tabletypesize{\scriptsize}
+\tablehead{
+% \colhead{Designation} & \colhead{RA} & \colhead{DEC} & \colhead{$T_{\rm eff}$} & \colhead{[Fe/H]} \\
+% \colhead{(2MASS)} & \colhead{(deg)} & \colhead{(deg)} & \colhead{(K)} & \colhead{(dex)}
+\multicolumn{3}{c}{\underline{Designation}} & \multicolumn{3}{c}{\underline{Spectral Type}} \\
+	  \colhead{2MASS ID} & \colhead{RA}   & \colhead{DEC}
+    & \colhead{Training} & \colhead{Test} & \colhead{LOOCV} 
+} 
+\startdata
+2M03114974+0115158 & 47.95722  & 1.25442  & 1          & 0.5       & 0.8        \\
+2M03122509+0021585 & 48.1047   & 0.36621  & 7          & 7.3       & 6.8        \\
+2M03153109+3955161 & 48.87842  & 39.92346 & 2          & 0.3       & 0.2        \\
+2M03423963+0012102 & 55.66512  & 0.20284  & 4          & 4.8       & 4.9        \\
+2M03440466+0049332 & 56.01972  & 0.82795  & 2          & 0.4       & 0.4        \\
+2M04254701+1732407 & 66.44614  & 17.54455 & 5          & 5.7       & 5.7        \\
+2M04262170+1800009 & 66.59065  & 18.00024 & 5          & 5.7       & 5.8        \\
+2M06030979+2233260 & 90.78794  & 22.55808 & 1          & 1.5       & 1.6        \\
+2M07230160+4055426 & 110.75797 & 40.92653 & 4          & 1.6       & 1.4        \\
+2M08043605+5330565 & 121.14987 & 53.51342 & 1          & 0.5       & 0.6        \\
+2M08460531+1035309 & 131.5221  & 10.59194 & 7          & 7.1       & 6.9        \\
+2M08494430+1135327 & 132.43433 & 11.59268 & 0          & 0.6       & 0.9        \\
+2M09013404+0326287 & 135.39185 & 3.44134  & 0          & 1.7       & 2.1        \\
+2M09152918+4407461 & 138.87157 & 44.12966 & 3          & 4.5       & 4.6        \\
+2M09183649+2207022 & 139.65205 & 22.1173  & 3          & 3.0       & 3.0        \\
+2M09332262+2749021 & 143.34409 & 27.81724 & 3          & 3.4       & 3.3        \\
+2M09373349+5534057 & 144.38957 & 55.56828 & 6          & 6.8       & 6.7        \\
+2M10222276+1353383 & 155.59618 & 13.89607 & 3          & 2.3       & 2.2        \\
+2M10313413+3441535 & 157.89214 & 34.69814 & 1          & 2.5       & 2.6        \\
+2M10545293+4402506 & 163.72188 & 44.04674 & 4          & 4.9       & 5.0        \\
+2M11010030+2035056 & 165.25085 & 20.58252 & 2          & 1.0       & 1.0        \\
+2M11194647+0820356 & 169.94386 & 8.34307  & 8          & 7.7       & 7.1        \\
+2M11203609+0704135 & 170.15036 & 7.07021  & 6          & 6.5       & 6.5        \\
+2M11215827+0646252 & 170.4927  & 6.77355  & 5          & 6.1       & 6.1        \\
+2M11570299+2028436 & 179.26254 & 20.47885 & 2          & 3.6       & 3.7        \\
+2M12052751+1811555 & 181.36514 & 18.19978 & 1          & 3.0       & 3.2        \\
+2M12080810+3520281 & 182.03253 & 35.34103 & 7          & 7.1       & 7.0        \\
+2M12102152+4026185 & 182.5888  & 40.44021 & 4          & 3.1       & 2.9        \\
+2M12115216+3525458 & 182.9689  & 35.43142 & 4          & 1.5       & 1.4        \\
+2M12132318+3900529 & 183.34637 & 39.01468 & 7          & 7.4       & 6.9        \\
+2M12202436+2508225 & 185.1015  & 25.1396  & 6          & 6.6       & 6.5        \\
+2M12203634+2505351 & 185.15141 & 25.09318 & 4          & 3.6       & 3.4        \\
+2M12212701-0030560 & 185.36256 & -0.5156  & 0          & 1.7       & 1.9        \\
+2M12252076+2517082 & 186.3364  & 25.28559 & 7          & 7.7       & 7.6        \\
+2M12264289+0009059 & 186.67876 & 0.15164  & 0          & 2.3       & 2.5        \\
+2M12294016+2619567 & 187.4174  & 26.33245 & 7          & 4.4       & 4.1        \\
+2M12423245-0646077 & 190.63527 & -6.76885 & 2          & 3.0       & 3.0        \\
+2M12464541-0312524 & 191.68922 & -3.2146  & 4          & 4.3       & 4.3        \\
+2M12471099+1109566 & 191.79576 & 11.16566 & 3          & 3.8       & 3.9        \\
+2M12471599+2817425 & 191.81609 & 28.29519 & 1          & 0.9       & 1.0        \\
+2M12492657-0312032 & 192.36092 & -3.20097 & 3          & 3.7       & 3.8        \\
+2M12503440+4309482 & 192.64331 & 43.16345 & 4          & 4.9       & 4.9        \\
+2M12523816+1240586 & 193.15907 & 12.68297 & 4          & 4.8       & 4.8        \\
+2M12552141+4150425 & 193.83911 & 41.84522 & 3          & 3.7       & 3.8        \\
+2M12564117+4233175 & 194.17155 & 42.55485 & 3          & 3.7       & 3.8        \\
+2M13032161+4220407 & 195.83998 & 42.34466 & 2          & 3.4       & 3.4        \\
+2M13282079+3859398 & 202.08669 & 38.99444 & 2          & 3.5       & 3.6        \\
+2M13415860+1852278 & 205.49413 & 18.87437 & 4          & 4.7       & 4.8        \\
+2M13442970+5625445 & 206.12355 & 56.42916 & 5          & 6.4       & 6.4        \\
+2M13452385+1844222 & 206.34949 & 18.73947 & 4          & 4.3       & 4.3        \\
+2M13542316+2543152 & 208.59673 & 25.72078 & 4          & 5.0       & 5.1        \\
+2M13565847+3200294 & 209.24355 & 32.00805 & 4          & 4.7       & 4.7        \\
+2M14003808+3217085 & 210.15862 & 32.28572 & 3          & 4.4       & 4.5        \\
+2M14005977+3226109 & 210.2487  & 32.43644 & 7          & 6.9       & 6.6        \\
+2M14030704+5403356 & 210.77922 & 54.05996 & 5          & 5.8       & 5.9        \\
+2M14055603+0140310 & 211.48352 & 1.67535  & 2          & -0.4      & -0.5       \\
+2M14102952+4349477 & 212.62604 & 43.83093 & 3          & 3.1       & 3.1        \\
+2M14213414+0451188 & 215.39229 & 4.85523  & 0          & -1.7      & -1.3       \\
+2M14275590+5817281 & 216.98328 & 58.29095 & 3          & 3.9       & 4.0        \\
+2M14290377+4917403 & 217.26582 & 49.29448 & 4          & 5.5       & 5.5        \\
+2M14350795+4954080 & 218.78323 & 49.90218 & 0          & 1.1       & 1.4        \\
+2M14402293+1339230 & 220.09528 & 13.65579 & 7          & 7.6       & 7.5        \\
+2M14575608+2140337 & 224.48373 & 21.67605 & 1          & 1.6       & 1.7        \\
+2M14592059+3219293 & 224.83575 & 32.32482 & 1          & 0.4       & 0.5        \\
+2M15004819+2050499 & 225.20079 & 20.84723 & 3          & 2.6       & 2.5        \\
+2M15010818+2250020 & 225.28406 & 22.83383 & 9          & 8.5       & 6.1        \\
+2M15034431+2730327 & 225.93346 & 27.50773 & 3          & 0.3       & 0.2        \\
+2M15064250+3246099 & 226.6774  & 32.76876 & 2          & 4.3       & 4.4        \\
+2M15141711+0044474 & 228.5713  & 0.74654  & 7          & 5.8       & 5.4        \\
+2M15195523+0254040 & 229.98016 & 2.90112  & 0          & 0.4       & 0.8        \\
+2M15232142+3453119 & 230.8392  & 34.88651 & 4          & 4.8       & 4.9        \\
+2M15424779+4534214 & 235.69858 & 45.57528 & 3          & 2.1       & 2.1        \\
+2M15575183+0657068 & 239.4659  & 6.9519   & 4          & 5.5       & 5.5        \\
+2M15591175+0637577 & 239.79903 & 6.63268  & 3          & 4.4       & 4.4        \\
+2M16022228+0616424 & 240.59286 & 6.27846  & 3          & 2.3       & 2.3        \\
+2M16055380+2303058 & 241.47423 & 23.05165 & 7          & 6.9       & 6.7        \\
+2M16084282+2327406 & 242.17833 & 23.4614  & 4          & 4.0       & 4.0        \\
+2M16101653+4511112 & 242.56818 & 45.18571 & 0          & 0.3       & 0.6        \\
+2M16103232+2249116 & 242.63477 & 22.81992 & 7          & 7.3       & 7.2        \\
+2M16112965+2403267 & 242.87363 & 24.05741 & 2          & 3.1       & 3.2        \\
+2M16113384+2429072 & 242.89096 & 24.4854  & 4          & 5.5       & 5.6        \\
+2M16114429+2253294 & 242.93452 & 22.89149 & 5          & 4.3       & 4.2        \\
+2M16282719-0050428 & 247.11214 & -0.84372 & 3          & 2.1       & 2.1        \\
+2M16351077-0102156 & 248.79636 & -1.03922 & 3          & 0.5       & 0.4        \\
+2M16355440+3716239 & 248.97668 & 37.27332 & 3          & 3.4       & 3.5        \\
+2M16363188+3655364 & 249.13287 & 36.92676 & 2          & 1.1       & 1.1        \\
+2M16383117+3746233 & 249.62987 & 37.77329 & 4          & 4.8       & 4.9        \\
+2M16393137+3722527 & 249.88008 & 37.38122 & 0          & 3.2       & 3.3        \\
+2M16393824+3550337 & 249.90933 & 35.84268 & 2          & 3.1       & 3.2        \\
+2M16410962+3535407 & 250.29008 & 35.59465 & 3          & 3.0       & 2.9        \\
+2M16485665+3639205 & 252.23611 & 36.65564 & 3          & 3.0       & 2.9        \\
+2M17223434+5946359 & 260.64276 & 59.77846 & 4          & 2.5       & 2.4        \\
+2M19203934+3748048 & 290.16394 & 37.80135 & 0          & -2.0      & -2.1       \\
+2M19210112+3742134 & 290.25467 & 37.70374 & 0          & -2.2      & -2.4       \\
+2M21342546+0021006 & 323.60614 & 0.35243  & 2          & 1.1       & 1.0        \\
+2M23295172+4825211 & 352.4656  & 48.42256 & 1          & 0.3       & 0.4     
+\enddata
+\end{deluxetable*}
 
 %%==========================================================================================
 \clearpage
