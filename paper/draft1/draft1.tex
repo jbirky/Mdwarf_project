@@ -29,7 +29,6 @@
 
 \title{DATA DRIVEN MODELS FOR APOGEE M DWARFS}
 
-
 \correspondingauthor{Jessica Birky}
 \email{jbirky@ucsd.edu}
 
@@ -69,11 +68,11 @@ Define what parameters/classifications are important for Mdwarfs. We want to est
 
 % Various attempts / samples for which people have tried to make substantial catalogs of M-dwarfs with physical labels on them: 
 
-Advances in instrumentation and the lauch of many large scale spectroscopic stellar surveys in the past decade have dramatically increased the sample of known M dwarfs, including the \citealt{West:2011} M dwarf catalog with 70,0841 sources obtained from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and \citealt{Yi:2014} with  58,360 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012})
+Advances in instrumentation and the lauch of several large scale spectroscopic stellar surveys in the past decade have dramatically increased the sample of known M dwarfs, including the \citealt{West:2011} catalog of 70,0841 sources from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and the \citealt{Yi:2014} catalog with 58,360 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012}), which each have determined spectral subtype classifications, H$\alpha$ equivalent width, and a number of molecular band index measurements. 
 
-APOGEE instrumentation has allowed for new opportunity - high resolution and large datasets of Mdwarfs are now available
+The launch of the (APOGEE; \citealt{Majewski:2015}) survey as part of the Sloan Digital Sky Survey III and IV missions (citations) contains the largest sample of M dwarfs observed with high resolution spectroscopy. 
 
-Describe M dwarf studies that have already been conducted in APOGEE (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity). \citealt{Gilhool:2018}; \citealt{Skinner:2018}.
+A number of M dwarf studies have already been conducted in APOGEE (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity). \citealt{Gilhool:2018}; \citealt{Skinner:2018}.
 
 Why is there a problem labeling M dwarfs (and especially for high res APOGEE spectra)? Emphasize issues: models dont accurately reproduce data; empirical standards are relative not absolute. 
 
@@ -127,7 +126,7 @@ We note that surface gravity (logg) and rotational velocity (vsini) parameters a
 
 % \begin{figure}[ht]
 % \plottwo{figures/west_train_dist.png}{figures/mann_train_dist.png}
-% \caption{Spectral type model: training label vs. test label.} \label{fig:west_selftest} \label{fig:train_dist}
+% \caption{Spectral type model: training label vs. test label.} \label{fig:west_validation} \label{fig:train_dist}
 % \end{figure}
 
 \subsection{Data Processing}
@@ -179,23 +178,11 @@ Quadratic label vectors:
 
 \subsection{Spectral Type Model}
 
-\begin{enumerate}
-\item[-] We trained The Cannon on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.8 spectral types, more precise than the original training label uncertainty of $\pm$1 spectral type.
-\item[-] Two tests of consistency were used to assess the validity of our derived test labels: Figure \ref{fig:west_selftest} displays the label self-test for the spectral type model, and Figure  displays 
-\end{enumerate}
+We trained The Cannon on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.8 spectral types, more precise than the original training label uncertainty of $\pm$1 spectral type. Two tests of consistency were used to assess the validity of our derived test labels (Figure \ref{fig:west_validation}). The self-test comparing training labels and test labels where precision and bias of the model are calculated as the standard deviation and mean of the difference in training and test labels respectively.
 
+\subsection{Temperature/Metallicity Model}
 
-\begin{enumerate}
-\item[-] For the physical parameter model we trained The Cannon on 30 M dwarfs with a two-dimensional with temperature/metallicity labels, and was able to achieve precisions of 44K/0.05dex respectively, more precise than both of the original training label uncertainties of 60K/0.08dex.
-
-\item[-] Two tests of consistency were used to assess the validity of our derived test labels: Figure \ref{fig:west_selftest} displays the label self-test for the spectral type model, and Figure 2 displays 
-
-\item[-] Vsini and logg were not included as training parameters. Vsini is less import of a parameter as the sample consists of mainly old, slowly rotating sources (check what are ages?). Logg because?
-\end{enumerate}
-
-\begin{enumerate}
-\item[-] Describe derivative plots and jacknife error estimation.
-\end{enumerate}
+For the physical parameter model we trained The Cannon on 88 M dwarfs with a two-dimensional with temperature/metallicity labels, with a precision of 44K/0.05dex respectively, more precise than both of the original training label uncertainties of 60K/0.08dex.
 
 
 %%==========================================================================================
@@ -215,7 +202,7 @@ Quadratic label vectors:
 
 %%==========================================================================================
 \acknowledgements
-We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Hans Walter Rix (MPIA), Anna-Christina Eilers (MPIA), Anna Ho (Caltech), and Jackie Faherty (AMNH) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality. \color{red}Software: The Cannon, numpy, matplotlib... \color{black}
+We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Hans Walter Rix (MPIA), Anna-Christina Eilers (MPIA) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality. \color{red}Software: The Cannon, numpy, matplotlib... \color{black}
 
 \color{gcolor}{HOGG: SDSS acknowledgments... Grants and stuff...}\color{black}  
 
@@ -228,7 +215,7 @@ We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgan
 \begin{center}
 \includegraphics[width=18cm]{figures/self_and_validation_test_spt_snr.png}
 \end{center}
-\caption{Consistency test for the West-trained spectral type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}.} \label{fig:west_selftest}
+\caption{Consistency test for the West-trained spectral type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}.} \label{fig:west_validation}
 \end{figure}
 
 \begin{figure}[ht]
@@ -236,7 +223,7 @@ We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgan
 \includegraphics[width=18cm]{figures/self_and_validation_test_teff_snr.png}
 \includegraphics[width=18cm]{figures/self_and_validation_test_fe_h_snr.png}
 \end{center}
-\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}.} \label{fig:mann_selftest}
+\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}.} \label{fig:mann_validation}
 \end{figure}
 
 %---------------------------
