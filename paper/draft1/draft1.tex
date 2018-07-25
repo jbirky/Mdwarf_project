@@ -51,7 +51,7 @@ Broadway, New York, NY 10003, USA}
 
 \begin{abstract}
 
-The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (APOGEE; $\lambda/\Delta\lambda\sim22,500$, $1.5-1.7 \mu m$) spectra of giant stars to estimate stellar labels (T$_{\rm eff}$, logg, [Fe/H], and chemical abundances) to precisions higher than the model-grid pipeline. The lack of reliable stellar parameters reported by the APOGEE pipeline for temperatures less than $\sim3550K$ \citep{Schmidt:2016}, motivates the extension of this approach to M dwarf stars. Using a training set of 51 M dwarfs with spectral types ranging M0-M9 obtained from SDSS optical spectra, we demonstrate that The Cannon can infer spectral types to a precision of 0.6 types. We then use 87 M dwarfs ranging $2859 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 to train a two-parameter model precise to 68K and 0.07 dex respectively. Finally we apply our model to determine spectral subtypes, temperatures and metallicities for 10,000+ M dwarfs in the APOGEE-Gaia cross match.
+The Cannon \citep{Ness:2015} is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (APOGEE; $\lambda/\Delta\lambda\sim22,500$, $1.5-1.7 \mu m$) spectra of giant stars to estimate stellar labels (T$_{\rm eff}$, logg, [Fe/H], and chemical abundances) to precisions higher than the model-grid pipeline. The lack of reliable stellar parameters reported by the APOGEE pipeline for temperatures less than $\sim3550K$ \citep{Schmidt:2016}, motivates the extension of this approach to M dwarf stars. Using a training set of 51 M dwarfs with spectral types ranging M0-M9 obtained from SDSS optical spectra, we demonstrate that The Cannon can infer spectral types to a precision of 0.6 types. We then use 87 M dwarfs ranging $2859 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49 to train a two-parameter model precise to 68K and 0.07 dex respectively. Finally we apply our model to determine spectral subtypes, temperatures and metallicities for 10,000+ M dwarfs in the survey and compare our results to APOGEE pipeline measurements.
 
 \end{abstract}
 
@@ -167,7 +167,7 @@ For each model, two tests of consistency were used to assess the validity of our
 Some note on what lines vary significantly with parameter?
 
 \subsubsection{Spectral Type Model}
-We trained The Cannon on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.6 spectral types, more precise than the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources $<$M7, with only one M8 and one M9 source.
+We trained The Cannon on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.6 spectral types, more precise than the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed mostly towards earlier type sources, with only one M8 and one M9 source.
 
 \subsubsection{Temperature/Metallicity Model}
 For the physical parameter model we trained The Cannon on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 68K/0.07dex respectively, similar to the precision of the training uncertainties of 60K/0.08dex.
@@ -198,9 +198,7 @@ Some validation of our test label results...
 
 %%==========================================================================================
 \acknowledgements
-We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Hans Walter Rix (MPIA), Anna-Christina Eilers (MPIA) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality. \color{red}Software: The Cannon, numpy, matplotlib... \color{black}
-
-\color{gcolor}{HOGG: SDSS acknowledgments... Grants and stuff...}\color{black}  
+We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Hans Walter Rix (MPIA), Anna-Christina Eilers (MPIA) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality. \color{gcolor}{HOGG: SDSS acknowledgments... Grants and stuff...}\color{black}  
 
 %%==========================================================================================
 %% Figures
@@ -219,7 +217,7 @@ We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgan
 \includegraphics[width=15cm]{figures/self_and_validation_test_teff_snr.png}
 \includegraphics[width=15cm]{figures/self_and_validation_test_feh_snr.png}
 \end{center}
-\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}. Sources with strong rotational broadening (2M07171706−0501031, 2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380) are identified with red circles.} \label{fig:mann_validation}
+\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test \textit{(left)}, and leave-one-out cross validation \textit{(right)}. Sources with strong rotational broadening (2M07171706−0501031, 2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380), as identified by visual inspection are marked with red circles.} \label{fig:mann_validation}
 \end{figure}
 
 %---------------------------
@@ -268,10 +266,18 @@ We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgan
 
 %---------------------------
 \begin{figure}[ht]
-\plottwo{figures/test_cmd_chisq.png}{figures/test_fit_distribution.png}
-\caption{The distribution of $\chi^2$ fits for all 14,827 sources in the APOGEE-Gaia cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\pi>0$. Note that there are $>$1,000 sources above the main sequence, many of which are pre-main sequence stars and main sequence binaries.}
-\plottwo{figures/test_cmd_teff.png}{figures/test_cmd_feh.png}
-\caption{Gaia color-magnitude diagram of 13,915 sources, selected with $\chi^2<200,000$ out of the total test sample.}
+\plotone{figures/cannon_chi_dist.png}
+\caption{The distribution of $\chi^2$ fits for all 14,827 sources in the APOGEE-Gaia cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\pi>0$ \textit{(right)}, and the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}).}
+\plotone{figures/safe_selection.png}
+\caption{Safe sample selection.}
+\end{figure}
+
+%---------------------------
+\begin{figure}[ht]
+\plotone{figures/aspcap_cannon_validation.png}
+\caption{Validation test}
+\plotone{figures/aspcap_cannon_label_hist.png}
+\caption{Distribution of temperatures and metallicities from The Cannon compared to the ASPCAP pipeline.}
 \end{figure}
 
 
@@ -280,7 +286,7 @@ We would like to acknowledge Derek Homeier (Universit{\"a}t Heidelberg), Wolfgan
 
 % \newpage 
 
-% \startlongtable
+% \startlongtable{}
 % \begin{deluxetable*}{ccc|ccc|ccc}
 % \tablecaption{Cannon results for Temperature/Metallicity model \label{mann_results}}
 % \tabletypesize{\scriptsize}
