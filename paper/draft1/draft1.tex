@@ -128,7 +128,7 @@ We note that surface gravity (logg) and rotational velocity (vsini) parameters a
 
 \subsection{Data Processing}
 
-APOGEE data products: ap1D, apVisit, apStar, and aspcapStar. We use the aspcapStar spectra, which contains the continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline). SNR of stars in our sample...
+APOGEE data products: {\tt\string ap1D}, {\tt\string apVisit}, {\tt\string apStar}, and {\tt\string aspcapStar}. We use the {\tt\string aspcapStar} spectra, which contains the continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline). SNR of stars in our sample...
 
 
 %%==========================================================================================
@@ -174,7 +174,7 @@ where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total 
 \subsubsection{Temperature/Metallicity Model \label{subsec:mann_results}}
 For the physical parameter model we trained The Cannon on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 68K/0.07dex respectively, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model 6 out of 87 sources show strong visible rotational line broadening (as indicated by the red circles in Figure \ref{fig:mann_validation}), while the remaining sources are mostly old ($>8$ Gyr) and likely slowly rotating sources. While these sources with high rotational broadening have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), we find that the scatter of labels derived for these sources is consistent with the rest of the sample and we do not remove them from the training sample.
 
-Some note on what lines vary significantly with parameter...
+\color{gcolor}{Some note on what lines vary significantly with parameter...}\color{black}
 
 \color{gcolor}{HOGG: Some commentary on why $\chi^2$ is higher than expected.}\color{black}
 
@@ -201,7 +201,9 @@ Out of the total APOGEE DR14 catalog of 277,371 sources, we selected 254,478 sou
 
 The final selection for our ``safe'' is displayed in Figure \ref{fig:safe_selection}. We also note that applying our model requires very little computational demand: the time to run a model on all 14,827 sources was two minutes on a personal laptop.
 
-In \citealt{Schmidt:2016} the authors used three different color-temperature relations to check the consistency of ASPCAP temperature values.
+In \citealt{Schmidt:2016} the authors used three different color-temperature relations to check the consistency of ASPCAP temperature values, using a combination of 2MASS and visual band photometries. \color{gcolor}{Brief description of the color-teff relations from \citealt{Casagrande:2008}, \citealt{Boyajian:2013}, and \citealt{Mann:2015}...}\color{black}. 
+
+To obtain visual band magnitudes for a set of sources, we cross-matched the 10,084 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from APOGEE. In Figure \ref{fig:aspcap_cannon_validation} we repeat the temperature validation tests for each of the three relations and compare the ASPCAP temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
 
 %%==========================================================================================
 \section{Discussion} \label{sec:discussion}
