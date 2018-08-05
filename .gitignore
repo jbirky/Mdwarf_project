@@ -6,3 +6,9 @@
 *.bbl
 *.blg
 *.npy
+.ipynb_checkpoints
+__pycache__
+*.png
+*.csv
+*.vot
+*.fits
