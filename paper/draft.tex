@@ -14,7 +14,6 @@
 \newcommand{\aspcap}{\textsl{ASPCAP}}
 \newcommand{\gaia}{\textsl{Gaia}}
 \newcommand{\zmass}{\textsl{2MASS}}
-\newcommand{\apass}{\textsl{APASS}}
 \newcommand{\sdssiv}{\textsl{SDSS-IV}}
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
@@ -60,7 +59,7 @@ Broadway, New York, NY 10003, USA}
 
 \begin{abstract}
 
-\thecannon\ \citep{Ness:2015} is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (\apogee; $\lambda/\Delta\lambda\sim22,500$, $1.5-1.7 \mathrm{\mu m}$) spectra of giant stars to estimate stellar labels (T$_{\rm eff}$, logg, [Fe/H]) to precisions higher than the model-grid pipeline. The lack of reliable stellar parameters reported by the \apogee\ pipeline for temperatures less than $\sim3550$K \citep{Schmidt:2016}, motivates the extension of this approach to M dwarf stars. Using a training sample of 87 M dwarfs ranging $2859 < T_{\rm eff} < 4131$K, and $-0.48 <$ [Fe/H] $< 0.49$ dex we train a two-parameter model precise to 68K and 0.07 dex respectively. We then train a one-dimensional spectral type model using 51 M dwarfs ranging M0-M9 obtained from SDSS optical spectra, and demonstrate that \thecannon\ can infer spectral types to a precision of 0.6 types. Finally we apply our models to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in the survey, and compare our results to \apogee\ pipeline measurements, and find our results to be significantly more precise and less biased than \aspcap\, with scatters of $\sim80-100$K comapred to color-temperature relations from several literature sources. 
+\thecannon\ \citep{Ness:2015} is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (\apogee; near-infrared) spectra of giant stars to estimate stellar labels (T$_{\rm eff}$, logg, [Fe/H]) to precisions higher than the model-grid pipeline. The lack of reliable stellar parameters reported by the \apogee\ pipeline for temperatures less than $\sim3550K$ \citep{Schmidt:2016}, motivates the extension of this approach to M dwarf stars. Using a training sample of 87 M dwarfs ranging $2859 < T_{\rm eff} < 4131$K, and $-0.48 <$ [Fe/H] $< 0.49$ we train a two-parameter model precise to 68K and 0.07 dex respectively. We then train a one-dimensional spectral type model using 51 M dwarfs ranging M0-M9 obtained from SDSS optical spectra, and demonstrate that \thecannon\ can infer spectral types to a precision of 0.6 types. Finally we apply our models to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in the survey and compare our results to \apogee\ pipeline measurements, and find our results to be significantly more precise and accurate than \aspcap, with scatters of $\sim80-100$K comapred to color-temperature relations from several literature sources.
 
 \end{abstract}
 
@@ -70,17 +69,25 @@ Broadway, New York, NY 10003, USA}
 \section{Introduction} \label{sec:intro}
 
 % \begin{enumerate}
-Very low mass (VLM) stars are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of local Milky way structure \citep{Bochanski:2007}. 
+Very low mass stars are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of local Milky way structure \citep{Bochanski:2007}. Relevance to exoplanet studies, and other reasons for scientific interest...
 
-Define what parameters/classifications are important for M dwarfs. We want to estimate empirical parameters/classifications (SPT, etc.), physical parameters (such as Teff, logg, metallicity), which we will refer to as \emph{stellar labels}. 
+Advances in instrumentation and the lauch of several large scale spectroscopic stellar surveys launched in the past decade have dramatically increased the sample of known M dwarfs, including the \citealt{West:2011} catalog of 70,0841 sources from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and the \citealt{Yi:2014} and \citealt{Guo:2015} catalogs of 93,619 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012}), which each have determined spectral subtype classifications, H$\alpha$ equivalent width, and a number of molecular band index measurements. Citations to any other large M dwarf catalogs that have 
 
-State why fundamental physical parameters are dificult to measure for M dwarfs. When temperatures and metallicities for a star are unavailable, it is often useful to classify a star in terms of spectral type. Define spectral type (this is a classification that is based on how a spectra looks, something to do with TiO band strengths, and it correlates with the temperature of a star). 
+The launch of the (\apogee; \citealt{Majewski:2015}) survey as part of the Sloan Digital Sky Survey III mission \citealt{Eisenstein:2011} has introduced the largest sample of M dwarfs observed with high resolution spectroscopy. \color{gcolor}{What about \apogee\'s wavelength coverage, resolution, selection and other specs allow us to do things with M dwarfs that other surveys/instruments can't? What }\color{black}
 
-Advances in instrumentation and the lauch of several large scale spectroscopic stellar surveys launched in the past decade have dramatically increased the sample of known M dwarfs, including the \citealt{West:2011} catalog of 70,0841 sources from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and the \citealt{Yi:2014} and \citealt{Guo:2015} catalogs of 93,619 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012}), which each have determined spectral subtype classifications, H$\alpha$ equivalent width, and a number of molecular band index measurements. 
+Define what parameters/classifications are important for M dwarfs.
 
-The launch of the (\apogee\; \citealt{Majewski:2015}) survey as part of the Sloan Digital Sky Survey III mission \citealt{Eisenstein:2011} has introduced the largest sample of M dwarfs observed with high resolution spectroscopy. \color{gcolor}{What about \apogee\'s wavelength coverage, resolution, selection and other specs allow us to do things with M dwarfs that other surveys/instruments can't?}\color{black}
+State why fundamental physical parameters are dificult to measure for M dwarfs. When temperatures and metallicities for a star are unavailable, it is often useful to classify a star in terms of spectral type. Define spectral type (this is a classification that is based on how a spectra looks, something to do with TiO band strengths, and it correlates with the temperature of a star).
 
-A number of M dwarf studies have already been conducted in \apogee\ (\citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs; \citealt{Souto:2017} -- modeled 2 M dwarfs, determined Teff/logg/metallicity + 13 elemental abundances; \citealt{Desphande:2013} -- modeled rotational and radial velocites for several hundred M dwarfs; \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity). \citealt{Gilhool:2018}; \citealt{Skinner:2018}.
+A number of M dwarf studies have already been conducted in \apogee\, particularly towards measuring reliable fundamental atmospheric parameters and kinematic measurements:
+\begin{enumerate}
+\item \citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs
+\item \citealt{Souto:2017} and \citealt{Souto:2018} -- modeled three exoplanet hosting M dwarfs (Kepler-138, Kepler-168 and Ross-128), determining Teff/logg/metallicity + 13 elemental abundances
+\item \citealt{Desphande:2013} -- modeled rotational and radial velocities for 200+ M dwarfs, later extended by \citealt{Gilhool:2018} to 700+ M dwarfs
+\item \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity)
+\item \citealt{Skinner:2018} - identified and measured mass ratios and radial velocities for 44 M dwarf binaries
+\end{enumerate}
+
 
 Why is there a problem labeling M dwarfs (and especially for high res \apogee\ spectra)? Emphasize issues: (1) models dont accurately reproduce data; (2) empirical standards are relative not absolute, and they are sparesely sampled. Several approaches to to determining physical parameters and the limitations:
 
@@ -92,9 +99,11 @@ Why is there a problem labeling M dwarfs (and especially for high res \apogee\ s
 \item using empirical classifications/templates/standards - SPT, luminosity class - this is a relative system but does not provide an absolute standard for measuring physical parameters
 \end{enumerate}
 
-Why \thecannon\ approach? brief importance statment cannon and what it does (cite \citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}) \color{gcolor}{For Hogg to articulate...}\color{black}
+Why \thecannon\ approach? brief importance statment cannon and what it does (cite \citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}) 
 
 \begin{enumerate}
+\item This paper will refer to any physical or empirical measurement of a star as \emph{stellar label}
+
 \item Can be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects; 
 
 \item Make the point that \thecannon\ does not require us to have good M-dwarf models in the \apogee\ wavelength range at all 
@@ -194,7 +203,7 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 
 
 \subsection{Test Sample \label{subsec:test_selection}} 
-Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \textsl{Gaia DR2} (\citealt{Brown:2018}) and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$, yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of ``safe'' single, main-sequence M stars, with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
+Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \textsl{Gaia DR2} (\citealt{Brown:2018}) and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$, yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for XXX sources out of 14,827 with $\chi^2<200,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
 
 \begin{enumerate}
 \item \textbf{Known contaminant cut:} We remove known pre-main sequence sources from \citealt{Cottaar:2014} (280 sources), and known binaries from \citealt{ElBadry:2018} and \citealt{Skinner:2018} (58 sources).
@@ -210,15 +219,15 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 The final selection for our ``safe'' is displayed in Figure \ref{fig:safe_selection}. We also note that applying our model requires very little computational demand: the time to run a model on all 14,827 sources was two minutes on a personal laptop.
 
-In \citealt{Schmidt:2016} the authors used three different color-temperature relations to check the consistency of \aspcap\ temperature values using a combination of \zmass\ and visual band photometries. \color{gcolor}{Brief description of the color-teff relations from \citealt{Casagrande:2008}, \citealt{Boyajian:2013}, and \citealt{Mann:2015}...}\color{black}. To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (\apass; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by \apass, and $JHK$ photometries from \apogee. In Figure \ref{fig:aspcap_cannon_validation} we repeat the temperature validation tests for each of the three relations and compare the \aspcap\ temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
+In \citealt{Schmidt:2016} the authors used three different color-temperature relations to check the consistency of \aspcap\ temperature values using a combination of \zmass\ and visual band photometries. \color{gcolor}{Brief description of the color-teff relations from \citealt{Casagrande:2008}, \citealt{Boyajian:2013}, and \citealt{Mann:2015}...}\color{black}. 
 
-The gradients in the color magnitude diagrams of Figure \ref{fig:safe_selection} demonstrate the expected negative correlation between empirical \gaia\ $BP-RP$ colors and West-trained spectral classifications with the physical Mann-trained temperatures. Spectral type decreases nonlinearly with temperature... negatively correlated with metallcity for spectral types hotter than M3
+To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. In Figure \ref{fig:aspcap_cannon_validation} we repeat the temperature validation tests for each of the three relations and compare the \aspcap\ temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
 
 %%==========================================================================================
 \section{Discussion} \label{sec:discussion}
 
 \begin{enumerate}
-\item[-] Brief summary of what we did and found...
+\item[-] Brief summary of what we did and found
 
 \item[-] Things we learned along the way: For example, not all training sets worked well in our experiments, probably because they were too small or had too little dynamic range.
 
@@ -226,7 +235,7 @@ The gradients in the color magnitude diagrams of Figure \ref{fig:safe_selection}
 
 \item[-] Some discussion of whether the derivatives are sensible or surprising. 
 
-\item[-] \thecannon\ as a test of evaluating training parameter accuracy? 
+\item[-] \thecannon\ as a test of evaluating training parameter accuracy?
 
 \item[-] Discussion of validation tests and ground truth
 \end{enumerate}
@@ -318,7 +327,7 @@ We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"
 
 \begin{figure}[ht]
 \plotone{figures/spt_vs_teff_vs_feh.png}
-\caption{West-trained spectral types vs. Mann-trained metallcities and temperatures. For each integer spectral type bin the mean temperatures and metallicities are shown as red error boxes. \label{fig:west_vs_mann_labels}}
+\caption{West-trained spectral types vs. Mann-trained metallcities and temperatures. For each integer spectral type bin the mean temperatures and metallicities are shown as red error boxes. \label{fig:west_vs_mann}}
 \end{figure}
 
 \begin{figure}[ht]
