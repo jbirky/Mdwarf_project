@@ -15,6 +15,7 @@
 \newcommand{\gaia}{\textsl{Gaia}}
 \newcommand{\zmass}{\textsl{2MASS}}
 \newcommand{\sdssiv}{\textsl{SDSS-IV}}
+\newcommand{\teff}{T_{\rm eff}}
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
 \definecolor{gcolor}{RGB}{51, 153, 51}
@@ -53,6 +54,7 @@ Broadway, New York, NY 10003, USA}
 
 \author[0000-0003-3654-1602]{Andrew Mann}
 \affil{Department of Astronomy, Columbia University, 550 West 120th Street, New York, NY 10027, USA}
+\altaffiltext{5}{Department of Physics and Astronomy, The University of North Carolina at Chapel Hill, Chapel Hill, NC 27599, USA}
 
 \author[0000-0002-6523-9536]{Adam Burgasser}
 \affil{Center for Astrophysics and Space Science, University of California San Diego, La Jolla, CA 92093, USA}
@@ -137,12 +139,18 @@ For the purpose of this study we have constructed two different training samples
 
 The spectral type sample consists of 51 sources, spanning M0-M9 cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from SDSS. For each source in the catalog, spectral types were determined both through an automated routine using The Hammer \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
 
-The physical parameter sample consists of 87 sources with reference labels distributed over $2859 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49, 41 sources of which are drawn from \citealt{Mann:2015} (hereafter M15), and 46 of which are part of an previously unpublished extension sample. The M15 catalog in total contains 183 sources selected from CONCH-SHELL \citep{Gaidos:2013} and with infrared spectra taken in follow up from the SpeX Spectograph. Effective temperatures are measured by comparison of BT-SETTL atmospheric models \citep{Allard:2011} to optical spectra. A subsample of 29 sources with measured angular diameters and bolometric fluxes from long-baseline optical interferometry are used to callibrate effective temperature measurements. Relative uncertainty from the callibration sample is measured to be \color{red}{$\sim$30K (check this)}\color{black}, which added in quadrature to the scatter from model comparison gives a total reported uncertainty of $\sim$60K in T$_{\rm eff}$. Derivation of [Fe/H] and reported uncertainty are...
+The physical parameter sample consists of 87 sources with reference labels distributed over $2859 < T_{\rm eff} < 4131K$, and -0.48 $<$ [Fe/H] $<$ 0.49, 41 sources of which are drawn from \citealt{Mann:2015} (hereafter M15), and 46 of which are part of an previously unpublished extension sample to M15 analyzed using similar data and identical techniques to M15. The M15 catalog in total contains 183 sources and the extension sample another 500 primarily selected from the proper-motion selected CONCH-SHELL \citep{Gaidos:2013} M dwarf catalog. All targets have low-res optical spectra from the SNIFS specgrograph \citep{Lantz:2004} and infrared spectra taken with the SpeX Spectograph \citep{Rayner:2003}, which have been combined to estaimte largely empirical bolometric fluxes. Effective temperatures have been estimated by comparing the SNIFS spectra to BT-SETTL atmospheric models \citep{Allard:2011}. A subsample of 29 sources with measured angular diameters from long-baseline optical interferometry \citep{Boyajian:2012} are used to calibrate the model comparison, including masking of spectral regions poorly reproduced by the model spectra \citep{Mann:2013c}. Based on difference between assigned \teff\ values and those from angular diameters, absolute uncertainty on \teff\ is esitmated to be 60K in T$_{\rm eff}$, although the relative uncertainty is likely a factor of $\simeq$2 better.
+%AWM: I realized I've never actaully sat down and rigorously measured the relative Teff uncertainty. The results from the Cannon actually suggest ~30 is not bad. I just did some quick tests, and I'm not prepared to put an absolute number on it. A \simeq 30 here should be safeish.
+
+Iron abundances ([Fe/H]) are assignied to the physical parameter sample based on the strenngth of metal-sensitive lines in the near-infrared SpeX spectra \citep{RojasAyala:2010} using the calibration from \citet{Mann:2013a}. The relation between these lines and an absolute [Fe/H] scale is calibrated using wide binaries containing and F, G, or K-type primary and an M dwarf companion, under the assumption that binaries formed from the same molecular cloud and therefore have the same metallicity \citep{Bonfils:2005}. Uncertainties are estimated to be $\simeq$0.08\,dex based on irreducable scatter in the empirical relation between selected lines and the assigned [Fe/H] from the primary star. As with \teff\ relative errors on [Fe/H] are smaller, estimated to be 0.04-0.06\,dex over most of the temperature and metallicity range considered here.
 
 Spectral types reported by M15 for the sources using optical molecular band indices (by the method of \citealt{Lepine:2013}) and ranged K7.3--M4.9 for the subsample we used, although these labels were not included in the model training.
 
-We note that surface gravity (logg) and rotational velocity (vsini) parameters are not included as training labels because...
-\color{gcolor}{MANN: comments to add? particularly about the extension sample?}\color{black}
+We note that surface gravity is not inclided as a training label. The reason for this is that for main-sequence M dwarfs, the parameter is almost entirely redundant with metallicity. Unlike their higher-mass counterparts, M dwarf properties do not change measurably over the age of the Universe. Hence perfect knowledge of abundances and \teff\ for an M dwarf should uniquely determine its position on a color-magnitude diagram as well as its other fundamental properties. While we only have [Fe/H], for the uncertainties considered here, lack of information about other abundances will only be important for stars with extreme abundance patters (e.g., Carbon stars). Since we have no such targets in the training set, we could not handle such objects. 
+
+%%AWM: Feel free to edit this for clarity. Let me know if anything makes no sense. 
+%We note that rotational velocity (vsini) is not a parameter are not included as training labels because that would be hard... also it's probably not needed... I'll let someone else write that. -AWM
+%\color{gcolor}{}\color{black}
 
 \subsection{Data Processing}
 
