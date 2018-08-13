@@ -202,11 +202,12 @@ Test step description...
 
 
 %%==========================================================================================
-\section{Experimental Results} \label{sec:results}
+\section{Experiments and Results} \label{sec:results}
 
-\subsection{Training Sample}
+\subsection{Temperature/Metallicity Model \label{subsec:mann_results}}
+For the physical parameter model we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model 6 out of 87 sources show strong visible rotational line broadening (as indicated by the red circles in Figure \ref{fig:mann_validation}), while the remaining sources are mostly old ($>8$ Gyr) and likely slowly rotating sources. While these sources with high rotational broadening have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), we find that the scatter of labels derived for these sources is consistent with the rest of the sample and we do not remove them from the training sample.
 
-For each model, two tests of consistency were used to assess the validity of our derived test labels: (1) the self-test comparing training labels and test labels, and (2) the leave-one-out cross validation test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to get the labels for \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test labels respectively.
+Two tests of consistency were used to assess the validity of our derived test labels: (1) the self-test comparing training labels and test labels, and (2) the leave-one-out cross validation test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to get the labels for \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test labels respectively. JB: POINT TO THESE RESULTS FOR THIS MODEL IN THE FIGURES
 
 Another mode of analysis we can look at with \thecannon\ is how the derivative of the model changes with respect to given training parameter, which makes our model interpretable for discovering or verifying atomic or molecular lines with strong dependence on different physical parameters. As discussed further in sections \ref{subsec:mann_results} and \ref{subsec:west_results}, we show the derivative plots of each of our two models and compute the error of the derivative at each pixel using a jackknife statistic:
 \begin{equation}
@@ -214,19 +215,16 @@ Another mode of analysis we can look at with \thecannon\ is how the derivative o
 \end{equation}
 where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total number of stars in the sample, indexed by \emph{n}, $\theta$ is the coeffient vector trainined on all N sources, and $\theta_{/n}$ is the coefficient vector trained on \emph{N-1} sources excluding star \emph{n}.
 
-
-\subsubsection{Temperature/Metallicity Model \label{subsec:mann_results}}
-For the physical parameter model we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model 6 out of 87 sources show strong visible rotational line broadening (as indicated by the red circles in Figure \ref{fig:mann_validation}), while the remaining sources are mostly old ($>8$ Gyr) and likely slowly rotating sources. While these sources with high rotational broadening have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), we find that the scatter of labels derived for these sources is consistent with the rest of the sample and we do not remove them from the training sample.
-
 \color{gcolor}{Some note on what lines vary significantly with parameter...}\color{black}
 
 \color{gcolor}{HOGG: Some commentary on why $\chi^2$ is higher than expected.}\color{black}
 
-\subsubsection{Spectral Type Model \label{subsec:west_results}}
+\subsection{Spectral Type Model \label{subsec:west_results}}
 We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.6 spectral types, more precise than the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs well at re-deriving the labels for the M8 and M9 source when they are included in the model (less than 1 SPT difference), but badly when left out (over 2 SPT difference), which indicates \thecannon\ does a poor job at extrapolating to labels outside of the training sample space. 
 
-\color{gcolor}{Further assessment of the reliability of our model for late types?...}\color{black}
+JB: NOW POINT HERE TO THE RESULTS OF THE CROSS-VALIDATION AND ETC.
 
+\color{gcolor}{Further assessment of the reliability of our model for late types?...}\color{black}
 
 \subsection{Test Sample \label{subsec:test_selection}} 
 Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \textsl{Gaia DR2} (\citealt{Brown:2018}) and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$, yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for XXX sources out of 14,827 with $\chi^2<200,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
@@ -245,9 +243,17 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 The final selection for our ``safe'' is displayed in Figure \ref{fig:safe_selection}. We also note that applying our model requires very little computational demand: the time to run a model on all 14,827 sources was two minutes on a personal laptop.
 
+JB: NOW POINT TO RESULTS FIGURES AND SUMMARIZE THEM, IF THERE IS ANYTHING ELSE?
+
+\subsection{Validation of parameters}
+
 In \citealt{Schmidt:2016} the authors used three different color-temperature relations to check the consistency of \aspcap\ temperature values using a combination of \zmass\ and visual band photometries. \color{gcolor}{Brief description of the color-teff relations from \citealt{Casagrande:2008}, \citealt{Boyajian:2013}, and \citealt{Mann:2015}...}\color{black}. 
 
 To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. In Figure \ref{fig:aspcap_cannon_validation} we repeat the temperature validation tests for each of the three relations and compare the \aspcap\ temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
+
+JB ALSO POINT TO FIGURES THAT CONNECT TYPES TO PARAMETERS. AND DISCUSS.
+
+JB DO WE WANT A FIGURE THAT SHOWS ABUNDANCES AS A FUNCTION OF MILKY WAY POSITION OR ACTIONS?
 
 %%==========================================================================================
 \section{Discussion} \label{sec:discussion}
@@ -264,6 +270,8 @@ To obtain visual band magnitudes for a set of sources, we cross-matched the 10,3
 \item[-] \thecannon\ as a test of evaluating training parameter accuracy?
 
 \item[-] Discussion of validation tests and ground truth
+
+\item[-] HOGG: Discussion of the implications of these results for the NASA \tess\ Mission and how the future might change..?
 \end{enumerate}
 
 %%==========================================================================================
