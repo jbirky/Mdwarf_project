@@ -189,14 +189,24 @@ Following from the procedure of \citealt{Ness:2015} and \citealt{Ho:2017a} we ad
 \end{equation}
 We use the noise model is ${\rm noise}=[s_{\lambda}^2 + \sigma_{n\lambda}^2]\xi_{n\lambda}$, where the bracketed term is the root mean sum of the intrinsic scatter of the model at each pixel \emph{$s_{\lambda}$}, and the uncertainty due to instrumental effects \emph{$\sigma_{n\lambda}$}, which is then multiplied times a Gaussian random number $\xi_{n\lambda} \sim \mathcal{N} (0,1)$. 
 
-Quadratic label vectors:
-	\[\ell_{n} = [1, \, SPT, \, SPT^{2}] \]
-	\[\ell_{n} = [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}] \]
+Quadratic label vectors for the two models that we will build:
+\begin{eqnarray}
+\ell_{n} &=& [1, \, SPT, \, SPT^{2}]
+\\
+\ell_{n} &=& [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}]
+,
+\end{eqnarray}
+where the first is for JB WHAT and the second is for JB WHAT?
 
-The training step description...
+JB: The training step description: OPTIMIZE THETA AT FIXED LABELS.
 
-Test step description...
+JB: Test step description: OPTIMIZE LABELS AT FIXED THETA.
 
+Thus \thecannon\ is both a generative model for the stellar spectra, and a method for obtaining
+labels from spectra. In the training step, the regression is designed to predict spectral pixels
+given labels, by learning zeroth, first, and second derivatives of the data with respect to
+the labels. In the test step, the regression is designed to predict labels given the spectral
+derivatives.
 
 %%==========================================================================================
 \section{Experiments and Results} \label{sec:results}
