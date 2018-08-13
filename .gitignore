@@ -1,6 +1,8 @@
 *.ipynb_checkpoints
 __pycache__
 *.aux
+*.dvi
+*.log
 *.fdb_latexmk
 *.fls
 *.log
@@ -14,3 +16,4 @@ __pycache__
 *.csv
 *.vot
 *.fits
+*~
