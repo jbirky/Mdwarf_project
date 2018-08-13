@@ -189,14 +189,14 @@ Following from the procedure of \citealt{Ness:2015} and \citealt{Ho:2017a} we ad
 \end{equation}
 We use the noise model is ${\rm noise}=[s_{\lambda}^2 + \sigma_{n\lambda}^2]\xi_{n\lambda}$, where the bracketed term is the root mean sum of the intrinsic scatter of the model at each pixel \emph{$s_{\lambda}$}, and the uncertainty due to instrumental effects \emph{$\sigma_{n\lambda}$}, which is then multiplied times a Gaussian random number $\xi_{n\lambda} \sim \mathcal{N} (0,1)$. 
 
-Quadratic label vectors for the two models that we will build:
+We apply a quadratic parameterization of the model such that the label vectors for the two models that we will build are:
 \begin{eqnarray}
-\ell_{n} &=& [1, \, SPT, \, SPT^{2}]
+\ell_{n} &=& [1, \, SPT, \, SPT^{2}] \label{eqn:spt}
 \\
-\ell_{n} &=& [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}]
+\ell_{n} &=& [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff}^2, \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}] \label{eqn:physical}
 ,
 \end{eqnarray}
-where the first is for JB WHAT and the second is for JB WHAT?
+Equation (\ref{eqn:spt}) is the label vector for the spectral type model with a highest order of 2, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model of order 2 including a cross term between the two labels.
 
 JB: The training step description: OPTIMIZE THETA AT FIXED LABELS.
 
