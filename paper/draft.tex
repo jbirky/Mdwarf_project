@@ -62,14 +62,14 @@ Broadway, New York, NY 10003, USA}
 \affil{Center for Astrophysics and Space Science, University of California San Diego, La Jolla, CA 92093, USA}
 
 \begin{abstract}
-\thecannon\ is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (\apogee; near-infrared) spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H]) to precisions higher than the model-grid pipeline.
-The lack of reliable stellar parameters reported by the \apogee\ pipeline for temperatures less than $\sim$3500K motivates the extension of this approach to M dwarf stars, but with new training labels.
+\thecannon\ is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution, near-infrared \apogee\ spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H], and detailed abundances) to precisions higher than the \apogee\ survey model-grid pipelines.
+The lack of reliable stellar models in the near infrared for temperatures $<3500$\,K motivates the extension of this approach to M-dwarf stars, but with new training labels from optical surveys that overlap \sdssiv\ \apogee.
 Using a training sample of 87 M dwarfs in the temperature range $2859 < T_{\rm eff} < 4131$\,K, and metallicty range $-0.48 < \mathrm{[Fe/H]}< 0.49$\,dex, we train a two-parameter model with predictive accuracy (in cross-validation) to 68\,K and 0.07\,dex respectively.
 We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging from M0 to M9, and demonstrate that \thecannon\ acting on \apogee\ spectra can infer spectral types with predictive accuracy of 0.6 types.
 The trained models are employed to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in \apogee, selected in part on \gaia\ photometry and astrometry.
 We validate our results using photometric temperature indicators and the \gaia\ color--magnitude diagram.
 As a side result, we determine empirical relationships between spectral type and temperature and metallicity.
-These results have implications for the \tess\ Mission and other projects that involve large samples of M dwarfs.
+These results have implications for the NASA \tess\ Mission and other projects that involve large samples of M dwarfs.
 \end{abstract}
 
 \keywords{
@@ -89,7 +89,6 @@ surveys
 %%==========================================================================================
 \section{Introduction} \label{sec:intro}
 
-% \begin{enumerate}
 Very low mass stars are the most abundant type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010} and are known to have lifespans longer than the age of the universe (billions or up to trillions of years) \citep{Laughlin:1997} making them an interesting probe of local Milky way structure \citep{Bochanski:2007}. Relevance to exoplanet studies, and other reasons for scientific interest...
 
 Advances in instrumentation and the lauch of several large scale spectroscopic stellar surveys launched in the past decade have dramatically increased the sample of known M dwarfs, including the \citealt{West:2011} catalog of 70,0841 sources from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and the \citealt{Yi:2014} and \citealt{Guo:2015} catalogs of 93,619 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012}), which each have determined spectral subtype classifications, H$\alpha$ equivalent width, and a number of molecular band index measurements. Citations to any other large M dwarf catalogs that have 
