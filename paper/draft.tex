@@ -17,6 +17,7 @@
 \newcommand{\sdss}{\textsl{SDSS}}
 \newcommand{\lamost}{\textsl{LAMOST}}
 \newcommand{\sdssiv}{\textsl{SDSS-IV}}
+\newcommand{\tess}{\textsl{TESS}}
 \newcommand{\teff}{$T_{\rm eff}$}
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
@@ -35,10 +36,9 @@
 \shorttitle{Birky et al.}
 \shortauthors{Birky et al.}
 
-
 \begin{document}
 
-\title{TEMPERATURES AND METALLICITIES FOR 10,000+ M DWARFS IN THE \apogee\  SURVEY}
+\title{TEMPERATURES AND METALLICITIES FOR 10,000 M DWARFS\\ IN THE \apogee\ SURVEY}
 
 \correspondingauthor{Jessica Birky}
 \email{jbirky@ucsd.edu}
@@ -62,12 +62,25 @@ Broadway, New York, NY 10003, USA}
 \affil{Center for Astrophysics and Space Science, University of California San Diego, La Jolla, CA 92093, USA}
 
 \begin{abstract}
-
-\thecannon\ \citep{Ness:2015} is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (\apogee; near-infrared) spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H]) to precisions higher than the model-grid pipeline. The lack of reliable stellar parameters reported by the \apogee\ pipeline for temperatures less than $\sim$3550K \citep{Schmidt:2016}, motivates the extension of this approach to M dwarf stars. Using a training sample of 87 M dwarfs ranging $2859 < T_{\rm eff} < 4131$K, and $-0.48 <$ [Fe/H] $< 0.49$ we train a two-parameter model precise to 68K and 0.07 dex respectively. We then train a one-dimensional spectral type model using 51 M dwarfs ranging M0-M9 obtained from SDSS optical spectra, and demonstrate that \thecannon\ can infer spectral types to a precision of 0.6 types. Finally we apply our models to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in the survey and compare our results to \apogee\ pipeline measurements, and find our results to be significantly more precise and accurate than \aspcap, with scatters of $\sim80-100$K comapred to color-temperature relations from several literature sources.
-
+\thecannon\ is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution Apache Point Galactic Evolution Experiment (\apogee; near-infrared) spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H]) to precisions higher than the model-grid pipeline.
+The lack of reliable stellar parameters reported by the \apogee\ pipeline for temperatures less than $\sim$3500K motivates the extension of this approach to M dwarf stars, but with new training labels.
+Using a training sample of 87 M dwarfs in the temperature range $2859 < T_{\rm eff} < 4131$\,K, and metallicty range $-0.48 < \mathrm{[Fe/H]}< 0.49$\,dex, we train a two-parameter model with predictive accuracy (in cross-validation) to 68\,K and 0.07\,dex respectively.
+We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging from M0 to M9, and demonstrate that \thecannon\ acting on \apogee\ spectra can infer spectral types with predictive accuracy of 0.6 types.
+The trained models are employed to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in \apogee.
+We validate our results using photometric temperature indicators and the \gaia\ color--magnitude diagram.
+As a side result, we determine empirical relationships between spectral type and temperature and metallicity.
+These results have implications for the \tess\ Mission and other projects that involve large samples of M dwarfs.
 \end{abstract}
 
-% \keywords{stars: Mdwarfs -- stellar parameters}
+\keywords{
+surveys
+ ---
+stars: Mdwarfs
+ ---
+stellar parameters
+ ---
+methods:~data~analysis
+}
  
 %%==========================================================================================
 \section{Introduction} \label{sec:intro}
@@ -252,7 +265,13 @@ To obtain visual band magnitudes for a set of sources, we cross-matched the 10,3
 
 %%==========================================================================================
 \acknowledgements
-We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality. \color{gcolor}{HOGG: SDSS acknowledgments... Grants and stuff...}\color{black}  
+We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality.
+
+\color{gcolor}{HOGG: grants etc}
+
+\color{gcolor}{JB: SDSS acknowledgment}
+
+\color{gcolor}{JB: Gaia acknowledgment}
 
 %%==========================================================================================
 %% Figures
