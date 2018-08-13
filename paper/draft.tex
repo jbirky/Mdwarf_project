@@ -49,10 +49,10 @@
 
 \author[0000-0003-2866-9403]{David W. Hogg}
 \affil{Max-Planck-Institut f\"ur Astronomie, K\"onigstuhl 17, D-69117 Heidelberg, Germany}
-\affil{Center for Computational Astrophysics, Flatiron Institute, 162 Fifth Ave, New York, NY 10010, USA}
 \affil{Center for Cosmology and Particle Physics, Department of Physics, New York University, 726
 Broadway, New York, NY 10003, USA}
 \affil{Center for Data Science, New York University, 60 Fifth Ave, New York, NY 10011, USA}
+\affil{Center for Computational Astrophysics, Flatiron Institute, 162 Fifth Ave, New York, NY 10010, USA}
 
 \author[0000-0003-3654-1602]{Andrew W. Mann}
 \affil{Department of Astronomy, Columbia University, 550 West 120th Street, New York, NY 10027, USA}
@@ -148,7 +148,6 @@ The \apogee\ survey \citep{Majewski:2015} of the Sloan Digital Sky Survey III an
 
 \apogee\ is primarily targeted for bright stellar populations, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by the M dwarf ancilliary survey (1,350 sources selected by proper motions from the  \citealt{Desphande:2013}), or randomly by \apogee\, which we quantify in this study to be over 10,000 in total.
 
-
 \subsection{Training Sample Selection}
 
 \thecannon\ is a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:cannon}). The model in this sense is used to \emph{transfer} labels from spectra which we know parameters for to those which we do not. Hence this data-driven approach effectively removes the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (ideally very accurately measured) \emph{reference labels} that can be measured from other surveys/methods that are easier or more accurate to infer from. 
@@ -176,9 +175,7 @@ We note that surface gravity is not inclided as a training label. The reason for
 
 
 %%==========================================================================================
-\section{Methods} \label{sec:cannon}
-
-\subsection{\thecannon\: A Data-Driven Approach}
+\section{Method}\label{sec:cannon}
 
 \thecannon\ is a fully empirical model, which applies no use of line lists or radiative transfer models. Describe the assumptions of the model: (1) Sources with identical labels have near-identical flux at each pixel; (2) Expected flux at each pixel varies continuosly with change in label. 
 
