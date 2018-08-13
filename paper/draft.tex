@@ -171,7 +171,7 @@ The \apogee\ survey \citep{Majewski:2015} of the Sloan Digital Sky Survey III an
 
 For the purpose of this study we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second a two-dimensional \emph{physical parameter model} which describes the temperature and metallicity. The choice of training labels, dimensionality of our data set, and requirements for a good training set we discuss further in Section \ref{sec:discussion}.
 
-The spectral type sample consists of 51 sources, spanning M0-M9 cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from \sdss. For each source in the catalog, spectral types were determined both through an automated routine using The Hammer \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
+The spectral type sample consists of 51 sources, spanning M0-M9 cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from \sdss. For each source in the catalog, spectral types were determined both through an automated routine using \textsl{The Hammer} \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
 
 The physical parameter sample consists of 87 sources with reference labels distributed over $2859 <T_{\rm eff} < 4131$K, and $-0.48 <$ [Fe/H] $< 0.49$, 41 sources of which are drawn from \citealt{Mann:2015} (hereafter M15), and 46 of which are part of an previously unpublished extension sample to M15 analyzed using similar data and identical techniques to M15. The M15 catalog in total contains 183 sources and the extension sample another 500 primarily selected from the proper-motion selected CONCH-SHELL \citep{Gaidos:2013} M dwarf catalog. All targets have low-res optical spectra from the SNIFS specgrograph \citep{Lantz:2004} and infrared spectra taken with the SpeX Spectograph \citep{Rayner:2003}, which have been combined to estaimte largely empirical bolometric fluxes. Effective temperatures have been estimated by comparing the SNIFS spectra to BT-SETTL atmospheric models \citep{Allard:2011}. A subsample of 29 sources with measured angular diameters from long-baseline optical interferometry \citep{Boyajian:2012} are used to calibrate the model comparison, including masking of spectral regions poorly reproduced by the model spectra \citep{Mann:2013c}. Based on difference between assigned \teff\ values and those from angular diameters, absolute uncertainty on \teff\ is esitmated to be 60K in \teff, although the relative uncertainty is likely a factor of $\simeq$2 better.
 %AWM: I realized I've never actaully sat down and rigorously measured the relative Teff uncertainty. The results from the Cannon actually suggest ~30 is not bad. I just did some quick tests, and I'm not prepared to put an absolute number on it. A \simeq 30 here should be safeish.
@@ -206,14 +206,14 @@ Following from the procedure of \citealt{Ness:2015} and \citealt{Ho:2017a} we ad
 \end{equation}
 We use the noise model is ${\rm noise}=[s_{\lambda}^2 + \sigma_{n\lambda}^2]\xi_{n\lambda}$, where the bracketed term is the root mean sum of the intrinsic scatter of the model at each pixel \emph{$s_{\lambda}$}, and the uncertainty due to instrumental effects \emph{$\sigma_{n\lambda}$}, which is then multiplied times a Gaussian random number $\xi_{n\lambda} \sim \mathcal{N} (0,1)$. 
 
-Quadratic label vectors for the two models that we will build:
+We apply a quadratic parameterization of the model such that the label vectors for the two models that we will build are:
 \begin{eqnarray}
-\ell_{n} &=& [1, \, SPT, \, SPT^{2}]
+\ell_{n} &=& [1, \, SPT, \, SPT^{2}] \label{eqn:spt}
 \\
-\ell_{n} &=& [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}]
+\ell_{n} &=& [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff}^2, \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}] \label{eqn:physical}
 ,
 \end{eqnarray}
-where the first is for JB WHAT and the second is for JB WHAT?
+Equation (\ref{eqn:spt}) is the label vector for the spectral type model with a highest order of 2, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model of order 2 including a cross term between the two labels.
 
 JB: The training step description: OPTIMIZE THETA AT FIXED LABELS.
 
