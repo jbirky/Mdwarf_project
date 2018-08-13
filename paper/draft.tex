@@ -66,20 +66,24 @@ Broadway, New York, NY 10003, USA}
 The lack of reliable stellar parameters reported by the \apogee\ pipeline for temperatures less than $\sim$3500K motivates the extension of this approach to M dwarf stars, but with new training labels.
 Using a training sample of 87 M dwarfs in the temperature range $2859 < T_{\rm eff} < 4131$\,K, and metallicty range $-0.48 < \mathrm{[Fe/H]}< 0.49$\,dex, we train a two-parameter model with predictive accuracy (in cross-validation) to 68\,K and 0.07\,dex respectively.
 We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging from M0 to M9, and demonstrate that \thecannon\ acting on \apogee\ spectra can infer spectral types with predictive accuracy of 0.6 types.
-The trained models are employed to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in \apogee.
+The trained models are employed to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in \apogee, selected in part on \gaia\ photometry and astrometry.
 We validate our results using photometric temperature indicators and the \gaia\ color--magnitude diagram.
 As a side result, we determine empirical relationships between spectral type and temperature and metallicity.
 These results have implications for the \tess\ Mission and other projects that involve large samples of M dwarfs.
 \end{abstract}
 
 \keywords{
-surveys
- ---
-stars: Mdwarfs
- ---
-stellar parameters
+infrared:~stars
  ---
 methods:~data~analysis
+ ---
+stars:~abundances
+ ---
+stars:~fundamental~parameters
+ ---
+stars:~late-type
+ ---
+surveys
 }
  
 %%==========================================================================================
