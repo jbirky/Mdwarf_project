@@ -5,3 +5,5 @@ Notebooks and scripts for training [The Cannon](https://github.com/annayqho/TheC
 ### Authors
 * Jessica Birky (UCSD)
 * David Hogg (NYU/MPIA/Flatiron)
+* Andrew Mann (UNC)
+* Adam Burgasser (UCSD)
