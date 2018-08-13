@@ -450,8 +450,8 @@ We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"
 \begin{deluxetable*}{cccccccccc}
 \tabletypesize{\scriptsize}
 \tablecaption{Temperatures/Metallicities (from Mann-trained model), and spectral types (from West-trained model) for the sample 10,311 APOGEE M dwarfs, as well as goodness of fit for the respective models. \label{test_results_table}}
-\tablehead{\colhead{APOGEE ID} & \colhead{Gaia\ ID} & \colhead{RA}  & \colhead{DEC} & \colhead{\teff} 
-& \colhead{[Fe/H]}  & \colhead{SPT} & \colhead{$\chi^2$ Mann} & \colhead{$\chi^2$ West} & \colhead{\nodata}}   
+\tablehead{\colhead{APOGEE ID} & \colhead{Gaia\ ID} & \colhead{RA}  & \colhead{DEC} & \colhead{\teff} & \colhead{[Fe/H]}  & \colhead{SPT} & \colhead{$\chi^2$ Mann} & \colhead{$\chi^2$ West} & \colhead{\nodata} \\
+ &  & (deg)  & (deg) & (K) & (dex) &  &  &  & }   
 \startdata
 2M00432365+0332534 & 413814124681430528  & 10.848967  & 3.548273   & 3417 & 0.18  & 3.0 & 7910  & 7912   & \nodata \\
 2M10382316+2457051 & 808931427773946112  & 159.596215 & 24.951373  & 3358 & -0.25 & 3.4 & 19051 & 25518  & \nodata \\
@@ -476,8 +476,6 @@ We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"
 2M08162613+3250515 & 3053990410555781120 & 124.108745 & 32.84736   & 3837 & -0.15 & 1.8 & 30389 & 35103  & \nodata \\
 2M10414608+2435412 & 3758656623830055168 & 160.441928 & 24.594731  & 4020 & -0.19 & 1.1 & 41857 & 36934  & \nodata \\
 2M14373854+5014502 & 1188221157913600384 & 219.410555 & 50.247523  & 3380 & -0.13 & 3.2 & 35397 & 41989  & \nodata \\
-2M13444572+0012349 & 1475140469529542656 & 206.19035  & 0.209419   & 3782 & -0.28 & 2.0 & 12155 & 12707  & \nodata \\
-2M21275902+1332166 & 1817731181599810944 & 321.995889 & 13.537918  & 3997 & 0.18  & 0.6 & 78906 & 67503 & \nodata \\
 \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
 \enddata
 \end{deluxetable*}
@@ -491,7 +489,8 @@ We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"
 \begin{deluxetable*}{cccccccccc}
 \tabletypesize{\scriptsize}
 \tablecaption{Positions and 3D kinematics for 10,311 M dwarfs; parallaxes and proper motions from \gaia\ + radial velocities from \apogee.}
-\tablehead{\colhead{\nodata} & \colhead{$\varpi$} & \colhead{$\sigma_\varpi$} & \colhead{$\mu_\alpha$}  & \colhead{$\sigma_{\mu\alpha}$} & \colhead{$\mu_\delta$} & \colhead{$\sigma_{\mu\delta}$}  & \colhead{$v_{los}$} & \colhead{\nodata}}   
+\tablehead{\colhead{\nodata} & \colhead{$\varpi$} & \colhead{$\sigma_\varpi$} & \colhead{$\mu_\alpha$}  & \colhead{$\sigma_{\mu\alpha}$} & \colhead{$\mu_\delta$} & \colhead{$\sigma_{\mu\delta}$}  & \colhead{$v_{los}$} & \colhead{\nodata} \\
+ & (mas) & (mas) & (mas/yr)  & (mas/yr) & (mas/yr) & (mas/yr)  & (km/s) & \colhead{\nodata}}   
 \startdata
 \nodata & 0.4095971279793963  & 0.018344701025907368 & 94.6092250382206    & 0.2326543993399578  & 21.139312054788142  & 0.10645732514148187  & -14.8169    & \nodata \\
 \nodata & 0.7907713253583666  & 0.05017993250995411  & -61.145608504420785 & 0.19267235934981508 & -9.292283439334902  & 0.191605833991544    & 30.0646     & \nodata \\
@@ -516,8 +515,6 @@ We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"
 \nodata & 0.3373361076141824  & 0.020908617609888186 & -23.51284581625556  & 0.1281836138293499  & -51.21200709697348  & 0.07993530283388152  & 67.9022     & \nodata \\
 \nodata & 0.9508792557786656  & 0.04214796908087648  & -23.92315869160129  & 0.10866864291003138 & -18.19346642794714  & 0.11087251384043836  & -0.941346   & \nodata \\
 \nodata & 2.6649412215771706  & 0.02575193557459232  & -11.654902067800947 & 0.0765638732657513  & 55.80843779696036   & 0.07016094187926156  & 15.9426     & \nodata \\
-\nodata & 1.0588602017295168  & 0.03531208113851025  & -33.94690128799879  & 0.14827664116823172 & -67.52530689866221  & 0.10435398589835812  & 46.9949     & \nodata \\
-\nodata & 0.18385583304779304 & 0.027656036948018537 & -11.332297533362624 & 0.04670812215256213 & -12.924309762298892 & 0.0502953286981639   & -13.1057   & \nodata \\
 \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
 \enddata
 \end{deluxetable*}
@@ -556,8 +553,6 @@ We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"
 \nodata & 13.95300006866455  & 13.29300022125244  & 13.10099983215332  & 13.099073          & 13.74368            & 12.342266           \\
 \nodata & 14.246000289916992 & 13.595000267028807 & 13.397000312805176 & 11.854821          & 12.39487            & 11.183031           \\
 \nodata & 13.241999626159668 & 12.670999526977539 & 12.432000160217285 & 13.945971          & 14.459273           & 13.295053           \\
-\nodata & 14.10200023651123  & 13.41800022125244  & 13.29800033569336  & 11.466022          & 12.018276           & 10.803698           \\
-\nodata & 12.576000213623047 & 11.892000198364258 & 11.701000213623047 & 14.51524           & 15.042348           & 13.839335    \\
 \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
 \enddata
 \end{deluxetable*}
