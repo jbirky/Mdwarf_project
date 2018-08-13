@@ -119,19 +119,36 @@ Why is there a problem labeling M dwarfs (and especially for high res \apogee\ s
 \item using empirical classifications/templates/standards - SPT, luminosity class - this is a relative system but does not provide an absolute standard for measuring physical parameters
 \end{enumerate}
 
-Why \thecannon\ approach? brief importance statment cannon and what it does (cite \citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}) 
+In this work we build a data-driven model for M dwarf spectra with \thecannon (\citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}).
+\thecannon is a regression (typically quadratic) for the spectral pixels given a training
+set of stars with reliable or accurate or assumed-accurate labels.
+The model predicts spectrum given labels, but it can be turned around and also
+used to predict labels given spectrum.
+Thus it is a generative model for stellar spectra that can be used for parameter inference.
 
-\begin{enumerate}
-\item This paper will refer to any physical or empirical measurement of a star as \emph{stellar label}
+The data-driven approach of \thecannon\ makes sense in various contexts:
+One is the context in which stellar labels are only known for a small number of stars
+but there are spectra taken for many more.
+Another is the context in which it is very expensive to obtain labels for a star, but
+there are many stars that need labels.
+Another is the context in which there are spectral models that work in one wavelength
+range or resolution but not in another.
+The context of this paper is the latter:
+There are working and reliable models of M dwarf stars in the optical, which have been
+used successfully, but (as we note above) there isn't as much success with such modeling in the infrared,
+and not at \apogee\ resolution.
 
-\item Can be used to amplify a small number of labeled M-dwarfs in a training set into a huge number of labeled M-dwarfs, provided that there are overlapping objects; 
-
-\item Make the point that \thecannon\ does not require us to have good M-dwarf models in the \apogee\ wavelength range at all 
-
-\item better than template matching in that it is using less sparsely sampled known mdwarfs
-\end{enumerate}
-
-%photometric data, HR digram, comparison to evolutionary models
+Here we take M-dwarf labels from samples of optically observed stars that overlap the
+\sdssiv\ \apogee\ sample, and use those labels to train a model and label all of the
+\sdssiv\ \apogee\ M dwarfs.
+One set of labels are physical parameters (effective temperatures and metallicities)
+and the other set of labels are spectral types.
+In each case, \thecannon\ produces a predictive model for \apogee\ spectra, but without
+any input of stellar physics beyond whatever went in to producing the labels in the first
+place, which was in the context of optical spectroscopy.
+That is, the model to be applied to the \apogee\ data is learned from the \apogee\ data alone
+This obviates physical models in the infrared, and capitalizes on the excellent data quality
+delivered by the \apogee\ spectrograph and project.
 
 
 %%==========================================================================================
