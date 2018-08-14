@@ -155,11 +155,6 @@ delivered by the \apogee\ spectrograph and project.
 \section{Data} \label{sec:data}
 
 \subsection{\apogee\ Survey}
-% \begin{enumerate}
-% Describe the \apogee\ data (survey mission: \citealt{Majewski:2015}; target selection: \citealt{Zasowski:2013}; ASPCAP pipeline: \citealt{Perez:2016}). 
-
-% \item[-] Some M dwarfs in \apogee\ proposed as ancilliary targets (Blake/Covey sources), plus an unknown number observed unintentionally \citep{Desphande:2013}.
-% \end{enumerate}
 
 The \apogee\ survey \citep{Majewski:2015} of the Sloan Digital Sky Survey III and IV (\textsl{SDSS-III/IV} \citealt{Eisenstein:2011}; \citealt{Blanton:2017}) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m) survey which has observed over 260,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the \apogee\ Stellar Parameter and Chemical Abundances Pipeline (\aspcap; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the \textsl{FERRE} code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters (\teff, log g, [Fe/H], [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures (\teff\ $<3500$K), the pipeline uses \textsl{MARCS} plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures (\teff\ $\geq3500$K) \textsl{ATLAS9} \citep{Castelli:2004} plane-parallel models are used.
 
@@ -200,6 +195,7 @@ We note that surface gravity is not inclided as a training label. The reason for
 \thecannon\ is a fully empirical model, which applies no use of line lists or radiative transfer models. Describe the assumptions of the model: (1) Sources with identical labels have near-identical flux at each pixel; (2) Expected flux at each pixel varies continuosly with change in label. 
 
 \thecannon\ model can in principle be trained on any physical or empirical labels available. However, limitations to consider are that test labels from \thecannon\ are only accurate if the training labels accurate, and only precise if the training labels are measured using a consistent method. \thecannon\ does not extrapolate well outside the parameter space of the training sample.
+\color{gcolor}{HOGG: More notes to add here?}\color{black}
 
 Inferring the label of a star with such a model requires two steps: first the \emph{training step} in which a generative model is constructed at each pixel from the set of reference labels and fluxes, and second the \emph{test step} in which the model is applied to determine the labels of a spectrum.
 
