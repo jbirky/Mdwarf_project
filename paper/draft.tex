@@ -212,7 +212,9 @@ We apply a quadratic parameterization of the model such that the label vectors f
 \ell_{n} &=& [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff}^2, \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}] \label{eqn:physical}
 ,
 \end{eqnarray}
-Equation (\ref{eqn:spt}) is the label vector for the spectral type model with a highest order of 2, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model of order 2 including a cross term between the two labels.
+Equation (\ref{eqn:spt}) is the label vector for the spectral type model, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model, and we find that a second order parameterization is sufficient for describing the flux of each spectrum to one percent accuracy, as discussed further in Section \ref{subsec:mann_results}.
+
+The training step consists of 
 
 % JB: The training step description: OPTIMIZE THETA AT FIXED LABELS.
 % JB: Test step description: OPTIMIZE LABELS AT FIXED THETA.
