@@ -197,7 +197,7 @@ We note that surface gravity is not inclided as a training label. The reason for
 \thecannon\ model can in principle be trained on any physical or empirical labels available. However, limitations to consider are that test labels from \thecannon\ are only accurate if the training labels accurate, and only precise if the training labels are measured using a consistent method. \thecannon\ does not extrapolate well outside the parameter space of the training sample.
 \color{gcolor}{HOGG: More notes to add here?}\color{black}
 
-Inferring the label of a star with such a model requires two steps: first the \emph{training step} in which a generative model is constructed at each pixel from the set of reference labels and fluxes, and second the \emph{test step} in which the model is applied to determine the labels of a spectrum.
+Inferring the label of a star with such a model requires two steps: first the \emph{training step} in which a generative model describing the probability density function (pdf) of the flux is constructed at each pixel from the set of spectrum with known reference labels, and second the \emph{test step} in which the model is applied to determine the labels of a spectrum.
 
 Following from the procedure of \citealt{Ness:2015} and \citealt{Ho:2017a} we adopt a simple linear model that assumes the flux at each pixel of the spectrum can be parameterized as a function of a label vector \emph{l} and and coefficient vector \emph{$\theta$}. So for each star \emph{n}, at pixel wavelength \emph{$\lambda$}, we state that the measured flux for a star at a given pixel is the sum of the coefficient and label product, and observational noise:
 \begin{equation}
@@ -214,9 +214,8 @@ We apply a quadratic parameterization of the model such that the label vectors f
 \end{eqnarray}
 Equation (\ref{eqn:spt}) is the label vector for the spectral type model with a highest order of 2, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model of order 2 including a cross term between the two labels.
 
-JB: The training step description: OPTIMIZE THETA AT FIXED LABELS.
-
-JB: Test step description: OPTIMIZE LABELS AT FIXED THETA.
+% JB: The training step description: OPTIMIZE THETA AT FIXED LABELS.
+% JB: Test step description: OPTIMIZE LABELS AT FIXED THETA.
 
 Thus \thecannon\ is both a generative model for the stellar spectra, and a method for obtaining
 labels from spectra. In the training step, the regression is designed to predict spectral pixels
