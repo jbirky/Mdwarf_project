@@ -115,7 +115,7 @@ Why is there a problem labeling M dwarfs (and especially for high res \apogee\ s
 \begin{enumerate}
 \item model the spectra using atmospheric models (BTSettl, \citealt{Allard:2011}; PHOENIX, \citealt{Husser:2013}, MARCS \citealt{Gustafsson:2008}, ATLAS \citealt{Castelli:2004}, etc.) find some places in literature where people have tried these on M dwarfs (\citealt{Rajpurohit:2014}, \citealt{Rajpurohit:2018}) - however missing opacities, and complexities due to molecules/clouds/chemistry make this difficult (\citealt{Allard:2013})--models don't accurately reproduce spectra plus unquantified systematic errors; 
 
-\item model narrow wavelegth region where models are good, look at specific features (\citealt{Rojas-Ayala:2012}...), or reduce resolution (\citealt{Casagrande:2008} estimated effective temperatures, bolometric luminosities, and metallicities using optical and infrared photometries) -- however we want to leverage the full wavelength range and resolution of our data.
+\item model narrow wavelegth region where models are good, look at specific features -- however we want to leverage the full wavelength range and resolution of our data.
 
 \item using empirical classifications/templates/standards - SPT, luminosity class - this is a relative system but does not provide an absolute standard for measuring physical parameters
 \end{enumerate}
@@ -214,7 +214,9 @@ We apply a quadratic parameterization of the model such that the label vectors f
 \end{eqnarray}
 Equation (\ref{eqn:spt}) is the label vector for the spectral type model, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model, and we find that a second order parameterization is sufficient for describing the flux of each spectrum to one percent accuracy, as discussed further in Section \ref{subsec:mann_results}.
 
-The training step consists of 
+The \emph{training step} consists of optimizing the coefficient vector $\theta$ for fixed labels \emph{$\ell_n$} (the reference labels for a training sample): given a spectrum (a wavelength, flux, and flux uncertainty array), for \emph{N} stars and their corresponding training labels
+
+The \emph{test step} is an inversion of the 
 
 % JB: The training step description: OPTIMIZE THETA AT FIXED LABELS.
 % JB: Test step description: OPTIMIZE LABELS AT FIXED THETA.
@@ -275,7 +277,11 @@ In \citealt{Schmidt:2016} the authors used three different color-temperature rel
 
 To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. In Figure \ref{fig:aspcap_cannon_validation} we repeat the temperature validation tests for each of the three relations and compare the \aspcap\ temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
 
+\color{gcolor}{What are all of the parameters we want to report and what do we want to emphasize? Are there other parameters (such as mass) that might be straightforward to estimate?}\color{black}
+
 JB ALSO POINT TO FIGURES THAT CONNECT TYPES TO PARAMETERS. AND DISCUSS.
+
+JB REDO 3 CMD PLOTS SHOWING BEFORE AND AFTER SELECTION.
 
 JB DO WE WANT A FIGURE THAT SHOWS ABUNDANCES AS A FUNCTION OF MILKY WAY POSITION OR ACTIONS?
 
@@ -393,17 +399,9 @@ participating in the {\it Gaia} Multilateral Agreement.
 \caption{Derivative plots for spectral type model taken at the median training spectral type, SPT$=3$; jackknife computed error at each pixel is shown in red.} \label{fig:west_derivative}
 \end{figure}
 
-% \begin{figure}[ht]
-% \begin{center}
-% \includegraphics[width=16cm]{figures/derivative_jackknife_teff.png}
-% \includegraphics[width=16cm]{figures/derivative_jackknife_feh.png}
-% \end{center}
-% \caption{Derivative plots for physical parameter model. \textit{Top:} Derivative of flux with repsect to temperature taken at the median training temperature, T$_{\rm eff}=3463K$. \textit{Bottom:} Derivative of flux with repsect to metallicity taken at the median training metallicity, [Fe/H]$=-0.03$ dex.} \label{fig:mann_derivative}
-% \end{figure}
-
 \begin{figure}[ht]
 \plotone{figures/cannon_chi_dist.png}
-\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee\-\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as "safe". \label{fig:chi_dist}}
+\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee\-\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''. \label{fig:chi_dist}}
 \end{figure}
 
 \begin{figure}[ht]
