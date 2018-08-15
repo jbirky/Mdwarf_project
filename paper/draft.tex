@@ -250,8 +250,6 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 
 JB: NOW POINT HERE TO THE RESULTS OF THE CROSS-VALIDATION AND ETC.
 
-\color{gcolor}{Further assessment of the reliability of our model for late types?...}\color{black}
-
 \subsection{Test Sample \label{subsec:test_selection}} 
 Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \textsl{Gaia DR2} (\citealt{Brown:2018}) and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for XXX sources out of 14,827 with $\chi^2<200,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
 
@@ -290,6 +288,8 @@ JB DO WE WANT A FIGURE THAT SHOWS ABUNDANCES AS A FUNCTION OF MILKY WAY POSITION
 
 \begin{enumerate}
 \item[-] Brief summary of what we did and found
+
+\item[-] Is it interesting to point out the comoving pairs we found? (33 FGK-M, 13 WD-M, and 174 M-M pairs)?
 
 \item[-] Things we learned along the way: For example, not all training sets worked well in our experiments, probably because they were too small or had too little dynamic range.
 
