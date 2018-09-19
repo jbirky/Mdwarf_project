@@ -247,11 +247,9 @@ derivatives.
 \subsection{Temperature/Metallicity Model \label{subsec:mann_results}}
 For the physical parameter model we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model 6 out of 87 sources show strong visible rotational line broadening (as indicated by the red circles in Figure~\ref{fig:mann_validation}), while the remaining sources are mostly old ($>8$ Gyr) and likely slowly rotating sources. While these sources with high rotational broadening have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), we find that the scatter of labels derived for these sources is consistent with the rest of the sample and we do not remove them from the training sample.
 
-Two tests of consistency were used to assess the validity of our model's labels: (1) the self-test comparing training label to test label values, and (2) the leave-one-out cross validation (LOOCV) test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to obtain the labels for star \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test (or LOOCV) labels respectively (Figure \ref{fig:mann_validation}). Since the LOOCV test evaluates both how well the model reproduces the training values \emph{and} penalizes the model for over-fitting, we adopt the LOOCV scatter over the self-test scatter as the more conservative estimate of the model's precision.
+Two tests of consistency were used to assess the validity of our model's labels: (1) the self-test comparing training label to test label values, and (2) the leave-one-out cross validation (LOOCV) test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to obtain the labels for star \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test (or LOOCV) labels respectively (Figure \ref{fig:mann_validation}). Since the LOOCV test evaluates both how well the model reproduces the training values \emph{and} penalizes the model for over-fitting, we adopt the LOOCV scatter over the self-test scatter as the more conservative estimate of the model's precision. The set of training, test, and LOOCV labels for each training source is reported in Table \ref{table:mann_results}.
 
-Another mode of analysis we can look at with \thecannon\ is how the derivative of the model changes with respect to given training parameters, which makes our model interpretable for discovering or verifying atomic or molecular lines with strong dependence on different physical parameters. The top two panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh}
-
-The bottom panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh} show the derivative of flux with respect to temperature and metallicity at each pixel, taken at the median training values. In order to evaluate which spectral features show statistically significant change with respect to input label, we compute error of the derivative at each pixel using a jackknife statistic (with a 1-$\sigma$ level overplotted in red):
+Another mode of analysis we can look at with \thecannon\ is how the derivative of the model changes with respect to given training parameters, which makes our model interpretable for discovering or verifying atomic or molecular lines with strong dependence on different physical parameters. The top two panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh} show two example spectra and model fits for two different temperatures (\ref{fig:demo_teff}), and two different temperatures (\ref{fig:demo_feh}), with atomic and molecular features identified by the abundance analysis of \citealt{Souto:2017}. The bottom panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh} show the derivative of flux with respect to temperature and metallicity at each pixel, taken at the median training values. In order to evaluate which spectral features show statistically significant change with respect to input label, we compute error of the derivative at each pixel using a jackknife statistic (with a 1-$\sigma$ level overplotted in red):
 \begin{equation}
 	\sigma_{\theta,m}^2 = \frac{N-1}{N} \sum^N_{n=1} (\theta_{/n}^m - \theta^m)^2 
 \end{equation}
@@ -457,7 +455,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 \begin{longrotatetable}
 \begin{deluxetable*}{ccc|ccc|ccc|c}
-\tablecaption{Cannon results for Temperature/Metallicity model; see online journal for full table. \label{mann_results}}
+\tablecaption{Cannon results for Temperature/Metallicity model; see online journal for full table. \label{table:mann_results}}
 \tabletypesize{\scriptsize}
 \tablehead{
 \multicolumn{3}{c}{\underline{Designation}} & \multicolumn{3}{c}{\underline{Temperature (K)}} & \multicolumn{3}{c}{\underline{Metallicity (dex)}} & \multicolumn{1}{c}{\underline{Model Fit}} \\
@@ -494,14 +492,14 @@ participating in the {\it Gaia} Multilateral Agreement.
 \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
 \enddata
 \end{deluxetable*}
-\end{longrotatetable}
+\end{longrotatetable} 
 
 %====================================
 \newpage 
 
 \begin{longrotatetable}
 \begin{deluxetable*}{ccc|ccc|c}
-\tablecaption{Cannon results for Spectral Type model. \label{west_results}}
+\tablecaption{Cannon results for Spectral Type model. \label{table:west_results}}
 \tabletypesize{\scriptsize}
 \tablehead{
 \multicolumn{3}{c}{\underline{Designation}} & \multicolumn{3}{c}{\underline{Spectral Type}}
@@ -539,7 +537,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
 \enddata
 \end{deluxetable*}
-\end{longrotatetable}
+\end{longrotatetable} 
 
 %====================================
 \newpage 
