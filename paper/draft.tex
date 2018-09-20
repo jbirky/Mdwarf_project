@@ -72,20 +72,20 @@ We validate our results using photometric temperature indicators and the \gaia\ 
 As a side result, we determine empirical relationships between spectral type and temperature and metallicity.
 These results have implications for the NASA \tess\ Mission and other projects that involve large samples of M dwarfs. 
 
-\color{gcolor}{HOGG: just a reflection, I think the scope of this paper has shifted a lot from just being a technical paper about \thecannon\ working on M dwarfs, to drifting more towards M dwarf science (partly because I've learned a lot more about the properties/characteristics of M dwarfs, and the Gaia has given us a lot of intuition that we didn't have before). Anyways we should decide whether the paper is more of the former or the latter and maybe re-write the abstract. Right now it just feels a bit hacked-together, since this is basically just my AAS abstract that we kept adding some sentences to as we went, and I think it needs a better frame. I'm still trying to get a sense of what is scientifically interesting about this sample, and I've been struggling to pin point what the real relevance of this work is: it's not exactly just that the Cannon is precise for M dwarfs (this original scope, like an extension of Ness, is too boring I think, given what we've learned), and it's not really about M dwarf physics or why we are better than models (this is too beyond us to argue). 
+% \color{gcolor}{HOGG: just a reflection, I think the scope of this paper has shifted a lot from just being a technical paper about \thecannon\ working on M dwarfs, to drifting more towards M dwarf science (partly because I've learned a lot more about the properties/characteristics of M dwarfs, and the Gaia has given us a lot of intuition that we didn't have before). Anyways we should decide whether the paper is more of the former or the latter and maybe re-write the abstract. Right now it just feels a bit hacked-together, since this is basically just my AAS abstract that we kept adding some sentences to as we went, and I think it needs a better frame. I'm still trying to get a sense of what is scientifically interesting about this sample, and I've been struggling to pin point what the real relevance of this work is: it's not exactly just that the Cannon is precise for M dwarfs (this original scope, like an extension of Ness, is too boring I think, given what we've learned), and it's not really about M dwarf physics or why we are better than models (this is too beyond us to argue). 
 
-I think maybe the biggest angle is that are illustrating what can be leveraged out of two very high quality datasets (\apogee\ and \gaia), and we are the first to identify and collect a large (atmospheric parameters, 6D phase space) that have in the past been very difficult to measure. Is this what we want to emphasize? 
+% I think maybe the biggest angle is that are illustrating what can be leveraged out of two very high quality datasets (\apogee\ and \gaia), and we are the first to identify and collect a large (atmospheric parameters, 6D phase space) that have in the past been very difficult to measure. Is this what we want to emphasize? 
 
-Also an open question along these lines is whether we want to estimate any additional physical parameters for our sample, for example maybe adding radii (from the \citealt{Mann:2015} \teff-radius or $M_K$-radius relations), or masses from his $M_K$-mass relation he's publishing, or maybe there are some other fundamental parameters that would be interesting (and straightforward) to add? It seems like just because we have \gaia\ parallaxes we should go ahead and do it? Maybe also to do a full-circle comparison with our test sample labels.
+% Also an open question along these lines is whether we want to estimate any additional physical parameters for our sample, for example maybe adding radii (from the \citealt{Mann:2015} \teff-radius or $M_K$-radius relations), or masses from his $M_K$-mass relation he's publishing, or maybe there are some other fundamental parameters that would be interesting (and straightforward) to add? It seems like just because we have \gaia\ parallaxes we should go ahead and do it? Maybe also to do a full-circle comparison with our test sample labels.
 
-Another open question is about the [Fe/H] validation, and whether we are happy with just the cmd plot of metallicity. I think our ideas for other tests were:
-\begin{itemize}
-\item Looking at M+M binary pairs: there are 174 pairs and it looks by eye that most of the pair lines are parallel to the main sequence. I don't know if there's some more clever way to see if the pairs lie in the same metallicity space of the cmd, so this is probably not that useful
-\item Overplotting some isochrones at varying metallicities--which I'm still working on
-\end{itemize}
+% Another open question is about the [Fe/H] validation, and whether we are happy with just the cmd plot of metallicity. I think our ideas for other tests were:
+% \begin{itemize}
+% \item Looking at M+M binary pairs: there are 174 pairs and it looks by eye that most of the pair lines are parallel to the main sequence. I don't know if there's some more clever way to see if the pairs lie in the same metallicity space of the cmd, so this is probably not that useful
+% \item Overplotting some isochrones at varying metallicities--which I'm still working on
+% \end{itemize}
 
-Also I still have to make the vertical action plot.
-}\color{black}
+% Also I still have to make the vertical action plot.
+% }\color{black}
 
 \end{abstract}
 
@@ -165,7 +165,7 @@ and the other set of labels are spectral types.
 In each case, \thecannon\ produces a predictive model for \apogee\ spectra, but without
 any input of stellar physics beyond whatever went in to producing the labels in the first
 place, which was in the context of optical spectroscopy.
-That is, the model to be applied to the \apogee\ data is learned from the \apogee\ data alone
+That is, the model to be applied to the \apogee\ data is learned from the \apogee\ data alone.
 This obviates physical models in the infrared, and capitalizes on the excellent data quality
 delivered by the \apogee\ spectrograph and project.
 
@@ -247,7 +247,7 @@ derivatives.
 \section{Experiments and Results} \label{sec:results}
 
 \subsection{Temperature/Metallicity Model \label{subsec:mann_results}}
-For the physical parameter model we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model 6 out of 87 sources show strong visible rotational line broadening (as indicated by the red circles in Figure~\ref{fig:mann_validation}), while the remaining sources are mostly old ($>8$ Gyr) and likely slowly rotating sources. While these sources with high rotational broadening have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), we find that the scatter of labels derived for these sources is consistent with the rest of the sample and we do not remove them from the training sample.
+For the physical parameter model we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model 6 out of 87 sources show strong visible rotational line broadening (as indicated by the red circles in Figure~\ref{fig:mann_validation}), while the remaining sources are mostly old ($>8$ Gyr for the published sample estimated by M15) and likely slowly rotating sources. While these sources with high rotational broadening have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), we find that the scatter of labels derived for these sources is consistent with the rest of the sample and we do not remove them from the training sample.
 
 Two tests of consistency were used to assess the validity of our model's labels: (1) the self-test comparing training label to test label values, and (2) the leave-one-out cross validation (LOOCV) test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to obtain the labels for star \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test (or LOOCV) labels respectively (Figure \ref{fig:mann_validation}). Since the LOOCV test evaluates both how well the model reproduces the training values \emph{and} penalizes the model for over-fitting, we adopt the LOOCV scatter over the self-test scatter as the more conservative estimate of the model's precision. The set of training, test, and LOOCV labels for each training source is reported in Table \ref{table:mann_results}.
 
