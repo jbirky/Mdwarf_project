@@ -276,7 +276,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 \item \textbf{Quality of fit cut:} We apply a $\chi^2$ cut of less than 100,000.
 
-\item \textbf{Training bound selection:} Because extrapolation with \thecannon\ is unreliable, we select only sources with labels inside the range of the training sample: for the reported temperatures and metallicities we impose $2850<T_{\rm eff}<4150$ and $-0.5<[Fe/H]<0.5$, and for reported spectral subtypes we impose $0<SPT<9$.
+\item \textbf{Training bound selection:} Because extrapolation with \thecannon\ is unreliable, we select only sources with labels inside the range of the training sample: for the reported temperatures and metallicities we impose $2850<T_{\rm eff}<4150$ and $-0.5<$[Fe/H]$<0.5$, and for reported spectral subtypes we impose $0<SPT<9$.
 \end{enumerate}
 
 The final selection for our ``safe'' is displayed in Figure \ref{fig:safe_selection}. We also note that applying our model requires very little computational demand: the time to run a model on all 14,827 sources was two minutes on a personal laptop.
@@ -570,12 +570,13 @@ participating in the {\it Gaia} Multilateral Agreement.
 {\tt PMRA} 			& mas yr$^{-1}$	& \gaia\ radial ascension proper motion	\\
 {\tt PMRA$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ radial ascension proper motion uncertainty	\\
 {\tt RA} 				& deg	& \apogee\ radial ascension angle	\\
+{\tt RADIUS} 			& R$_\odot$	& Radius determined by \citealt{Mann:2015} relation	\\
 {\tt RP$\_$MAG} 		& mag	& \gaia\ $RP$ band photometry	\\
 {\tt RV$\_$APOGEE} 	& km s$^{-1}$	& \apogee\ radial velocity	\\
 {\tt RV$\_$APOGEE$\_$ERR} 	& km s$^{-1}$	& \apogee\ radial velocity uncertainty	\\
 {\tt RV$\_$GAIA} 				& km s$^{-1}$	& \gaia\ radial velocity	\\
 {\tt RV$\_$GAIA$\_$ERR}		& km s$^{-1}$	& \gaia\ radial velocity uncertainty	\\
-{\tt SPT} 				& 	& West-trained \cannon\ spectral subtype ($M0-M9$)	\\
+{\tt SPT} 				& 	& West-trained \cannon\ spectral subtype (M0$-$M9)	\\
 {\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
 {\tt Vx} 				& km s$^{-1}$	& Cartesian $x$ velocity in Galactocentric coordnates	\\
 {\tt Vy} 				& km s$^{-1}$	& Cartesian $y$ velocity in Galactocentric coordnates	\\
