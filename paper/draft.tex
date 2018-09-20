@@ -211,7 +211,7 @@ We note that surface gravity is not inclided as a training label. The reason for
 %%==========================================================================================
 \section{Method}\label{sec:cannon}
 
-\thecannon\ is a fully empirical model, which applies no use of line lists or radiative transfer models. Describe the assumptions of the model: (1) Sources with identical labels have near-identical flux at each pixel; (2) Expected flux at each pixel varies continuosly with change in label. 
+\thecannon\ is a fully empirical model, which employs no use of line lists or radiative transfer models. Instead, \thecannon\ is a regression model which relies on two assumptions: first that sources with identical labels have near-identical flux at each pixel, and second that the expected flux at each pixel varies continuosly with change in label. 
 
 Inferring the label of a star with such a model requires two steps: first the \emph{training step} in which a generative model describing the probability density function (pdf) of the flux is constructed at each pixel from the set of spectrum with known reference labels, and second the \emph{test step} in which the model is applied to determine the labels of a spectrum.
 
