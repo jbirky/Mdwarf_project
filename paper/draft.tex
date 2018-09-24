@@ -24,10 +24,6 @@
 \definecolor{gcolor}{RGB}{51, 153, 51}
 \hypersetup{linkcolor=bcolor,citecolor=bcolor,filecolor=cyan,urlcolor=bcolor}
 
-\newcommand{\vdag}{(v)^\dagger}
-\newcommand\aastex{AAS\TeX}
-\newcommand\latex{La\TeX}
-
 \received{\color{red} MM/DD/YY}
 \revised{\color{red} MM/DD/YY}
 \accepted{\color{red} MM/DD/YY}
@@ -62,18 +58,12 @@ Broadway, New York, NY 10003, USA}
 \affil{Center for Astrophysics and Space Science, University of California San Diego, La Jolla, CA 92093, USA}
 
 \begin{abstract}
-\thecannon\ is a flexible, data-driven spectral modeling and parameter inference framework, demonstrated on high-resolution, near-infrared \apogee\ spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H], and detailed abundances) to precisions higher than the \apogee\ survey model-grid pipelines.
-The lack of reliable atmospheric models in the near infrared for temperatures cooler than $\sim3500$\,K motivates the extension of this approach to M-dwarf stars, but with calibrated training labels from optical surveys that overlap \sdssiv\ \apogee.
+\thecannon\ is a flexible, data-driven spectral-modeling and parameter-inference framework, demonstrated on high-resolution, near-infrared \sdssiv\ \apogee\ spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H], and detailed abundances) to precisions higher than the \apogee\ survey model-grid pipelines.
+The lack of reliable atmospheric models in the near infrared for temperatures cooler than $\sim3500$\,K motivates the extension of this approach to M-dwarf stars, but with calibrated training labels from optical surveys that overlap \apogee.
 Using a training sample of 87 M dwarfs in the temperature range $2859 < T_{\rm eff} < 4131$\,K, and metallicty range $-0.48 < \mathrm{[Fe/H]}< 0.49$\,dex, we train a two-parameter model with predictive accuracy (in cross-validation) to 77\,K and 0.09\,dex respectively.
 These are parameter-space precision statements, but the model is accurate in the data space: it accurately predicts \apogee\ spectral pixels at the percent level.
-We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging M0 to M9, to predictive accuracy of 0.9 types. From the \textsl{APOGEE DR14} -- \textsl{Gaia DR2} overlap we select a test sample and employ our trained models to determine temperatures, metallicities and spectral subtypes for nearly all of the M dwarfs in \apogee\ (10,311 sources), and validate our \cannon\ derived \teff\ against color-temperature relations and [Fe/H] against isochrone models in \gaia\ color-magnitude space. Finally we use empirically callibrated relations to estimate radii from $M_K$ absolute magnitudes and \cannon\ temperatures.
-These results have implications for the NASA \tess\ Mission and other projects that involve large samples of M dwarfs. 
-
-% The trained models are employed to determine spectral subtypes, temperatures and metallicities for 10,311 M dwarfs in \apogee, selected in part on \gaia\ photometry and astrometry.
-% We validate our results using photometric temperature indicators and the \gaia\ color--magnitude diagram.
-% As a side result, we determine empirical relationships between spectral type and temperature and metallicity.
-
-
+We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging M0 to M9, to predictive accuracy of 0.9 types. From the overlap of \textsl{APOGEE DR14} and \textsl{Gaia DR2} we select a test sample and employ our trained models to determine temperatures, metallicities and spectral subtypes for a conservatively selected sample of M dwarfs in \apogee\ (10,311 sources), and validate our \cannon\ derived \teff\ against color--temperature relations and [Fe/H] against isochrone models in \gaia\ color-magnitude space. Finally we use empirically callibrated relations to estimate radii from $M_K$ absolute magnitudes and \cannon\ temperatures.
+This project has implications for the NASA \tess\ Mission and other surveys that involve large samples of M dwarfs. 
 \end{abstract}
 
 \keywords{
@@ -165,14 +155,17 @@ The \apogee\ survey \citep{Majewski:2015} of the Sloan Digital Sky Survey III an
 
 \apogee\ is primarily targeted for bright stellar populations, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by the M dwarf ancilliary survey (1,350 sources selected by proper motions; \citealt{Desphande:2013}), or randomly by \apogee\, which we quantify in this study to be over 10,000 in total.
 
-The \aspcap\ pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline). \color{gcolor}{HOGG: do you want to comment on continuum normalization issues?}\color{black}
+The \aspcap\ pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline).
+In other work we have recommended an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in what follows, so we stay with the survey pipeline outputs.
  
 \subsection{Training Sample Selection}
 
 \thecannon\ is a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:cannon}). The model in this sense is used to \emph{transfer} labels from spectra which we know parameters for to those which we do not. Hence this data-driven approach effectively removes the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (ideally very accurately measured) \emph{reference labels} that can be measured from other surveys/methods that are easier or more accurate to infer from. 
 
-\thecannon\ model can in principle be trained on any physical or empirical labels available, giving a wide range of flexibility to the model, however choosing a training sample with high quality (accurate and precise) is critical to the performance of \thecannon. Limitations to consider are that test labels from \thecannon\ are only accurate if the training labels accurate, and only precise if the training labels are measured using a consistent method. Also choosing a sample with large dynamic range spanning the entire parameter space of interest is important, as \thecannon\ does not extrapolate well outside the parameter space of the training sample.
-\color{gcolor}{HOGG: More notes to add here?}\color{black}
+\thecannon\ model can in principle be trained on any physical or empirical labels available, giving a wide range of flexibility to the model. However choosing a training sample with high quality labels (precise, but also preferably accurate) is critical to the performance of \thecannon.
+Limitations of \thecannon\ include that test (output) labels are only accurate if the training labels are accurate, and only precise if the training labels are measured consistently across the training sample.
+Also, it is critical to have a training sample with the dynamic range to span the entire parameter space of interest, as \thecannon\ does not extrapolate well outside the parameter space of the training sample.
+Finally, \thecannon\ deeply assumes that the dependence of spectrum on labels is continuous and smooth---and in this implementation, well approximated by quadratic functions---if that isn't true, there will be features that \thecannon\ cannot reproduce.
 
 For the purpose of this study we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second a two-dimensional \emph{physical parameter model} which describes the temperature and metallicity. The choice of training labels, dimensionality of our data set, and requirements for a good training set we discuss further in Section \ref{sec:discussion}.
 
@@ -246,7 +239,15 @@ where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total 
 
 \color{gcolor}{Some note on what lines vary significantly with parameter...}\color{black}
 
-\color{gcolor}{HOGG: Some commentary on why $\chi^2$ is higher than expected. Also explain why this means that the model is good to percent level.}\color{black}
+The spectra contain roughly 8000 pixels,
+so we might expect the $\chi^2$ values to be close to 8000 in magnitude.
+They are much higher.
+This discrepancy flows from the fact that---while the spectral model is good at the percent
+level---the signal-to-noise of the typical spectra are more than 100.
+That is, the $\chi^2$ values do show that the model is not good in the frequentist
+sense; it is only good at the percent level.
+This percent-level accuracy of the model in the data domain is also demonstrated...
+\color{gcolor}{BIRKY: Can you demonstrate this by showing the RMS residuals, putting it in as a figure, and putting this paragraph back to me? I am imagining a figure that shows a scatter plot of T vs RMS residual, colored by metallicity. Or something like that.}\color{black}
 
 \subsection{Spectral Type Model \label{subsec:west_results}}
 We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs well at re-deriving the labels for the M8 and M9 source when they are included in the model (less than 1 SPT difference), but badly when left out (over 2 SPT difference), which indicates \thecannon\ does a poor job at extrapolating to labels outside of the training sample space. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows the self and LOOCV tests for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
