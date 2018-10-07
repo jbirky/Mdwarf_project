@@ -288,8 +288,6 @@ To obtain visual band magnitudes for a set of sources, we cross-matched the 10,3
 \begin{enumerate}
 \item[-] Brief summary of what we did and found
 
-\item[-] Is it interesting to point out the comoving pairs we found? (33 FGK-M, 13 WD-M, and 174 M-M pairs)?
-
 \item[-] Things we learned along the way: For example, not all training sets worked well in our experiments, probably because they were too small or had too little dynamic range.
 
 \item[-] \color{gcolor}{HOGG: Some discussion of precision and accuracy: \thecannon\ can produce precise results, but is only as accurate as its training set.}\color{black}
@@ -301,6 +299,11 @@ To obtain visual band magnitudes for a set of sources, we cross-matched the 10,3
 \item[-] Discussion of validation tests and ground truth
 
 \item[-] HOGG: Discussion of the implications of these results for the NASA \tess\ Mission and how the future might change..?
+\end{enumerate}
+
+Future work:
+\begin{enumerate}
+\item[-] Create a binary sample; using color/magnitude \citealt{Widmark:2018} and by spectroscopy \citealt{ElBadry:2018}
 \end{enumerate}
 
 %%==========================================================================================
@@ -434,6 +437,11 @@ participating in the {\it Gaia} Multilateral Agreement.
 \caption{Validation test of \cannon\ temperatures (left), as compared to \aspcap\ temperatures (right) using three different color-temperature relations derived from \citealt{Mann:2015}, \citealt{Casagrande:2008}, and \citealt{Boyajian:2013}. We find \cannon\ temperatures to be significantly more consistent with all three relations in terms of bias and scatter. \label{fig:aspcap_cannon_validation}}
 \end{figure}
 
+%---------------------------
+\begin{figure}[ht]
+\plotone{figures/isochrone_cmd.png}
+\caption{Isochrones over varying ages (1, 3, 5, and 7 Gyr) and metallicities. \label{fig:isochrone_cmd}}
+\end{figure}
 
 %%==========================================================================================
 %% Tables
