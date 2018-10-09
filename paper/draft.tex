@@ -176,7 +176,7 @@ The physical parameter sample consists of 87 sources with reference labels distr
 The M15 catalog in total contains 183 sources and the extension sample another 500 stars, both primarily selected from the proper-motion selected CONCH-SHELL \citep{Gaidos:2013} M dwarf catalog. All targets have low-res optical spectra from the SNIFS specgrograph \citep{Lantz:2004} and infrared spectra taken with the SpeX Spectograph \citep{Rayner:2003}, which have been combined to estaimte largely empirical bolometric fluxes. Effective temperatures have been estimated by comparing the SNIFS spectra to BT-SETTL atmospheric models \citep{Allard:2011}. A subsample of 29 sources with measured angular diameters from long-baseline optical interferometry \citep{Boyajian:2012} are used to calibrate the model comparison, including masking of spectral regions poorly reproduced by the model spectra \citep{Mann:2013c}. Based on difference between assigned \teff\ values and those from angular diameters, absolute uncertainty on \teff\ is esitmated to be 60K in \teff, although the relative uncertainty is likely a factor of $\simeq$2 better.
 %AWM: I realized I've never actaully sat down and rigorously measured the relative Teff uncertainty. The results from the Cannon actually suggest ~30 is not bad. I just did some quick tests, and I'm not prepared to put an absolute number on it. A \simeq 30 here should be safeish.
 
-Iron abundances ([Fe/H]) are assignied to the physical parameter sample based on the strenngth of metal-sensitive lines in the near-infrared SpeX spectra \citep{RojasAyala:2010} using the calibration from \citet{Mann:2013a}. The relation between these lines and an absolute [Fe/H] scale is calibrated using wide binaries containing and F, G, or K-type primary and an M dwarf companion, under the assumption that binaries formed from the same molecular cloud and therefore have the same metallicity \citep{Bonfils:2005}. Uncertainties are estimated to be $\simeq$0.08\,dex based on irreducable scatter in the empirical relation between selected lines and the assigned [Fe/H] from the primary star. As with \teff\ relative errors on [Fe/H] are smaller, estimated to be 0.04-0.06\,dex over most of the temperature and metallicity range considered here.
+Iron abundances ([Fe/H]) are assignied to the physical parameter sample based on the strength of metal-sensitive lines in the near-infrared SpeX spectra \citep{RojasAyala:2010} using the calibration from \citet{Mann:2013a}. The relation between these lines and an absolute [Fe/H] scale is calibrated using wide binaries containing and F, G, or K-type primary and an M dwarf companion, under the assumption that binaries formed from the same molecular cloud and therefore have the same metallicity \citep{Bonfils:2005}. Uncertainties are estimated to be $\simeq$0.08\,dex based on irreducable scatter in the empirical relation between selected lines and the assigned [Fe/H] from the primary star. As with \teff\ relative errors on [Fe/H] are smaller, estimated to be 0.04--0.06\,dex over most of the temperature and metallicity range considered here.
 
 Spectral types reported by M15 for the sources using optical molecular band indices (by the method of \citealt{Lepine:2013}) and ranged K7.3--M4.9 for the subsample we used, although these labels were not included in the model training.
 
@@ -428,7 +428,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 \begin{figure}[ht]
 \plotone{figures/aspcap_cannon_label_hist.png}
-\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<[Fe/H]<0.5$ because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities. \label{fig:aspcap_cannon_label_hist}}
+\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<[Fe/H]<0.5$ because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities. \label{fig:aspcap_cannon_label_hist}} 
 \end{figure}
 
 %---------------------------
@@ -440,7 +440,12 @@ participating in the {\it Gaia} Multilateral Agreement.
 %---------------------------
 \begin{figure}[ht]
 \plotone{figures/isochrone_cmd.png}
-\caption{Isochrones over varying ages (1, 3, 5, and 7 Gyr) and metallicities. \label{fig:isochrone_cmd}}
+\caption{Comparison of Cannon [Fe/H] as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (1, 3, 5, and 7 Gyr). \label{fig:isochrone_cmd}}
+\end{figure}
+
+\begin{figure}[ht]
+\plotone{figures/mann_radii.png}
+\caption{Comparison of radii estimated from M15 relations. \label{fig:radii}}
 \end{figure}
 
 %%==========================================================================================
