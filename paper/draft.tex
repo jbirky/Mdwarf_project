@@ -237,7 +237,7 @@ Another mode of analysis we can look at with \thecannon\ is how the derivative o
 \end{equation}
 where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total number of stars in the sample, indexed by \emph{n}, $\theta$ is the coeffient vector trainined on all N sources, and $\theta_{/n}$ is the coefficient vector trained on \emph{N-1} sources excluding star \emph{n}.
 
-\color{gcolor}{Some note on what lines vary significantly with parameter...}\color{black}
+\color{gcolor}{HOGG/ADAM: Do we want some note on what lines vary significantly with parameter? I could summarize the which kinds of lines show increasing or decreasing trends, but have no idea how to interpret from there.}\color{black}
 
 The spectra contain roughly 8000 pixels,
 so we might expect the $\chi^2$ values to be close to 8000 in magnitude.
@@ -278,7 +278,7 @@ Using empirically calibrated relations from \citealt{Mann:2015} we determine rad
 
 As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations, which use combination of \zmass\ and visual band photometries to predict temperatures. SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2013}, and \citealt{Mann:2015} 
 
-To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:aspcap_cannon_validation} shows the temperature validation tests for each of the three relations and compared to the \aspcap\ temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
+To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows the temperature validation tests for each of the three relations and compared to the \aspcap\ temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
 
 % JB DO WE WANT A FIGURE THAT SHOWS ABUNDANCES AS A FUNCTION OF MILKY WAY POSITION OR ACTIONS?
 
@@ -292,19 +292,22 @@ To obtain visual band magnitudes for a set of sources, we cross-matched the 10,3
 
 \item[-] \color{gcolor}{HOGG: Some discussion of precision and accuracy: \thecannon\ can produce precise results, but is only as accurate as its training set.}\color{black}
 
-\item[-] Some discussion of whether the derivatives are sensible or surprising. 
+\item[-] Some discussion of whether the derivatives are sensible or surprising. \color{gcolor}{HOGG: I'm not sure what to say here}\color{black}
 
-\item[-] \thecannon\ as a test of evaluating training parameter accuracy?
+\item[-] \color{gcolor}{HOGG:\thecannon\ as a test of evaluating training parameter accuracy?}\color{black}
 
-\item[-] Discussion of validation tests and ground truth
+\item[-] \color{gcolor}{HOGG: Discussion of validation tests and ground truth}\color{black}
 
-\item[-] HOGG: Discussion of the implications of these results for the NASA \tess\ Mission and how the future might change..?
 \end{enumerate}
 
 Future work:
 \begin{enumerate}
 \item[-] Create a binary sample; using color/magnitude \citealt{Widmark:2018} and by spectroscopy \citealt{ElBadry:2018}
+
+\item[-] \color{gcolor}{HOGG: Discussion of the implications of these results for the NASA \tess\ Mission and how the future might change..?}\color{black}
 \end{enumerate}
+
+\color{gcolor}{HOGG: Is a conclusion section necessary?}\color{black}
 
 %%==========================================================================================
 \acknowledgements
