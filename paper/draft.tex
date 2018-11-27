@@ -61,7 +61,7 @@ Broadway, New York, NY 10003, USA}
 \thecannon\ is a flexible, data-driven spectral-modeling and parameter-inference framework, demonstrated on high-resolution, near-infrared \sdssiv\ \apogee\ spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H], and detailed abundances) to precisions higher than the \apogee\ survey model-grid pipelines.
 The lack of reliable atmospheric models in the near infrared for temperatures cooler than $\sim3500$\,K motivates the extension of this approach to M-dwarf stars, but with calibrated training labels from optical surveys that overlap \apogee.
 Using a training sample of 87 M dwarfs in the temperature range $2860 < T_{\rm eff} < 4130$\,K, and metallicty range $-0.5 < \mathrm{[Fe/H]}< 0.5$\,dex, we train a two-parameter model with predictive accuracy (in cross-validation) to 77\,K and 0.09\,dex respectively.
-These are parameter-space precision statements, but the model is accurate in the data space: it accurately predicts \apogee\ spectral pixels at the percent level.
+The model is accurate in the data space: it accurately predicts \apogee\ spectral pixels at the one-percent level.
 We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging M0 to M9, to predictive accuracy of 0.9 types. From the overlap of \textsl{APOGEE DR14} and \textsl{Gaia DR2} we select a test sample and employ our trained models to determine temperatures, metallicities and spectral subtypes for a conservatively selected sample of M dwarfs in \apogee\ (10,311 sources), and compare our \cannon\ derived \teff\ against color--temperature relations and [Fe/H] against isochrone models in \gaia\ color-magnitude space. Finally we use empirically callibrated relations to estimate radii from $M_K$ absolute magnitudes and \cannon\ temperatures.
 This project has implications for the NASA \tess\ Mission and other surveys that involve large samples of M dwarfs. 
 \end{abstract}
@@ -274,11 +274,21 @@ The three panels of \ref{fig:safe_selection} show before and after selection of 
 Using empirically calibrated relations from \citealt{Mann:2015} we determine radii... some diagnostics...
 
 
-\subsection{Validation of parameters}
+\subsection{Color-Temperature Comparisons}
 
-As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations, which use combination of \zmass\ and visual band photometries to predict temperatures. SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2013}, and \citealt{Mann:2015} 
+As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures. To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (\textsl{APASS}; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by \textsl{APASS}, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and \aspcap\ vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
 
-To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,000 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows the temperature validation tests for each of the three relations and compared to the \aspcap\ temperatures for the same sources. \color{gcolor}{Comments about validation results and the uncertainty of our Cannon temperatures...}\color{black}
+% SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} 
+Shown in the top panels of \ref{fig:teff_comparisons} 
+
+
+
+The scatter of each relation being largely due to metallicity variation, both for the \cannon\ and \aspcap\ metallicities.
+\cannon\ temperatures show the highest agreement with the photometric relations from \citealt{Mann:2015} and \citealt{Boyajian:2012}, with a scatter of 80K. Same calibration scale
+
+While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average \aspcap\ temperatures are much hotter, and scatters are much higher skewed by 500 sources which \aspcap\ predicts to have temperatures over 4200K.
+
+\subsection{Isochrone Comparisons}
 
 % JB DO WE WANT A FIGURE THAT SHOWS ABUNDANCES AS A FUNCTION OF MILKY WAY POSITION OR ACTIONS?
 
@@ -437,7 +447,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 %---------------------------
 \begin{figure}[ht]
 \plotone{figures/aspcap_cannon_validation.png}
-\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated from visible and infrared color-temperature relations from three different literature sources for a subsample of 6,000 sources. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and [Fe/H] dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2013} relation (bottom). We find \aspcap\ overestimates \teff\ on average by about 130K for the M15 and B13 relations about 220K for the C08. Additionally we see the scatter much higher for the \aspcap\ temperatures ($\sim220$K) compared to the scatter of \cannon\ temperatures ($\sim80-100$K), the scatter for both \aspcap\ and \cannon\ temperatures largely due to variation in metallicity.  \label{fig:teff_comparisons}}
+\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated from visible and infrared color-temperature relations from three different literature sources for a subsample of 6,257 sources. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and [Fe/H] dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation (bottom). We find \aspcap\ overestimates \teff\ on average by about 130K for the M15 and B13 relations about 220K for the C08. Additionally we see the scatter much higher for the \aspcap\ temperatures ($\sim220$K) compared to the scatter of \cannon\ temperatures ($\sim80-100$K), the scatter for both \aspcap\ and \cannon\ temperatures largely due to variation in metallicity.  \label{fig:teff_comparisons}}
 \end{figure}
 
 %---------------------------
