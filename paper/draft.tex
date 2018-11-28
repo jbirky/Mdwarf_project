@@ -114,24 +114,22 @@ Why is there a problem labeling M dwarfs (and especially for high res \apogee\ s
 \end{enumerate}
 
 In this work we build a data-driven model for M dwarf spectra with \thecannon\ (\citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}).
-\thecannon\ is a regression (typically quadratic) for the spectral pixels given a training
-set of stars with reliable or accurate or assumed-accurate labels.
-The model predicts spectrum given labels, but it can be turned around and also
-used to predict labels given spectrum.
+\thecannon\ is a pixel-by-pixel regression for spectral data given a training
+set of stars with reliable (assumed) accurate labels.
+The model can both predict a spectrum given labels, and also predict labels given a spectrum.
 Thus it is a generative model for stellar spectra that can be used for parameter inference.
 
-The data-driven approach of \thecannon\ makes sense in various contexts:
-One is the context in which stellar labels are only known for a small number of stars
-but there are spectra taken for many more.
-Another is the context in which it is very expensive to obtain labels for a star, but
-there are many stars that need labels.
-Another is the context in which there are spectral models that work in one wavelength
-range or resolution but not in another.
-The context of this paper is the latter:
+The data-driven approach of \thecannon\ is ideal in certain cases:
+if stellar labels are only known for a small number of stars
+but there are spectra taken for many more;
+if it is computationally expensive to obtain labels for a star, but
+there are many stars that need labels;
+if there are spectral models that work in one wavelength range or resolution but not in another.
+The context of this paper is the last:
 There are working and reliable models of M dwarf stars in the optical, which have been
 used successfully, but (as we note above) there isn't as much success with such modeling in the infrared, and not at \apogee\ resolution.
 
-In particular, parameters such as metallicity can be difficult to determine precisely, as overlapping lines in a spectrum and lack of continuum make it difficult to define features and extract their line strengths. A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star, to developed precise empirical relations (as good as $\sim$0.07dex) between the adopted metallicities of the FGK primary (under the assumption kinematically similar pairs are co-evolutionary; \citealt{Bonfils:2005}), and strong, isolated lines in the optical spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}).
+In particular, parameters such as metallicity can be difficult to determine in M dwarfs, as overlapping lines in a spectrum and lack of continuum make it difficult to define features and extract their line strengths. A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star, to developed precise empirical relations (as good as $\sim$0.07dex) between the adopted metallicities of the FGK primary (under the assumption kinematically similar pairs are co-evolutionary; \citealt{Bonfils:2005}), and strong, isolated lines in the optical spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}).
 However these metallicity callibrations are inaccesible for analysis with \apogee, as the narrow infrared wavelength coverage does not include the relevant callibration indices used by existing studies (such as Ca I or KI lines in the optical), and blending of multiple atomic and molecular species at high resolution makes it impractical to identify and deconvolve new individual features for analysis. \thecannon\ bridges this gap: it doesn't require using specific lines; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
 
 Here we take M-dwarf labels from samples of optically observed stars that overlap the
@@ -151,18 +149,20 @@ delivered by the \apogee\ spectrograph and project.
 
 \subsection{\apogee\ Survey}
 
-The \apogee\ survey \citep{Majewski:2015} of the Sloan Digital Sky Survey III and IV (\textsl{SDSS-III/IV} \citealt{Eisenstein:2011}; \citealt{Blanton:2017}) is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey which has observed over 250,000 stellar spectra since its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the \apogee\ Stellar Parameter and Chemical Abundances Pipeline (\aspcap; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the \textsl{FERRE} code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters (\teff, log g, [Fe/H], [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures (\teff\ $<3500$K), the pipeline uses \textsl{MARCS} plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures (\teff\ $\geq3500$K) \textsl{ATLAS9} \citep{Castelli:2004} plane-parallel models are used.
+The \apogee\ survey 
+% \citep{Majewski:2015} of the Sloan Digital Sky Survey III and IV (\textsl{SDSS-III/IV} \citealt{Eisenstein:2011}; \citealt{Blanton:2017})
+is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey which has observed over 250,000 stellar spectra up to its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the \apogee\ Stellar Parameter and Chemical Abundances Pipeline (\aspcap; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the \textsl{FERRE} code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters (\teff, log g, [Fe/H], [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures ($2800<$ \teff\ $<3500$K), the pipeline uses \textsl{MARCS} plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures (\teff\ $\geq3500$K) \textsl{ATLAS9} \citep{Castelli:2004} plane-parallel models are used.
 
-\apogee\ is primarily targeted for bright stellar populations, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by the M dwarf ancilliary survey (1,350 sources selected by proper motions; \citealt{Desphande:2013}), or randomly by \apogee\, which we quantify in this study to be over 10,000 in total.
+\apogee\ is primarily targeted for bright stellar populations particularly red giants, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by M dwarf ancilliary surveys, or serendipitously. We determine in this study at least 10,000 M dwarfs have been observed to date.
 
 The \aspcap\ pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline).
-In other work we have recommended an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in what follows, so we stay with the survey pipeline outputs.
+In previous work it has been recommended to use an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in our analysis, so we retain the survey pipeline outputs.
  
 \subsection{Training Sample Selection}
 
-\thecannon\ is a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:cannon}). The model in this sense is used to \emph{transfer} labels from spectra which we know parameters for to those which we do not. Hence this data-driven approach effectively removes the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (ideally very accurately measured) \emph{reference labels} that can be measured from other surveys/methods that are easier or more accurate to infer from. 
+\thecannon\ is a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:cannon}). The model in this sense is used to \emph{transfer} labels from spectra for which we know parameters to those which we do not. Hence this data-driven approach effectively circumvents the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (and very accurately measured) \emph{reference labels} possibly measured from other data. 
 
-\thecannon\ model can in principle be trained on any physical or empirical labels available, giving a wide range of flexibility to the model. However choosing a training sample with high quality labels (precise, but also preferably accurate) is critical to the performance of \thecannon.
+\thecannon\ model can in principle be trained on any physical or empirical labels available, giving a wide range of flexibility to the model. However choosing a training sample with high quality labels is critical to the performance of \thecannon.
 Limitations of \thecannon\ include that test (output) labels are only accurate if the training labels are accurate, and only precise if the training labels are measured consistently across the training sample.
 Also, it is critical to have a training sample with the dynamic range to span the entire parameter space of interest, as \thecannon\ does not extrapolate well outside the parameter space of the training sample.
 Finally, \thecannon\ deeply assumes that the dependence of spectrum on labels is continuous and smooth---and in this implementation, well approximated by quadratic functions---if that isn't true, there will be features that \thecannon\ cannot reproduce.
@@ -177,8 +177,6 @@ The M15 catalog in total contains 183 sources and the extension sample another 5
 %AWM: I realized I've never actaully sat down and rigorously measured the relative Teff uncertainty. The results from the Cannon actually suggest ~30 is not bad. I just did some quick tests, and I'm not prepared to put an absolute number on it. A \simeq 30 here should be safeish.
 
 Iron abundances ([Fe/H]) are assignied to the physical parameter sample based on the strength of metal-sensitive lines in the near-infrared SpeX spectra \citep{RojasAyala:2010} using the calibration from \citet{Mann:2013a}. The relation between these lines and an absolute [Fe/H] scale is calibrated using wide binaries containing and F, G, or K-type primary and an M dwarf companion, under the assumption that binaries formed from the same molecular cloud and therefore have the same metallicity \citep{Bonfils:2005}. Uncertainties are estimated to be $\simeq$0.08\,dex based on irreducable scatter in the empirical relation between selected lines and the assigned [Fe/H] from the primary star. As with \teff\ relative errors on [Fe/H] are smaller, estimated to be 0.04--0.06\,dex over most of the temperature and metallicity range considered here.
-
-Spectral types reported by M15 for the sources using optical molecular band indices (by the method of \citealt{Lepine:2013}) and ranged K7.3--M4.9 for the subsample we used, although these labels were not included in the model training.
 
 We note that surface gravity is not included as a training label. The reason for this is that for main-sequence M dwarfs, the parameter is almost entirely redundant with metallicity. Unlike their higher-mass counterparts, M dwarf properties do not change measurably over the age of the Universe. Hence perfect knowledge of abundances and \teff\ for an M dwarf should uniquely determine its position its surface gravity, position on a color-magnitude diagram, and overall luminosity. While we only had [Fe/H] for the training sample, for the uncertainties considered here, lack of information about [$\alpha$/Fe] or specific abundances will only be important for extreme cases (e.g., Carbon stars). 
 
