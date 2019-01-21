@@ -8,6 +8,10 @@
 \usepackage{booktabs}
 \usepackage{morefloats}
 
+% \usepackage{draftwatermark}
+% \SetWatermarkScale{3}
+% \SetWatermarkLightness{.7}
+
 \newcommand{\apogee}{\textsl{APOGEE}}
 \newcommand{\thecannon}{\textsl{The Cannon}}
 \newcommand{\cannon}{\textsl{Cannon}}
@@ -244,7 +248,7 @@ level---the signal-to-noise of the typical spectra are more than 100.
 That is, the $\chi^2$ values do show that the model is not good in the frequentist
 sense; it is only good at the percent level.
 This percent-level accuracy of the model in the data domain is also demonstrated...
-\color{gcolor}{HOGG: Adam says he doesn't think this is right: if $\chi^2/n>>1$ then the model is NOT an accurate representation of the data.}\color{black} \\
+% \color{gcolor}{HOGG: Adam says he doesn't think this is right: if $\chi^2/n>>1$ then the model is NOT an accurate representation of the data.}\color{black} \\
 \color{gcolor}{BIRKY: Can you demonstrate this by showing the RMS residuals, putting it in as a figure, and putting this paragraph back to me? I am imagining a figure that shows a scatter plot of T vs RMS residual, colored by metallicity. Or something like that.}\color{black}
 
 \subsection{Spectral Type Model \label{subsec:west_results}}
@@ -269,52 +273,56 @@ The three panels of \ref{fig:safe_selection} show before and after selection of 
 
 
 \subsection{Radii}
-Using empirically calibrated relations from \citealt{Mann:2015} we determine radii... some diagnostics...
+% Using empirically calibrated relations from \citealt{Mann:2015} we determine radii... some diagnostics...
+TBD
 
 
 \subsection{Color-Temperature Comparisons}
 
-As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures. To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (\textsl{APASS}; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by \textsl{APASS}, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and \aspcap\ vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
+TBD
+% As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures. To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (\textsl{APASS}; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by \textsl{APASS}, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and \aspcap\ vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
 
-% SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} 
-Shown in the top panels of \ref{fig:teff_comparisons} 
+% % SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} 
+% Shown in the top panels of \ref{fig:teff_comparisons} 
 
 
-We find \aspcap\ overestimates \teff\ on average by $130-170$K, while \thecannon\ underestimates \teff\ by $\sim25$K . We also see the scatter is much higher for the \aspcap\ temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
+% We find \aspcap\ overestimates \teff\ on average by $130-170$K, while \thecannon\ underestimates \teff\ by $\sim25$K . We also see the scatter is much higher for the \aspcap\ temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
 
-% The scatter of each relation being largely due to metallicity variation, both for the \cannon\ and \aspcap\ metallicities.
-\cannon\ temperatures show the highest agreement with the photometric relations from \citealt{Mann:2015} and \citealt{Boyajian:2012}, with a scatter of 80K. 
+% % The scatter of each relation being largely due to metallicity variation, both for the \cannon\ and \aspcap\ metallicities.
+% \cannon\ temperatures show the highest agreement with the photometric relations from \citealt{Mann:2015} and \citealt{Boyajian:2012}, with a scatter of 80K. 
 
-While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average \aspcap\ temperatures are much hotter, and scatters are much higher skewed by 500 sources which \aspcap\ predicts to have temperatures over 4200K.
+% While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average \aspcap\ temperatures are much hotter, and scatters are much higher skewed by 500 sources which \aspcap\ predicts to have temperatures over 4200K.
 
 \subsection{Isochrone Comparisons}
+TBD
 
 % JB DO WE WANT A FIGURE THAT SHOWS ABUNDANCES AS A FUNCTION OF MILKY WAY POSITION OR ACTIONS?
 
 %%==========================================================================================
 \section{Discussion} \label{sec:discussion}
+TBD
 
-\begin{enumerate}
-\item[-] Brief summary of what we did and found
+% \begin{enumerate}
+% \item[-] Brief summary of what we did and found
 
-\item[-] Things we learned along the way: For example, not all training sets worked well in our experiments, probably because they were too small or had too little dynamic range.
+% \item[-] Things we learned along the way: For example, not all training sets worked well in our experiments, probably because they were too small or had too little dynamic range.
 
-\item[-] \color{gcolor}{HOGG: Some discussion of precision and accuracy: \thecannon\ can produce precise results, but is only as accurate as its training set.}\color{black}
+% \item[-] \color{gcolor}{HOGG: Some discussion of precision and accuracy: \thecannon\ can produce precise results, but is only as accurate as its training set.}\color{black}
 
-\item[-] Some discussion of whether the derivatives are sensible or surprising. \color{gcolor}{HOGG: I'm not sure what to say here}\color{black}
+% \item[-] Some discussion of whether the derivatives are sensible or surprising. \color{gcolor}{HOGG: I'm not sure what to say here}\color{black}
 
-\item[-] \color{gcolor}{HOGG:\thecannon\ as a test of evaluating training parameter accuracy?}\color{black}
+% \item[-] \color{gcolor}{HOGG:\thecannon\ as a test of evaluating training parameter accuracy?}\color{black}
 
-\item[-] \color{gcolor}{HOGG: Discussion of validation tests and ground truth}\color{black}
+% \item[-] \color{gcolor}{HOGG: Discussion of validation tests and ground truth}\color{black}
 
-\end{enumerate}
+% \end{enumerate}
 
-Future work:
-\begin{enumerate}
-\item[-] Create a binary sample; using color/magnitude \citealt{Widmark:2018} and by spectroscopy \citealt{ElBadry:2018}
+% Future work:
+% \begin{enumerate}
+% \item[-] Create a binary sample; using color/magnitude \citealt{Widmark:2018} and by spectroscopy \citealt{ElBadry:2018}
 
-\item[-] \color{gcolor}{HOGG: Discussion of the implications of these results for the NASA \tess\ Mission and how the future might change..?}\color{black}
-\end{enumerate}
+% \item[-] \color{gcolor}{HOGG: Discussion of the implications of these results for the NASA \tess\ Mission and how the future might change..?}\color{black}
+% \end{enumerate}
 
 
 %%==========================================================================================
@@ -379,6 +387,11 @@ participating in the {\it Gaia} Multilateral Agreement.
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff1.png}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff2.png}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff3.png}
 \end{center}
 \caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallcities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}\label{fig:demo_teff}
@@ -389,6 +402,11 @@ participating in the {\it Gaia} Multilateral Agreement.
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh1.png}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh2.png}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh3.png}
 \end{center}
 \caption{\textit{Top two panels of each plot:} Mann-trained model for varying metallicities and similar temperatures. \textit{Third panel:} Derivative of \thecannon\ model with respect to metallicity, taken at the median training metallicity, [Fe/H]$=-0.03$ dex; jackknife computed error at each pixel is shown in red.} \label{fig:demo_feh}
