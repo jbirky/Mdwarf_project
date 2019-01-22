@@ -370,8 +370,9 @@ participating in the {\it Gaia} Multilateral Agreement.
 \newpage
 
 \begin{figure}[ht]
-\plotone{figures/self_and_validation_test_teff_snr.png}
-\plotone{figures/self_and_validation_test_feh_snr.png}
+% \plotone{figures/self_and_validation_test_teff_snr.png}
+% \plotone{figures/self_and_validation_test_feh_snr.png}
+\plottwo{figures/crv_test_teff.png}{figures/crv_test_fe_h.png}
 \caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test (left), and leave-one-out cross validation (right). Sources with strong rotational broadening (2M07171706--0501031, 2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380), as identified by visual inspection are marked with red circles. Predictive accuracy, as computed by the scatter in cross validation is 77K in temperature, and 0.09 dex in metallicity.}\label{fig:mann_validation}
 \end{figure}
 
@@ -429,6 +430,9 @@ participating in the {\it Gaia} Multilateral Agreement.
 \end{center}
 \caption{Derivative plots for spectral type model taken at the median training spectral type, SPT$=3$; jackknife computed error at each pixel is shown in red.} \label{fig:west_derivative}
 \end{figure}
+
+%---------------------------
+\newpage
 
 \begin{figure}[ht]
 \plotone{figures/cannon_chi_dist.png}
