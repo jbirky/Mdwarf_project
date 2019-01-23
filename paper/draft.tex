@@ -23,6 +23,7 @@
 \newcommand{\sdssiv}{\textsl{SDSS-IV}}
 \newcommand{\tess}{\textsl{TESS}}
 \newcommand{\teff}{$T_{\rm eff}$}
+\newcommand{\feh}{[Fe/H]}
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
 \definecolor{gcolor}{RGB}{51, 153, 51}
@@ -431,9 +432,6 @@ participating in the {\it Gaia} Multilateral Agreement.
 \caption{Derivative plots for spectral type model taken at the median training spectral type, SPT$=3$; jackknife computed error at each pixel is shown in red.} \label{fig:west_derivative}
 \end{figure}
 
-%---------------------------
-\newpage
-
 \begin{figure}[ht]
 \plotone{figures/cannon_chi_dist.png}
 \caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''. \label{fig:chi_dist}}
@@ -445,9 +443,6 @@ participating in the {\it Gaia} Multilateral Agreement.
 \end{figure}
 
 \begin{figure}[ht]
-% \gridline{\fig{figures/safe_selection_teff.png}{0.5\textwidth}{}
-%           \fig{figures/safe_selection_feh.png}{0.5\textwidth}{}}
-% \gridline{\fig{figures/safe_selection_spt.png}{0.5\textwidth}{}}
 \plottwo{figures/cmd_teff_full.png}{figures/cmd_teff_safe.png}
 \plottwo{figures/cmd_feh_full.png}{figures/cmd_feh_safe.png}
 \plottwo{figures/cmd_spt_full.png}{figures/cmd_spt_safe.png}
@@ -571,6 +566,97 @@ participating in the {\it Gaia} Multilateral Agreement.
 \enddata
 \end{deluxetable*}
 \end{longrotatetable} 
+
+
+%====================================
+
+\begin{deluxetable*}{|c|c|c|c|c|}
+\tablecaption{Strong \teff\ correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
+\tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
+\startdata
+Fe I & 15207.509 & -0.007 & 0.003 & -2.622 \\
+Fe I & 15648.478 & -0.006 & 0.002 & -3.273 \\
+Fe I & 15692.643 & -0.008 & 0.002 & -4.056 \\
+FeH & 16107.127 & -0.002 & 0.001 & -2.78 \\
+FeH & 16245.463 & -0.005 & 0.002 & -3.214 \\
+FeH & 16271.519 & -0.002 & 0.001 & -2.013 \\
+FeH & 16284.562 & -0.006 & 0.001 & -5.807 \\
+FeH & 16377.066 & -0.005 & 0.001 & -4.554 \\
+FeH & 16741.489 & -0.002 & 0.001 & -2.873 \\
+FeH & 16812.415 & -0.004 & 0.001 & -4.241 \\
+FeH & 16813.808 & -0.006 & 0.001 & -3.954 \\
+FeH & 16922.405 & -0.003 & 0.001 & -3.867 \\
+FeH & 16934.801 & -0.004 & 0.001 & -3.591 \\
+OH & 15278.267 & 0.006 & 0.003 & 2.47 \\
+OH & 15280.8 & 0.004 & 0.002 & 2.007 \\
+OH & 15391.186 & 0.006 & 0.003 & 2.127 \\
+OH & 15407.355 & 0.01 & 0.002 & 4.836 \\
+OH & 15409.271 & 0.008 & 0.002 & 4.683 \\
+OH & 15505.797 & 0.009 & 0.003 & 3.511 \\
+OH & 15560.305 & 0.008 & 0.002 & 3.865 \\
+OH & 15565.895 & 0.005 & 0.002 & 2.505 \\
+OH & 15568.691 & 0.007 & 0.001 & 4.929 \\
+OH & 15572.133 & 0.008 & 0.002 & 4.393 \\
+OH & 16052.7 & 0.008 & 0.002 & 3.517 \\
+OH & 16055.362 & 0.006 & 0.002 & 3.7 \\
+OH & 16061.796 & 0.007 & 0.003 & 2.502 \\
+OH & 16065.124 & 0.009 & 0.002 & 4.214 \\
+OH & 16069.564 & 0.008 & 0.003 & 3.275 \\
+OH & 16074.227 & 0.007 & 0.002 & 3.338 \\
+OH & 16190.345 & 0.007 & 0.003 & 2.498 \\
+OH & 16192.134 & 0.008 & 0.002 & 4.012 \\
+OH & 16203.995 & 0.006 & 0.002 & 3.039 \\
+OH & 16207.129 & 0.004 & 0.002 & 2.196 \\
+OH & 16352.196 & 0.007 & 0.002 & 3.609 \\
+OH & 16354.682 & 0.011 & 0.003 & 4.167 \\
+OH & 16364.626 & 0.007 & 0.003 & 2.661 \\
+OH & 16368.244 & 0.008 & 0.002 & 4.303 \\
+OH & 16581.281 & 0.008 & 0.002 & 4.41 \\
+OH & 16581.74 & 0.004 & 0.001 & 4.842 \\
+OH & 16866.621 & 0.005 & 0.001 & 3.169 \\
+OH & 16871.982 & 0.012 & 0.002 & 4.892 \\
+OH & 16878.976 & 0.006 & 0.002 & 3.807 \\
+OH & 16884.573 & 0.005 & 0.002 & 3.066 \\
+OH & 16886.206 & 0.006 & 0.001 & 5.131 \\
+OH & 16895.074 & 0.005 & 0.002 & 2.197 \\
+Si I & 15960.044 & -0.009 & 0.004 & -2.523 \\
+Si I & 16094.893 & -0.014 & 0.003 & -4.368 \\
+Si I & 16680.77 & -0.01 & 0.003 & -3.475 \\
+K I & 15162.824 & -0.006 & 0.002 & -2.294 \\
+Ti I & 15715.641 & 0.006 & 0.002 & 2.894 \\
+Ti I & 16634.973 & 0.003 & 0.001 & 4.224 \\
+V I & 15923.924 & 0.003 & 0.001 & 3.6 \\
+Mn I & 15159.054 & -0.006 & 0.002 & -3.123 \\
+\enddata
+\end{deluxetable*}
+
+%====================================
+
+\begin{deluxetable*}{|c|c|c|c|c|}
+\tablecaption{Strong \feh\ correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
+\tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
+\startdata
+Fe I & 15490.381 & -0.004 & 0.001 & -2.722 \\
+Fe I & 15692.643 & -0.005 & 0.002 & -2.759 \\
+Fe I & 16009.512 & -0.006 & 0.003 & -2.143 \\
+FeH & 16114.027 & 0.004 & 0.001 & 2.673 \\
+FeH & 16574.64 & 0.003 & 0.001 & 2.356 \\
+FeH & 16694.372 & 0.003 & 0.001 & 2.193 \\
+FeH & 16814.041 & 0.004 & 0.002 & 2.513 \\
+OH & 16052.7 & 0.005 & 0.002 & 2.034 \\
+OH & 16055.362 & 0.006 & 0.002 & 2.805 \\
+OH & 16065.124 & 0.007 & 0.003 & 2.364 \\
+OH & 16871.982 & 0.007 & 0.003 & 2.306 \\
+OH & 16886.206 & 0.004 & 0.001 & 2.52 \\
+Si I & 15960.044 & -0.007 & 0.003 & -2.112 \\
+Si I & 16680.77 & -0.006 & 0.003 & -2.156 \\
+K I & 15163.033 & 0.006 & 0.003 & 2.043 \\
+V I & 15923.924 & 0.002 & 0.001 & 2.017 \\
+Cr I & 15680.073 & -0.005 & 0.002 & -2.811 \\
+Mn I & 15159.054 & -0.008 & 0.002 & -3.298 \\
+Mn I & 15262.023 & -0.005 & 0.002 & -2.996 \\
+\enddata
+\end{deluxetable*}
 
 %====================================
 \newpage 
