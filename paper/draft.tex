@@ -237,9 +237,7 @@ Another mode of analysis we can look at with \thecannon\ is how the derivative o
 \begin{equation}
 	\sigma_{\theta,m}^2 = \frac{N-1}{N} \sum^N_{n=1} (\theta_{/n}^m - \theta^m)^2 
 \end{equation}
-where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total number of stars in the sample, indexed by \emph{n}, $\theta$ is the coeffient vector trainined on all N sources, and $\theta_{/n}$ is the coefficient vector trained on \emph{N-1} sources excluding star \emph{n}.
-
-\color{gcolor}{HOGG/ADAM: Do we want some note on what lines vary significantly with parameter? I could summarize the which kinds of lines show increasing or decreasing trends, but have no idea how to interpret from there.}\color{black}
+where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total number of stars in the sample, indexed by \emph{n}, $\theta$ is the coeffient vector trainined on all N sources, and $\theta_{/n}$ is the coefficient vector trained on \emph{N-1} sources excluding star \emph{n}. A summary of identified lines with derivative values greater than $2\sigma_{\rm jackkife}$ is given in Table \ref{table:teff_derivative} and Table \ref{table:feh_derivative}.
 
 The spectra contain roughly 8000 pixels,
 so we might expect the $\chi^2$ values to be close to 8000 in magnitude.
@@ -629,7 +627,7 @@ Ti I & 16634.973 & 0.003 & 0.001 & 4.224 \\
 V I & 15923.924 & 0.003 & 0.001 & 3.6 \\
 Mn I & 15159.054 & -0.006 & 0.002 & -3.123 \\
 \enddata
-\end{deluxetable*}
+\end{deluxetable*} \label{table:teff_derivative}
 
 %====================================
 
@@ -657,7 +655,7 @@ Cr I & 15680.073 & -0.005 & 0.002 & -2.811 \\
 Mn I & 15159.054 & -0.008 & 0.002 & -3.298 \\
 Mn I & 15262.023 & -0.005 & 0.002 & -2.996 \\
 \enddata
-\end{deluxetable*}
+\end{deluxetable*} \label{table:feh_derivative}
 
 %====================================
 \newpage 
