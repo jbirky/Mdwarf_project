@@ -99,8 +99,9 @@ The launch of the (\apogee; \citealt{Majewski:2015}) survey as part of the Sloan
 Precise measurements of fundamental stellar parameters (including temperatures, masses, radii, abundances and kinematics) are key to studying M dwarfs on both galactic and planetary scales. Methods for determining these parameters... temperatures (models, photometry), masses (dynamical)
 
 Why is there a problem determining M dwarf metallicities (and especially for high res \apogee\ spectra)? Emphasize issues: (1) models dont accurately reproduce data; (2) empirical standards are relative not absolute, and they are sparesely sampled. 
+Methods for determining metallicity of M dwarfs: (1) from atmospheric models of M dwarfs, (2) empirical methods
 
-In particular, parameters such as metallicity can be difficult to determine in M dwarfs, as overlapping lines in a spectrum and lack of continuum make it difficult to define features and extract their line strengths. A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star, to developed precise empirical relations (as good as $\sim$0.07dex) between the adopted metallicities of the FGK primary (under the assumption kinematically similar pairs are co-evolutionary; \citealt{Bonfils:2005}), and strong, isolated lines in the optical spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}).
+In particular, the metallicity abundance can be difficult to determine in M dwarfs, as overlapping lines in a spectrum and lack of continuum make it difficult to define features and extract their line strengths. A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star, to developed precise empirical relations (as good as $\sim$0.07\,dex) between the adopted metallicities of the FGK primary (under the assumption kinematically similar pairs are co-evolutionary; \citealt{Bonfils:2005}), and strong, isolated lines in the optical spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}).
 However these metallicity callibrations are inaccesible for analysis with \apogee, as the narrow infrared wavelength coverage does not include the relevant callibration indices used by existing studies (such as Ca I or KI lines in the optical), and blending of multiple atomic and molecular species at high resolution makes it impractical to identify and deconvolve new individual features for analysis. 
 
 In this work we build a data-driven model for M dwarf spectra with \thecannon\ (\citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}).
@@ -116,7 +117,7 @@ if it is computationally expensive to obtain labels for a star, but
 there are many stars that need labels;
 if there are spectral models that work in one wavelength range or resolution but not in another.
 The context of this paper is the last:
-There are working and reliable models of M dwarf stars in the optical, which have been
+there are precise callibrations for metallicities of M dwarf stars in the optical, which have been
 used successfully, but (as we note above) there isn't as much success with such modeling in the infrared, and not at \apogee\ resolution.
 \thecannon\ bridges this gap: it doesn't require using specific lines; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
 
@@ -146,14 +147,7 @@ is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey
 The \aspcap\ pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline).
 In previous work it has been recommended to use an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in our analysis, so we retain the survey pipeline outputs.
 
-A number of M dwarf studies have already been conducted in \apogee, particularly towards measuring reliable fundamental atmospheric parameters and kinematic measurements:
-\begin{enumerate}
-\item \citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs
-\item \citealt{Souto:2017} and \citealt{Souto:2018} -- modeled three exoplanet hosting M dwarfs (Kepler-138, Kepler-168 and Ross-128), determining Teff/logg/metallicity + 13 elemental abundances
-\item \citealt{Desphande:2013} -- modeled rotational and radial velocities for 200+ M dwarfs, later extended by \citealt{Gilhool:2018} to 700+ M dwarfs
-\item \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity)
-\item \citealt{Skinner:2018} - identified and measured mass ratios and radial velocities for 44 M dwarf binaries
-\end{enumerate}
+A number of M dwarf studies have already been conducted in \apogee, particularly towards measuring reliable fundamental atmospheric parameters and kinematic measurements. \citealt{Schmidt:2016} -- analyzed trends and reliablility of ASPCAP parameters for K/M dwarfs. \citealt{Souto:2017} and \citealt{Souto:2018} -- modeled three exoplanet hosting M dwarfs (Kepler-138, Kepler-168 and Ross-128), determining Teff/logg/metallicity + 13 elemental abundances. \citealt{Desphande:2013} -- modeled rotational and radial velocities for 200+ M dwarfs, later extended by \citealt{Gilhool:2018} to 700+ M dwarfs. \citealt{Rajpurohit:2018} -- tested BTSettl model grids on 45 M dwarfs, estimated Teff/logg/metallicity). \citealt{Skinner:2018} - identified and measured mass ratios and radial velocities for 44 M dwarf binaries.
  
 \subsection{Training Sample Selection}
 
