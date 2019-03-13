@@ -2,6 +2,7 @@
 __pycache__
 *.aux
 *.dvi
+*.xwm
 *.log
 *.fdb_latexmk
 *.fls
