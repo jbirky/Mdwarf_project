@@ -350,112 +350,112 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 \newpage
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 % \plotone{figures/self_and_validation_test_teff_snr.png}
 % \plotone{figures/self_and_validation_test_feh_snr.png}
 \plottwo{figures/crv_test_teff.png}{figures/crv_test_fe_h.png}
 \caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test (left), and leave-one-out cross validation (right). Sources with strong rotational broadening (2M07171706--0501031, 2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380), as identified by visual inspection are marked with red circles. Predictive accuracy, as computed by the scatter in cross validation is 77K in temperature, and 0.09 dex in metallicity.}\label{fig:mann_validation}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
 % \plotone{figures/self_and_validation_test_spt_snr.png}
 \plottwo{figures/self_test_spt.png}{figures/crv_test_spt.png}
 \end{center}
 \caption{Consistency test for the West-trained spectral type model; self-test (left), and leave-one-out cross validation (right).  Predictive accuracy, as computed by the scatter in cross validation is 0.9 subtypes.}\label{fig:west_validation}
-\end{figure}
+\end{figure*}
 
 %---------------------------
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff1.png}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff2.png}
 \end{center}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_teff3.png}
 \end{center}
 \caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallcities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}\label{fig:demo_teff}
-\end{figure}
+\end{figure*}
 
 %---------------------------
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh1.png}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh2.png}
 \end{center}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh3.png}
 \end{center}
 \caption{\textit{Top two panels of each plot:} Mann-trained model for varying metallicities and similar temperatures. \textit{Third panel:} Derivative of \thecannon\ model with respect to metallicity, taken at the median training metallicity, [Fe/H]$=-0.03$ dex; jackknife computed error at each pixel is shown in red.} \label{fig:demo_feh}
-\end{figure}
+\end{figure*}
 
 %---------------------------
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=12cm]{figures/Spectral_Sequence_1.png}
 \includegraphics[width=12cm]{figures/Spectral_Sequence_2.png}
 \includegraphics[width=12cm]{figures/Spectral_Sequence_3.png}
 \end{center}
 \caption{Spectral sequence of dwarfs in training set M0-M9; separate plots show three detector chips of \apogee\ spectrum (black), the best fit Cannon trained model (red) with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
-\end{figure}
+\end{figure*}
 
 %---------------------------
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=16cm]{figures/derivative_jackknife_spt.png}
 \end{center}
 \caption{Derivative plots for spectral type model taken at the median training spectral type, SPT$=3$; jackknife computed error at each pixel is shown in red.} \label{fig:west_derivative}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plotone{figures/cannon_chi_dist.png}
 \caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''. \label{fig:chi_dist}}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plotone{figures/cmd_selection.png}
 \caption{\gaia\ and \zmass\ color-magnitude cuts for 12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia. \label{fig:cmd_selection}}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plottwo{figures/cmd_teff_full.png}{figures/cmd_teff_safe.png}
 \plottwo{figures/cmd_feh_full.png}{figures/cmd_feh_safe.png}
 \plottwo{figures/cmd_spt_full.png}{figures/cmd_spt_safe.png}
 \caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 10,311 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence. \label{fig:safe_selection}}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plotone{figures/spt_vs_teff_vs_feh.png}
 \caption{West-trained spectral types vs. Mann-trained metallcities and temperatures. For each integer spectral type bin the mean temperatures and metallicities are shown as red error boxes. \label{fig:west_vs_mann}}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plotone{figures/aspcap_cannon_label_hist.png}
 \caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<[Fe/H]<0.5$ because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities. \label{fig:aspcap_cannon_label_hist}} 
-\end{figure}
+\end{figure*}
 
 %---------------------------
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plotone{figures/aspcap_cannon_validation.png}
 \caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and [Fe/H] dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and [Fe/H] (bottom).  \label{fig:teff_comparisons}}
-\end{figure}
+\end{figure*}
 
 %---------------------------
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plotone{figures/isochrone_cmd.png}
 \caption{Comparison of Cannon [Fe/H] as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (1, 3, 5, and 7 Gyr). \label{fig:isochrone_cmd}}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \plotone{figures/mann_radii.png}
 \caption{Comparison of radii estimated from M15 relations: on the x-axis radii are derived from  K magnitudes and \cannon\ [Fe/H], on the y-axis radii are derived from \cannon\ \teff\ and [Fe/H]. \label{fig:radii}}
-\end{figure}
+\end{figure*}
 
 %%==========================================================================================
 %% Tables
@@ -647,37 +647,38 @@ Mn I & 15262.023 & -0.005 & 0.002 & -2.996 \\
 \tablehead{Column & Unit & Description}
 \startdata
 {\tt APOGEE$\_$ID} 	& 	& \apogee\ \zmass\ designation \\
-{\tt BP$\_$MAG }		& mag	& \gaia\ $BP$ band photometry	\\
-{\tt BP$\_$RP} 		& mag	& \gaia\ $BP-RP$ color	\\
+{\tt GAIA$\_$ID} 		&	& \gaia\ identification number \\
+{\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
+{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ [Fe/H]	\\
+{\tt SPT} 				& 	& West-trained \cannon\ spectral subtype (M0$-$M9)	\\
 {\tt CHI$\_$MANN} 	& 	& $\chi^2$ fit of Mann-trained \cannon\ model	\\
 {\tt CHI$\_$WEST} 	& 	& $\chi^2$ fit of West-trained \cannon\ model	\\
-{\tt DEC} 			& deg	& \apogee\ declination angle	\\
-{\tt DIST} 			& pc	& Distance (1/$\varpi$)	\\
-{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ [Fe/H]	\\
-{\tt GAIA$\_$ID} 		&	& \gaia\ identification number \\
-{\tt G$\_$ABS} 		& mag	& \gaia\ $G$ band absolute magnitude	\\
-{\tt G$\_$MAG} 		& mag	& \gaia\ $G$ band photometry	\\
-{\tt H} 				& mag	& \apogee\ $H$ band photometry	\\
-{\tt H$\_$ERR} 		& mag	& \apogee\ $H$ band photometry uncertainty	\\
+{\tt RADIUS} 			& R$_\odot$	& Radius determined by \citealt{Mann:2015} relation	\\
+{\tt MASS} 			& M$_\odot$	& Mass determined by \citealt{Mann:2019} relation	\\
 {\tt J} 				& mag	& \apogee\ $J$ band photometry	\\
 {\tt J$\_$ERR} 		& mag	& \apogee\ $J$ band photometry uncertainty	\\
+{\tt H} 				& mag	& \apogee\ $H$ band photometry	\\
+{\tt H$\_$ERR} 		& mag	& \apogee\ $H$ band photometry uncertainty	\\
 {\tt K} 				& mag	& \apogee\ $K$ band photometry	\\
 {\tt K$\_$ERR} 		& mag	& \apogee\ $K$ band photometry uncertainty	\\
-{\tt PLX} 			& mas	& \gaia\ parallax	\\
-{\tt PLX$\_$ERR} 		& mas	& \gaia\ parallax uncertainty	\\
-{\tt PMDEC} 			& mas yr$^{-1}$	& \gaia\ declination proper motion	\\
-{\tt PMDEC$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ declination proper motion uncertainty	\\
+{\tt BP$\_$MAG }		& mag	& \gaia\ $BP$ band photometry	\\
+{\tt RP$\_$MAG} 		& mag	& \gaia\ $RP$ band photometry	\\
+{\tt G$\_$MAG} 		& mag	& \gaia\ $G$ band photometry	\\
+{\tt G$\_$ABS} 		& mag	& \gaia\ $G$ band absolute magnitude	\\
+{\tt BP$\_$RP} 		& mag	& \gaia\ $BP-RP$ color	\\
+{\tt RA} 				& deg	& \apogee\ radial ascension angle	\\
+{\tt DEC} 			& deg	& \apogee\ declination angle	\\
 {\tt PMRA} 			& mas yr$^{-1}$	& \gaia\ radial ascension proper motion	\\
 {\tt PMRA$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ radial ascension proper motion uncertainty	\\
-{\tt RA} 				& deg	& \apogee\ radial ascension angle	\\
-{\tt RADIUS} 			& R$_\odot$	& Radius determined by \citealt{Mann:2015} relation	\\
-{\tt RP$\_$MAG} 		& mag	& \gaia\ $RP$ band photometry	\\
+{\tt PMDEC} 			& mas yr$^{-1}$	& \gaia\ declination proper motion	\\
+{\tt PMDEC$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ declination proper motion uncertainty	\\
+{\tt PLX} 			& mas	& \gaia\ parallax	\\
+{\tt PLX$\_$ERR} 		& mas	& \gaia\ parallax uncertainty	\\
+{\tt DIST} 			& pc	& Distance (1/$\varpi$)	\\
 {\tt RV$\_$APOGEE} 	& km s$^{-1}$	& \apogee\ radial velocity	\\
 {\tt RV$\_$APOGEE$\_$ERR} 	& km s$^{-1}$	& \apogee\ radial velocity uncertainty	\\
 {\tt RV$\_$GAIA} 				& km s$^{-1}$	& \gaia\ radial velocity	\\
 {\tt RV$\_$GAIA$\_$ERR}		& km s$^{-1}$	& \gaia\ radial velocity uncertainty	\\
-{\tt SPT} 				& 	& West-trained \cannon\ spectral subtype (M0$-$M9)	\\
-{\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
 {\tt Vx} 				& km s$^{-1}$	& Cartesian $x$ velocity in Galactocentric coordnates	\\
 {\tt Vy} 				& km s$^{-1}$	& Cartesian $y$ velocity in Galactocentric coordnates	\\
 {\tt Vz} 				& km s$^{-1}$	& Cartesian $z$ velocity in Galactocentric coordnates	\\
