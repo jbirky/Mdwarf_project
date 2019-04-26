@@ -23,10 +23,10 @@
 \newcommand{\lamost}{\textsl{LAMOST}}
 \newcommand{\sdssiv}{\textsl{SDSS-IV}}
 \newcommand{\tess}{\textsl{TESS}}
-\newcommand{\msun}{$M_{\odot}$ \,}
-\newcommand{\rsun}{$R_{\odot}$ \,}
-\newcommand{\teff}{$T_{\rm eff}$}
-\newcommand{\feh}{[Fe/H]}
+\newcommand{\msun}{M_{\odot}}
+\newcommand{\teff}{T_{\mathrm{eff}}}
+\newcommand{\logg}{\log g}
+\newcommand{\feh}{[{\mathrm{Fe}/\mathrm{H}}]}
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
 \definecolor{gcolor}{RGB}{51, 153, 51}
@@ -40,7 +40,7 @@
 \shorttitle{temperatures and metallicities for m dwarfs}
 \shortauthors{birky et al.}
 
-\begin{document}
+\begin{document}\raggedbottom\sloppy\sloppypar\frenchspacing
 
 \title{TEMPERATURES AND METALLICITIES FOR 10,000 M DWARFS\\ IN THE \apogee\ SURVEY}
 
@@ -66,9 +66,16 @@ Broadway, New York, NY 10003, USA}
 \affil{Center for Astrophysics and Space Science, University of California San Diego, La Jolla, CA 92093, USA}
 
 \begin{abstract}
-We present a catalog of spectroscopic temperatures, metallicities, spectral types for 10,311 M dwarfs in the \apogee\ survey using \thecannon: a flexible, data-driven spectral-modeling and parameter-inference framework, demonstrated on high-resolution, near-infrared \sdssiv\ \apogee\ spectra of giant stars to estimate stellar labels (\teff, logg, [Fe/H], and detailed abundances) to precisions higher than the \apogee\ survey model-grid pipelines.
-Using a training sample of 87 M dwarfs in the temperature range $2860 < T_{\rm eff} < 4130$\,K, and metallicty range $-0.5 < \mathrm{[Fe/H]}< 0.5$\,dex, we train a two-parameter model with predictive accuracy (in cross-validation) to 77\,K and 0.09\,dex respectively.
-We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging M0 to M9, to predictive accuracy of 0.9 types. From the overlap of \textsl{APOGEE DR14} and \textsl{Gaia DR2} we compare our \cannon\ derived \teff\ against color--temperature relations and \cannon\ derived [Fe/H] against isochrone models in \gaia\ color-magnitude space. Finally we use empirically callibrated relations to estimate masses radii from $M_K$ absolute magnitudes and \cannon\ temperatures.
+We present a catalog of spectroscopic temperatures, metallicities,
+spectral types for 10,311 M dwarfs in the \apogee\ survey using
+\thecannon, which is a flexible, data-driven spectral-modeling and
+parameter-inference framework demonstrated to estimate
+stellar-parameter labels ($\teff$, $\logg$, $\feh$, and detailed
+abundances) to high precision.
+
+Using a training sample of 87 M dwarfs in the temperature range $2860 < \teff < 4130$\,K, and metallicty range $-0.5 < \feh < 0.5$\,dex, we train a two-parameter model with predictive accuracy (in cross-validation) to 77\,K and 0.09\,dex respectively.
+
+We also train a one-dimensional spectral type model using 51 M dwarfs with known spectral types ranging M0 to M9, to predictive accuracy of 0.9 types. From the overlap of \textsl{APOGEE DR14} and \textsl{Gaia DR2} we compare our \cannon\ derived $\teff$ against color--temperature relations and \cannon\ derived $\feh$ against isochrone models in \gaia\ color-magnitude space. Finally we use empirically callibrated relations to estimate masses radii from $M_K$ absolute magnitudes and \cannon\ temperatures.
 This project has implications for the NASA \tess\ Mission and other surveys that involve large samples of M dwarfs. 
 \end{abstract}
 
@@ -89,12 +96,12 @@ surveys
 %%==========================================================================================
 \section{Introduction} \label{sec:intro}
 
-Low-mass stars (with masses $M_{*} < 0.7\,$\msun and atmospheric temperatures $T_{\rm eff} < 4000\,$K) are by far the most ubiquitous type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010}. With nuclear fusion timescales of $\tau>10^{11}$ yr \citep{Laughlin:1997}, chemical compositions of M dwarf populations tracing the nucleosynthetic processes and interstellar mixing of heavy elements from many generations of shorter-lived, high mass stars, are a unique probe for piecing together galactic structure and evolution \citep{Bochanski:2010}.  
+Low-mass stars (with masses $M_{*} < 0.7\,\msun$ and atmospheric temperatures $T_{\rm eff} < 4000\,$K) are by far the most ubiquitous type of star, comprising $\sim 70 \%$ of the galaxy's population by number \citep{Bochanski:2010}. With nuclear fusion timescales of $\tau>10^{11}$ yr \citep{Laughlin:1997}, chemical compositions of M dwarf populations tracing the nucleosynthetic processes and interstellar mixing of heavy elements from many generations of shorter-lived, high mass stars, are a unique probe for piecing together galactic structure and evolution \citep{Bochanski:2010}.  
 
 Additionally, the low masses of M dwarfs make for easier detection of planets by radial velocity offset detections \citep{Trifonov:2018}, high planet-to-star radii ratios make for easier detection of exoplanet transits in light curve observations (e.g. \kepler, \tess), and shorter orbital periods allow for new planet discovery in less observation time than their higher mass counterparts. For these reasons, M dwarfs are the primary candidates for exoplanet detection searches, making detailed and precise knowledge of M dwarf chemical compositions key to constraining the atmospheric conditions of potentially habitable exoplanets. 
 
 Advances in instrumentation with the lauch of several spectroscopic surveys in the past decade have dramatically increased the sample of known M dwarfs, and our potential to study M dwarf abundances on both exoplanet and galactic scales at a large statistical level.
-The largest of such catalogs include the \citealt{West:2011} sample of 70,841 sources from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and the \citealt{Yi:2014} and \citealt{Guo:2015} catalogs of 93,619 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012}), which each have determined spectral subtype classifications, H$\alpha$ equivalent width, and a number of optical molecular band index measurements. The launch of the (\apogee; \citealt{Majewski:2015}) survey as part of the Sloan Digital Sky Survey III mission \citep{Eisenstein:2011} has introduced the largest sample of M dwarfs observed with high resolution spectroscopy, yet pipeline measurements \citep{Perez:2016} of \teff\ and \feh\ have only been determined precise to 100\,K and 0.18\,dex down to $T_{\rm eff}\sim3550\,$K \citep{Schmidt:2016}.
+The largest of such catalogs include the \citealt{West:2011} sample of 70,841 sources from the Sloan Digital Sky Survey (SDSS DR7; \citealt{Abazajian:2009}), and the \citealt{Yi:2014} and \citealt{Guo:2015} catalogs of 93,619 from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope (LAMOST DR1; \citealt{Zhao:2012}), which each have determined spectral subtype classifications, H$\alpha$ equivalent width, and a number of optical molecular band index measurements. The launch of the (\apogee; \citealt{Majewski:2015}) survey as part of the Sloan Digital Sky Survey III mission \citep{Eisenstein:2011} has introduced the largest sample of M dwarfs observed with high resolution spectroscopy, yet pipeline measurements \citep{Perez:2016} of $\teff$ and $\feh$ have only been determined precise to 100\,K and 0.18\,dex down to $T_{\rm eff}\sim3550\,$K \citep{Schmidt:2016}.
 
 Why is there a problem determining M dwarf metallicities (and especially for high res \apogee\ spectra)? Emphasize issues: (1) models dont accurately reproduce data; (2) empirical standards are relative not absolute, and they are sparesely sampled. 
 Methods for determining metallicity of M dwarfs: (1) from atmospheric models of M dwarfs, (2) empirical methods: photometric calibrations (\citealt{Johnson:2009}; \citealt{Schlaufman:2010}) or spectroscopic calibrations (\citealt{Terrien:2012}; \citealt{Rojas-Ayala:2012}; \citealt{Mann:2013a}; \citealt{Newton:2014}) with FGK pairs. Our approach is the latter.
@@ -138,7 +145,7 @@ delivered by the \apogee\ spectrograph and project.
 
 The \apogee\ survey 
 % \citep{Majewski:2015} of the Sloan Digital Sky Survey III and IV (\textsl{SDSS-III/IV} \citealt{Eisenstein:2011}; \citealt{Blanton:2017})
-is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey which has observed over 250,000 stellar spectra up to its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the \apogee\ Stellar Parameter and Chemical Abundances Pipeline (\aspcap; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the \textsl{FERRE} code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters (\teff, log g, [Fe/H], [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures ($2800<$ \teff\ $<3500$K), the pipeline uses \textsl{MARCS} plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures (\teff\ $\geq3500$K) \textsl{ATLAS9} \citep{Castelli:2004} plane-parallel models are used.
+is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey which has observed over 250,000 stellar spectra up to its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the \apogee\ Stellar Parameter and Chemical Abundances Pipeline (\aspcap; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the \textsl{FERRE} code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters ($\teff$, $\logg$, $\feh$, [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures ($2800<\teff<3500$\,K), the pipeline uses \textsl{MARCS} plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures ($\teff\geq3500$\,K) \textsl{ATLAS9} \citep{Castelli:2004} plane-parallel models are used.
 
 \apogee\ is primarily targeted for bright stellar populations particularly red giants, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by M dwarf ancilliary surveys, or serendipitously. We determine in this study at least 10,000 M dwarfs have been observed by \apogee\ to date.
 
@@ -160,14 +167,14 @@ For the purpose of this study we have constructed two different training samples
 
 The spectral type sample consists of 51 sources, spanning M0-M9 cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from \sdss. For each source in the catalog, spectral types were determined both through an automated routine for comparing spectral type templates to data using \textsl{The Hammer} \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
 
-The physical parameter sample consists of 87 sources with reference labels distributed over $2859 <T_{\rm eff} < 4131$K, and $-0.48 <$ [Fe/H] $< 0.49$, 41 sources of which are drawn from \citealt{Mann:2015} (hereafter M15), and 46 of which are part of an previously unpublished extension sample to M15 analyzed using similar data and identical techniques to M15. The major difference between the extension sample is that the sample had lower-quality or no parallaxes (prior to Gaia data) and hence were omitted from the M15 study and were less vetted for binarity than the M15 sample.
+The physical parameter sample consists of 87 sources with reference labels distributed over $2859 <T_{\rm eff} < 4131$K, and $-0.48 < \feh < 0.49$\,dex, 41 sources of which are drawn from \citealt{Mann:2015} (hereafter M15), and 46 of which are part of an previously unpublished extension sample to M15 analyzed using similar data and identical techniques to M15. The major difference between the extension sample is that the sample had lower-quality or no parallaxes (prior to Gaia data) and hence were omitted from the M15 study and were less vetted for binarity than the M15 sample.
 
-The M15 catalog in total contains 183 sources and the extension sample another 500 stars, both primarily selected from the proper-motion selected CONCH-SHELL \citep{Gaidos:2013} M dwarf catalog. All targets have low-res optical spectra from the SNIFS specgrograph \citep{Lantz:2004} and infrared spectra taken with the SpeX Spectograph \citep{Rayner:2003}, which have been combined to estaimte largely empirical bolometric fluxes. Effective temperatures have been estimated by comparing the SNIFS spectra to BT-SETTL atmospheric models \citep{Allard:2011}. A subsample of 29 sources with measured angular diameters from long-baseline optical interferometry \citep{Boyajian:2012} are used to calibrate the model comparison, including masking of spectral regions poorly reproduced by the model spectra \citep{Mann:2013c}. Based on difference between assigned \teff\ values and those from angular diameters, absolute uncertainty on \teff\ is esitmated to be 60K in \teff, although the relative uncertainty is likely a factor of $\simeq$2 better.
+The M15 catalog in total contains 183 sources and the extension sample another 500 stars, both primarily selected from the proper-motion selected CONCH-SHELL \citep{Gaidos:2013} M dwarf catalog. All targets have low-res optical spectra from the SNIFS specgrograph \citep{Lantz:2004} and infrared spectra taken with the SpeX Spectograph \citep{Rayner:2003}, which have been combined to estaimte largely empirical bolometric fluxes. Effective temperatures have been estimated by comparing the SNIFS spectra to BT-SETTL atmospheric models \citep{Allard:2011}. A subsample of 29 sources with measured angular diameters from long-baseline optical interferometry \citep{Boyajian:2012} are used to calibrate the model comparison, including masking of spectral regions poorly reproduced by the model spectra \citep{Mann:2013c}. Based on difference between assigned $\teff$ values and those from angular diameters, absolute uncertainty on $\teff$ is esitmated to be 60K in $\teff$, although the relative uncertainty is likely a factor of $\simeq$2 better.
 %AWM: I realized I've never actaully sat down and rigorously measured the relative Teff uncertainty. The results from the Cannon actually suggest ~30 is not bad. I just did some quick tests, and I'm not prepared to put an absolute number on it. A \simeq 30 here should be safeish.
 
-Iron abundances ([Fe/H]) are assignied to the physical parameter sample based on the strength of metal-sensitive lines in the near-infrared SpeX spectra \citep{RojasAyala:2010} using the calibration from \citet{Mann:2013a}. The relation between these lines and an absolute [Fe/H] scale is calibrated using wide binaries containing and F, G, or K-type primary and an M dwarf companion, under the assumption that binaries formed from the same molecular cloud and therefore have the same metallicity \citep{Bonfils:2005}. Uncertainties are estimated to be $\simeq$0.08\,dex based on irreducable scatter in the empirical relation between selected lines and the assigned [Fe/H] from the primary star. As with \teff\ relative errors on [Fe/H] are smaller, estimated to be 0.04--0.06\,dex over most of the temperature and metallicity range considered here.
+Iron abundances ($\feh$) are assignied to the physical parameter sample based on the strength of metal-sensitive lines in the near-infrared SpeX spectra \citep{RojasAyala:2010} using the calibration from \citet{Mann:2013a}. The relation between these lines and an absolute $\feh$scale is calibrated using wide binaries containing and F, G, or K-type primary and an M dwarf companion, under the assumption that binaries formed from the same molecular cloud and therefore have the same metallicity \citep{Bonfils:2005}. Uncertainties are estimated to be $\simeq$0.08\,dex based on irreducable scatter in the empirical relation between selected lines and the assigned $\feh$ from the primary star. As with $\teff$ relative errors on $\feh$ are smaller, estimated to be 0.04--0.06\,dex over most of the temperature and metallicity range considered here.
 
-We note that surface gravity is not included as a training label. The reason for this is that for main-sequence M dwarfs, the parameter is almost entirely redundant with metallicity. Unlike their higher-mass counterparts, M dwarf properties do not change measurably over the age of the Universe. Hence perfect knowledge of abundances and \teff\ for an M dwarf should uniquely determine its position its surface gravity, position on a color-magnitude diagram, and overall luminosity. While we only had [Fe/H] for the training sample, for the uncertainties considered here, lack of information about [$\alpha$/Fe] or specific abundances will only be important for extreme cases (e.g., Carbon stars). 
+We note that surface gravity is not included as a training label. The reason for this is that for main-sequence M dwarfs, the parameter is almost entirely redundant with metallicity. Unlike their higher-mass counterparts, M dwarf properties do not change measurably over the age of the Universe. Hence perfect knowledge of abundances and $\teff$ for an M dwarf should uniquely determine its position its surface gravity, position on a color-magnitude diagram, and overall luminosity. While we only had $\feh$ for the training sample, for the uncertainties considered here, lack of information about [$\alpha$/Fe] or specific abundances will only be important for extreme cases (e.g., Carbon stars). 
 
 %%AWM: Feel free to edit this for clarity. Let me know if anything makes no sense. 
 
@@ -198,7 +205,7 @@ We apply a quadratic parameterization of the model such that the label vectors f
 \begin{eqnarray}
 \ell_{n} &=& [1, \, SPT, \, SPT^{2}] \label{eqn:spt}
 \\
-\ell_{n} &=& [1, \, T_{\rm eff}, \, [Fe/H], \, T_{\rm eff}^2, \, T_{\rm eff} \cdot [Fe/H], \, [Fe/H]^{2}] \label{eqn:physical}
+\ell_{n} &=& [1, \, \teff, \, \feh, \, \teff^2, \, \teff \cdot \feh, \, \feh^{2}] \label{eqn:physical}
 ,
 \end{eqnarray}
 Equation (\ref{eqn:spt}) is the label vector for the spectral type model, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model, and the first element ``1'' is included to allow flexibility for a linear offset to the model. We find that a second order parameterization is sufficient for reproducing the flux of each spectrum to one percent accuracy, as discussed further in Section \ref{subsec:mann_results}.
@@ -249,10 +256,10 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 \item \textbf{Quality of fit cut:} We apply a $\chi^2$ cut of less than 100,000.
 
-\item \textbf{Training bound selection:} Because extrapolation with \thecannon\ is unreliable, we select only sources with labels inside the range of the training sample: for the reported temperatures and metallicities we impose $2850<T_{\rm eff}<4150$ and $-0.5<$[Fe/H]$<0.5$, and for reported spectral subtypes we impose $0<SPT<9$.
+\item \textbf{Training bound selection:} Because extrapolation with \thecannon\ is unreliable, we select only sources with labels inside the range of the training sample: for the reported temperatures and metallicities we impose $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$, and for reported spectral subtypes we impose $0<SPT<9$.
 \end{enumerate}
 
-The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. Additionally we notice a slight deviation at the upper slice of the main sequence where \cannon\ temperatures, metallicities and spectral types all appear lower than the gradient trends in the rest of the branch, which is most likely the binary sequence. Comparisons between the West-trained spectral types and Mann-trained temperatures and metallicities are shown in Figure \ref{fig:west_vs_mann}: left shows the slight negative correlation between spectral type and [Fe/H], and right shows the nonlinear decrease in temperature with visible metallicity gradient. We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a personal laptop. 
+The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. Additionally we notice a slight deviation at the upper slice of the main sequence where \cannon\ temperatures, metallicities and spectral types all appear lower than the gradient trends in the rest of the branch, which is most likely the binary sequence. Comparisons between the West-trained spectral types and Mann-trained temperatures and metallicities are shown in Figure \ref{fig:west_vs_mann}: left shows the slight negative correlation between spectral type and $\feh$, and right shows the nonlinear decrease in temperature with visible metallicity gradient. We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a personal laptop. 
 
 
 \subsection{Masses \& Radii}
@@ -267,7 +274,7 @@ As a validation test of our derived temperatures, we perform a comparison betwee
 % Shown in the top panels of \ref{fig:teff_comparisons} 
 
 
-We find \aspcap\ overestimates \teff\ on average by $130-170$K, while \thecannon\ underestimates \teff\ by $\sim25$K. We also see the scatter is much higher for the \aspcap\ temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
+We find \aspcap\ overestimates $\teff$ on average by $130-170$K, while \thecannon\ underestimates $\teff$ by $\sim25$K. We also see the scatter is much higher for the \aspcap\ temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
 
 % % The scatter of each relation being largely due to metallicity variation, both for the \cannon\ and \aspcap\ metallicities.
 % \cannon\ temperatures show the highest agreement with the photometric relations from \citealt{Mann:2015} and \citealt{Boyajian:2012}, with a scatter of 80K. 
@@ -390,7 +397,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 \begin{center}
 \includegraphics[width=16cm]{figures/demo_derivatives_feh3.png}
 \end{center}
-\caption{\textit{Top two panels of each plot:} Mann-trained model for varying metallicities and similar temperatures. \textit{Third panel:} Derivative of \thecannon\ model with respect to metallicity, taken at the median training metallicity, [Fe/H]$=-0.03$ dex; jackknife computed error at each pixel is shown in red.} \label{fig:demo_feh}
+\caption{\textit{Top two panels of each plot:} Mann-trained model for varying metallicities and similar temperatures. \textit{Third panel:} Derivative of \thecannon\ model with respect to metallicity, taken at the median training metallicity, $\feh=-0.03$\,dex; jackknife computed error at each pixel is shown in red.} \label{fig:demo_feh}
 \end{figure*}
 
 %---------------------------
@@ -435,24 +442,24 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 \begin{figure*}[ht]
 \plotone{figures/aspcap_cannon_label_hist.png}
-\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<[Fe/H]<0.5$ because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities. \label{fig:aspcap_cannon_label_hist}} 
+\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities. \label{fig:aspcap_cannon_label_hist}} 
 \end{figure*}
 
 %---------------------------
 \begin{figure*}[ht]
 \plotone{figures/aspcap_cannon_validation.png}
-\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and [Fe/H] dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and [Fe/H] (bottom).  \label{fig:teff_comparisons}}
+\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).  \label{fig:teff_comparisons}}
 \end{figure*}
 
 %---------------------------
 \begin{figure*}[ht]
 \plotone{figures/isochrone_cmd.png}
-\caption{Comparison of Cannon [Fe/H] as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (1, 3, 5, and 7 Gyr). \label{fig:isochrone_cmd}}
+\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (1, 3, 5, and 7 Gyr). \label{fig:isochrone_cmd}}
 \end{figure*}
 
 \begin{figure*}[ht]
 \plotone{figures/mann_radii.png}
-\caption{Comparison of radii estimated from M15 relations: on the x-axis radii are derived from  K magnitudes and \cannon\ [Fe/H], on the y-axis radii are derived from \cannon\ \teff\ and [Fe/H]. \label{fig:radii}}
+\caption{Comparison of radii estimated from M15 relations: on the x-axis radii are derived from  K magnitudes and \cannon\ $\feh$, on the y-axis radii are derived from \cannon\ $\teff$ and $\feh$. \label{fig:radii}}
 \end{figure*}
 
 %%==========================================================================================
@@ -550,7 +557,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 %====================================
 
 \begin{deluxetable*}{|c|c|c|c|c|}
-\tablecaption{Strong \teff\ correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
+\tablecaption{Strong $\teff$-correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
 \tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
 \startdata
 Fe I & 15207.509 & -0.007 & 0.003 & -2.622 \\
@@ -612,7 +619,7 @@ Mn I & 15159.054 & -0.006 & 0.002 & -3.123 \\
 %====================================
 
 \begin{deluxetable*}{|c|c|c|c|c|}
-\tablecaption{Strong \feh\ correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
+\tablecaption{Strong $\feh$-correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
 \tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
 \startdata
 Fe I & 15490.381 & -0.004 & 0.001 & -2.722 \\
@@ -647,7 +654,7 @@ Mn I & 15262.023 & -0.005 & 0.002 & -2.996 \\
 {\tt APOGEE$\_$ID} 	& 	& \apogee\ \zmass\ designation \\
 {\tt GAIA$\_$ID} 		&	& \gaia\ identification number \\
 {\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
-{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ [Fe/H]	\\
+{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ $\feh$	\\
 {\tt SPT} 				& 	& West-trained \cannon\ spectral subtype (M0$-$M9)	\\
 {\tt CHI$\_$MANN} 	& 	& $\chi^2$ fit of Mann-trained \cannon\ model	\\
 {\tt CHI$\_$WEST} 	& 	& $\chi^2$ fit of West-trained \cannon\ model	\\
