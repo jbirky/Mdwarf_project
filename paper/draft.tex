@@ -117,7 +117,7 @@ The launch of the (\apogee; \citealt{Majewski:2015}) survey as part of the Sloan
 \color{gcolor}Why is there a problem determining M dwarf metallicities (and especially for high res \apogee\ spectra)? Emphasize issues: (1) models dont accurately reproduce data; (2) empirical standards are relative not absolute, and they are sparesely sampled. 
 Methods for determining metallicity of M dwarfs: (1) from atmospheric models of M dwarfs, (2) empirical methods: photometric calibrations (\citealt{Johnson:2009}; \citealt{Schlaufman:2010}) or spectroscopic calibrations (\citealt{Terrien:2012}; \citealt{Rojas-Ayala:2012}; \citealt{Mann:2013a}; \citealt{Newton:2014}) with FGK pairs. Our approach is the latter.\color{black}
 
-In particular, the metallicity abundance can be difficult to determine in M dwarfs, as overlapping lines in a spectrum and lack of continuum make it difficult to define features and extract their line strengths. A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star, to developed precise empirical relations (as good as $\sim$0.07\,dex) between the adopted metallicities of the FGK primary (under the assumption kinematically similar pairs are co-evolutionary; \citealt{Bonfils:2005}), and strong, isolated lines in the optical spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}).
+A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star, to developed precise empirical relations (as good as $\sim$0.07\,dex) between the adopted metallicities of the FGK primary (under the assumption kinematically similar pairs are co-evolutionary; \citealt{Bonfils:2005}), and strong, isolated lines in the optical spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}).
 However these metallicity calibrations are inaccesible for analysis with \apogee, as the narrow infrared wavelength coverage does not include the relevant calibration indices used by existing studies (such as Ca I or KI lines in the optical), and blending of multiple atomic and molecular species at high resolution makes it impractical to identify and deconvolve new individual features for analysis. 
 
 In this work we build a data-driven model for M dwarf spectra with \thecannon\ (\citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}).
@@ -148,6 +148,11 @@ place, which was in the context of optical spectroscopy.
 That is, the model to be applied to the \apogee\ data is learned from the \apogee\ data alone.
 This obviates physical models in the infrared, and capitalizes on the excellent data quality
 delivered by the \apogee\ spectrograph and project.
+
+This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the APOGEE survey, as well as our sample selection and derivation of training parameters. 
+Section \ref{sec:cannon} describes our model implementation using \thecannon framework.
+In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>10,000$ sources, and examine the validity of our parameters against color-temperature relations and isochrone grids.
+Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results in the context of present/upcoming stellar and exoplanet surveys.
 
 %%==========================================================================================
 \section{Data} \label{sec:data}
