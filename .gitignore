@@ -13,7 +13,6 @@ __pycache__
 *.pdf
 *.npy
 *.txt
-*.png
 *.csv
 *.vot
 *.fits
