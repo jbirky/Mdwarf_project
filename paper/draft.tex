@@ -284,10 +284,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. Additionally we notice a slight deviation at the upper slice of the main sequence where \cannon\ temperatures, metallicities and spectral types all appear lower than the gradient trends in the rest of the branch, which is most likely the binary sequence. Comparisons between the West-trained spectral types and Mann-trained temperatures and metallicities are shown in Figure \ref{fig:west_vs_mann}: left shows the slight negative correlation between spectral type and $\feh$, and right shows the nonlinear decrease in temperature with visible metallicity gradient. We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a personal laptop. 
 
-
-\subsection{Masses \& Radii}
-Masses and radii for our test sample are estimated using photometric empirical relations from \citealt{Mann:2019} and \citealt{Mann:2015} respectively.
-
+Table \ref{table:test_results} presents...
 
 \subsection{Color-Temperature Comparisons}
 
@@ -296,11 +293,7 @@ As a validation test of our derived temperatures, we perform a comparison betwee
 % % SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} 
 % Shown in the top panels of \ref{fig:teff_comparisons} 
 
-
 We find \aspcap\ overestimates $\teff$ on average by $130-170$K, while \thecannon\ underestimates $\teff$ by $\sim25$K. We also see the scatter is much higher for the \aspcap\ temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
-
-% % The scatter of each relation being largely due to metallicity variation, both for the \cannon\ and \aspcap\ metallicities.
-% \cannon\ temperatures show the highest agreement with the photometric relations from \citealt{Mann:2015} and \citealt{Boyajian:2012}, with a scatter of 80K. 
 
 While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average \aspcap\ temperatures are much hotter, and scatters are much higher skewed by 500 sources which \aspcap\ predicts to have temperatures over 4200K.
 
@@ -512,33 +505,33 @@ participating in the {\it Gaia} Multilateral Agreement.
     & \colhead{Training} & \colhead{Test} & \colhead{LOOCV} 
     & \colhead{Test $\chi^2$} 
 } 
-\startdata
-2M00182256+4401222 & 4.59542   & 44.02278  & 3603        & 3538       & 3525        & -0.3       & -0.28     & -0.26      & 15304   \\
-2M00182549+4401376 & 4.60779   & 44.02734  & 3218        & 3528       & 3560        & -0.3       & -0.29     & -0.29      & 21273   \\
-2M00285391+5022330 & 7.22488   & 50.37588  & 3207        & 3190       & 3192        & 0.11       & 0.04      & 0.01       & 31790   \\
-2M00401001+0308050 & 10.04169  & 3.13473   & 3725        & 3777       & 3772        & 0.04       & 0.12      & 0.14       & 9830    \\
-2M00580115+3919111 & 14.50482  & 39.31977  & 3157        & 3100       & 3107        & -0.07      & -0.02     & 0.01       & 13337   \\
-2M01232542+1638384 & 20.8559   & 16.64401  & 3272        & 3225       & 3223        & 0.1        & 0.02      & -0.01      & 34797   \\
-2M02001278+1303112 & 30.05402  & 13.05196  & 3080        & 3059       & 3077        & -0.16      & -0.1      & -0.02      & 33210   \\
-2M02361535+0652191 & 39.06358  & 6.87167   & 3284        & 3241       & 3243        & -0.12      & -0.28     & -0.28      & 48445   \\
-2M03044335+6144097 & 46.18104  & 61.73583  & 3500        & 3466       & 3466        & -0.12      & -0.26     & -0.28      & 40739   \\
-2M03553688+5214291 & 58.90373  & 52.2414   & 3435        & 3386       & 3375        & -0.35      & -0.28     & -0.2       & 53870   \\
-2M04125880+5236421 & 63.24499  & 52.61165  & 3100        & 3183       & 3204        & -0.04      & -0.01     & 0.0        & 46007   \\
-2M04310001+3647548 & 67.75003  & 36.79855  & 3419        & 3371       & 3369        & 0.08       & 0.11      & 0.1        & 20602   \\
-2M05222053+3031097 & 80.58561  & 30.51933  & 3389        & 3423       & 3431        & 0.28       & 0.18      & 0.13       & 19072   \\
-2M05312734-0340356 & 82.86417  & -3.67722  & 3801        & 3814       & 3849        & 0.49       & 0.5       & 0.36       & 28209   \\
-2M05413073+5329239 & 85.37804  & 53.48987  & 3765        & 3751       & 3753        & 0.19       & 0.15      & 0.14       & 17842   \\
-2M05420897+1229252 & 85.53833  & 12.48956  & 3250        & 3220       & 3229        & -0.22      & -0.33     & -0.29      & 33868   \\
-2M06000351+0242236 & 90.01458  & 2.70657   & 3214        & 3170       & 3170        & 0.07       & 0.03      & 0.01       & 21044   \\
-2M06011106+5935508 & 90.2961   & 59.59713  & 3340        & 3259       & 3255        & -0.09      & -0.05     & -0.04      & 23329   \\
-2M06112610+1032599 & 92.8588   & 10.54998  & 3636        & 3720       & 3706        & -0.39      & -0.43     & -0.4       & 36898   \\
-2M06544902+3316058 & 103.70411 & 33.26823  & 3448        & 3368       & 3363        & -0.02      & 0.03      & 0.04       & 19412   \\
-2M07171706-0501031 & 109.32108 & -5.01754  & 3193        & 3175       & 3188        & -0.09      & -0.15     & -0.13      & 103000  \\
-2M07272450+0513329 & 111.852   & 5.2263    & 3317        & 3279       & 3279        & -0.11      & -0.18     & -0.17      & 23615   \\
-2M07444018+0333089 & 116.16744 & 3.55252   & 3217        & 3174       & 3167        & 0.23       & 0.25      & 0.17       & 34181   \\
-2M08031949+5250387 & 120.83131 & 52.84402  & 3508        & 3617       & 3620        & -0.26      & -0.23     & -0.23      & 17491   \\
-\nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
-\enddata
+	\startdata
+	2M00182256+4401222 & 4.59542   & 44.02278  & 3603        & 3538       & 3525        & -0.3       & -0.28     & -0.26      & 15304   \\
+	2M00182549+4401376 & 4.60779   & 44.02734  & 3218        & 3528       & 3560        & -0.3       & -0.29     & -0.29      & 21273   \\
+	2M00285391+5022330 & 7.22488   & 50.37588  & 3207        & 3190       & 3192        & 0.11       & 0.04      & 0.01       & 31790   \\
+	2M00401001+0308050 & 10.04169  & 3.13473   & 3725        & 3777       & 3772        & 0.04       & 0.12      & 0.14       & 9830    \\
+	2M00580115+3919111 & 14.50482  & 39.31977  & 3157        & 3100       & 3107        & -0.07      & -0.02     & 0.01       & 13337   \\
+	2M01232542+1638384 & 20.8559   & 16.64401  & 3272        & 3225       & 3223        & 0.1        & 0.02      & -0.01      & 34797   \\
+	2M02001278+1303112 & 30.05402  & 13.05196  & 3080        & 3059       & 3077        & -0.16      & -0.1      & -0.02      & 33210   \\
+	2M02361535+0652191 & 39.06358  & 6.87167   & 3284        & 3241       & 3243        & -0.12      & -0.28     & -0.28      & 48445   \\
+	2M03044335+6144097 & 46.18104  & 61.73583  & 3500        & 3466       & 3466        & -0.12      & -0.26     & -0.28      & 40739   \\
+	2M03553688+5214291 & 58.90373  & 52.2414   & 3435        & 3386       & 3375        & -0.35      & -0.28     & -0.2       & 53870   \\
+	2M04125880+5236421 & 63.24499  & 52.61165  & 3100        & 3183       & 3204        & -0.04      & -0.01     & 0.0        & 46007   \\
+	2M04310001+3647548 & 67.75003  & 36.79855  & 3419        & 3371       & 3369        & 0.08       & 0.11      & 0.1        & 20602   \\
+	2M05222053+3031097 & 80.58561  & 30.51933  & 3389        & 3423       & 3431        & 0.28       & 0.18      & 0.13       & 19072   \\
+	2M05312734-0340356 & 82.86417  & -3.67722  & 3801        & 3814       & 3849        & 0.49       & 0.5       & 0.36       & 28209   \\
+	2M05413073+5329239 & 85.37804  & 53.48987  & 3765        & 3751       & 3753        & 0.19       & 0.15      & 0.14       & 17842   \\
+	2M05420897+1229252 & 85.53833  & 12.48956  & 3250        & 3220       & 3229        & -0.22      & -0.33     & -0.29      & 33868   \\
+	2M06000351+0242236 & 90.01458  & 2.70657   & 3214        & 3170       & 3170        & 0.07       & 0.03      & 0.01       & 21044   \\
+	2M06011106+5935508 & 90.2961   & 59.59713  & 3340        & 3259       & 3255        & -0.09      & -0.05     & -0.04      & 23329   \\
+	2M06112610+1032599 & 92.8588   & 10.54998  & 3636        & 3720       & 3706        & -0.39      & -0.43     & -0.4       & 36898   \\
+	2M06544902+3316058 & 103.70411 & 33.26823  & 3448        & 3368       & 3363        & -0.02      & 0.03      & 0.04       & 19412   \\
+	2M07171706-0501031 & 109.32108 & -5.01754  & 3193        & 3175       & 3188        & -0.09      & -0.15     & -0.13      & 103000  \\
+	2M07272450+0513329 & 111.852   & 5.2263    & 3317        & 3279       & 3279        & -0.11      & -0.18     & -0.17      & 23615   \\
+	2M07444018+0333089 & 116.16744 & 3.55252   & 3217        & 3174       & 3167        & 0.23       & 0.25      & 0.17       & 34181   \\
+	2M08031949+5250387 & 120.83131 & 52.84402  & 3508        & 3617       & 3620        & -0.26      & -0.23     & -0.23      & 17491   \\
+	\nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
+	\enddata
 \end{deluxetable*}
 \end{longrotatetable} 
 
@@ -556,34 +549,34 @@ participating in the {\it Gaia} Multilateral Agreement.
     & \colhead{Training} & \colhead{Test} & \colhead{LOOCV} 
     & \colhead{Test $\chi^2$}
 } 
-\startdata
-2M03114974+0115158 & 47.957262  & 1.254404  & 1          & 0.9       & 1.4        & 78236   \\
-2M03122509+0021585 & 48.104563  & 0.366251  & 7          & 7.3       & 5.5        & 56504   \\
-2M03423963+0012102 & 55.66513   & 0.202859  & 4          & 3.9       & 3.9        & 29598   \\
-2M04262170+1800009 & 66.590421  & 18.000265 & 5          & 5.0       & 5.1        & 14084   \\
-2M09152918+4407461 & 138.871602 & 44.129498 & 3          & 3.6       & 3.7        & 17921   \\
-2M09183649+2207022 & 139.652051 & 22.117298 & 3          & 2.4       & 2.4        & 10591   \\
-2M09332262+2749021 & 143.344279 & 27.817253 & 3          & 2.8       & 2.7        & 17388   \\
-2M09373349+5534057 & 144.389577 & 55.568275 & 6          & 6.5       & 6.4        & 15335   \\
-2M10313413+3441535 & 157.892222 & 34.698212 & 1          & 2.0       & 2.3        & 21134   \\
-2M11194647+0820356 & 169.943658 & 8.343246  & 8          & 7.5       & 6.5        & 37803   \\
-2M11203609+0704135 & 170.1504   & 7.070432  & 6          & 6.1       & 5.9        & 18677   \\
-2M11570299+2028436 & 179.262465 & 20.4788   & 2          & 2.9       & 3.0        & 16205   \\
-2M12203634+2505351 & 185.15143  & 25.093107 & 4          & 3.4       & 3.1        & 85745   \\
-2M12212701-0030560 & 185.362567 & -0.515566 & 0          & 1.4       & 1.8        & 22646   \\
-2M12423245-0646077 & 190.635249 & -6.768827 & 2          & 2.4       & 2.5        & 18410   \\
-2M12464541-0312524 & 191.689212 & -3.214578 & 4          & 3.6       & 3.5        & 11561   \\
-2M12471099+1109566 & 191.795795 & 11.165737 & 3          & 3.1       & 3.0        & 12738   \\
-2M12492657-0312032 & 192.360749 & -3.200903 & 3          & 3.3       & 3.5        & 37756   \\
-2M12503440+4309482 & 192.643353 & 43.163414 & 4          & 4.0       & 4.0        & 19726   \\
-2M12523816+1240586 & 193.159002 & 12.682945 & 4          & 4.1       & 4.1        & 15526   \\
-2M12552141+4150425 & 193.839213 & 41.845161 & 3          & 3.1       & 3.1        & 29274   \\
-2M12564117+4233175 & 194.171558 & 42.554871 & 3          & 3.1       & 3.1        & 35083   \\
-2M13032161+4220407 & 195.840051 & 42.344654 & 2          & 2.7       & 2.8        & 14657   \\
-2M13415860+1852278 & 205.494169 & 18.874393 & 4          & 3.9       & 3.9        & 9475    \\
-2M13442970+5625445 & 206.123779 & 56.429039 & 5          & 5.9       & 6.0        & 16017   \\
-\nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
-\enddata
+	\startdata
+	2M03114974+0115158 & 47.957262  & 1.254404  & 1          & 0.9       & 1.4        & 78236   \\
+	2M03122509+0021585 & 48.104563  & 0.366251  & 7          & 7.3       & 5.5        & 56504   \\
+	2M03423963+0012102 & 55.66513   & 0.202859  & 4          & 3.9       & 3.9        & 29598   \\
+	2M04262170+1800009 & 66.590421  & 18.000265 & 5          & 5.0       & 5.1        & 14084   \\
+	2M09152918+4407461 & 138.871602 & 44.129498 & 3          & 3.6       & 3.7        & 17921   \\
+	2M09183649+2207022 & 139.652051 & 22.117298 & 3          & 2.4       & 2.4        & 10591   \\
+	2M09332262+2749021 & 143.344279 & 27.817253 & 3          & 2.8       & 2.7        & 17388   \\
+	2M09373349+5534057 & 144.389577 & 55.568275 & 6          & 6.5       & 6.4        & 15335   \\
+	2M10313413+3441535 & 157.892222 & 34.698212 & 1          & 2.0       & 2.3        & 21134   \\
+	2M11194647+0820356 & 169.943658 & 8.343246  & 8          & 7.5       & 6.5        & 37803   \\
+	2M11203609+0704135 & 170.1504   & 7.070432  & 6          & 6.1       & 5.9        & 18677   \\
+	2M11570299+2028436 & 179.262465 & 20.4788   & 2          & 2.9       & 3.0        & 16205   \\
+	2M12203634+2505351 & 185.15143  & 25.093107 & 4          & 3.4       & 3.1        & 85745   \\
+	2M12212701-0030560 & 185.362567 & -0.515566 & 0          & 1.4       & 1.8        & 22646   \\
+	2M12423245-0646077 & 190.635249 & -6.768827 & 2          & 2.4       & 2.5        & 18410   \\
+	2M12464541-0312524 & 191.689212 & -3.214578 & 4          & 3.6       & 3.5        & 11561   \\
+	2M12471099+1109566 & 191.795795 & 11.165737 & 3          & 3.1       & 3.0        & 12738   \\
+	2M12492657-0312032 & 192.360749 & -3.200903 & 3          & 3.3       & 3.5        & 37756   \\
+	2M12503440+4309482 & 192.643353 & 43.163414 & 4          & 4.0       & 4.0        & 19726   \\
+	2M12523816+1240586 & 193.159002 & 12.682945 & 4          & 4.1       & 4.1        & 15526   \\
+	2M12552141+4150425 & 193.839213 & 41.845161 & 3          & 3.1       & 3.1        & 29274   \\
+	2M12564117+4233175 & 194.171558 & 42.554871 & 3          & 3.1       & 3.1        & 35083   \\
+	2M13032161+4220407 & 195.840051 & 42.344654 & 2          & 2.7       & 2.8        & 14657   \\
+	2M13415860+1852278 & 205.494169 & 18.874393 & 4          & 3.9       & 3.9        & 9475    \\
+	2M13442970+5625445 & 206.123779 & 56.429039 & 5          & 5.9       & 6.0        & 16017   \\
+	\nodata & \nodata & \nodata & \nodata & \nodata & \nodata & \nodata
+	\enddata
 \end{deluxetable*}
 \end{longrotatetable} 
 
@@ -593,61 +586,61 @@ participating in the {\it Gaia} Multilateral Agreement.
 \begin{deluxetable*}{|c|c|c|c|c|}
 \tablecaption{Strong $\teff$-correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
 \tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
-\startdata
-Fe I & 15207.509 & -0.007 & 0.003 & -2.622 \\
-Fe I & 15648.478 & -0.006 & 0.002 & -3.273 \\
-Fe I & 15692.643 & -0.008 & 0.002 & -4.056 \\
-FeH & 16107.127 & -0.002 & 0.001 & -2.78 \\
-FeH & 16245.463 & -0.005 & 0.002 & -3.214 \\
-FeH & 16271.519 & -0.002 & 0.001 & -2.013 \\
-FeH & 16284.562 & -0.006 & 0.001 & -5.807 \\
-FeH & 16377.066 & -0.005 & 0.001 & -4.554 \\
-FeH & 16741.489 & -0.002 & 0.001 & -2.873 \\
-FeH & 16812.415 & -0.004 & 0.001 & -4.241 \\
-FeH & 16813.808 & -0.006 & 0.001 & -3.954 \\
-FeH & 16922.405 & -0.003 & 0.001 & -3.867 \\
-FeH & 16934.801 & -0.004 & 0.001 & -3.591 \\
-OH & 15278.267 & 0.006 & 0.003 & 2.47 \\
-OH & 15280.8 & 0.004 & 0.002 & 2.007 \\
-OH & 15391.186 & 0.006 & 0.003 & 2.127 \\
-OH & 15407.355 & 0.01 & 0.002 & 4.836 \\
-OH & 15409.271 & 0.008 & 0.002 & 4.683 \\
-OH & 15505.797 & 0.009 & 0.003 & 3.511 \\
-OH & 15560.305 & 0.008 & 0.002 & 3.865 \\
-OH & 15565.895 & 0.005 & 0.002 & 2.505 \\
-OH & 15568.691 & 0.007 & 0.001 & 4.929 \\
-OH & 15572.133 & 0.008 & 0.002 & 4.393 \\
-OH & 16052.7 & 0.008 & 0.002 & 3.517 \\
-OH & 16055.362 & 0.006 & 0.002 & 3.7 \\
-OH & 16061.796 & 0.007 & 0.003 & 2.502 \\
-OH & 16065.124 & 0.009 & 0.002 & 4.214 \\
-OH & 16069.564 & 0.008 & 0.003 & 3.275 \\
-OH & 16074.227 & 0.007 & 0.002 & 3.338 \\
-OH & 16190.345 & 0.007 & 0.003 & 2.498 \\
-OH & 16192.134 & 0.008 & 0.002 & 4.012 \\
-OH & 16203.995 & 0.006 & 0.002 & 3.039 \\
-OH & 16207.129 & 0.004 & 0.002 & 2.196 \\
-OH & 16352.196 & 0.007 & 0.002 & 3.609 \\
-OH & 16354.682 & 0.011 & 0.003 & 4.167 \\
-OH & 16364.626 & 0.007 & 0.003 & 2.661 \\
-OH & 16368.244 & 0.008 & 0.002 & 4.303 \\
-OH & 16581.281 & 0.008 & 0.002 & 4.41 \\
-OH & 16581.74 & 0.004 & 0.001 & 4.842 \\
-OH & 16866.621 & 0.005 & 0.001 & 3.169 \\
-OH & 16871.982 & 0.012 & 0.002 & 4.892 \\
-OH & 16878.976 & 0.006 & 0.002 & 3.807 \\
-OH & 16884.573 & 0.005 & 0.002 & 3.066 \\
-OH & 16886.206 & 0.006 & 0.001 & 5.131 \\
-OH & 16895.074 & 0.005 & 0.002 & 2.197 \\
-Si I & 15960.044 & -0.009 & 0.004 & -2.523 \\
-Si I & 16094.893 & -0.014 & 0.003 & -4.368 \\
-Si I & 16680.77 & -0.01 & 0.003 & -3.475 \\
-K I & 15162.824 & -0.006 & 0.002 & -2.294 \\
-Ti I & 15715.641 & 0.006 & 0.002 & 2.894 \\
-Ti I & 16634.973 & 0.003 & 0.001 & 4.224 \\
-V I & 15923.924 & 0.003 & 0.001 & 3.6 \\
-Mn I & 15159.054 & -0.006 & 0.002 & -3.123 \\
-\enddata
+	\startdata
+	Fe I & 15207.509 & -0.007 & 0.003 & -2.622 \\
+	Fe I & 15648.478 & -0.006 & 0.002 & -3.273 \\
+	Fe I & 15692.643 & -0.008 & 0.002 & -4.056 \\
+	FeH & 16107.127 & -0.002 & 0.001 & -2.78 \\
+	FeH & 16245.463 & -0.005 & 0.002 & -3.214 \\
+	FeH & 16271.519 & -0.002 & 0.001 & -2.013 \\
+	FeH & 16284.562 & -0.006 & 0.001 & -5.807 \\
+	FeH & 16377.066 & -0.005 & 0.001 & -4.554 \\
+	FeH & 16741.489 & -0.002 & 0.001 & -2.873 \\
+	FeH & 16812.415 & -0.004 & 0.001 & -4.241 \\
+	FeH & 16813.808 & -0.006 & 0.001 & -3.954 \\
+	FeH & 16922.405 & -0.003 & 0.001 & -3.867 \\
+	FeH & 16934.801 & -0.004 & 0.001 & -3.591 \\
+	OH & 15278.267 & 0.006 & 0.003 & 2.47 \\
+	OH & 15280.8 & 0.004 & 0.002 & 2.007 \\
+	OH & 15391.186 & 0.006 & 0.003 & 2.127 \\
+	OH & 15407.355 & 0.01 & 0.002 & 4.836 \\
+	OH & 15409.271 & 0.008 & 0.002 & 4.683 \\
+	OH & 15505.797 & 0.009 & 0.003 & 3.511 \\
+	OH & 15560.305 & 0.008 & 0.002 & 3.865 \\
+	OH & 15565.895 & 0.005 & 0.002 & 2.505 \\
+	OH & 15568.691 & 0.007 & 0.001 & 4.929 \\
+	OH & 15572.133 & 0.008 & 0.002 & 4.393 \\
+	OH & 16052.7 & 0.008 & 0.002 & 3.517 \\
+	OH & 16055.362 & 0.006 & 0.002 & 3.7 \\
+	OH & 16061.796 & 0.007 & 0.003 & 2.502 \\
+	OH & 16065.124 & 0.009 & 0.002 & 4.214 \\
+	OH & 16069.564 & 0.008 & 0.003 & 3.275 \\
+	OH & 16074.227 & 0.007 & 0.002 & 3.338 \\
+	OH & 16190.345 & 0.007 & 0.003 & 2.498 \\
+	OH & 16192.134 & 0.008 & 0.002 & 4.012 \\
+	OH & 16203.995 & 0.006 & 0.002 & 3.039 \\
+	OH & 16207.129 & 0.004 & 0.002 & 2.196 \\
+	OH & 16352.196 & 0.007 & 0.002 & 3.609 \\
+	OH & 16354.682 & 0.011 & 0.003 & 4.167 \\
+	OH & 16364.626 & 0.007 & 0.003 & 2.661 \\
+	OH & 16368.244 & 0.008 & 0.002 & 4.303 \\
+	OH & 16581.281 & 0.008 & 0.002 & 4.41 \\
+	OH & 16581.74 & 0.004 & 0.001 & 4.842 \\
+	OH & 16866.621 & 0.005 & 0.001 & 3.169 \\
+	OH & 16871.982 & 0.012 & 0.002 & 4.892 \\
+	OH & 16878.976 & 0.006 & 0.002 & 3.807 \\
+	OH & 16884.573 & 0.005 & 0.002 & 3.066 \\
+	OH & 16886.206 & 0.006 & 0.001 & 5.131 \\
+	OH & 16895.074 & 0.005 & 0.002 & 2.197 \\
+	Si I & 15960.044 & -0.009 & 0.004 & -2.523 \\
+	Si I & 16094.893 & -0.014 & 0.003 & -4.368 \\
+	Si I & 16680.77 & -0.01 & 0.003 & -3.475 \\
+	K I & 15162.824 & -0.006 & 0.002 & -2.294 \\
+	Ti I & 15715.641 & 0.006 & 0.002 & 2.894 \\
+	Ti I & 16634.973 & 0.003 & 0.001 & 4.224 \\
+	V I & 15923.924 & 0.003 & 0.001 & 3.6 \\
+	Mn I & 15159.054 & -0.006 & 0.002 & -3.123 \\
+	\enddata
 \end{deluxetable*} \label{table:teff_derivative}
 
 %====================================
@@ -655,27 +648,27 @@ Mn I & 15159.054 & -0.006 & 0.002 & -3.123 \\
 \begin{deluxetable*}{|c|c|c|c|c|}
 \tablecaption{Strong $\feh$-correlated lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
 \tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
-\startdata
-Fe I & 15490.381 & -0.004 & 0.001 & -2.722 \\
-Fe I & 15692.643 & -0.005 & 0.002 & -2.759 \\
-Fe I & 16009.512 & -0.006 & 0.003 & -2.143 \\
-FeH & 16114.027 & 0.004 & 0.001 & 2.673 \\
-FeH & 16574.64 & 0.003 & 0.001 & 2.356 \\
-FeH & 16694.372 & 0.003 & 0.001 & 2.193 \\
-FeH & 16814.041 & 0.004 & 0.002 & 2.513 \\
-OH & 16052.7 & 0.005 & 0.002 & 2.034 \\
-OH & 16055.362 & 0.006 & 0.002 & 2.805 \\
-OH & 16065.124 & 0.007 & 0.003 & 2.364 \\
-OH & 16871.982 & 0.007 & 0.003 & 2.306 \\
-OH & 16886.206 & 0.004 & 0.001 & 2.52 \\
-Si I & 15960.044 & -0.007 & 0.003 & -2.112 \\
-Si I & 16680.77 & -0.006 & 0.003 & -2.156 \\
-K I & 15163.033 & 0.006 & 0.003 & 2.043 \\
-V I & 15923.924 & 0.002 & 0.001 & 2.017 \\
-Cr I & 15680.073 & -0.005 & 0.002 & -2.811 \\
-Mn I & 15159.054 & -0.008 & 0.002 & -3.298 \\
-Mn I & 15262.023 & -0.005 & 0.002 & -2.996 \\
-\enddata
+	\startdata
+	Fe I & 15490.381 & -0.004 & 0.001 & -2.722 \\
+	Fe I & 15692.643 & -0.005 & 0.002 & -2.759 \\
+	Fe I & 16009.512 & -0.006 & 0.003 & -2.143 \\
+	FeH & 16114.027 & 0.004 & 0.001 & 2.673 \\
+	FeH & 16574.64 & 0.003 & 0.001 & 2.356 \\
+	FeH & 16694.372 & 0.003 & 0.001 & 2.193 \\
+	FeH & 16814.041 & 0.004 & 0.002 & 2.513 \\
+	OH & 16052.7 & 0.005 & 0.002 & 2.034 \\
+	OH & 16055.362 & 0.006 & 0.002 & 2.805 \\
+	OH & 16065.124 & 0.007 & 0.003 & 2.364 \\
+	OH & 16871.982 & 0.007 & 0.003 & 2.306 \\
+	OH & 16886.206 & 0.004 & 0.001 & 2.52 \\
+	Si I & 15960.044 & -0.007 & 0.003 & -2.112 \\
+	Si I & 16680.77 & -0.006 & 0.003 & -2.156 \\
+	K I & 15163.033 & 0.006 & 0.003 & 2.043 \\
+	V I & 15923.924 & 0.002 & 0.001 & 2.017 \\
+	Cr I & 15680.073 & -0.005 & 0.002 & -2.811 \\
+	Mn I & 15159.054 & -0.008 & 0.002 & -3.298 \\
+	Mn I & 15262.023 & -0.005 & 0.002 & -2.996 \\
+	\enddata
 \end{deluxetable*} \label{table:feh_derivative}
 
 %====================================
@@ -684,48 +677,48 @@ Mn I & 15262.023 & -0.005 & 0.002 & -2.996 \\
 \begin{deluxetable*}{rcl}
 \tablecaption{Test results table header description.}
 \tablehead{Column & Unit & Description}
-\startdata
-{\tt APOGEE$\_$ID} 	& 	& \apogee\ \zmass\ designation \\
-{\tt GAIA$\_$ID} 		&	& \gaia\ identification number \\
-{\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
-{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ $\feh$	\\
-{\tt SPT} 				& 	& West-trained \cannon\ spectral subtype (M0$-$M9)	\\
-{\tt CHI$\_$MANN} 	& 	& $\chi^2$ fit of Mann-trained \cannon\ model	\\
-{\tt CHI$\_$WEST} 	& 	& $\chi^2$ fit of West-trained \cannon\ model	\\
-{\tt RADIUS} 			& R$_\odot$	& Radius determined by \citealt{Mann:2015} relation	\\
-{\tt MASS} 			& M$_\odot$	& Mass determined by \citealt{Mann:2019} relation	\\
-{\tt J} 				& mag	& \apogee\ $J$ band photometry	\\
-{\tt J$\_$ERR} 		& mag	& \apogee\ $J$ band photometry uncertainty	\\
-{\tt H} 				& mag	& \apogee\ $H$ band photometry	\\
-{\tt H$\_$ERR} 		& mag	& \apogee\ $H$ band photometry uncertainty	\\
-{\tt K} 				& mag	& \apogee\ $K$ band photometry	\\
-{\tt K$\_$ERR} 		& mag	& \apogee\ $K$ band photometry uncertainty	\\
-{\tt BP$\_$MAG }		& mag	& \gaia\ $BP$ band photometry	\\
-{\tt RP$\_$MAG} 		& mag	& \gaia\ $RP$ band photometry	\\
-{\tt G$\_$MAG} 		& mag	& \gaia\ $G$ band photometry	\\
-{\tt G$\_$ABS} 		& mag	& \gaia\ $G$ band absolute magnitude	\\
-{\tt BP$\_$RP} 		& mag	& \gaia\ $BP-RP$ color	\\
-{\tt RA} 				& deg	& \apogee\ radial ascension angle	\\
-{\tt DEC} 			& deg	& \apogee\ declination angle	\\
-{\tt PMRA} 			& mas yr$^{-1}$	& \gaia\ radial ascension proper motion	\\
-{\tt PMRA$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ radial ascension proper motion uncertainty	\\
-{\tt PMDEC} 			& mas yr$^{-1}$	& \gaia\ declination proper motion	\\
-{\tt PMDEC$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ declination proper motion uncertainty	\\
-{\tt PLX} 			& mas	& \gaia\ parallax	\\
-{\tt PLX$\_$ERR} 		& mas	& \gaia\ parallax uncertainty	\\
-{\tt DIST} 			& pc	& Distance (1/$\varpi$)	\\
-{\tt RV$\_$APOGEE} 	& km s$^{-1}$	& \apogee\ radial velocity	\\
-{\tt RV$\_$APOGEE$\_$ERR} 	& km s$^{-1}$	& \apogee\ radial velocity uncertainty	\\
-{\tt RV$\_$GAIA} 				& km s$^{-1}$	& \gaia\ radial velocity	\\
-{\tt RV$\_$GAIA$\_$ERR}		& km s$^{-1}$	& \gaia\ radial velocity uncertainty	\\
-{\tt Vx} 				& km s$^{-1}$	& Cartesian $x$ velocity in Galactocentric coordnates	\\
-{\tt Vy} 				& km s$^{-1}$	& Cartesian $y$ velocity in Galactocentric coordnates	\\
-{\tt Vz} 				& km s$^{-1}$	& Cartesian $z$ velocity in Galactocentric coordnates	\\
-{\tt X} 				& pc	& Cartesian $x$ position in Galactocentric coordnates	\\
-{\tt Y} 				& pc	& Cartesian $y$ position in Galactocentric coordnates	\\
-{\tt Z} 				& pc	& Cartesian $z$ position in Galactocentric coordnates	
+	\startdata
+	{\tt APOGEE$\_$ID} 	& 	& \apogee\ \zmass\ designation \\
+	{\tt GAIA$\_$ID} 		&	& \gaia\ identification number \\
+	{\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
+	{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ $\feh$	\\
+	{\tt SPT} 				& 	& West-trained \cannon\ spectral subtype (M0$-$M9)	\\
+	{\tt CHI$\_$MANN} 	& 	& $\chi^2$ fit of Mann-trained \cannon\ model	\\
+	{\tt CHI$\_$WEST} 	& 	& $\chi^2$ fit of West-trained \cannon\ model	\\
+	{\tt RADIUS} 			& R$_\odot$	& Radius determined by \citealt{Mann:2015} relation	\\
+	{\tt MASS} 			& M$_\odot$	& Mass determined by \citealt{Mann:2019} relation	\\
+	{\tt J} 				& mag	& \apogee\ $J$ band photometry	\\
+	{\tt J$\_$ERR} 		& mag	& \apogee\ $J$ band photometry uncertainty	\\
+	{\tt H} 				& mag	& \apogee\ $H$ band photometry	\\
+	{\tt H$\_$ERR} 		& mag	& \apogee\ $H$ band photometry uncertainty	\\
+	{\tt K} 				& mag	& \apogee\ $K$ band photometry	\\
+	{\tt K$\_$ERR} 		& mag	& \apogee\ $K$ band photometry uncertainty	\\
+	{\tt BP$\_$MAG }		& mag	& \gaia\ $BP$ band photometry	\\
+	{\tt RP$\_$MAG} 		& mag	& \gaia\ $RP$ band photometry	\\
+	{\tt G$\_$MAG} 		& mag	& \gaia\ $G$ band photometry	\\
+	{\tt G$\_$ABS} 		& mag	& \gaia\ $G$ band absolute magnitude	\\
+	{\tt BP$\_$RP} 		& mag	& \gaia\ $BP-RP$ color	\\
+	{\tt RA} 				& deg	& \apogee\ radial ascension angle	\\
+	{\tt DEC} 			& deg	& \apogee\ declination angle	\\
+	{\tt PMRA} 			& mas yr$^{-1}$	& \gaia\ radial ascension proper motion	\\
+	{\tt PMRA$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ radial ascension proper motion uncertainty	\\
+	{\tt PMDEC} 			& mas yr$^{-1}$	& \gaia\ declination proper motion	\\
+	{\tt PMDEC$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ declination proper motion uncertainty	\\
+	{\tt PLX} 			& mas	& \gaia\ parallax	\\
+	{\tt PLX$\_$ERR} 		& mas	& \gaia\ parallax uncertainty	\\
+	{\tt DIST} 			& pc	& Distance (1/$\varpi$)	\\
+	{\tt RV$\_$APOGEE} 	& km s$^{-1}$	& \apogee\ radial velocity	\\
+	{\tt RV$\_$APOGEE$\_$ERR} 	& km s$^{-1}$	& \apogee\ radial velocity uncertainty	\\
+	{\tt RV$\_$GAIA} 				& km s$^{-1}$	& \gaia\ radial velocity	\\
+	{\tt RV$\_$GAIA$\_$ERR}		& km s$^{-1}$	& \gaia\ radial velocity uncertainty	\\
+	{\tt Vx} 				& km s$^{-1}$	& Cartesian $x$ velocity in Galactocentric coordnates	\\
+	{\tt Vy} 				& km s$^{-1}$	& Cartesian $y$ velocity in Galactocentric coordnates	\\
+	{\tt Vz} 				& km s$^{-1}$	& Cartesian $z$ velocity in Galactocentric coordnates	\\
+	{\tt X} 				& pc	& Cartesian $x$ position in Galactocentric coordnates	\\
+	{\tt Y} 				& pc	& Cartesian $y$ position in Galactocentric coordnates	\\
+	{\tt Z} 				& pc	& Cartesian $z$ position in Galactocentric coordnates	
 \enddata
-\end{deluxetable*}
+\end{deluxetable*} \label{table:test_results}
 
 %====================================
 
