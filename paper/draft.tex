@@ -12,6 +12,7 @@
 % \SetWatermarkScale{3}
 % \SetWatermarkLightness{.7}
 
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
 \newcommand{\apogee}{\textsl{APOGEE}}
 \newcommand{\thecannon}{\textsl{The Cannon}}
 \newcommand{\cannon}{\textsl{Cannon}}
@@ -367,6 +368,16 @@ Data Processing and Analysis Consortium (DPAC,
 \url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAC
 has been provided by national institutions, in particular the institutions
 participating in the {\it Gaia} Multilateral Agreement.
+
+\facilities{
+	\sdssiv(\apogee),
+	\gaia}
+
+\software{
+	\code{Astropy} \citep{astropy,astropy2},
+	\code{matplotlib} \citep{Hunter:2007},
+	\code{numpy} \citep{vanderWalt:2011},
+	\code{The Cannon} \citep{Ness:2015}}
 
 \color{gcolor}{HOGG: grants etc}\color{black} 
 
