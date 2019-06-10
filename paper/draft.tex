@@ -317,37 +317,19 @@ We trained and evaluated the performance of \thecannon\ at deriving atmospheric 
 
 Table \ref{table:teff_derivative} and Table \ref{table:feh_derivative}, summarize which features are found to be strong temperature and metallicity indicators.
 
-While \thecannon\ generally achieves excellent precision at predicting labels and reproducing the spectral features as demonstrated in this study and previous work on \thecannon\ (\citealt{Ness:2015}, \citealt{Casey:2016}), the accuracy of labels from model application to new sources is limited by the accuracy, relative precision, size, dynamic range and representation of the training sample.
+While \thecannon\ generally achieves excellent precision at predicting labels and reproducing the spectral features as demonstrated in this study and previous work on \thecannon\ \citep{Ness:2015,Casey:2016}, the accuracy of labels from model application to new sources is limited by the accuracy, relative precision, size, dynamic range and representation of the training sample.
 
 Comment on the importance of each property of training sample: \\
-accuracy -  \\
-precision -  \\
+accuracy - some discussion on ground truth of stellar labels... \\
+precision - some discussion on how consistently training parameters are derived... \\
 size -  \\
-dynamic range - training sample must span \\
-representation - \\
+dynamic range - training sample must span the desired parameter range of the test sample. \thecannon\ does not extrapolate well. \\
+representation - model cannot account for physics not represented by training sample (i.e. this training sample is limited to old, slowly rotating, not magnetically active, singular sources...) \\
 
-Talk about the particular limitations we have found in this training sample. 
+Talk about the particular limitations we have found in this training sample. Talk about model improvements: incorporate broadening \citep{Behmard2019}; spectroscopic binary model \citep{ElBadry:2018}... \\
 
-% \begin{enumerate}
-% \item[-] Brief summary of what we did and found
+Talk future work/implications with other stellar surveys (e.g. LAMOST), and exoplanet surveys (e.g. TESS)
 
-% \item[-] Things we learned along the way: For example, not all training sets worked well in our experiments, probably because they were too small or had too little dynamic range.
-
-% \item[-] \color{gcolor}{HOGG: Some discussion of precision and accuracy: \thecannon\ can produce precise results, but is only as accurate as its training set.}\color{black}
-
-% \item[-] Some discussion of whether the derivatives are sensible or surprising. 
-
-% \item[-] \color{gcolor}{HOGG:\thecannon\ as a test of evaluating training parameter accuracy?}\color{black}
-
-% \item[-] \color{gcolor}{HOGG: Discussion of validation tests and ground truth}\color{black}
-% \end{enumerate}
-
-% Future work:
-% \begin{enumerate}
-% \item[-] Create a binary sample; using color/magnitude \citealt{Widmark:2018} and by spectroscopy \citealt{ElBadry:2018}
-
-% \item[-] \color{gcolor}{HOGG: Discussion of the implications of these results for the NASA \tess\ Mission and how the future might change..?}\color{black}
-% \end{enumerate}
 
 
 %%==========================================================================================
