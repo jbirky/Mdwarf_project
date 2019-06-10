@@ -242,8 +242,8 @@ derivatives.
 \subsection{Temperature/Metallicity Model \label{subsec:mann_results}}
 
 \begin{figure}
-	\plotone{figures/crv_test_teff.png}
-	\plotone{figures/crv_test_fe_h.png}
+	\includegraphics[width=\linewidth]{figures/crv_test_teff.png}
+	\includegraphics[width=\linewidth]{figures/crv_test_fe_h.png}
 	\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test (left), and leave-one-out cross validation (right). Sources with strong rotational broadening (2M07171706--0501031, 2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380), as identified by visual inspection are marked with red circles. Predictive accuracy, as computed by the scatter in cross validation is 77K in temperature, and 0.09 dex in metallicity.} 
 	\label{fig:mann_validation}
 \end{figure}
@@ -276,8 +276,8 @@ This percent-level accuracy of the model in the data domain is also demonstrated
 
 \begin{figure}
 	\begin{center}
-	\plotone{figures/self_test_spt.png}
-	\plotone{figures/crv_test_spt.png}
+	\includegraphics[width=\linewidth]{figures/self_test_spt.png}
+	\includegraphics[width=\linewidth]{figures/crv_test_spt.png}
 	\end{center}
 	\caption{Consistency test for the West-trained spectral type model; self-test (left), and leave-one-out cross validation (right).  Predictive accuracy, as computed by the scatter in cross validation is 0.9 subtypes.}
 	\label{fig:west_validation}
@@ -289,13 +289,13 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 \subsection{Test Sample \label{subsec:test_selection}} 
 
 \begin{figure*}
-	\plotone{figures/cannon_chi_dist.png}
+	\includegraphics[width=\linewidth]{figures/cannon_chi_dist.png}
 	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''.}
 	\label{fig:chi_dist}
 \end{figure*}
 
 \begin{figure*}
-	\plotone{figures/cmd_selection.png}
+	\includegraphics[width=\linewidth]{figures/cmd_selection.png}
 	\caption{\gaia\ and \zmass\ color-magnitude cuts for 12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia.}
 	\label{fig:cmd_selection}
 \end{figure*}
@@ -330,19 +330,19 @@ Table \ref{table:test_results} presents...
 \subsection{Color-Temperature Comparisons}
 
 \begin{figure*}[h]
-	\plotone{figures/aspcap_cannon_validation.png}
+	\includegraphics[width=\linewidth]{figures/aspcap_cannon_validation.png}
 	\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).}
 	\label{fig:teff_comparisons}
 \end{figure*}
 
 \begin{figure*}[h]
-	\plotone{figures/aspcap_cannon_label_hist.png}
+	\includegraphics[width=\linewidth]{figures/aspcap_cannon_label_hist.png}
 	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities.}
 	\label{fig:aspcap_cannon_label_hist} 
 \end{figure*}
 
 \begin{figure*}[h]
-	\plotone{figures/isochrone_cmd.png}
+	\includegraphics[width=\linewidth]{figures/isochrone_cmd.png}
 	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (1, 3, 5, and 7 Gyr).}
 	\label{fig:isochrone_cmd}
 \end{figure*}
