@@ -104,7 +104,6 @@ stars:~late-type
  ---
 surveys
 }
- 
 
 %%==========================================================================================
 \section{Introduction} \label{sec:intro}
@@ -138,7 +137,7 @@ there are many stars that need labels;
 if there are spectral models or techniques that work in one wavelength range or resolution but not in another.
 %AWM: seems to me like the context here is all 3. You want to run on ~10,000 stars, which is expensive if you use models. You have labels for a small fraction of these. 
 %The context of this paper is the last:
-There are empirically-calibrated methods to measure \teff\ and metallicity from flux-calibrated spectra in the optical and NIR, but existing methods to model M dwarf spectra in the NIR at high resolution are computationally expensive, calibrated over a narrow range of \teff\ and metallicity, and/or focus on the $J$-band \citep{Lindgren:2016, Lindgren:2017}. \thecannon\ fills this niche: it doesn't require using specific lines or opacity information that may be missing from the models; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
+There are empirically-calibrated methods to measure $\teff$ and metallicity from flux-calibrated spectra in the optical and NIR, but existing methods to model M dwarf spectra in the NIR at high resolution are computationally expensive, calibrated over a narrow range of $\teff$ and metallicity, and/or focus on the $J$-band \citep{Lindgren:2016, Lindgren:2017}. \thecannon\ fills this niche: it doesn't require using specific lines or opacity information that may be missing from the models; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
 %AWM: again, the metallicity metrics Babs/Ryan/Myself use are all in the NIR, and they aren't based on models. The temperature tools use models, but they are calibrated against LBOI measurements. I need to come back to editing later, but this paragraph probably needs to be tweaked a bit. 
 %AWM: OK, let me know what you think about those changes. Feel free to edit this more, but do note the work of Lindgren modeling J-band at high resolution (I think they use CRIRES). 
 
@@ -313,11 +312,39 @@ Figure \ref{fig:isochrone_cmd}
 %%==========================================================================================
 \section{Discussion} \label{sec:discussion}
 
-We trained and evaluated the performance of \thecannon\ at deriving atmospheric temperatures and metallicities from M dwarfs using high resolution near-infrared spectra, and compiled a catalog of 10,311 M dwarfs with \cannon\ temperatures, metallicities, and spectral types, 6D kinematics (\gaia\ parallaxes and proper motions + \apogee\ radial velocities) shown in Table \ref{table:test_results}.
+We trained a data-driven model (\thecannon; \citealt{Ness:2015}) to deliver
+high-quality atmospheric parameters ($\teff$ and $\feh$) for M-type dwarf stars
+from high-resolution infrared spectra from \apogee.
+This work was motivated by the problem that M dwarfs stars are difficult to
+model physically; the data are better than the models in important senses.
+And indeed we find that our data-driven model is both accurate in the
+data domain (as a spectral synthesis model) and precise in the latent domain
+(as a tool for deriving physical parameters).
+This accuracy and precision is consistent with previous work with
+\thecannon\ (\citealt{Ness:2015, Casey:2016, Ho:2017a, Ness:2018}), but
+extended to a new regime in spectral type ($\teff$) and surface
+gravity.
+The primary result of this work is that
+we have compiled a catalog of 10,311 M dwarfs with \cannon\ temperatures,
+metallicities, spectral types, and six-dimensional kinematics.
+These data are provided in Table \ref{table:test_results}.
 
-Table \ref{table:teff_derivative} and Table \ref{table:feh_derivative}, summarize which features are found to be strong temperature and metallicity indicators.
-
-While \thecannon\ generally achieves excellent precision at predicting labels and reproducing the spectral features as demonstrated in this study and previous work on \thecannon\ \citep{Ness:2015,Casey:2016}, the accuracy of labels from model application to new sources is limited by the accuracy, relative precision, size, dynamic range and representation of the training sample.
+While \thecannon\ achieves excellent precision at predicting labels
+and reproducing spectral features, the
+accuracy of labels it produces is limited by
+the accuracy, relative precision, size, dynamic range and
+representation of the training sample.
+That is, being a supervised method, \thecannon\ is never any better in a mean (bias) sense
+(although it can be better in a precision or variance sense) than the input training
+data.
+The catalog we have produced is a label transfer from parameters provided
+in our input data (\citealt{Mann:2015}; M15) and it implicitly adopts all the biases and
+issues from that input data.
+It is also limited to the stellar-parameter domain of that input catalog.
+That said, what we have done does also represent some kind of external validation of the M15
+stellar parameters:
+The success of our model shows that they do a great job of parameterizing a generative
+model of the spectra.
 
 Comment on the importance of each property of training sample: \\
 accuracy - some discussion on ground truth of stellar labels... \\
@@ -330,7 +357,18 @@ Talk about the particular limitations we have found in this training sample. Tal
 
 Talk future work/implications with other stellar surveys (e.g. LAMOST), and exoplanet surveys (e.g. TESS)
 
-
+Given that physics-based spectral models of M dwarfs have issues, one of the possible
+future values of the data-driven model shown here is that it is highly interpretable:
+It contains within it first and second derivatives of the spectral expectation with
+respect to the atmospheric parameters.
+We show some of these derivatives in [BIRKY WHAT FIGURE] and deliver relevant data in
+Table~\ref{table:teff_derivative} and Table~\ref{table:feh_derivative}
+These Tables summarize spectral features in the \apogee\ bandpass
+that are found to be strong temperature and metallicity indicators.
+In the long run, this is the primary value of data-driven models for astronomy:
+To provide physical insights that drive physical understandings.
+It is our hope that \thecannon, and models like it, will, in the end, lead to
+new and improved physical models, which will, in turn, put \thecannon\ out of business.
 
 %%==========================================================================================
 \acknowledgements
