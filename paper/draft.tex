@@ -1,4 +1,4 @@
-\documentclass[modern]{aastex62}
+\documentclass[twocolumn]{aastex62}
 
 \usepackage{color}
 \usepackage{amsmath}
@@ -241,6 +241,13 @@ derivatives.
 
 \subsection{Temperature/Metallicity Model \label{subsec:mann_results}}
 
+\begin{figure}
+	\plotone{figures/crv_test_teff.png}
+	\plotone{figures/crv_test_fe_h.png}
+	\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test (left), and leave-one-out cross validation (right). Sources with strong rotational broadening (2M07171706--0501031, 2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380), as identified by visual inspection are marked with red circles. Predictive accuracy, as computed by the scatter in cross validation is 77K in temperature, and 0.09 dex in metallicity.} 
+	\label{fig:mann_validation}
+\end{figure}
+
 For the physical parameter model we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model 6 out of 87 sources show strong visible rotational line broadening (as indicated by the red circles in Figure~\ref{fig:mann_validation}), while the remaining sources are mostly old ($>8$ Gyr for the published sample estimated by M15) and likely slowly rotating sources. While these sources with high rotational broadening have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), we find that the scatter of labels derived for these sources is consistent with the rest of the sample and we do not remove them from the training sample.
 
 Two tests of consistency were used to assess the validity of our model's labels: (1) the self-test comparing training label to test label values, and (2) the leave-one-out cross validation (LOOCV) test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to obtain the labels for star \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test (or LOOCV) labels respectively (Figure \ref{fig:mann_validation}). Since the LOOCV test evaluates both how well the model reproduces the training values \emph{and} penalizes the model for over-fitting, we adopt the LOOCV scatter over the self-test scatter as the more conservative estimate of the model's precision. The set of training, test, and LOOCV labels for each training source is reported in Table \ref{table:mann_results}.
@@ -267,9 +274,32 @@ This percent-level accuracy of the model in the data domain is also demonstrated
 % ----------------------------------------
 \subsection{Spectral Type Model \label{subsec:west_results}}
 
+\begin{figure}
+	\begin{center}
+	\plotone{figures/self_test_spt.png}
+	\plotone{figures/crv_test_spt.png}
+	\end{center}
+	\caption{Consistency test for the West-trained spectral type model; self-test (left), and leave-one-out cross validation (right).  Predictive accuracy, as computed by the scatter in cross validation is 0.9 subtypes.}
+	\label{fig:west_validation}
+\end{figure}
+
 We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs well at re-deriving the labels for the M8 and M9 source when they are included in the model (less than 1 SPT difference), but badly when left out (over 2 SPT difference), which indicates \thecannon\ does a poor job at extrapolating to labels outside of the training sample space. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows the self and LOOCV tests for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
 
+% ----------------------------------------
 \subsection{Test Sample \label{subsec:test_selection}} 
+
+\begin{figure*}
+	\plotone{figures/cannon_chi_dist.png}
+	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''.}
+	\label{fig:chi_dist}
+\end{figure*}
+
+\begin{figure*}
+	\plotone{figures/cmd_selection.png}
+	\caption{\gaia\ and \zmass\ color-magnitude cuts for 12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia.}
+	\label{fig:cmd_selection}
+\end{figure*}
+
 Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \textsl{Gaia DR2} (\citealt{Brown:2018}) and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for 10,311 sources out of 14,827 with $\chi^2<100,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
 
 \begin{enumerate}
@@ -284,12 +314,38 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \item \textbf{Training bound selection:} Because extrapolation with \thecannon\ is unreliable, we select only sources with labels inside the range of the training sample: for the reported temperatures and metallicities we impose $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$, and for reported spectral subtypes we impose $0<SPT<9$.
 \end{enumerate}
 
+\begin{figure*}[h]
+	\plottwo{figures/cmd_teff_full.png}{figures/cmd_teff_safe.png}
+	\plottwo{figures/cmd_feh_full.png}{figures/cmd_feh_safe.png}
+	\plottwo{figures/cmd_spt_full.png}{figures/cmd_spt_safe.png}
+	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 10,311 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence.}
+	\label{fig:safe_selection}
+\end{figure*}
+
 The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. Additionally we notice a slight deviation at the upper slice of the main sequence where \cannon\ temperatures, metallicities and spectral types all appear lower than the gradient trends in the rest of the branch, which is most likely the binary sequence. Comparisons between the West-trained spectral types and Mann-trained temperatures and metallicities are shown in Figure \ref{fig:west_vs_mann}: left shows the slight negative correlation between spectral type and $\feh$, and right shows the nonlinear decrease in temperature with visible metallicity gradient. We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a personal laptop. 
 
 Table \ref{table:test_results} presents...
 
 % ----------------------------------------
 \subsection{Color-Temperature Comparisons}
+
+\begin{figure*}[h]
+	\plotone{figures/aspcap_cannon_validation.png}
+	\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).}
+	\label{fig:teff_comparisons}
+\end{figure*}
+
+\begin{figure*}[h]
+	\plotone{figures/aspcap_cannon_label_hist.png}
+	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities.}
+	\label{fig:aspcap_cannon_label_hist} 
+\end{figure*}
+
+\begin{figure*}[h]
+	\plotone{figures/isochrone_cmd.png}
+	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (1, 3, 5, and 7 Gyr).}
+	\label{fig:isochrone_cmd}
+\end{figure*}
 
 As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures. To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (\textsl{APASS}; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by \textsl{APASS}, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and \aspcap\ vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
 
@@ -423,44 +479,30 @@ participating in the {\it Gaia} Multilateral Agreement.
 %%==========================================================================================
 %% Figures
 
-\newpage
-
-\begin{figure*}[ht]
-	\plottwo{figures/crv_test_teff.png}{figures/crv_test_fe_h.png}
-	\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test (left), and leave-one-out cross validation (right). Sources with strong rotational broadening (2M07171706--0501031, 2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380), as identified by visual inspection are marked with red circles. Predictive accuracy, as computed by the scatter in cross validation is 77K in temperature, and 0.09 dex in metallicity.}\label{fig:mann_validation}
-\end{figure*}
-
-\begin{figure*}[ht]
-	\begin{center}
-	\plottwo{figures/self_test_spt.png}{figures/crv_test_spt.png}
-	\end{center}
-	\caption{Consistency test for the West-trained spectral type model; self-test (left), and leave-one-out cross validation (right).  Predictive accuracy, as computed by the scatter in cross validation is 0.9 subtypes.}\label{fig:west_validation}
-\end{figure*}
-
-%---------------------------
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_teff1.png}
 	\includegraphics[width=16cm]{figures/demo_derivatives_teff2.png}
 	\end{center}
 \end{figure*}
 
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_teff3.png}
 	\end{center}
-	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallcities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}\label{fig:demo_teff}
+	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallcities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}
+	\label{fig:demo_teff}
 \end{figure*}
 
 %---------------------------
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_feh1.png}
 	\includegraphics[width=16cm]{figures/demo_derivatives_feh2.png}
 	\end{center}
 \end{figure*}
 
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_feh3.png}
 	\end{center}
@@ -468,7 +510,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 \end{figure*}
 
 %---------------------------
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\begin{center}
 	\includegraphics[width=12cm]{figures/Spectral_Sequence_1.png}
 	\includegraphics[width=12cm]{figures/Spectral_Sequence_2.png}
@@ -478,55 +520,25 @@ participating in the {\it Gaia} Multilateral Agreement.
 \end{figure*}
 
 %---------------------------
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\begin{center}
 	\includegraphics[width=16cm]{figures/derivative_jackknife_spt.png}
 	\end{center}
-	\caption{Derivative plots for spectral type model taken at the median training spectral type, SPT$=3$; jackknife computed error at each pixel is shown in red.} \label{fig:west_derivative}
+	\caption{Derivative plots for spectral type model taken at the median training spectral type, SPT$=3$; jackknife computed error at each pixel is shown in red.} 
+	\label{fig:west_derivative}
 \end{figure*}
 
-\begin{figure*}[ht]
-	\plotone{figures/cannon_chi_dist.png}
-	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''. \label{fig:chi_dist}}
-\end{figure*}
-
-\begin{figure*}[ht]
-	\plotone{figures/cmd_selection.png}
-	\caption{\gaia\ and \zmass\ color-magnitude cuts for 12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia. \label{fig:cmd_selection}}
-\end{figure*}
-
-\begin{figure*}[ht]
-	\plottwo{figures/cmd_teff_full.png}{figures/cmd_teff_safe.png}
-	\plottwo{figures/cmd_feh_full.png}{figures/cmd_feh_safe.png}
-	\plottwo{figures/cmd_spt_full.png}{figures/cmd_spt_safe.png}
-	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 10,311 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence. \label{fig:safe_selection}}
-\end{figure*}
-
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\plotone{figures/spt_vs_teff_vs_feh.png}
 	\caption{West-trained spectral types vs. Mann-trained metallcities and temperatures. For each integer spectral type bin the mean temperatures and metallicities are shown as red error boxes. \label{fig:west_vs_mann}}
 \end{figure*}
 
-\begin{figure*}[ht]
-	\plotone{figures/aspcap_cannon_label_hist.png}
-	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities. \label{fig:aspcap_cannon_label_hist}} 
-\end{figure*}
-
 %---------------------------
-\begin{figure*}[ht]
-	\plotone{figures/aspcap_cannon_validation.png}
-	\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).  \label{fig:teff_comparisons}}
-\end{figure*}
 
-%---------------------------
-\begin{figure*}[ht]
-	\plotone{figures/isochrone_cmd.png}
-	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (1, 3, 5, and 7 Gyr). \label{fig:isochrone_cmd}}
-\end{figure*}
-
-\begin{figure*}[ht]
+\begin{figure*}[h]
 	\plotone{figures/mann_radii.png}
-	\caption{Comparison of radii estimated from M15 relations: on the x-axis radii are derived from  K magnitudes and \cannon\ $\feh$, on the y-axis radii are derived from \cannon\ $\teff$ and $\feh$. \label{fig:radii}}
+	\caption{Comparison of radii estimated from M15 relations: on the x-axis radii are derived from  K magnitudes and \cannon\ $\feh$, on the y-axis radii are derived from \cannon\ $\teff$ and $\feh$.}
+	\label{fig:radii}
 \end{figure*}
 
 %%==========================================================================================
