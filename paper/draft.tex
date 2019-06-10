@@ -126,7 +126,7 @@ A number of studies focused on improving M dwarf metallicity precisions have use
 %%AWM: would it be useful to have some comment on data-driven models in general? Their virtues should probably be explained before invoking them
 
 In this work we build a data-driven model for M dwarf spectra with \thecannon\ \citep{Ness:2015,Casey:2016,Ho:2017a,Behmard2019}: a fully empirical model, which employs no use of line lists or radiative transfer models. 
-\thecannon\ is instead a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:cannon}). The model in this sense is used to \emph{transfer} labels from spectra for which we know parameters to those which we do not. Hence this data-driven approach effectively circumvents the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (and very accurately measured) \emph{reference labels} possibly measured from other data. 
+\thecannon\ is instead a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:methods}). The model in this sense is used to \emph{transfer} labels from spectra for which we know parameters to those which we do not. Hence this data-driven approach effectively circumvents the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (and very accurately measured) \emph{reference labels} possibly measured from other data. 
 
 %AWM: not an expert here, so I won't add anything, but this probably needs more information.
 %JB: I've swapped some sentences from section 2.2 and section 3, which explain the terminology. Do you think this paragraph adds enough clarity now without being too redundant with the following sections 2 & 3 describing The Cannon?
@@ -152,8 +152,8 @@ place. That is, the model to be applied to the \apogee\ data is learned from the
 This obviates physical models that are often inaccurate for M dwarfs, and capitalizes on the excellent data quality
 delivered by the \apogee\ spectrograph and project.
 
-This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the APOGEE survey and previous studies of M dwarfs in APOGEE, as well as our sample selection and derivation of training parameters. 
-Section \ref{sec:cannon} describes our model implementation using \thecannon\ framework.
+This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the \apogee\ and \gaia\ surveys, as well as previous studies of M dwarfs in \apogee.
+Section \ref{sec:methods} describes our model implementation using \thecannon\ framework, and Section \ref{sec:sample_selection} describes the our sample selection and derivation of training parameters.
 In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$10,000 sources, and examine the validity of our parameters against color-temperature relations and isochrone grids.
 Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results in the context of present and upcoming stellar and exoplanetary surveys.
 
@@ -183,7 +183,7 @@ In previous work it has been recommended to use an alternative pseudo-continuum 
 Need to talk about \gaia\ data \& what we use this dataset for...
 
 %%==========================================================================================
-\section{Method}\label{sec:cannon}
+\section{Method} \label{sec:methods}
 
 \thecannon\ is a regression model which relies on two assumptions: first that sources with identical labels have near-identical flux at each wavelength pixel, and second that the expected flux at each pixel varies continuosly with change in label. 
 
@@ -218,7 +218,7 @@ derivatives.
  
 
 %%==========================================================================================
-\section{Sample Selection}
+\section{Sample Selection} \label{sec:sample_selection}
 
 \thecannon\ model can in principle be trained on any physical or empirical labels available, giving a wide range of flexibility to the model. However choosing a training sample with high quality labels is critical to the performance of \thecannon.
 Limitations of \thecannon\ include that test (output) labels are only accurate if the training labels are accurate, and only precise if the training labels are measured consistently across the training sample.
