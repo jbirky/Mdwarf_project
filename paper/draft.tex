@@ -215,8 +215,6 @@ derivatives.
 %%==========================================================================================
 \section{Sample Selection}
 
-\thecannon\ is a pixel-by-pixel regression for spectral data given a training set of stars with reliable (assumed) accurate labels. The model can both predict a spectrum given labels, and also predict labels given a spectrum. Thus it is a generative model for stellar spectra that can be used for parameter inference.
-
 \thecannon\ model can in principle be trained on any physical or empirical labels available, giving a wide range of flexibility to the model. However choosing a training sample with high quality labels is critical to the performance of \thecannon.
 Limitations of \thecannon\ include that test (output) labels are only accurate if the training labels are accurate, and only precise if the training labels are measured consistently across the training sample.
 Also, it is critical to have a training sample with the dynamic range to span the entire parameter space of interest, as \thecannon\ does not extrapolate well outside the parameter space of the training sample.
