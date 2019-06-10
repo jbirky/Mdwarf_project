@@ -128,19 +128,19 @@ A number of studies focused on improving M dwarf metallicity precisions have use
 
 In this work we build a data-driven model for M dwarf spectra with \thecannon\ (\citealt{Ness:2015}, \citealt{Ho:2017a}, \citealt{Casey:2016}, \citealt{Behmard2019}).
 \thecannon\ is a pixel-by-pixel regression for spectral data given a training set of stars with reliable (assumed) accurate labels. The model can both predict a spectrum given labels, and also predict labels given a spectrum. Thus it is a generative model for stellar spectra that can be used for parameter inference.
-%AWM: not an expert here, so I won't add anything, but this probably needs more information!
+%AWM: not an expert here, so I won't add anything, but this probably needs more information.
 
 The data-driven approach of \thecannon\ is ideal in certain cases:
 if stellar labels are only known for a small number of stars
 but there are spectra taken for many more;
 if it is computationally expensive to obtain labels for a star, but
 there are many stars that need labels;
-if there are spectral models that work in one wavelength range or resolution but not in another.
-The context of this paper is the last:
-there are precise calibrations for metallicities of M dwarf stars in the optical, which have been
-used successfully, but (as we note above) there isn't as much success with such modeling in the infrared, and not at \apogee\ resolution.
-\thecannon\ bridges this gap: it doesn't require using specific lines; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
+if there are spectral models or techniques that work in one wavelength range or resolution but not in another.
+%AWM: seems to me like the context here is all 3. You want to run on ~10,000 stars, which is expensive if you use models. You have labels for a small fraction of these. 
+%The context of this paper is the last:
+There are empirically-calibrated methods to measure \teff\ and metallicity from flux-calibrated spectra in the optical and NIR, but existing methods to model M dwarf spectra in the NIR at high resolution are computationally expensive, calibrated over a narrow range of \teff\ and metallicity, and/or focus on the $J$-band \citep{Lindgren:2016, Lindgren:2017}. \thecannon\ fills this niche: it doesn't require using specific lines or opacity information that may be missing from the models; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
 %AWM: again, the metallicity metrics Babs/Ryan/Myself use are all in the NIR, and they aren't based on models. The temperature tools use models, but they are calibrated against LBOI measurements. I need to come back to editing later, but this paragraph probably needs to be tweaked a bit. 
+%AWM: OK, let me know what you think about those changes. Feel free to edit this more, but do note the work of Lindgren modeling J-band at high resolution (I think they use CRIRES). 
 
 Here we take M-dwarf labels from samples of optically observed stars that overlap the
 \sdssiv\ \apogee\ sample, and use those labels to train a model and label all of the
@@ -149,8 +149,7 @@ One set of labels are physical parameters (effective temperatures and metallicit
 and the other set of labels are spectral types.
 In each case, \thecannon\ produces a predictive model for \apogee\ spectra, but without
 any input of stellar physics beyond whatever went in to producing the labels in the first
-place, which was in the context of optical spectroscopy.
-That is, the model to be applied to the \apogee\ data is learned from the \apogee\ data alone.
+place, which was in the context of optical spectroscopy. That is, the model to be applied to the \apogee\ data is learned from the \apogee\ data alone.
 This obviates physical models in the infrared, and capitalizes on the excellent data quality
 delivered by the \apogee\ spectrograph and project.
 
