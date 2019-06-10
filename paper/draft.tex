@@ -304,7 +304,9 @@ While the large bulk of points falling within the temperature ranges of the plot
 %%==========================================================================================
 \section{Discussion} \label{sec:discussion}
 
-We trained and evaluated the performance of \thecannon\ at deriving atmospheric temperatures and metallicities from high resolution near-infrared spectra... summarize results.
+We trained and evaluated the performance of \thecannon\ at deriving atmospheric temperatures and metallicities from M dwarfs using high resolution near-infrared spectra, and compiled a catalog of 10,311 M dwarfs with \cannon\ temperatures, metallicities, and spectral types, 6D kinematics (\gaia\ parallaxes and proper motions + \apogee\ radial velocities) shown in Table \ref{table:test_results}.
+
+Table \ref{table:teff_derivative} and Table \ref{table:feh_derivative}, summarize which features are found to be strong temperature and metallicity indicators.
 
 While \thecannon\ generally achieves excellent precision at predicting labels and reproducing the spectral features as demonstrated in this study and previous work on \thecannon\ (\citealt{Ness:2015}, \citealt{Casey:2016}), the accuracy of labels from model application to new sources is limited by the accuracy, relative precision, size, dynamic range and representation of the training sample.
 
@@ -315,7 +317,7 @@ size -  \\
 dynamic range - training sample must span \\
 representation - \\
 
-Talk about the particular limitations we have found in this training sample.
+Talk about the particular limitations we have found in this training sample. 
 
 % \begin{enumerate}
 % \item[-] Brief summary of what we did and found
