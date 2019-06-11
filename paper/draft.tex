@@ -18,6 +18,7 @@
 \newcommand{\cannon}{\textsl{Cannon}}
 \newcommand{\aspcap}{\textsl{ASPCAP}}
 \newcommand{\gaia}{\textsl{Gaia}}
+\newcommand{\drtwo}{\textsl{Gaia-DR2}}
 \newcommand{\zmass}{\textsl{2MASS}}
 \newcommand{\sdss}{\textsl{SDSS}}
 \newcommand{\kepler}{\textsl{Kepler}}
@@ -180,7 +181,7 @@ In previous work it has been recommended to use an alternative pseudo-continuum 
 % ----------------------------------------
 \subsection{\gaia\ Survey}
 
-Need to talk about \gaia\ data \& what we use this dataset for... \\
+We cross-matched the {\sl APOGEE-DR14} catalog of  \citep{Brown:2018} \\
 
 %%==========================================================================================
 \section{Method} \label{sec:methods}
@@ -391,7 +392,7 @@ This percent-level accuracy of the model in the data domain is also demonstrated
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{figures/cannon_chi_dist.png}
-	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources (\citealt{ElBadry:2018}; \citealt{Skinner:2018}); \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''.}
+	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources \citep{ElBadry:2018,Skinner:2018}; \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''.}
 	\label{fig:chi_dist}
 \end{figure*}
 
@@ -407,7 +408,7 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 
 \subsection{Test Sample \label{subsec:test_selection}} 
 
-Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \textsl{Gaia DR2} (\citealt{Brown:2018}) and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for 10,311 sources out of 14,827 with $\chi^2<100,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
+Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for 10,311 sources out of 14,827 with $\chi^2<100,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
 
 \begin{enumerate}
 \item \textbf{Known contaminant cut:} We remove known pre-main sequence sources from \citealt{Cottaar:2014} (280 sources), and known binaries from \citealt{ElBadry:2018} and \citealt{Skinner:2018} (58 sources).
