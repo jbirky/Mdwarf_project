@@ -103,7 +103,7 @@ stars:~fundamental~parameters
 stars:~late-type
  ---
 surveys
-}
+} 
 
 %%==========================================================================================
 \section{Introduction} \label{sec:intro}
@@ -155,7 +155,7 @@ delivered by the \apogee\ spectrograph and project.
 This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the \apogee\ and \gaia\ surveys, as well as previous studies of M dwarfs in \apogee.
 Section \ref{sec:methods} describes our model implementation using \thecannon\ framework, and Section \ref{sec:sample_selection} describes the our sample selection and derivation of training parameters.
 In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$10,000 sources, and examine the validity of our parameters against color-temperature relations and isochrone grids.
-Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results in the context of present and upcoming stellar and exoplanetary surveys.
+Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results in the context of present and upcoming stellar and exoplanetary surveys. \\
 
 
 %%==========================================================================================
@@ -180,7 +180,7 @@ In previous work it has been recommended to use an alternative pseudo-continuum 
 % ----------------------------------------
 \subsection{\gaia\ Survey}
 
-Need to talk about \gaia\ data \& what we use this dataset for...
+Need to talk about \gaia\ data \& what we use this dataset for... \\
 
 %%==========================================================================================
 \section{Method} \label{sec:methods}
@@ -214,7 +214,7 @@ The \emph{training step} consists of optimizing the likelihood function (Equatio
 In the training step, the regression is designed to predict spectral pixels
 given labels, by learning zeroth, first, and second derivatives of the data with respect to
 the labels. In the test step, the regression is designed to predict labels given the spectral
-derivatives.
+derivatives. \\
  
 
 %%==========================================================================================
@@ -241,7 +241,7 @@ The M15 catalog in total contains 183 sources and the extension sample another 5
 
 Iron abundances ($\feh$) are assigned to the physical parameter sample based on the strength of metal-sensitive lines in the near-infrared SpeX spectra \citep{RojasAyala:2010} using the calibration from \citet{Mann:2013a}. The relation between these lines and an absolute $\feh$ scale is calibrated using wide binaries containing and F, G, or K-type primary and an M dwarf companion, under the assumption that binaries formed from the same molecular cloud and therefore have the same metallicity \citep{Bonfils:2005}. Uncertainties are estimated to be $\simeq$0.08\,dex based on irreducible scatter in the empirical relation between selected lines and the assigned $\feh$ from the primary star. As with $\teff$ relative errors on $\feh$ are smaller, estimated to be 0.04--0.06\,dex over most of the temperature and metallicity range considered here.
 
-We note that surface gravity is not included as a training label. The reason for this is that for main-sequence M dwarfs, the parameter is almost entirely redundant with metallicity. Unlike their higher-mass counterparts, M dwarf properties do not change measurably over the age of the Universe after arriving at the zero-age main sequence. Hence perfect knowledge of abundances and $\teff$ for an M dwarf should uniquely determine its surface gravity, position on a color-magnitude diagram, and overall luminosity. While we only had $\feh$ for the training sample, for the uncertainties considered here, lack of information about [$\alpha$/Fe] or specific abundances will only be important compared to other uncertainties in extreme cases (e.g., Carbon stars). 
+We note that surface gravity is not included as a training label. The reason for this is that for main-sequence M dwarfs, the parameter is almost entirely redundant with metallicity. Unlike their higher-mass counterparts, M dwarf properties do not change measurably over the age of the Universe after arriving at the zero-age main sequence. Hence perfect knowledge of abundances and $\teff$ for an M dwarf should uniquely determine its surface gravity, position on a color-magnitude diagram, and overall luminosity. While we only had $\feh$ for the training sample, for the uncertainties considered here, lack of information about [$\alpha$/Fe] or specific abundances will only be important compared to other uncertainties in extreme cases (e.g., Carbon stars).  \\
 
 %We note that rotational velocity (vsini) is not a parameter are not included as training labels because that would be hard... also it's probably not needed... I'll let someone else write that. -AWM
 %\color{gcolor}{}\color{black}
@@ -373,9 +373,9 @@ That is, the $\chi^2$ values do show that the model is not good in the frequenti
 sense; it is only good at the percent level.
 This percent-level accuracy of the model in the data domain is also demonstrated... \\
 
-\color{gcolor}{BIRKY: Can you demonstrate this by showing the RMS residuals, putting it in as a figure, and putting this paragraph back to me? I am imagining a figure that shows a scatter plot of T vs RMS residual, colored by metallicity. Or something like that.}\color{black} \\
+% \color{gcolor}{BIRKY: Can you demonstrate this by showing the RMS residuals, putting it in as a figure, and putting this paragraph back to me? I am imagining a figure that shows a scatter plot of T vs RMS residual, colored by metallicity. Or something like that.}\color{black} \\
 
-\color{gcolor}{HOGG: Adam's comment: if $\chi^2/n>>1$ then the model is NOT an accurate representation of the data.}\color{black} \\
+% \color{gcolor}{HOGG: Adam's comment: if $\chi^2/n>>1$ then the model is NOT an accurate representation of the data.}\color{black} \\
 
 % ----------------------------------------
 \subsection{Spectral Type Model \label{subsec:west_results}}
@@ -466,7 +466,7 @@ While the large bulk of points falling within the temperature ranges of the plot
 % ----------------------------------------
 \subsection{Isochrone Comparisons}
 
-Figure \ref{fig:isochrone_cmd}
+Figure \ref{fig:isochrone_cmd} \\
 
 % JB DO WE WANT A FIGURE THAT SHOWS ABUNDANCES AS A FUNCTION OF MILKY WAY POSITION OR ACTIONS?
 
@@ -529,7 +529,8 @@ that are found to be strong temperature and metallicity indicators.
 In the long run, this is the primary value of data-driven models for astronomy:
 To provide physical insights that drive physical understandings.
 It is our hope that \thecannon, and models like it, will, in the end, lead to
-new and improved physical models, which will, in turn, put \thecannon\ out of business.
+new and improved physical models, which will, in turn, put \thecannon\ out of business. \\
+
 
 %%==========================================================================================
 \acknowledgements
