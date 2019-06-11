@@ -16,7 +16,6 @@
 \newcommand{\apogee}{\textsl{APOGEE}}
 \newcommand{\thecannon}{\textsl{The Cannon}}
 \newcommand{\cannon}{\textsl{Cannon}}
-\newcommand{\aspcap}{\textsl{ASPCAP}}
 \newcommand{\gaia}{\textsl{Gaia}}
 \newcommand{\drtwo}{\textsl{Gaia-DR2}}
 \newcommand{\zmass}{\textsl{2MASS}}
@@ -175,7 +174,7 @@ These studies include \citealt{Desphande:2013} and \citealt{Gilhool:2018} which 
 and \citealt{Skinner:2018} which has identified and measured mass ratios and radial velocities for 44 M dwarf spectroscopic binaries.
 This work complements existing studies by producing model-independent catalog of spectroscopic temperatures and metallicites to test against model predictions for the entire \apogee\ M dwarf sample, which we quantify to contain at least 10,000 sources to date (DR14).
 
-The \aspcap\ pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline).
+The ASPCAP pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline).
 In previous work it has been recommended to use an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in our analysis, so we retain the survey pipeline outputs.
 
 % ----------------------------------------
@@ -445,24 +444,24 @@ Table \ref{table:test_results} presents...
 
 \begin{figure*}[h]
 	\includegraphics[width=\linewidth]{figures/aspcap_cannon_validation.png}
-	\caption{\cannon\ (right column) and \aspcap\ (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and \aspcap\ temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).}
+	\caption{\cannon\ (right column) and ASPCAP (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 6,257 sources with $V,J,K$ colors. Shown are \cannon\ and ASPCAP temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), \citealt{Casagrande:2008} $V-K$ relation (middle), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).}
 	\label{fig:teff_comparisons}
 \end{figure*}
 
 \begin{figure*}[h]
 	\includegraphics[width=\linewidth]{figures/aspcap_cannon_label_hist.png}
-	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the \aspcap\ pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars \aspcap\ predicts temperatures with slightly higher temperatures and metallicities.}
+	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the ASPCAP pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars ASPCAP predicts temperatures with slightly higher temperatures and metallicities.}
 	\label{fig:aspcap_cannon_label_hist} 
 \end{figure*}
 
-As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures. To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (\textsl{APASS}; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by \textsl{APASS}, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and \aspcap\ vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
+As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
 
 % % SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} 
 % Shown in the top panels of \ref{fig:teff_comparisons} 
 
-We find \aspcap\ overestimates $\teff$ on average by $130-170$K, while \thecannon\ underestimates $\teff$ by $\sim25$K. We also see the scatter is much higher for the \aspcap\ temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
+Compared to the \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} derived temperatures, we find ASPCAP overestimates $\teff$ on average by a bias of $130-170$K, while \thecannon\ underestimates $\teff$ by a bias of $\sim25$K. We also see the scatter is much higher for the ASPCAP temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
 
-While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average \aspcap\ temperatures are much hotter, and scatters are much higher skewed by 500 sources which \aspcap\ predicts to have temperatures over 4200K.
+While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average ASPCAP temperatures are much hotter, and scatters are much higher skewed by 500 sources which ASPCAP predicts to have temperatures over 4200K.
 
 % ----------------------------------------
 \subsection{Isochrone Comparisons}
@@ -508,29 +507,22 @@ stellar parameters:
 The success of our model shows that they do a great job of parameterizing a generative
 model of the spectra.
 
-Comment on the importance of each property of training sample: \\
-accuracy - some discussion on ground truth of stellar labels... \\
-precision - some discussion on how consistently training parameters are derived... \\
-size -  \\
-dynamic range - training sample must span the desired parameter range of the test sample. \thecannon\ does not extrapolate well. \\
-representation - model cannot account for physics not represented by training sample (i.e. this training sample is limited to old, slowly rotating, not magnetically active, singular sources...) \\
-
 Talk about the particular limitations we have found in this training sample. Talk about model improvements: incorporate broadening \citep{Behmard2019}; spectroscopic binary model \citep{ElBadry:2018}... \\
-
-Talk future work/implications with other stellar surveys (e.g. LAMOST), and exoplanet surveys (e.g. TESS)
 
 Given that physics-based spectral models of M dwarfs have issues, one of the possible
 future values of the data-driven model shown here is that it is highly interpretable:
 It contains within it first and second derivatives of the spectral expectation with
 respect to the atmospheric parameters.
-We show some of these derivatives in [BIRKY WHAT FIGURE] and deliver relevant data in
-Table~\ref{table:teff_derivative} and Table~\ref{table:feh_derivative}
+We show some of these derivatives in Figures \ref{fig:demo_teff}, \ref{fig:demo_feh}, and \ref{fig:west_derivative} and deliver relevant data in
+Table~\ref{table:teff_derivative} and Table~\ref{table:feh_derivative}.
 These Tables summarize spectral features in the \apogee\ bandpass
 that are found to be strong temperature and metallicity indicators.
 In the long run, this is the primary value of data-driven models for astronomy:
 To provide physical insights that drive physical understandings.
 It is our hope that \thecannon, and models like it, will, in the end, lead to
 new and improved physical models, which will, in turn, put \thecannon\ out of business. \\
+
+Talk future work/implications with other stellar surveys (e.g. LAMOST), and exoplanet surveys (e.g. TESS)
 
 
 %%==========================================================================================
