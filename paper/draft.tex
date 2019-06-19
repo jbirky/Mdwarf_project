@@ -377,6 +377,7 @@ This percent-level accuracy of the model in the data domain is also demonstrated
 % \color{gcolor}{HOGG: Adam's comment: if $\chi^2/n>>1$ then the model is NOT an accurate representation of the data.}\color{black} \\
 
 % ----------------------------------------
+
 \begin{figure}
 	\begin{center}
 	\includegraphics[width=\linewidth]{figures/self_test_spt.png}
@@ -385,6 +386,12 @@ This percent-level accuracy of the model in the data domain is also demonstrated
 	\caption{Consistency test for the West-trained spectral type model; self-test (left), and leave-one-out cross validation (right).  Predictive accuracy, as computed by the scatter in cross validation is 0.9 subtypes.}
 	\label{fig:west_validation}
 \end{figure}
+
+\subsection{Spectral Type Model \label{subsec:west_results}}
+
+We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs well at re-deriving the labels for the M8 and M9 source when they are included in the model (less than 1 SPT difference), but badly when left out (over 2 SPT difference), which indicates \thecannon\ does a poor job at extrapolating to labels outside of the training sample space. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows the self and LOOCV tests for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
+
+% ----------------------------------------
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{figures/aitoff.png}
@@ -403,12 +410,6 @@ This percent-level accuracy of the model in the data domain is also demonstrated
 	\caption{\gaia\ and \zmass\ color-magnitude cuts for 12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia.}
 	\label{fig:cmd_selection}
 \end{figure*}
-
-\subsection{Spectral Type Model \label{subsec:west_results}}
-
-We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs well at re-deriving the labels for the M8 and M9 source when they are included in the model (less than 1 SPT difference), but badly when left out (over 2 SPT difference), which indicates \thecannon\ does a poor job at extrapolating to labels outside of the training sample space. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows the self and LOOCV tests for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
-
-% ----------------------------------------
 
 \subsection{Test Sample \label{subsec:test_selection}} 
 
@@ -454,18 +455,19 @@ While the large bulk of points falling within the temperature ranges of the plot
 \begin{figure}
 	\includegraphics[width=\linewidth]{figures/cannon_vs_parsec.png}
 	\includegraphics[width=\linewidth]{figures/aspcap_vs_parsec1.png}
-	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citealt{Bressan:2012} in \gaia\ color-magnitude space. The four panels show five metallicity tracks (ranging $-0.5<$[M/H]$<0.5$) over varying ages (3 and 7 Gyr).}
+	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citep{Bressan:2012} in \gaia\ color-magnitude space. The two panels show five metallicity tracks (ranging $-0.5<$[M/H]$<+0.5$ in steps of 0.1 dex) at two different ages (3 and 7 Gyr). In the ASPCAP plot only the 8,960 out of 10,311 sources with metallcities $-0.5<$[M/H]$<+0.5$ are shown, while the remaining 1,351 sources with [M/H]$<-0.5$ and [M/H]$>+0.5$ are shown separately in Figure \ref{fig:isochrone_cmd_2}.}
 	\label{fig:isochrone_cmd}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{figures/aspcap_vs_parsec2.png}
 	\caption{}
+	\label{fig:isochrone_cmd_2}
 \end{figure}
 
 \begin{figure*}
 	\plotone{figures/aspcap_cannon_label_hist.png}
-	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the ASPCAP pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars ASPCAP predicts temperatures with slightly higher temperatures and metallicities.}
+	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the ASPCAP pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars ASPCAP predictions are skewed higher in temperature and lower in metallicity compared to \cannon\ measurements.}
 	\label{fig:aspcap_cannon_label_hist} 
 \end{figure*}
 
