@@ -372,12 +372,6 @@ That is, the $\chi^2$ values do show that the model is not good in the frequenti
 sense; it is only good at the percent level.
 This percent-level accuracy of the model in the data domain is also demonstrated... \\
 
-% \color{gcolor}{BIRKY: Can you demonstrate this by showing the RMS residuals, putting it in as a figure, and putting this paragraph back to me? I am imagining a figure that shows a scatter plot of T vs RMS residual, colored by metallicity. Or something like that.}\color{black} \\
-
-% \color{gcolor}{HOGG: Adam's comment: if $\chi^2/n>>1$ then the model is NOT an accurate representation of the data.}\color{black} \\
-
-% ----------------------------------------
-
 \begin{figure}
 	\begin{center}
 	\includegraphics[width=\linewidth]{figures/self_test_spt.png}
@@ -528,7 +522,26 @@ stellar parameters:
 The success of our model shows that they do a great job of parameterizing a generative
 model of the spectra.
 
-Talk about the particular limitations we have found in this training sample. Talk about model improvements: incorporate broadening \citep{Behmard2019}; spectroscopic binary model \citep{ElBadry:2018}... \\
+The model we have developed does have limitations however.
+For example, it delivers chi-squared values---goodness-of-fit measures---that
+are large; the model is not technically an accurate description of the spectra,
+especially when the spectra are observed at signal-to-noise levels above 100.
+For another, it does not include some known physical and instrumental effects.
+It does not include a term or terms for line broadening from rotation or
+convection (for exmaple, \citealt{Behmard2019}).
+It does not include any accounting for binarity or superposition of multiple
+stellar spectra (as in, say, \citealt{ElBadry:2018}).
+And it does not include any adjustments for instrumental variations, like for
+example the small but significant variations of \apogee\ resolution with
+spectrograph fiber number (as are included in \citealt{Ness2018}).
+
+In addition to all this, the \apogee\ instrument was designed to be sensitive to more than
+a dozen individual element abundances in stellar spectra!
+So the M-dwarf spectra analyzed here contain individual element abundance
+information that we have left on the table.
+Exploitation of that information might require better models of M dwarfs than
+we have at present.
+However, this is an important goal for the future with these data.
 
 Given that physics-based spectral models of M dwarfs have issues, one of the possible
 future values of the data-driven model shown here is that it is highly interpretable:
@@ -543,12 +556,9 @@ To provide physical insights that drive physical understandings.
 It is our hope that \thecannon, and models like it, will, in the end, lead to
 new and improved physical models, which will, in turn, put \thecannon\ out of business. \\
 
-Talk future work/implications with other stellar surveys (e.g. LAMOST), and exoplanet surveys (e.g. TESS)
-
-
 %%==========================================================================================
 \acknowledgements
-We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA), Diogo Souto (Observatário Nacional/MCTI) and Keivan Stassun (Vanderbuilt) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality.
+We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA), Melissa Ness (Columbia), Diogo Souto (Observatário Nacional/MCTI) and Keivan Stassun (Vanderbuilt) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality.
 This project was partially supported by
 the US National Aeronautics and Space Administration (NASA grant NNX12AI50G),
 the US National Science Foundation (NSF grant AST-1517237),
