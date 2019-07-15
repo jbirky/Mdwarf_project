@@ -176,11 +176,6 @@ This work complements existing studies by producing model-independent catalog of
 The ASPCAP pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline).
 In previous work it has been recommended to use an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in our analysis, so we retain the survey pipeline outputs.
 
-% ----------------------------------------
-\subsection{\gaia\ Survey}
-
-We cross-matched the {\sl APOGEE-DR14} catalog of  \citep{Brown:2018} \\
-
 %%==========================================================================================
 \section{Method} \label{sec:methods}
 
@@ -387,11 +382,6 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 
 % ----------------------------------------
 
-\begin{figure*}
-	\includegraphics[width=\linewidth]{figures/aitoff.png}
-	\caption{Aitoff projection of 14,827 sources.}
-	\label{fig:aitoff}
-\end{figure*}
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{figures/cannon_chi_dist.png}
@@ -453,11 +443,11 @@ While the large bulk of points falling within the temperature ranges of the plot
 	\label{fig:isochrone_cmd}
 \end{figure}
 
-\begin{figure}
-	\includegraphics[width=\linewidth]{figures/aspcap_vs_parsec2.png}
-	\caption{}
-	\label{fig:isochrone_cmd_2}
-\end{figure}
+% \begin{figure}
+% 	\includegraphics[width=\linewidth]{figures/aspcap_vs_parsec2.png}
+% 	\caption{}
+% 	\label{fig:isochrone_cmd_2}
+% \end{figure}
 
 \begin{figure*}
 	\plotone{figures/aspcap_cannon_label_hist.png}
