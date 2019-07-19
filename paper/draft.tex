@@ -73,22 +73,22 @@ spectral types for 10,311 M dwarfs in the \apogee\ survey using
 parameter-inference framework demonstrated to estimate
 stellar-parameter labels ($\teff$, $\logg$, $\feh$, and detailed
 abundances) to high precision.
-Using a training sample of 87 M dwarfs in the temperature range $2860
-< \teff < 4130$\,K, and metallicty range $-0.5 < \feh < 0.5$\,dex
-[WITH LABELS FROM WHERE??], we train a two-parameter model with
-predictive accuracy (in cross-validation) to 77\,K and 0.09\,dex
-respectively.
+Using a training sample of 87 M dwarfs with optically derived labels spanning 
+$2860 < \teff < 4130$\,K callibrated with bolometric temperatures, 
+$-0.5 < \feh < 0.5$\,dex callibrated with FGK wide binary metallicities, 
+we train a two-parameter model with predictive accuracy (in cross-validation) 
+to 77\,K and 0.09\,dex respectively.
 We also train a one-dimensional spectral type model using 51 M dwarfs
-with known [FROM WHERE??] spectral types ranging M0 to M9, to predictive accuracy of
+with known SDSS optical spectral types ranging M0 to M9, to predictive accuracy of
 0.9 types.
-From the overlap of \textsl{APOGEE DR14} and \textsl{Gaia DR2} we
+\color{gcolor}{From the overlap of \textsl{APOGEE DR14} and \textsl{Gaia DR2} we
 compare our \cannon\ derived $\teff$ against color--temperature
 relations and \cannon\ derived $\feh$ against isochrone models in
 \gaia\ color-magnitude space.
 Finally we use our results to
 estimate stellar radii from absolute magnitudes and \cannon\ temperatures [AND WE FIND WHAT??].
 This project has implications for the NASA \tess\ Mission and other
-surveys that depend on having good parameters for M dwarfs.
+surveys that depend on having good parameters for M dwarfs.}\color{black}
 \end{abstract}
 
 \keywords{
@@ -153,8 +153,8 @@ and the other set of labels are spectral types.
 
 This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the \apogee\ and \gaia\ surveys, as well as previous studies of M dwarfs in \apogee.
 Section \ref{sec:methods} describes our model implementation using \thecannon\ framework, and Section \ref{sec:sample_selection} describes the our sample selection and derivation of training parameters.
-In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$10,000 sources, and examine the validity of our parameters against color-temperature relations and isochrone grids.
-Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results in the context of present and upcoming stellar and exoplanetary surveys. \\
+\color{gcolor}{{In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$10,000 sources, and examine the validity of our parameters against color-temperature relations and isochrone grids.
+Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results in the context of present and upcoming stellar and exoplanetary surveys.}\color{black} \\
 
 
 %%==========================================================================================
@@ -365,7 +365,7 @@ This discrepancy flows from the fact that---while the spectral model is good at 
 level---the signal-to-noise of the typical spectra are more than 100.
 That is, the $\chi^2$ values do show that the model is not good in the frequentist
 sense; it is only good at the percent level.
-This percent-level accuracy of the model in the data domain is also demonstrated... \\
+\color{gcolor}{This percent-level accuracy of the model in the data domain is also demonstrated...}\color{black} \\
 
 \begin{figure}
 	\begin{center}
@@ -439,7 +439,7 @@ While the large bulk of points falling within the temperature ranges of the plot
 \begin{figure}
 	\includegraphics[width=\linewidth]{figures/cannon_vs_parsec.png}
 	\includegraphics[width=\linewidth]{figures/aspcap_vs_parsec1.png}
-	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citep{Bressan:2012} in \gaia\ color-magnitude space. The two panels show five metallicity tracks (ranging $-0.5<$[M/H]$<+0.5$ in steps of 0.1 dex) at two different ages (3 and 7 Gyr). In the ASPCAP plot only the 8,960 out of 10,311 sources with metallcities $-0.5<$[M/H]$<+0.5$ are shown, while the remaining 1,351 sources with [M/H]$<-0.5$ and [M/H]$>+0.5$ are shown separately in Figure \ref{fig:isochrone_cmd_2}.}
+	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citep{Bressan:2012} in \gaia\ color-magnitude space. The two panels show five metallicity tracks (ranging $-0.5<$[M/H]$<+0.5$ in steps of 0.1 dex) at two different ages (3 and 7 Gyr). In the ASPCAP plot only the 8,960 out of 10,311 sources with metallcities $-0.5<$[M/H]$<+0.5$ are shown, while the remaining 1,351 sources with [M/H]$<-0.5$ and [M/H]$>+0.5$.}
 	\label{fig:isochrone_cmd}
 \end{figure}
 
