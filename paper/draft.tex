@@ -404,6 +404,15 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 	\label{fig:cmd_selection}
 \end{figure*}
 
+\begin{figure*}
+\begin{center}
+	\includegraphics[width=.48\linewidth]{figures/ruwe_cut_before.png}
+	\includegraphics[width=.48\linewidth]{figures/ruwe_cut_after.png}
+	\caption{}
+	\label{fig:ruwe_cut}
+\end{center}
+\end{figure*}
+
 \subsection{Test Sample \label{subsec:test_selection}} 
 
 Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for 5,875 sources out of 14,827 with $\chi^2<100,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
@@ -415,7 +424,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 \item \textbf{Model extraploation cuts:} Because extrapolation with \thecannon\ is unreliable, we select only sources with labels inside the range of the training sample: for the \cannon\ reported temperatures and metallicities we impose $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$, and for \cannon\ reported spectral subtypes we impose $0<SPT<9$.
 
-\item \textbf{Astrometric cut:} \gaia\ $RUWE<1.2$
+\item \textbf{Astrometric cut:} \gaia\ re-normalised unit weight error (RUWE) $RUWE<1.2$
 
 \item \textbf{Binary cut:}
 
@@ -459,6 +468,7 @@ While the large bulk of points falling within the temperature ranges of the plot
 % ----------------------------------------
 
 \begin{figure*}[h]
+\begin{center}
 	\includegraphics[width=.45\linewidth]{figures/cmd_teff_full.png}
 	\includegraphics[width=.49\linewidth]{figures/cmd_teff_safe.png} \\
 	\includegraphics[width=.45\linewidth]{figures/cmd_feh_full.png}
@@ -467,6 +477,7 @@ While the large bulk of points falling within the temperature ranges of the plot
 	\includegraphics[width=.49\linewidth]{figures/cmd_spt_safe.png}
 	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 5,875 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, spectroscopic binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence.}
 	\label{fig:safe_selection}
+\end{center}
 \end{figure*}
 
 \begin{figure*}[h]
