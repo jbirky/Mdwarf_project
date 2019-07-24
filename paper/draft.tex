@@ -77,7 +77,7 @@ coolest temperature regimes ($T_{\rm eff} < 4200\,$K) and fully
 exploiting the information content and statistical extent of
 current and upcoming large-scale spectroscopic surveys.
 Here we present a catalog of spectroscopic temperatures, metallicities,
-spectral types for 10,311 M dwarfs in the \apogee\ survey using
+spectral types for 5,875 M dwarfs in the \apogee\ survey using
 \thecannon: a flexible, data-driven spectral-modeling and
 parameter-inference framework demonstrated to estimate
 stellar-parameter labels ($\teff$, $\logg$, $\feh$, and detailed
@@ -406,7 +406,7 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 
 \subsection{Test Sample \label{subsec:test_selection}} 
 
-Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for 10,311 sources out of 14,827 with $\chi^2<100,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
+Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for 5,875 sources out of 14,827 with $\chi^2<100,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
 
 \begin{enumerate}
 \item \textbf{Quality of fit cut:} We apply a \cannon\ model $\chi^2$ cut of less than 100,000.
@@ -430,7 +430,7 @@ Table \ref{table:test_results} outlines the parameters included in the test samp
 % ----------------------------------------
 \subsection{Color-Temperature Comparisons}
 
-\color{gcolor}{As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
+\color{gcolor}{As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 5,875 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
 
 % % SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} 
 % Shown in the top panels of \ref{fig:teff_comparisons} 
@@ -445,13 +445,13 @@ While the large bulk of points falling within the temperature ranges of the plot
 % \begin{figure}
 % 	\includegraphics[width=\linewidth]{figures/cannon_vs_parsec.png}
 % 	\includegraphics[width=\linewidth]{figures/aspcap_vs_parsec1.png}
-% 	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citep{Bressan:2012} in \gaia\ color-magnitude space. The two panels show five metallicity tracks (ranging $-0.5<$[M/H]$<+0.5$ in steps of 0.1 dex) at two different ages (3 and 7 Gyr). In the ASPCAP plot only the 8,960 out of 10,311 sources with metallcities $-0.5<$[M/H]$<+0.5$ are shown, while the remaining 1,351 sources with [M/H]$<-0.5$ and [M/H]$>+0.5$.}
+% 	\caption{Comparison of \cannon\ $\feh$ as compared to metallicity predicted by PARSEC isochrone tracks \citep{Bressan:2012} in \gaia\ color-magnitude space. The two panels show five metallicity tracks (ranging $-0.5<$[M/H]$<+0.5$ in steps of 0.1 dex) at two different ages (3 and 7 Gyr). In the ASPCAP plot only the 8,960 out of 5,875 sources with metallcities $-0.5<$[M/H]$<+0.5$ are shown, while the remaining 1,351 sources with [M/H]$<-0.5$ and [M/H]$>+0.5$.}
 % 	\label{fig:isochrone_cmd}
 % \end{figure}
 
 % \begin{figure*}
 % 	\plotone{figures/aspcap_cannon_label_hist.png}
-% 	\caption{Distribution of temperatures and metallicities for 10,311 sources from \thecannon\ compared to the ASPCAP pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 10,311 stars ASPCAP predictions are skewed higher in temperature and lower in metallicity compared to \cannon\ measurements.}
+% 	\caption{Distribution of temperatures and metallicities for 5,875 sources from \thecannon\ compared to the ASPCAP pipeline. Note that \cannon\ temperatures only span $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$\,dex because we have imposed cutoffs for stars that fall outside of the training sample range, however for the same 5,875 stars ASPCAP predictions are skewed higher in temperature and lower in metallicity compared to \cannon\ measurements.}
 % 	\label{fig:aspcap_cannon_label_hist} 
 % \end{figure*}
 
@@ -465,7 +465,7 @@ While the large bulk of points falling within the temperature ranges of the plot
 	\includegraphics[width=.49\linewidth]{figures/cmd_feh_safe.png} \\
 	\includegraphics[width=.45\linewidth]{figures/cmd_spt_full.png}
 	\includegraphics[width=.49\linewidth]{figures/cmd_spt_safe.png}
-	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 10,311 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, spectroscopic binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence.}
+	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 5,875 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, spectroscopic binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence.}
 	\label{fig:safe_selection}
 \end{figure*}
 
@@ -491,7 +491,7 @@ This accuracy and precision is consistent with previous work with
 extended to a new regime in spectral type ($\teff$) and surface
 gravity.
 The primary result of this work is that
-we have compiled a catalog of 10,311 M dwarfs with \cannon\ temperatures,
+we have compiled a catalog of 5,875 M dwarfs with \cannon\ temperatures,
 metallicities, spectral types, and six-dimensional kinematics.
 These data are provided in Table \ref{table:test_results}.
 
