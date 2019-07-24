@@ -430,14 +430,14 @@ Table \ref{table:test_results} outlines the parameters included in the test samp
 % ----------------------------------------
 \subsection{Color-Temperature Comparisons}
 
-As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
+\color{gcolor}{As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 10,311 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 6,257 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 6,257 sources, colored by their respective spectroscopic metallicities.
 
 % % SUMMARIZE \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} 
 % Shown in the top panels of \ref{fig:teff_comparisons} 
 
 Compared to the \citealt{Casagrande:2008}, \citealt{Boyajian:2012}, and \citealt{Mann:2015} derived temperatures, we find ASPCAP overestimates $\teff$ on average by a bias of $130-170$K, while \thecannon\ underestimates $\teff$ by a bias of $\sim25$K. We also see the scatter is much higher for the ASPCAP temperatures ($\sim230$K) compared to the scatter of \cannon\ temperatures ($\sim85$K).
 
-While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average ASPCAP temperatures are much hotter, and scatters are much higher skewed by 500 sources which ASPCAP predicts to have temperatures over 4200K.
+While the large bulk of points falling within the temperature ranges of the plots shown does not qualitatively show a lot more deviation from color-temperature relations, the average ASPCAP temperatures are much hotter, and scatters are much higher skewed by 500 sources which ASPCAP predicts to have temperatures over 4200K.}\color{black}
 
 % ----------------------------------------
 \subsection{Isochrone Comparisons}
@@ -459,10 +459,13 @@ While the large bulk of points falling within the temperature ranges of the plot
 % ----------------------------------------
 
 \begin{figure*}[h]
-	\plottwo{figures/cmd_teff_full.png}{figures/cmd_teff_safe.png}
-	\plottwo{figures/cmd_feh_full.png}{figures/cmd_feh_safe.png}
-	\plottwo{figures/cmd_spt_full.png}{figures/cmd_spt_safe.png}
-	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 10,311 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence.}
+	\includegraphics[width=.45\linewidth]{figures/cmd_teff_full.png}
+	\includegraphics[width=.49\linewidth]{figures/cmd_teff_safe.png} \\
+	\includegraphics[width=.45\linewidth]{figures/cmd_feh_full.png}
+	\includegraphics[width=.49\linewidth]{figures/cmd_feh_safe.png} \\
+	\includegraphics[width=.45\linewidth]{figures/cmd_spt_full.png}
+	\includegraphics[width=.49\linewidth]{figures/cmd_spt_safe.png}
+	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 10,311 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, spectroscopic binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper slice of the main sequence is likely remaining contamination from the binary sequence.}
 	\label{fig:safe_selection}
 \end{figure*}
 
