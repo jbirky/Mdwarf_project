@@ -402,7 +402,7 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 \begin{center}
 	\includegraphics[width=.48\linewidth]{figures/ruwe_cut_before.png}
 	\includegraphics[width=.48\linewidth]{figures/ruwe_cut_after.png}
-	\caption{}
+	\caption{The left panel shows the test sample of 8,335 sources after applying Selections $1-3$ described in Section \ref{subsec:test_selection}. The right panel shows the same test sample reduced to 6,221 after applying an astrometric quality cut of ${\rm RUWE}<1.2$ (Selection 4). To further remove sources which were likely binary contamination (Selection 5), we cut out sources above the red line which sparsely lay above the majority of the main-sequence with temperatures and metallicities that deviated from the expected gradient, reducing the final test sample to a size of 5,875 sources. The red line shown is constrained by the coordinates $\left\{ (3.5,12), (1.87,7.5) \right\}$ corresponding to ($BP-RP$, $M_G$).}
 	\label{fig:ruwe_cut}
 \end{center}
 \end{figure*}
@@ -416,16 +416,16 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 \item \textbf{Color-magnitude cuts:} Using \gaia\ and \zmass\ photometries we apply the color-magnitude selections shown in Figure \ref{fig:cmd_selection} to cut sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and multiple), and subdwarfs below the main sequence.
 
-\item \textbf{Model extraploation cuts:} Because extrapolation with \thecannon\ is unreliable, we select only sources with labels inside the range of the training sample: for the \cannon\ reported temperatures and metallicities we impose $2850<T_{\rm eff}<4150$ and $-0.5<\feh<0.5$, and for \cannon\ reported spectral subtypes we impose $0<SPT<9$.
+\item \textbf{Model extraploation cuts:} Because \thecannon\ does not perform well under extrapolated regions of parameter space, we select only sources inside the range of our training sample with ASPCAP parameters $2800<T_{\rm eff}<4100$ and $-0.5<[M/H]<0.5$, and with \cannon\ parameters of $2850<T_{\rm eff}<4150$, $-0.5<\feh<0.5$, and $0<SPT<9$.
 
-\item \textbf{Astrometric cut:} \gaia\ re-normalised unit weight error (RUWE) $RUWE<1.2$
+\item \textbf{Astrometric cut:} Using the \gaia\ re-normalised unit weight error (RUWE), a metric of evaluating the fit of the astrometric solution described in the additional release notes, we apply a cut of ${\rm RUWE}<1.2$ to select out sources with high astrometric error or noise, such as binaries (see Figure \ref{fig:ruwe_cut}).
 
-\item \textbf{Binary cut:}
+\item \textbf{Binary cut:} To remove further contamination from binary sources by a conservative cut, we applied an additional color-magnitude selection on sources above the main-sequence with \cannon\ temperatures/metallicities that deviated from the gradient, which we visibly selected for in Figure \ref{fig:ruwe_cut}.
 
 \end{enumerate}
 
-The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. Additionally we notice a slight deviation at the upper slice of the main sequence where \cannon\ temperatures, metallicities and spectral types all appear lower than the gradient trends in the rest of the branch, which is most likely the binary sequence. 
-We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a personal laptop. 
+The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. 
+We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a 2.7\,GHz Intel core i7 laptop. 
 
 Table \ref{table:test_results} outlines the parameters included in the test sample catalog, which can be downloaded from the online journal.
 
