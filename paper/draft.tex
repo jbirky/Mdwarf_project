@@ -476,7 +476,8 @@ While the large bulk of points falling within the temperature ranges of the plot
 	\includegraphics[width=.32\linewidth]{figures/met_comp7.png}
 	\includegraphics[width=.32\linewidth]{figures/met_comp8.png}
 	\includegraphics[width=.32\linewidth]{figures/met_comp9.png} 
-	\caption{A comparison of ASPCAP and Cannon metallicities for 8,335 test sample sources separated into temperature bins of 100K. We see the scatter and metal-poor bias of ASPCAP metallicities clearly increases at decreasing temperatures.}
+	\caption{A comparison of ASPCAP and Cannon metallicities for 8,335 test sample sources separated into temperature bins of 100K. We see the scatter and metal-poor bias of ASPCAP metallicities clearly increases at decreasing temperatures.} 
+	\label{fig:met_comp}
 \end{center}
 \end{figure*}
 
@@ -537,6 +538,23 @@ information that we have left on the table.
 Exploitation of that information might require better models of M dwarfs than
 we have at present.
 However, this is an important goal for the future with these data.
+
+While a detailed analysis of atmospheric model limitations is beyond the scope of this paper, 
+our results provide an avenue to compare the FGK star metallicity scale 
+to the less well-understood M dwarf metallicity scale.
+These results find that atmospheric metallicities are systematically metal-poor biased
+compared to \cannon-based metallicities trained on sources with metallicities callibrated
+to those of FGK companions. 
+At the high temperature end ($\teff > 3600$\,K), the ASPCAP metallicity bias is $\sim-0.15\,$dex with a
+scatter of $\sim0.06\,$dex relative to \cannon\ metallicities, and increases to a bias of $\>-0.26\,$dex 
+and scatter of $\>0.1\,$dex at the lower temperature end ($\teff < 3300$\,K) (Figure \ref{fig:met_comp}).
+This metal-poor bias, while not explored to a great extent in this work, we suspect is due 
+to the line lists of the models: 
+an effect in which the optimizer of the pipeline may be lowering the metallicity of the fit 
+to better reproduce the spectrum to compensate for the missing lines or opacities.
+Further analysis would need to be done to determine if the metallicity bias
+is found in other model grids (besides the ATLAS/MARCS models used by the ASPCAP pipeline), 
+and if the effect is present at other wavelengths.
 
 Given that physics-based spectral models of M dwarfs have issues, one of the possible
 future values of the data-driven model shown here is that it is highly interpretable:
