@@ -28,6 +28,7 @@
 \newcommand{\teff}{T_{\mathrm{eff}}}
 \newcommand{\logg}{\log g}
 \newcommand{\feh}{[{\mathrm{Fe}/\mathrm{H}}]}
+\newcommand{\mh}{[{\mathrm{M}/\mathrm{H}}]}
 
 \definecolor{bcolor}{RGB}{0, 51, 153}
 \definecolor{gcolor}{RGB}{51, 153, 51}
@@ -408,7 +409,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 \item \textbf{Color-magnitude cuts:} Using \gaia\ and \zmass\ photometries we apply the color-magnitude selections shown in Figure \ref{fig:cmd_selection} to cut sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and multiple), and subdwarfs below the main sequence.
 
-\item \textbf{Model extraploation cuts:} Because \thecannon\ does not perform well under extrapolated regions of parameter space, we select only sources inside the range of our training sample with ASPCAP parameters $2800<T_{\rm eff}<4100$ and $-0.5<[M/H]<0.5$, and with \cannon\ parameters of $2850<T_{\rm eff}<4150$, $-0.5<\feh<0.5$, and $0<SPT<9$.
+\item \textbf{Model extraploation cuts:} Because \thecannon\ does not perform well under extrapolated regions of parameter space, we select only sources inside the range of our training sample with ASPCAP parameters $2800<T_{\rm eff}<4100$ and $-0.5<\mh<0.5$, and with \cannon\ parameters of $2850<T_{\rm eff}<4150$, $-0.5<\feh<0.5$, and $0<SPT<9$.
 
 \item \textbf{Astrometric cut:} Using the \gaia\ re-normalised unit weight error (RUWE), a metric of evaluating the fit of the astrometric solution described in the additional release notes, we apply a cut of ${\rm RUWE}<1.2$ to select out sources with high astrometric error or noise, such as binaries (see Figure \ref{fig:ruwe_cut}).
 
@@ -435,7 +436,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \end{figure*}
 
 \begin{deluxetable*}{cccccccc}
-\tablecaption{Metallicities of \apogee\ M dwarfs with wide binaries.}
+\tablecaption{Metallicities of \apogee\ M dwarfs with wide binaries. Reported in this table are the ASPCAP [M/H] and \cannon\ [Fe/H] of the M dwarfs, as well as the metallicity values of their binary companions. The source/survey of the metallicity and spectral classes of the companions are also given. \label{table:binaries}}
 \tabletypesize{\scriptsize}
 \tablehead{Mdwarf Gaia ID      & Companion Gaia ID   & Mdwarf [M/H] & Mdwarf [Fe/H] & Companion [Fe/H] & Companion source & Separation (AU)}
 	\startdata
@@ -485,7 +486,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \begin{figure}
 \begin{center}
 	\includegraphics[width=\linewidth]{figures/wide_binary_met.png}
-	\caption{}
+	\caption{Metallicities of \cannon\ M dwarfs in binaries (x-axis) compared to the metallicities of their companions (y-axis). Label colors show the source and spectral type of the companion metallicities. Metallicity values for each binary pair is compiled in Table \ref{table:binaries}. }
 \end{center}
 \end{figure}
 
@@ -506,14 +507,16 @@ We find \cannon\ to be in better agreement with \citealt{Mann:2015} and \citealt
 % ----------------------------------------
 \subsection{Metallicity Validation}
 
-As a check of internal consistency, we cross-matched our M dwarf final sample with the \citealt{Elbadry:2018b} catalog of $>$50,000 high-confidence, widely separated binaries identified by \drtwo.
+As an additional check of our metallicity consistency, we cross-matched our M dwarf final sample with the \citealt{Elbadry:2018b} catalog of $>$50,000 high-confidence, widely separated binaries identified by \drtwo. 
+In total we found 230 of the \apogee\ M dwarfs to have binary pairs (XX FGK+M, XX M+M, and XX WD+M).
 
-As expected, the Toomre diagram in Figure \ref{fig:toomre} shows that higher metallicity sources in the sample are concentrated in low velocity space corresponding to the thin disk population, while the thick disk population contains a higher concentration of lower metallicity sources.
+As expected, the Toomre diagram in Figure \ref{fig:toomre} shows that higher metallicity sources in the sample are concentrated in low velocity space corresponding roughly to the thin disk population, while the thick disk population contains a higher concentration of lower metallicity sources. Separating the two populations into separate histograms (also shown in Figure \ref{fig:toomre}), we find that thick disk sources are nearly 1-$\sigma$ more metal poor than thin disk sources with the average thin disk metallicity being near-solar $\feh=0.00\pm0.17\,$dex, and the average metallicities of the thick disk stars being $\feh=-0.14\pm0.19\,$dex.
+By contrast metallicities from ASPCAP show no significant difference in the distribution with an average thin disk metallicity of $\mh=-0.16\pm0.16\,$dex and an average thick disk metallicity of $\mh=-0.23\pm0.17\,$dex.
 
 
 % ----------------------------------------
 
-\begin{figure*}[]
+\begin{figure*}
 \begin{center}
 	\includegraphics[width=.45\linewidth]{figures/cmd_teff_full.png}
 	\includegraphics[width=.48\linewidth]{figures/cmd_teff_safe.png} \\
