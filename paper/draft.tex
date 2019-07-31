@@ -127,16 +127,8 @@ Atmospheric models often fail to reproduce these spectral features \citep[e.g.,]
 
 A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star and strong, isolated lines in the spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}) to developed precise empirical relations (as good as $\sim$0.07\,dex). However these metallicity calibrations are inaccessible for analysis with \apogee, as the wavelength coverage does not include important calibration indices in the $K$-band nor information about the overall spectral shape often used to determine $\teff$ and spectral type. Further, earlier calibrations are generally based on moderate-resolution data \citep[with some exceptions,][]{Neves:2014, Lindgren:2016} that fail to utilize the greater spectral information provided by \apogee's resolution.
 
-%the relevant calibration indices used by existing studies (such as Ca~I or K~I lines in the optical), and blending of multiple atomic and molecular species at high resolution makes it impractical to identify and deconvolve new individual features for analysis. 
-%AWM: I'm not really sure this is true. The major lines I and Babs use are in the K-band, very few studies use optical bands. Ryan includes ones in the H-band, some of which are in Apogee. I think the bigger point is that this fails to utilize the high-resolution information of the spectra, and relies instead of temperature calibration from spectral shape, which is impossible at this resolution.
-
-%%AWM: would it be useful to have some comment on data-driven models in general? Their virtues should probably be explained before invoking them
-
 In this work we build a data-driven model for M dwarf spectra with \thecannon\ \citep{Ness:2015,Casey:2016,Ho:2017a,Behmard2019}: a fully empirical model, which employs no use of line lists or radiative transfer models. 
 \thecannon\ is instead a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:methods}). The model in this sense is used to \emph{transfer} labels from spectra for which we know parameters to those which we do not. Hence this data-driven approach effectively circumvents the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (and very accurately measured) \emph{reference labels} possibly measured from other data. 
-
-%AWM: not an expert here, so I won't add anything, but this probably needs more information.
-%JB: I've swapped some sentences from section 2.2 and section 3, which explain the terminology. Do you think this paragraph adds enough clarity now without being too redundant with the following sections 2 & 3 describing The Cannon?
 
 The data-driven approach of \thecannon\ is ideal in certain cases:
 if stellar labels are only known for a small number of stars
@@ -144,11 +136,7 @@ but there are spectra taken for many more;
 if it is computationally expensive to obtain labels for a star, but
 there are many stars that need labels;
 if there are spectral models or techniques that work in one wavelength range or resolution but not in another.
-%AWM: seems to me like the context here is all 3. You want to run on ~10,000 stars, which is expensive if you use models. You have labels for a small fraction of these. 
-%The context of this paper is the last:
 There are empirically-calibrated methods to measure $\teff$ and metallicity from flux-calibrated spectra in the optical and NIR, but existing methods to model M dwarf spectra in the NIR at high resolution are computationally expensive, calibrated over a narrow range of $\teff$ and metallicity, and/or focus on the $J$-band \citep{Lindgren:2016, Lindgren:2017}. \thecannon\ fills this niche: it doesn't require using specific lines or opacity information that may be missing from the models; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
-%AWM: again, the metallicity metrics Babs/Ryan/Myself use are all in the NIR, and they aren't based on models. The temperature tools use models, but they are calibrated against LBOI measurements. I need to come back to editing later, but this paragraph probably needs to be tweaked a bit. 
-%AWM: OK, let me know what you think about those changes. Feel free to edit this more, but do note the work of Lindgren modeling J-band at high resolution (I think they use CRIRES). 
 
 Here we take M-dwarf labels from samples of well-characterized stars that overlap the
 \sdssiv\ \apogee\ sample, and use those labels to train a model and label all of the M dwarfs observed by
