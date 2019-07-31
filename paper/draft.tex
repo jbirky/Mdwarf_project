@@ -267,9 +267,9 @@ Another mode of analysis we can look at with \thecannon\ is how the derivative o
 \end{equation}
 where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total number of stars in the sample, indexed by \emph{n}, $\theta$ is the coeffient vector trainined on all N sources, and $\theta_{/n}$ is the coefficient vector trained on \emph{N-1} sources excluding star \emph{n}. A summary of identified lines with derivative values greater than $2\sigma_{\rm jackkife}$ is given in Table \ref{table:teff_derivative} and Table \ref{table:feh_derivative}.
 
-\begin{deluxetable}{|c|c|c|c|c|}
+\begin{deluxetable}{ccccc}
 \tablecaption{Strong $\teff$-correlated molecular lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
-\tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
+\tablehead{\colhead{Species} & \colhead{Wavelength} & \colhead{Derivative} & \colhead{$\sigma_{\rm jackknife}$} & \colhead{Significance}}
 	\startdata
 	FeH & 16107.127 & -0.002 & 0.001 & -2.78 \\
 	FeH & 16245.463 & -0.005 & 0.002 & -3.214 \\
@@ -317,9 +317,9 @@ where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total 
 	\enddata
 \end{deluxetable} \label{table:teff_derivative}
 
-\begin{deluxetable}{|c|c|c|c|c|}
+\begin{deluxetable}{ccccc}
 \tablecaption{Strong $\teff$-correlated atomic lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
-\tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
+\tablehead{\colhead{Species} & \colhead{Wavelength} & \colhead{Derivative} & \colhead{$\sigma_{\rm jackknife}$} & \colhead{Significance}}
 	\startdata
 	\nodata & \nodata & \nodata & \nodata & \nodata \\
 	Fe I & 15207.509 & -0.007 & 0.003 & -2.622 \\
@@ -336,9 +336,9 @@ where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total 
 	\enddata
 \end{deluxetable} 
 
-\begin{deluxetable}{|c|c|c|c|c|}
+\begin{deluxetable}{ccccc}
 \tablecaption{Strong $\feh$-correlated atomic and molecular lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
-\tablehead{Species & Wavelength & Derivative & $\sigma_{\rm jackknife}$ & Significance}
+\tablehead{\colhead{Species} & \colhead{Wavelength} & \colhead{Derivative} & \colhead{$\sigma_{\rm jackknife}$} & \colhead{Significance}}
 	\startdata
 	FeH & 16114.027 & 0.004 & 0.001 & 2.673 \\
 	FeH & 16574.64 & 0.003 & 0.001 & 2.356 \\
@@ -446,8 +446,8 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 
 \begin{deluxetable*}{cccccccc}
 \tablecaption{Metallicities of \apogee\ M dwarfs with wide binaries. Reported in this table are the ASPCAP [M/H] and \cannon\ [Fe/H] of the M dwarfs, as well as the metallicity values of their binary companions. The source/survey of the metallicity and spectral classes of the companions are also given. \label{table:binaries}}
-\tabletypesize{\scriptsize}
-\tablehead{Mdwarf Gaia ID      & Companion Gaia ID   & Mdwarf [M/H] & Mdwarf [Fe/H] & Companion [Fe/H] & Companion source & Separation (AU)}
+\tabletypesize{\scriptsize} 
+\tablehead{\colhead{Mdwarf Gaia ID}      & \colhead{Companion Gaia ID}   & \colhead{Mdwarf [M/H]} & \colhead{Mdwarf [Fe/H]} & \colhead{Companion [Fe/H]} & \colhead{Companion source} & \colhead{Separation (AU)}}
 	\startdata
 	1476768433933264128 & 1476762627137479552 & -0.18      & 0.01        & 0.10           & APOGEE Cannon M   & 16091      \\
 	1476646285062821888 & 1476646250703083264 & -0.02      & 0.18        & 0.27           & APOGEE Cannon M   & 4155       \\
@@ -823,7 +823,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 \begin{deluxetable*}{rcl}
 \tablecaption{Test results table header description.}
-\tablehead{Column & Unit & Description}
+\tablehead{\colhead{Column} & \colhead{Unit} & \colhead{Description}}
 	\startdata
 	{\tt APOGEE$\_$ID} 	& 	& \apogee\ \zmass\ designation \\
 	{\tt GAIA$\_$ID} 		&	& \gaia\ identification number \\
