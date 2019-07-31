@@ -145,7 +145,7 @@ Here we take M-dwarf labels from samples of well-characterized stars that are pr
 This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the \apogee\ and \gaia\ surveys, as well as previous studies of M dwarfs in \apogee.
 Section \ref{sec:methods} describes our model implementation using \thecannon\ framework, and Section \ref{sec:sample_selection} describes the our sample selection and derivation of training parameters.
 In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$5,800 sources, and examine the validity of our parameters against color-temperature relations and metallicities of binary pairs.
-Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results. \\
+Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results. 
 
 
 %%==========================================================================================
@@ -155,17 +155,18 @@ Finally, in Section \ref{sec:discussion} we discuss model performance, future im
 
 The \apogee\ survey is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey which has observed over 250,000 stellar spectra up to its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the \apogee\ Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the FERRE code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters ($\teff$, $\logg$, $\feh$, [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures ($2800<\teff<3500$\,K), the pipeline uses MARCS plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures ($\teff\geq3500$\,K) ATLAS9 \citep{Castelli:2004} plane-parallel models are used.
 
-\apogee\ is primarily targeted for bright stellar populations particularly red giants, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013} with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by the \apogee\ M dwarf ancilliary survey ($\sim$1,200 sources; \citealt{Desphande:2013}), or serendipitously. 
+\apogee\ is primarily designed to target bright stellar populations, particularly red giants, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013}, with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by the \apogee\ M dwarf ancilliary survey ($\sim$1,200 sources; \citealt{Desphande:2013}), or serendipitously. 
 
-A number of studies out of the M dwarf ancilliary survey have already been conducted towards measuring reliable fundamental atmospheric parameters and kinematic measurements using spectral synthesis of atmospheric model grids. 
-These studies include \citealt{Desphande:2013} and \citealt{Gilhool:2018} which have studied the radial and rotational kinematics for 700+ sources,
-\citealt{Souto:2017} and \citealt{Souto:2018} which have modeled three exoplanet hosting M dwarfs (Kepler-138, Kepler-168 and Ross-128), determining $\teff$/$\logg$/metallicity + 13 elemental abundances,
-\citealt{Rajpurohit:2018} which tested BT-Settl \citep{Allard:2012} and MARCS \citep{Gustafsson:2008} model grids on 45 M dwarfs to estimate $\teff$/$\logg$/metallicity,
-and \citealt{Skinner:2018} which has identified and measured mass ratios and radial velocities for 44 M dwarf spectroscopic binaries.
+A number of studies out of the M dwarf ancilliary survey have already been conducted to measure reliable fundamental atmospheric parameters and kinematic measurements using spectral synthesis of atmospheric model grids. 
+These studies include \citealt{Desphande:2013} and \citealt{Gilhool:2018} which have studied the radial and rotational kinematics for 700+ sources;
+\citealt{Souto:2017} and \citealt{Souto:2018} which have modeled three exoplanet-hosting M dwarfs (Kepler-138, Kepler-168 and Ross-128), determining $\teff$/$\logg$/metallicity + 13 elemental abundances;
+\citealt{Rajpurohit:2018} which tested BT-Settl \citep{Allard:2012} and MARCS \citep{Gustafsson:2008} model grids on 45 M dwarfs to estimate $\teff$/$\logg$/metallicity;
+and \citealt{Skinner:2018} which identified and measured mass ratios and radial velocities for 44 M dwarf spectroscopic binaries.
 This work complements existing studies by producing model-independent catalog of spectroscopic temperatures and metallicites to test against model predictions for the entire \apogee\ M dwarf sample, which we quantify to contain at least 10,000 sources to date (DR14).
 
-The ASPCAP pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and most processed {\tt\string aspcapStar} spectra. For this work we use {\tt\string aspcapStar} files, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline).
+The ASPCAP pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and {\tt\string aspcapStar}, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline). We use the last dataset for our study.
 In previous work it has been recommended to use an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in our analysis, so we retain the survey pipeline outputs.
+
 
 %%==========================================================================================
 \section{Method} \label{sec:methods}
