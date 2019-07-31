@@ -71,31 +71,28 @@ Broadway, New York, NY 10003, USA}
 
 M dwarfs have enourmous potential for understanding structure and
 formation on both Galactic and exoplanetary scales
-with their properties and compositions.
+through their properties and compositions.
 However, current atmospheric models
-have limited abilities at reproducing spectral features in stars of the 
-coolest temperature regimes ($T_{\rm eff} < 4200\,$K) and fully
-exploiting the information content and statistical extent of
-current and upcoming large-scale spectroscopic surveys.
-Here we present a catalog of spectroscopic temperatures, metallicities,
-spectral types for 5,875 M dwarfs in the \apogee\ survey using
+have limited ability to reproduce spectral features in stars at the 
+coolest temperatures ($T_{\rm eff} < 4200\,$K) and to fully
+exploit the information content of current and upcoming large-scale spectroscopic surveys.
+Here we present a catalog of spectroscopic temperatures, metallicities, and
+spectral types for 5,875 M dwarfs in the \apogee+\drtwo\ surveys using
 \thecannon: a flexible, data-driven spectral-modeling and
 parameter-inference framework demonstrated to estimate
 stellar-parameter labels ($\teff$, $\logg$, $\feh$, and detailed
 abundances) to high precision.
 Using a training sample of 87 M dwarfs with optically derived labels spanning 
-$2860 < \teff < 4130$\,K callibrated with bolometric temperatures, 
-$-0.5 < \feh < 0.5$\,dex callibrated with FGK binary metallicities, 
+$2860 < \teff < 4130$\,K calibrated with bolometric temperatures, 
+$-0.5 < \feh < 0.5$\,dex calibrated with FGK binary metallicities, 
 we train a two-parameter model with predictive accuracy (in cross-validation) 
 to 77\,K and 0.09\,dex respectively.
-We also train a one-dimensional spectral type model using 51 M dwarfs
-with known SDSS optical spectral types ranging M0 to M9, to predictive accuracy of
-0.9 types.
-From the overlap of \textsl{APOGEE DR14} and \textsl{Gaia DR2} we
-apply our models to a selection of 5,875 M dwarfs. 
-We find \cannon\ temperatures to be in agreement to 60\,K
+We also train a one-dimensional spectral classification model using 51 M dwarfs
+with SDSS optical spectral types ranging from M0 to M9, to predictive accuracy of
+0.9 types. 
+We find \cannon\ temperatures to be in agreement to within 60\,K
 compared to a subsample of 1,702 sources with color-derived temperatures, and 
-find \cannon\ metallicites to be in agreement to 0.08\,dex metallicity
+\cannon\ metallicites to be in agreement to within 0.08\,dex metallicity
 compared to a subsample of 15 FGK+M or M+M binaries. 
 Finally, our comparison between \cannon\ and APOGEE pipeline (ASPCAP) labels finds that 
 ASPCAP is systematically biased towards reporting higher temperatures and lower metallicities. 
