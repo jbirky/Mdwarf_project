@@ -158,8 +158,8 @@ and the other set of labels are spectral types.
 
 This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the \apogee\ and \gaia\ surveys, as well as previous studies of M dwarfs in \apogee.
 Section \ref{sec:methods} describes our model implementation using \thecannon\ framework, and Section \ref{sec:sample_selection} describes the our sample selection and derivation of training parameters.
-\color{gcolor}{{In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$10,000 sources, and examine the validity of our parameters against color-temperature relations and isochrone grids.
-Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results in the context of present and upcoming stellar and exoplanetary surveys.}\color{black} \\
+In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$5,800 sources, and examine the validity of our parameters against color-temperature relations and metallicities of binary pairs.
+Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results. \\
 
 
 %%==========================================================================================
@@ -435,6 +435,13 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \end{center}
 \end{figure*}
 
+\begin{figure}
+\begin{center}
+	\includegraphics[width=\linewidth]{figures/wide_binary_met.png}
+	\caption{Metallicities of \cannon\ M dwarfs in binaries (x-axis) compared to the metallicities of their companions (y-axis). Label colors show the source and spectral type of the companion metallicities. Metallicity values for each binary pair is compiled in Table \ref{table:binaries}. The overall scatter between the 15 metallicity pairs is 0.08\,dex.}
+\end{center}
+\end{figure}
+
 \begin{deluxetable*}{cccccccc}
 \tablecaption{Metallicities of \apogee\ M dwarfs with wide binaries. Reported in this table are the ASPCAP [M/H] and \cannon\ [Fe/H] of the M dwarfs, as well as the metallicity values of their binary companions. The source/survey of the metallicity and spectral classes of the companions are also given. \label{table:binaries}}
 \tabletypesize{\scriptsize}
@@ -458,17 +465,17 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 	\enddata
 \end{deluxetable*}
 
-\begin{figure*}[]
+\begin{figure*}
 \begin{center}
-	\includegraphics[width=.32\linewidth]{figures/met_comp1.png}
-	\includegraphics[width=.32\linewidth]{figures/met_comp2.png}
-	\includegraphics[width=.32\linewidth]{figures/met_comp3.png} 
-	\includegraphics[width=.32\linewidth]{figures/met_comp4.png}
-	\includegraphics[width=.32\linewidth]{figures/met_comp5.png}
-	\includegraphics[width=.32\linewidth]{figures/met_comp6.png} 
-	\includegraphics[width=.32\linewidth]{figures/met_comp7.png}
-	\includegraphics[width=.32\linewidth]{figures/met_comp8.png}
-	\includegraphics[width=.32\linewidth]{figures/met_comp9.png} 
+	\includegraphics[width=.3\linewidth]{figures/met_comp1.png}
+	\includegraphics[width=.3\linewidth]{figures/met_comp2.png}
+	\includegraphics[width=.3\linewidth]{figures/met_comp3.png} 
+	\includegraphics[width=.3\linewidth]{figures/met_comp4.png}
+	\includegraphics[width=.3\linewidth]{figures/met_comp5.png}
+	\includegraphics[width=.3\linewidth]{figures/met_comp6.png} 
+	\includegraphics[width=.3\linewidth]{figures/met_comp7.png}
+	\includegraphics[width=.3\linewidth]{figures/met_comp8.png}
+	\includegraphics[width=.3\linewidth]{figures/met_comp9.png} 
 	\caption{A comparison of ASPCAP and Cannon metallicities for 8,335 test sample sources separated into temperature bins of 100K. We see the scatter and metal-poor bias of ASPCAP metallicities clearly increases at decreasing temperatures.} 
 	\label{fig:met_comp}
 \end{center}
@@ -478,17 +485,11 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \begin{center}
 	\includegraphics[height=5cm]{figures/toomre.png}
 	\includegraphics[height=5cm]{figures/met_hist.png}
-	\caption{Toomre diagram showing the distribution of the \cannon\ metallicities (left). Dashed lines at $v_{tot}=70$\,km/s and 180\,km/s show roughly the separation of thin/thick/halo stars. Histogram (right) shows the metallicity distribution of thin and thick disk stars, with blue corresponding to $v_{tot}<70$\,km/s and green corresponding to $70<v_{tot}<180$\,km/s respectively. The average metallicities of the distribution of the thin disk stars are $\feh=0.00\pm0.17\,$dex, and the average metallicities of the thick disk stars are $\feh=-0.14\pm0.19\,$dex.}
+	\caption{Toomre diagram showing the distribution of the \cannon\ metallicities (left). Dashed lines at $v_{tot}=70$\,km/s and 180\,km/s show roughly the separation of thin/thick/halo stars. Histogram (right) shows the metallicity distribution of thin and thick disk stars, with blue corresponding to $v_{tot}<70$\,km/s and green corresponding to $70<v_{tot}<180$\,km/s respectively. The average metallicity of the thin disk distribution is $\feh=0.00\pm0.17\,$dex, and the average metallicity of the thick disk distribution is $\feh=-0.14\pm0.19\,$dex.}
 	\label{fig:toomre}
 \end{center}
 \end{figure*}
 
-\begin{figure}
-\begin{center}
-	\includegraphics[width=\linewidth]{figures/wide_binary_met.png}
-	\caption{Metallicities of \cannon\ M dwarfs in binaries (x-axis) compared to the metallicities of their companions (y-axis). Label colors show the source and spectral type of the companion metallicities. Metallicity values for each binary pair is compiled in Table \ref{table:binaries}. }
-\end{center}
-\end{figure}
 
 The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. 
 We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a 2.7\,GHz Intel core i7 laptop. 
@@ -507,11 +508,13 @@ We find \cannon\ to be in better agreement with \citealt{Mann:2015} and \citealt
 % ----------------------------------------
 \subsection{Metallicity Validation}
 
-As an additional check of our metallicity consistency, we cross-matched our M dwarf final sample with the \citealt{Elbadry:2018b} catalog of $>$50,000 high-confidence, widely separated binaries identified by \drtwo. 
-In total we found 230 of the \apogee\ M dwarfs to have binary pairs (XX FGK+M, XX M+M, and XX WD+M).
+As a check of our test sample metallicity reliability, we cross-matched our M dwarf final sample with the \citealt{Elbadry:2018b} catalog of $>$50,000 high-confidence, widely separated binaries identified by \drtwo. 
+In total we found 216 of the \apogee\ M dwarfs to have binary pairs (46 FGK+M, 155 M+M, and 15 WD+M). Out of the 155 M+M pairs, 8 pairs contained both pairs in \apogee. Cross-matching the list of FGK+M dwarf companions with several catalogs/surveys with measured stellar metallicities, we found an additional 7 sources with FGK metallicities from LAMOST \citep{Zhao:2012} and APOGEE (ASPCAP). The metallicity measurements for the 15 M dwarf binaries and their companions are given in Table \ref{table:binaries}, and the overall scatter is $0.08\,$dex--an improvement over the scatter of ASPCAP metallicities which is $0.15\,$dex for these 15 sources.
 
 As expected, the Toomre diagram in Figure \ref{fig:toomre} shows that higher metallicity sources in the sample are concentrated in low velocity space corresponding roughly to the thin disk population, while the thick disk population contains a higher concentration of lower metallicity sources. Separating the two populations into separate histograms (also shown in Figure \ref{fig:toomre}), we find that thick disk sources are nearly 1-$\sigma$ more metal poor than thin disk sources with the average thin disk metallicity being near-solar $\feh=0.00\pm0.17\,$dex, and the average metallicities of the thick disk stars being $\feh=-0.14\pm0.19\,$dex.
-By contrast metallicities from ASPCAP show no significant difference in the distribution with an average thin disk metallicity of $\mh=-0.16\pm0.16\,$dex and an average thick disk metallicity of $\mh=-0.23\pm0.17\,$dex.
+On the other hand, metallicities from ASPCAP show no significant difference in distribution, with an average thin disk metallicity of $\mh=-0.16\pm0.16\,$dex and an average thick disk metallicity of $\mh=-0.23\pm0.17\,$dex.
+
+Figure \ref{fig:met_comp} shows that ASPCAP metallicities are systematically more metal-poor than \cannon\ metallicities. We furthermore find that the bias is temperature-dependent: at the hottest temperatures ($\teff>3600\,$K) ASPCAP and \cannon\ metallicities are consistent to a scatter of $0.05-0.06\,$dex and offset by an average of $-0.12-0.15\,$dex, while at the lowest temperatures ($\teff<3200\,$K) ASPCAP and \cannon\ are consistent to a scatter of $\sim-0.13\,$dex and offset by an average of $-0.3\,$dex.
 
 
 % ----------------------------------------
