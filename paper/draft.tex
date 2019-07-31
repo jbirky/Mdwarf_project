@@ -171,21 +171,21 @@ In previous work it has been recommended to use an alternative pseudo-continuum 
 
 \thecannon\ is a regression model which relies on two assumptions: first that sources with identical labels have near-identical flux at each wavelength pixel, and second that the expected flux at each pixel varies continuosly with change in label. 
 
-Inferring the label of a star with such a model requires two steps: first the \emph{training step} in which a generative model describing the probability density function (pdf) of the flux is constructed at each pixel from the set of spectrum with known reference labels, and second the \emph{test step} in which the model is applied to determine the labels of a spectrum.
+Inferring the label of a star with such a model requires two steps: first the \emph{training step} in which a generative model describing the probability density function (pdf) of the flux is constructed at each pixel from the set of spectra with known reference labels, and second the \emph{test step} in which the model is applied to determine the labels of a spectrum.
 
-Following from the procedure of \citealt{Ness:2015} and \citealt{Ho:2017a} we adopt a simple linear model that assumes the flux at each pixel of the spectrum can be parameterized as a function of a label vector $\ell$ and and coefficient vector \emph{$\theta$}. So for each star \emph{n}, at wavelength pixel \emph{$\lambda$}, we state that the measured flux for a star at a given pixel is the sum of the coefficient and label product, and observational noise:
+Following the procedure of \citealt{Ness:2015} and \citealt{Ho:2017a} we adopt a simple linear model that assumes the flux at each pixel of the spectrum can be parameterized as a function of a label vector $\ell$ and and coefficient vector \emph{$\theta$}. For each star \emph{n}, at wavelength pixel \emph{$\lambda$}, we assume that the measured flux for a star at a given pixel is the sum of the coefficient and label product, and observational noise:
 \begin{equation}
-	f_{n\lambda} = \theta_{\lambda}^{T} \cdot \ell_{n} + {\rm noise} \label{eqn:cannon}
+	f_{n\lambda} = \theta_{\lambda}^{T} \cdot \ell_{n} + N_{\lambda} \label{eqn:cannon}
 \end{equation} 
-We use the noise model is ${\rm noise}=[s_{\lambda}^2 + \sigma_{n\lambda}^2]\xi_{n\lambda}$, where the bracketed term is the root mean sum of the intrinsic scatter of the model at each pixel \emph{$s_{\lambda}$}, and the uncertainty due to instrumental effects \emph{$\sigma_{n\lambda}$}, which is then multiplied times a Gaussian random number $\xi_{n\lambda} \sim \mathcal{N} (0,1)$. Equation \ref{eqn:cannon} corresponds to the single-pixel log-likelihood function:
+We use the noise model is $N_{\lambda}=[s_{\lambda}^2 + \sigma_{n\lambda}^2]\xi_{n\lambda}$, where the bracketed term is the root mean sum of the intrinsic scatter of the model at each pixel \emph{$s_{\lambda}$}, and the uncertainty due to instrumental effects \emph{$\sigma_{n\lambda}$}, which is then multiplied times a Gaussian random number $\xi_{n\lambda} \sim \mathcal{N} (0,1)$. Equation \ref{eqn:cannon} corresponds to the single-pixel log-likelihood function:
 \begin{equation}
 	\ln p(f_{n\lambda}|\theta^T_{\lambda}, \ell_n, s^2_n) = 
 	-\frac{1}{2}\frac{[f_{n\lambda} - \theta_{\lambda}^{T} \cdot \ell_{n}]^2}{s_{\lambda}^2 + \sigma_{n\lambda}^2} - \frac{1}{2} \ln(s_{\lambda}^2 + \sigma_{n\lambda}^2) 
 	\label{eqn:likelihood}
 \end{equation}
-the probability density function of the measured flux, given the labels, coefficients and scatters.
+which gives the probability density function of the measured flux, given the labels, coefficients and scatters.
 
-We apply a quadratic parameterization of the model such that the label vectors for the two models are all of the combinations of reference labels, up to second order:
+We apply a quadratic parameterization of the model such that the label vectors for the two models are all combinations of reference labels up to second order:
 \begin{eqnarray}
 \ell_{n} &=& [1, \, SPT, \, SPT^{2}] \label{eqn:spt}
 \\
@@ -194,11 +194,11 @@ We apply a quadratic parameterization of the model such that the label vectors f
 \end{eqnarray}
 Equation (\ref{eqn:spt}) is the label vector for the spectral type model, and equation (\ref{eqn:physical}) is the label vector for the physical parameter model, and the first element ``1'' is included to allow flexibility for a linear offset to the model. We find that a second order parameterization is sufficient for reproducing the flux of each spectrum to one percent accuracy, as discussed further in Section \ref{subsec:mann_results}.
 
-The \emph{training step} consists of optimizing the likelihood function (Equation \ref{eqn:likelihood}) for the coefficient vector and scatter ($\theta_{\lambda}$ and $s_{\lambda}$) given fixed label vector (\emph{$\ell_n$}) constructed from the reference labels, and the \emph{test step} consists of optimizing the likelihood function for the labels at fixed $\theta_{\lambda}$ and $s_{\lambda}$ obtained in the training step (see \citealt{Ness:2015} for further description). 
+The \emph{training step} consists of optimizing the likelihood function (Equation \ref{eqn:likelihood}) for the coefficient vector and scatter ($\theta_{\lambda}$ and $s_{\lambda}$) given the fixed label vector (\emph{$\ell_n$}) constructed from the reference labels. The \emph{test step} consists of optimizing the likelihood function for the labels at fixed $\theta_{\lambda}$ and $s_{\lambda}$ obtained in the training step (see \citealt{Ness:2015} for further description). 
 In the training step, the regression is designed to predict spectral pixels
 given labels, by learning zeroth, first, and second derivatives of the data with respect to
 the labels. In the test step, the regression is designed to predict labels given the spectral
-derivatives. \\
+derivatives. 
  
 
 %%==========================================================================================
