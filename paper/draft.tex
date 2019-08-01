@@ -240,7 +240,7 @@ We note that surface gravity is not included as a training label. The reason for
 	\label{fig:mann_validation}
 \end{figure}
 
-For the physical parameter model, we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model that 5 out of 87 sources show possible rotational line broadening identified by visual inspection (as indicated by the red circles in Figure~\ref{fig:mann_validation}), while the remaining sources show no obvious broadening. We note these broadened sources have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), and have cross-validation labels biased by an average of $+65\,$K and $-0.08\,$dex, however removing them from the training sample does not significantly change the overall scatter and bias of the model (when removed the scatters are 79\,K/0.09\,dex and biases are +5\,K/+0.01\,dex). Hence we do not remove them from the training sample.
+For the physical parameter model, we trained \thecannon\ on 87 M dwarfs with a two-dimensional temperature/metallicity labels, to a precision of 77K/0.09dex as estimated by the cross validation scatter, similar to the original training sample uncertainties of 60K/0.08dex. We note for this model that 5 out of 87 sources show possible rotational line broadening identified by visual inspection (as indicated by the red circles in Figure~\ref{fig:mann_validation}), while the remaining sources show no obvious broadening. We note that these broadened sources have high $\chi^2$ values (those sources with $\chi^2 > 80,000$ in Figure \ref{fig:chi_dist}), and have cross-validation labels biased by an average of $+65\,$K and $-0.08\,$dex, however removing them from the training sample does not significantly change the overall scatter and bias of the model (when removed the scatters are 79\,K/0.09\,dex and biases are +5\,K/+0.01\,dex). Hence we do not remove them from the training sample.
 
 To assess the validity of our model's labels we used a leave-one-out cross validation (LOOCV) test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to obtain the labels for star \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test (or LOOCV) labels respectively (Figure \ref{fig:mann_validation}). Since the LOOCV test evaluates both how well the model reproduces the training values \emph{and} penalizes the model for over-fitting, we adopt the LOOCV scatter over as the estimate of the model's precision. The set of training, test, and cross-validated labels for each training source is reported in Table \ref{table:mann_results}.
 
@@ -556,36 +556,35 @@ The model we have developed does have limitations however.
 For example, it delivers chi-squared values---goodness-of-fit measures---that
 are large; the model is not technically an accurate description of the spectra,
 especially when the spectra are observed at signal-to-noise levels above 100.
-For another, it does not include some known physical and instrumental effects.
-It does not include a term or terms for line broadening from rotation or
-convection (for exmaple, \citealt{Behmard2019}).
-It does not include any accounting for binarity or superposition of multiple
+The model does not include some known physical and instrumental effects.
+It does not include terms for line broadening from rotation or
+convection (for example, \citealt{Behmard2019}), nor
+does it account for binarity or superposition of multiple
 stellar spectra (as in, say, \citealt{ElBadry:2018}).
-And it does not include any adjustments for instrumental variations, like for
+The model also does not include any adjustments for instrumental variations, like for
 example the small but significant variations of \apogee\ resolution with
-spectrograph fiber number (as are included in \citealt{Ness2018}).
+spectrograph fiber number (as included in \citealt{Ness2018}).
 
-In addition to all this, the \apogee\ instrument was designed to be sensitive to more than
-a dozen individual element abundances in stellar spectra!
+The \apogee\ instrument was designed to be sensitive to more than
+a dozen individual element abundances in stellar spectra.
 So the M-dwarf spectra analyzed here contain individual element abundance
-information that we have left on the table.
-Exploitation of that information might require better models of M dwarfs than
-we have at present.
-However, this is an important goal for the future with these data.
+information that we have ignored.
+Exploitation of that information requires a better training set of M dwarfs than
+we have at present, but is an important goal for the future with these data.
 
 While a detailed analysis of atmospheric model limitations is beyond the scope of this paper, 
 our results provide an avenue to compare the FGK star metallicity scale 
 to the less well-understood M dwarf metallicity scale.
 These results find that atmospheric metallicities are systematically metal-poor biased
-compared to \cannon-based metallicities trained on sources with metallicities callibrated
+compared to \cannon-based metallicities trained on sources with metallicities calibrated
 to those of FGK companions. 
 At the high temperature end ($\teff > 3600$\,K), the ASPCAP metallicity bias is $\sim-0.15\,$dex with a
 scatter of $\sim0.06\,$dex relative to \cannon\ metallicities, and increases to a bias of $\>-0.26\,$dex 
 and scatter of $\>0.1\,$dex at the lower temperature end ($\teff < 3300$\,K) (Figure \ref{fig:met_comp}).
-This metal-poor bias, while not explored to a great extent in this work, we suspect is due 
+We suspect that this metal-poor bias, while not explored to a great extent in this work, is due 
 to the line lists of the models: 
 an effect in which the optimizer of the pipeline may be lowering the metallicity of the fit 
-to better reproduce the spectrum to compensate for the missing lines or opacities.
+to compensate for the missing lines or opacities.
 Further analysis would need to be done to determine if the metallicity bias
 is found in other model grids (besides the ATLAS/MARCS models used by the ASPCAP pipeline), 
 and if the effect is present at other wavelengths.
@@ -600,8 +599,8 @@ These Tables summarize spectral features in the \apogee\ bandpass
 that are found to be strong temperature and metallicity indicators.
 In the long run, this is the primary value of data-driven models for astronomy:
 To provide physical insights that drive physical understandings.
-It is our hope that \thecannon, and models like it, will, in the end, lead to
-new and improved physical models, which will, in turn, put \thecannon\ out of business. \\
+It is our hope that \thecannon, and models like it, will lead to
+new and improved physical models which will, in turn, put \thecannon\ out of business. \\
 
 %%==========================================================================================
 \acknowledgements
@@ -670,7 +669,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_teff3.png}
 	\end{center}
-	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallcities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}
+	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallicities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}
 	\label{fig:demo_teff}
 \end{figure*}
 
