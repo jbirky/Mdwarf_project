@@ -251,8 +251,10 @@ Another mode of analysis we can look at with \thecannon\ is how the derivative o
 \end{equation}
 where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total number of stars in the sample, indexed by \emph{n}, $\theta$ is the coeffient vector trainined on all N sources, and $\theta_{/n}$ is the coefficient vector trained on \emph{N-1} sources excluding star \emph{n}. A summary of identified lines with derivative values greater than $2\sigma_{\rm jackkife}$ is given in Table \ref{table:teff_derivative} and Table \ref{table:feh_derivative}.
 
+\startlongtable
 \begin{deluxetable}{ccccc}
-\tablecaption{Strong $\teff$-correlated molecular lines for all features with significance greater than $2\sigma_{\rm jackknife}$. `Significance' quantifies the number of standard deviations that the derivative of the line is significant to (with negative corresponding to negative derivatives).}
+\tablecaption{Strong $\teff$-correlated atomic and molecular lines for all features with significance greater than $2\sigma_{\rm jackknife}$. `Significance' quantifies the number of standard deviations that the derivative of the line is significant to (with negative corresponding to negative derivatives).}
+\label{table:teff_derivative}
 \tablehead{\colhead{Species} & \colhead{Wavelength} & \colhead{Derivative} & \colhead{$\sigma_{\rm jackknife}$} & \colhead{Significance}}
 	\startdata
 	FeH & 16107.127 & -0.002 & 0.001 & -2.78 \\
@@ -297,15 +299,6 @@ where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total 
 	OH & 16884.573 & 0.005 & 0.002 & 3.066 \\
 	OH & 16886.206 & 0.006 & 0.001 & 5.131 \\
 	OH & 16895.074 & 0.005 & 0.002 & 2.197 \\
-	\nodata & \nodata & \nodata & \nodata & \nodata
-	\enddata
-\end{deluxetable} \label{table:teff_derivative}
-
-\begin{deluxetable}{ccccc}
-\tablecaption{Strong $\teff$-correlated atomic lines for all features with significance greater than $2\sigma_{\rm jackknife}$.}
-\tablehead{\colhead{Species} & \colhead{Wavelength} & \colhead{Derivative} & \colhead{$\sigma_{\rm jackknife}$} & \colhead{Significance}}
-	\startdata
-	\nodata & \nodata & \nodata & \nodata & \nodata \\
 	Fe I & 15207.509 & -0.007 & 0.003 & -2.622 \\
 	Fe I & 15648.478 & -0.006 & 0.002 & -3.273 \\
 	Fe I & 15692.643 & -0.008 & 0.002 & -4.056 \\
