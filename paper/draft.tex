@@ -365,7 +365,7 @@ sense; it is only good at the percent level.
 
 \subsection{Spectral Type Model \label{subsec:west_results}}
 
-We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs poorly at reproducing spectral types $>$M8 because \thecannon\ does not extraploate well to labels outside of the training sample space. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows LOOCV test for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
+We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs poorly at reproducing spectral types $>$M8, which confirms that \thecannon\ does not extraploate well to labels outside of the training sample space. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows LOOCV test for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
 
 % ----------------------------------------
 
@@ -387,18 +387,18 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 
 \subsection{Test Sample \label{subsec:test_selection}} 
 
-Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied the following selection procedure to identify a sample of single, main-sequence M stars. Although our catalog reports the temperatures, metallicities, and spectral types for 5,875 sources out of 14,827 with $\chi^2<100,000$, the sources we deem ``safe'', with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries, are selected by the following criteria (see Figure \ref{fig:cmd_selection}):
+Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied additional selection criteria, described below, to identify a sample of single, main-sequence M stars, with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries:
 
 \begin{enumerate}
-\item \textbf{Quality of fit cut:} We apply a \cannon\ model $\chi^2$ cut of less than 100,000.
+\item \textbf{Quality of fit cut:} We apply a \cannon\ model $\chi^2$ cut of less than 100,000, chosen to remove badly fit sources (such as fast rotators), but include $\chi^2$ values close the distribution of training sample (Figure \ref{fig:chi_dist}).
 
-\item \textbf{Color-magnitude cuts:} Using \gaia\ and \zmass\ photometries we apply the color-magnitude selections shown in Figure \ref{fig:cmd_selection} to cut sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and multiple), and subdwarfs below the main sequence.
+\item \textbf{Color-magnitude cuts:} Using \gaia\ and \zmass\ photometries we apply the color-magnitude selections shown in Figure \ref{fig:cmd_selection} to remove sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and multiples), and subdwarfs below the main sequence.
 
 \item \textbf{Model extraploation cuts:} Because \thecannon\ does not perform well under extrapolated regions of parameter space, we select only sources inside the range of our training sample with ASPCAP parameters $2800<T_{\rm eff}<4100$ and $-0.5<\mh<0.5$, and with \cannon\ parameters of $2850<T_{\rm eff}<4150$, $-0.5<\feh<0.5$, and $0<SPT<9$.
 
-\item \textbf{Astrometric cut:} Using the \gaia\ re-normalised unit weight error (RUWE), a metric of evaluating the fit of the astrometric solution described in the additional release notes, we apply a cut of ${\rm RUWE}<1.2$ to select out sources with high astrometric error or noise, such as binaries (see Figure \ref{fig:ruwe_cut}).
+\item \textbf{Astrometric cut:} Using the \gaia\ re-normalised unit weight error (RUWE), a metric of evaluating the fit of the astrometric solution described in the additional release notes, we apply a cut of ${\rm RUWE}<1.2$ to remove sources with high astrometric error or noise, such as binaries (see Figure \ref{fig:ruwe_cut}).
 
-\item \textbf{Binary cut:} To remove further contamination from binary sources by a conservative cut, we applied an additional color-magnitude selection on sources above the main-sequence with \cannon\ temperatures/metallicities that deviated from the gradient, which we visibly selected for in Figure \ref{fig:ruwe_cut}.
+\item \textbf{Binary cut:} To remove further contamination from binary sources, we applied an additional color-magnitude cut on sources above the main-sequence, which we visibly selected for in Figure \ref{fig:ruwe_cut}.
 
 \end{enumerate}
 
@@ -476,7 +476,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \end{figure*}
 
 
-The three panels of \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. 
+The three panels of Figure \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. 
 We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a 2.7\,GHz Intel core i7 laptop. 
 
 Table \ref{table:test_results} outlines the parameters included in the test sample catalog, which can be downloaded from the online journal. Included are two versions of the catalog: the first containing all 14,827 sources before selection, and the second containing the 5,875 sources kept after making Selections $1-5$ described in this section.
