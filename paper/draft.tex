@@ -44,7 +44,7 @@
 
 \begin{document}\raggedbottom\sloppy\sloppypar\frenchspacing
 
-\title{TEMPERATURES AND METALLICITIES OF M DWARFS IN THE \apogee\ SURVEY}
+\title{TEMPERATURES AND METALLICITIES OF M DWARFS IN THE APOGEE SURVEY}
 
 \correspondingauthor{Jessica Birky}
 \email{jbirky@uw.edu}
@@ -77,7 +77,7 @@ have limited ability to reproduce spectral features in stars at the
 coolest temperatures ($T_{\rm eff} < 4200\,$K) and to fully
 exploit the information content of current and upcoming large-scale spectroscopic surveys.
 Here we present a catalog of spectroscopic temperatures, metallicities, and
-spectral types for 5,875 M dwarfs in the \apogee+\drtwo\ surveys using
+spectral types for 5,875 M dwarfs in the APOGEE+\drtwo\ surveys using
 \thecannon: a flexible, data-driven spectral-modeling and
 parameter-inference framework demonstrated to estimate
 stellar-parameter labels ($\teff$, $\logg$, $\feh$, and detailed
@@ -94,7 +94,7 @@ We find \cannon\ temperatures to be in agreement to within 60\,K
 compared to a subsample of 1,702 sources with color-derived temperatures, and 
 \cannon\ metallicites to be in agreement to within 0.08\,dex metallicity
 compared to a subsample of 15 FGK+M or M+M binaries. 
-Finally, our comparison between \cannon\ and \apogee\ pipeline (ASPCAP) labels finds that 
+Finally, our comparison between \cannon\ and APOGEE pipeline (ASPCAP) labels finds that 
 ASPCAP is systematically biased towards reporting higher temperatures and lower metallicities. 
 \end{abstract}
 
@@ -120,14 +120,14 @@ Low-mass stars, with masses $M_{*} < 0.7\,\msun$ and effective temperatures $T_{
 Additionally, the low masses of M dwarfs make for easier detection of planets by radial velocity variability \citep{Trifonov:2018}, high planet-to-star radii ratios make for easier detection of exoplanet transits in light curve observations \citep{Nutzman:2008}, and shorter orbital periods (for a fixed stellar insolation flux) allow for new planet discovery in less observation time than for higher mass stars. For these reasons, M dwarfs are primary candidates for exoplanet searches, including by the NASA \kepler\ \citep[e.g.,][]{Dressing2015} and Transiting Exoplanet Survey Satellite (\tess) \citep[e.g.,][]{Muirhead:2018} missions. As a result, detailed and precise knowledge of M dwarf chemical compositions has become key to constraining the the properties, formation scenarios, and atmospheric conditions of potentially habitable exoplanets observable with the James Webb Space Telescope ({\sl JWST;} \citealt{Clampin2008}). 
 
 Advances in instrumentation with the launch of several spectroscopic surveys in the past decade, such as the Sloan Digital Sky Survey \citep[SDSS;][]{Eisenstein:2011,Blanton:2017}, and the Large Sky Area Multi-Object Fiber Spectroscopic Telescope \citep[LAMOST;][]{Zhao:2012} have dramatically increased the sample of known M dwarfs \citep{West:2011,Guo:2015} with catalogs of over 70,000 sources, enabling studies of M dwarf abundances on a Galactic scale.
-The Apache Point Observatory Galactic Evolution Experiment (\apogee; \citealt{Majewski:2015}) survey as part of the SDSS III/IV mission has introduced the largest sample of M dwarfs observed with high resolution spectroscopy \citep{Desphande:2013}. \apogee\ pipeline measurements of $\teff$ and $\feh$ \citep{Perez:2016} for M dwarfs have been determined to precisions 100\,K and 0.18\,dex down to $T_{\rm eff}\sim3550\,$K using atmospheric models \citep{Schmidt:2016}. 
+The Apache Point Observatory Galactic Evolution Experiment (APOGEE; \citealt{Majewski:2015}) survey as part of the SDSS III/IV mission has introduced the largest sample of M dwarfs observed with high resolution spectroscopy \citep{Desphande:2013}. APOGEE pipeline measurements of $\teff$ and $\feh$ \citep{Perez:2016} for M dwarfs have been determined to precisions 100\,K and 0.18\,dex down to $T_{\rm eff}\sim3550\,$K using atmospheric models \citep{Schmidt:2016}. 
 
 Elemental abundance measurements from high resolution spectra of F, G, and K stars have achieved extremely high precision (down to $0.01-0.03$\,dex; \citealt{Nissen2018}) enabled by improvements in atmospheric models, including realistic 3D local thermodynamic equilibrium (LTE) assumptions \citep{Asplund2005}, and differential abundance techniques using equivalent widths \citep{Bedell2014}. However, the determination of precise metallicities for M dwarfs has remained a long-standing challenge due to the formation of complex diatomic and triatomic molecular bands at M dwarf temperatures, particularly TiO and VO bands dominating the optical spectrum, H$_2$O and CO bands in the infrared, and hydride bands (FeH, CaH, CrH, MgH, etc.) present in the spectra of the latest spectral types \citep{Allard1997}.
 Atmospheric models often fail to reproduce these spectral features \citep[e.g.,][]{Mann:2013c} due to incomplete line lists and opacities, and the presence of millions of weak, blended transitions, and the absence of a clear continuum, all contribute to make it difficult to deconvolve individual features and extract line strengths from equivalent widths. The combination of these effects limit our ability to explore the information content of high resolution spectra using traditional comparison to atmosphere models.
 
-\color{gcolor}{A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star and strong, isolated lines in the spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}) to developed precise empirical relations (as good as $\sim$0.07\,dex). However these metallicity calibrations are inaccessible for analysis with \apogee, as the wavelength coverage does not include important calibration indices in the $K$-band nor information about the overall spectral shape often used to determine $\teff$ and spectral type. Further, earlier calibrations are generally based on moderate-resolution data \citep[with some exceptions,][]{Neves:2014, Lindgren:2016} that fail to utilize the greater spectral information provided by \apogee's resolution.}\color{black}
+\color{gcolor}{A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star and strong, isolated lines in the spectra of the M dwarf (e.g. \citealt{Terrien:2012}, \citealt{Rojas-Ayala:2012}, \citealt{Newton:2014}) to developed precise empirical relations (as good as $\sim$0.07\,dex). However these metallicity calibrations are inaccessible for analysis with APOGEE, as the wavelength coverage does not include important calibration indices in the $K$-band nor information about the overall spectral shape often used to determine $\teff$ and spectral type. Further, earlier calibrations are generally based on moderate-resolution data \citep[with some exceptions,][]{Neves:2014, Lindgren:2016} that fail to utilize the greater spectral information provided by APOGEE's resolution.}\color{black}
 
-In this work we build a data-driven model for M dwarf \apogee\ spectra with \thecannon\ \citep{Ness:2015,Casey:2016,Ho:2017a,Behmard2019}: a fully empirical model, which employs no line lists or radiative transfer models. 
+In this work we build a data-driven model for M dwarf APOGEE spectra with \thecannon\ \citep{Ness:2015,Casey:2016,Ho:2017a,Behmard2019}: a fully empirical model, which employs no line lists or radiative transfer models. 
 \thecannon\ is a \emph{generative model} which parameterizes the flux at each pixel of a spectrum in terms of a set of stellar labels (a flexible number of parameters chosen by the user; described in more detail in Section \ref{sec:methods}). The model in this sense is used to \emph{transfer} labels from spectra for which we know parameters to those which we do not. This data-driven approach effectively circumvents the challenges of physically modeling the atmosphere of a star (and common issues associated such as incomplete line lists or opacities), provided that we have a subset of spectra in the dataset with known (and very accurately measured) \emph{reference labels} possibly measured from other data. 
 
 The data-driven approach of \thecannon\ is ideal in certain cases:
@@ -139,10 +139,10 @@ or if there are spectral models or techniques that work in one wavelength range 
 Existing methods to model M dwarf spectra in the NIR at high resolution are computationally expensive, calibrated over a narrow range of $\teff$ and metallicity, and/or focus on the $J$-band \citep{Lindgren:2016, Lindgren:2017}. \thecannon\ thus fills this niche: it doesn't require using specific lines or opacity information that may be missing from the models; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
 
 Here we take M-dwarf labels from samples of well-characterized stars that are present in the
-\sdssiv\ \apogee\ sample, and use those labels to train a model and label all of the M dwarfs observed by
-\sdssiv\ \apogee. One set of labels are physical parameters (effective temperatures and metallicities), the other set of labels are spectral types. 
+SDSS-IV APOGEE sample, and use those labels to train a model and label all of the M dwarfs observed by
+SDSS-IV APOGEE. One set of labels are physical parameters (effective temperatures and metallicities), the other set of labels are spectral types. 
 
-This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the \apogee\ and \gaia\ surveys, as well as previous studies of M dwarfs in \apogee.
+This paper is organized as follows: in Section \ref{sec:data} we describe the technical specifications of the data from the APOGEE and \gaia\ surveys, as well as previous studies of M dwarfs in APOGEE.
 Section \ref{sec:methods} describes our model implementation using \thecannon\ framework, and Section \ref{sec:sample_selection} describes the our sample selection and derivation of training parameters.
 In Section \ref{sec:results} we present our experimental results, evaluate the predictive accuracy of our models, apply our model to a selected test sample of $>$5,800 sources, and examine the validity of our parameters against color-temperature relations and metallicities of binary pairs.
 Finally, in Section \ref{sec:discussion} we discuss model performance, future improvements, and implications of our results. 
@@ -151,16 +151,16 @@ Finally, in Section \ref{sec:discussion} we discuss model performance, future im
 %%==========================================================================================
 \section{Data} \label{sec:data}
 
-The \apogee\ survey is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey which has observed over 250,000 stellar spectra up to its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the \apogee\ Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the FERRE code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters ($\teff$, $\logg$, $\feh$, [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures ($2800<\teff<3500$\,K), the pipeline uses MARCS plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures ($\teff\geq3500$\,K) ATLAS9 \citep{Castelli:2004} plane-parallel models are used.
+The APOGEE survey is a high resolution (R$\sim$22,500), H-band (1.5-1.7$\mu$m), multi-epoch survey which has observed over 250,000 stellar spectra up to its fourteenth data release (DR14; \citealt{Abolfathi:2017}). Fundamental parameters for each of these stars are estimated by the APOGEE Stellar Parameter and Chemical Abundances Pipeline (ASPCAP; \citealt{Perez:2016}), which employs a $\chi^2$ fitting procedure using the FERRE code to fit radiative transfer models and determine atmospheric parameters, 15 chemical abundances and micro-turbulence parameters ($\teff$, $\logg$, $\feh$, [$\alpha$/M], [C/M], [N/M]; \citealt{Meszaros:2012}). For low temperatures ($2800<\teff<3500$\,K), the pipeline uses MARCS plane-parallel/spherical models \citep{Gustafsson:2008}, and for higher temperatures ($\teff\geq3500$\,K) ATLAS9 \citep{Castelli:2004} plane-parallel models are used.
 
-\apogee\ is primarily designed to target bright stellar populations, particularly red giants, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013}, with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by the \apogee\ M dwarf ancilliary survey ($\sim$1,200 sources; \citealt{Desphande:2013}), or serendipitously. 
+APOGEE is primarily designed to target bright stellar populations, particularly red giants, with de-reddened photometry and color cutoffs of $7 \leq H \leq 13.8$ and $[J-K]_0 \geq 0.5$ \citep{Zasowski:2013}, with the objective of studying galactic composition and evolution. However numerous cool, main sequence sources have also been observed either as targets proposed by the APOGEE M dwarf ancilliary survey ($\sim$1,200 sources; \citealt{Desphande:2013}), or serendipitously. 
 
 A number of studies out of the M dwarf ancilliary survey have already been conducted to measure reliable fundamental atmospheric parameters and kinematic measurements using spectral synthesis of atmospheric model grids. 
 These studies include \citealt{Desphande:2013} and \citealt{Gilhool:2018} which have studied the radial and rotational kinematics for 700+ sources;
 \citealt{Souto:2017} and \citealt{Souto:2018} which have modeled three exoplanet-hosting M dwarfs (Kepler-138, Kepler-168 and Ross-128), determining $\teff$/$\logg$/metallicity + 13 elemental abundances;
 \citealt{Rajpurohit:2018} which tested BT-Settl \citep{Allard:2012} and MARCS \citep{Gustafsson:2008} model grids on 45 M dwarfs to estimate $\teff$/$\logg$/metallicity;
 and \citealt{Skinner:2018} which identified and measured mass ratios and radial velocities for 44 M dwarf spectroscopic binaries.
-This work complements existing studies by producing model-independent catalog of spectroscopic temperatures and metallicites to test against model predictions for the entire \apogee\ M dwarf sample, which we quantify to contain at least 10,000 sources to date (DR14).
+This work complements existing studies by producing model-independent catalog of spectroscopic temperatures and metallicites to test against model predictions for the entire APOGEE M dwarf sample, which we quantify to contain at least 10,000 sources to date (DR14).
 
 The ASPCAP pipeline releases several types of data files, with various levels of processing: {\tt\string ap1D} (the raw one-dimensional spectra for individual visits), {\tt\string apVisit} (the individual visit spectra with telluric subtraction), {\tt\string apStar} (the co-added {\tt\string apVisit} spectra), and {\tt\string aspcapStar}, which contains the pseudo-continuum-normalized, rest frame shifted, co-added spectrum of all observed epochs (see \citealt{Perez:2016} for a complete description of the pipeline). We use the last dataset for our study.
 In previous work it has been recommended to use an alternative pseudo-continuum normalization \citep{Ness:2015}, but we don't find obvious issues with the normalization in our analysis, so we retain the survey pipeline outputs.
@@ -214,7 +214,7 @@ For the purpose of this study, we have constructed two different training sample
 % ----------------------------------------
 \subsection{Spectral Type Training Sample}
 
-The spectral type training sample consists of 51 sources, spanning M0-M9 cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from \sdss. For each source in the catalog, spectral types were determined both through an automated routine for comparing spectral type templates to data using \textsl{The Hammer} \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
+The spectral type training sample consists of 51 sources, spanning M0-M9 cross-matched from the \citealt{West:2011} (hereafter W11) catalog of 78,841 M dwarfs from SDSS. For each source in the catalog, spectral types were determined both through an automated routine for comparing spectral type templates to data using \textsl{The Hammer} \citep{Covey:2007} and by visual inspection to a reported accuracy of $\pm$1 type.
 
 % ----------------------------------------
 \subsection{Physical Parameter Training Sample}
@@ -371,27 +371,27 @@ We trained \thecannon\ on 51 M dwarfs with a one-dimensional spectral type label
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{figures/cannon_chi_dist.png}
-	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources \citep{ElBadry:2018,Skinner:2018}; \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the \apogee --\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''.}
+	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources \citep{ElBadry:2018,Skinner:2018}; \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the APOGEE--\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''.}
 	\label{fig:chi_dist}
 \end{figure*}
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{figures/cmd_selection.png}
-	\caption{\gaia\ and \zmass\ color-magnitude cuts for the12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia. The coordinates for the selected quadrangles 
+	\caption{\gaia\ and 2MASS color-magnitude cuts for the12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia. The coordinates for the selected quadrangles 
 	$\left\{ (1.4, 7.5), (2.2, 7.5), (4.2, 14), (3.3, 14) \right\}$ corresponding to ($BP-RP$, $M_G$) for the \gaia\ color-magnitudes shown left, and 
-	$\left\{ (.7, 4.3), (1.1, 4.3), (.7, 9), (1.1, 9) \right\}$ corresponding to ($J-K$, $M_K$) for the \zmass\ color-magnitudes shown right. }
+	$\left\{ (.7, 4.3), (1.1, 4.3), (.7, 9), (1.1, 9) \right\}$ corresponding to ($J-K$, $M_K$) for the 2MASS color-magnitudes shown right. }
 	\label{fig:cmd_selection}
 \end{figure*}
 
 
 \subsection{Test Sample \label{subsec:test_selection}} 
 
-Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied additional selection criteria, described below, to identify a sample of single, main-sequence M stars, with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries:
+Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied additional selection criteria, described below, to identify a sample of single, main-sequence M stars, with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries:
 
 \begin{enumerate}
 \item \textbf{Quality of fit cut:} We apply a \cannon\ model $\chi^2$ cut of less than 100,000, chosen to remove badly fit sources (such as fast rotators), but include $\chi^2$ values close the distribution of training sample (Figure \ref{fig:chi_dist}).
 
-\item \textbf{Color-magnitude cuts:} Using \gaia\ and \zmass\ photometries we apply the color-magnitude selections shown in Figure \ref{fig:cmd_selection} to remove sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and multiples), and subdwarfs below the main sequence.
+\item \textbf{Color-magnitude cuts:} Using \gaia\ and 2MASS photometries we apply the color-magnitude selections shown in Figure \ref{fig:cmd_selection} to remove sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and multiples), and subdwarfs below the main sequence.
 
 \item \textbf{Model extraploation cuts:} Because \thecannon\ does not perform well under extrapolated regions of parameter space, we select only sources inside the range of our training sample with ASPCAP parameters $2800<T_{\rm eff}<4100$ and $-0.5<\mh<0.5$, and with \cannon\ parameters of $2850<T_{\rm eff}<4150$, $-0.5<\feh<0.5$, and $0<SPT<9$.
 
@@ -427,7 +427,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \end{figure}
 
 \begin{deluxetable*}{cccccccc}
-\tablecaption{Metallicities of \apogee\ M dwarfs in wide binaries. Reported in this table are the ASPCAP [M/H] and \cannon\ [Fe/H] of the M dwarfs, as well as the metallicity values of their binary companions. The source/survey of the metallicity and spectral classes of the companions are also given. \label{table:binaries}}
+\tablecaption{Metallicities of APOGEE M dwarfs in wide binaries. Reported in this table are the ASPCAP [M/H] and \cannon\ [Fe/H] of the M dwarfs, as well as the metallicity values of their binary companions. The source/survey of the metallicity and spectral classes of the companions are also given. \label{table:binaries}}
 \tabletypesize{\scriptsize} 
 \tablehead{\colhead{Mdwarf Gaia ID}      & \colhead{Companion Gaia ID}   & \colhead{Mdwarf [M/H]} & \colhead{Mdwarf [Fe/H]} & \colhead{Companion [Fe/H]} & \colhead{Companion source} & \colhead{Separation (AU)}}
 	\startdata
@@ -483,7 +483,7 @@ Table \ref{table:test_results} outlines the parameters included in the test samp
 % ----------------------------------------
 \subsection{Temperature Validation}
 
-As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combinations of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 5,875 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 1,702 sources with both $BV$ photometries measured by APASS, and \zmass\ $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 1,702 sources, colored by their respective spectroscopic metallicities.
+As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combinations of 2MASS and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 5,875 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 1,702 sources with both $BV$ photometries measured by APASS, and 2MASS $JHK$ photometries from APOGEE. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 1,702 sources, colored by their respective spectroscopic metallicities.
 
 Compared to the \citealt{Mann:2015} and \citealt{Boyajian:2012} color-metallicity derived temperatures, both ASPCAP and \cannon\ temperatures show similar scatters of $\sim60\,$K, but are offset by a constant.
 We find \cannon\ to be in better agreement with \citealt{Mann:2015} and \citealt{Boyajian:2012}, with ASPCAP overestimating $\teff$ on average $\sim110-140\,$K, and \thecannon\ underestimating $\teff$ on average by $\sim10-20\,$K, with the largest deviation at the lowest and highest $\teff$s in the latter.
@@ -492,7 +492,7 @@ We find \cannon\ to be in better agreement with \citealt{Mann:2015} and \citealt
 \subsection{Metallicity Validation}
 
 As a check of our test sample metallicity reliability, we cross-matched our M dwarf final sample with the \citealt{Elbadry:2018b} catalog of $>$50,000 high-confidence, widely separated binaries identified by \drtwo. 
-In total we found 216 of the \apogee\ M dwarfs to have binary pairs (46 FGK+M, 155 M+M, and 15 WD+M). Out of the 155 M+M pairs, 8 pairs contained both pairs in \apogee. Cross-matching the list of FGK+M dwarf companions with several catalogs/surveys with measured stellar metallicities, we found an additional 7 sources with FGK metallicities from LAMOST \citep{Zhao:2012} and APOGEE (ASPCAP). The metallicity measurements for the 15 M dwarf binaries and their companions are given in Table \ref{table:binaries}, and the overall scatter is $0.08\,$dex--an improvement over the scatter of ASPCAP metallicities which is $0.15\,$dex for these 15 sources.
+In total we found 216 of the APOGEE M dwarfs to have binary pairs (46 FGK+M, 155 M+M, and 15 WD+M). Out of the 155 M+M pairs, 8 pairs contained both pairs in APOGEE. Cross-matching the list of FGK+M dwarf companions with several catalogs/surveys with measured stellar metallicities, we found an additional 7 sources with FGK metallicities from LAMOST \citep{Zhao:2012} and APOGEE (ASPCAP). The metallicity measurements for the 15 M dwarf binaries and their companions are given in Table \ref{table:binaries}, and the overall scatter is $0.08\,$dex--an improvement over the scatter of ASPCAP metallicities which is $0.15\,$dex for these 15 sources.
 
 As expected, the Toomre diagram in Figure \ref{fig:toomre} shows that higher metallicity sources in the sample are concentrated in low velocity space corresponding roughly to the thin disk population, while the thick disk population contains a higher concentration of lower metallicity sources. Separating the two populations into separate histograms (also shown in Figure \ref{fig:toomre}), we find that thick disk sources are more metal poor than thin disk sources, with the average metallicity of the thin disk stars being near-solar $\feh=0.00\pm0.17\,$dex, and the average metallicity of the thick disk stars being $\feh=-0.14\pm0.19\,$dex.
 Metallicities of the two populations from ASPCAP show a similar distribution, with an average thin disk metallicity of $\mh=-0.16\pm0.16\,$dex and an average thick disk metallicity of $\mh=-0.23\pm0.17\,$dex.
@@ -520,7 +520,7 @@ Figure \ref{fig:met_comp} shows that ASPCAP metallicities are systematically mor
 
 We trained a data-driven model (\thecannon; \citealt{Ness:2015}) to deliver
 high-quality atmospheric parameters ($\teff$ and $\feh$) for M-type dwarf stars
-from high-resolution infrared spectra from \apogee.
+from high-resolution infrared spectra from APOGEE.
 This work was motivated by the problem that M dwarfs stars are difficult to
 model physically; the data are better than the models in important senses.
 And indeed we find that our data-driven model is both accurate in the
@@ -562,10 +562,10 @@ convection (for example, \citealt{Behmard2019}), nor
 does it account for binarity or superposition of multiple
 stellar spectra (as in, say, \citealt{ElBadry:2018}).
 The model also does not include any adjustments for instrumental variations, like for
-example the small but significant variations of \apogee\ resolution with
+example the small but significant variations of APOGEE resolution with
 spectrograph fiber number (as included in \citealt{Ness2018}).
 
-The \apogee\ instrument was designed to be sensitive to more than
+The APOGEE instrument was designed to be sensitive to more than
 a dozen individual element abundances in stellar spectra.
 So the M-dwarf spectra analyzed here contain individual element abundance
 information that we have ignored.
@@ -595,7 +595,7 @@ It contains within it first and second derivatives of the spectral expectation w
 respect to the atmospheric parameters.
 We show some of these derivatives in Figures \ref{fig:demo_teff}, \ref{fig:demo_feh}, and \ref{fig:west_derivative} and deliver relevant data in
 Table~\ref{table:teff_derivative} and Table~\ref{table:feh_derivative}.
-These Tables summarize spectral features in the \apogee\ bandpass
+These Tables summarize spectral features in the APOGEE bandpass
 that are found to be strong temperature and metallicity indicators.
 In the long run, this is the primary value of data-driven models for astronomy:
 To provide physical insights that drive physical understandings.
@@ -644,7 +644,7 @@ has been provided by national institutions, in particular the institutions
 participating in the {\it Gaia} Multilateral Agreement.
 
 \facilities{
-	\sdssiv(\apogee),
+	SDSS-IV (APOGEE),
 	\gaia}
 
 \software{
@@ -695,7 +695,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 	\includegraphics[width=12cm]{figures/Spectral_Sequence_2.png}
 	\includegraphics[width=12cm]{figures/Spectral_Sequence_3.png}
 	\end{center}
-	\caption{Spectral sequence of dwarfs in training set M0-M9; separate plots show three detector chips of \apogee\ spectrum (black), the best fit Cannon trained model (red) with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
+	\caption{Spectral sequence of dwarfs in training set M0-M9; separate plots show three detector chips of APOGEE spectrum (black), the best fit Cannon trained model (red) with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
 \end{figure*}
 
 %---------------------------
@@ -805,7 +805,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 \tablecaption{Test results table header description.}
 \tablehead{\colhead{Column} & \colhead{Unit} & \colhead{Description}}
 	\startdata
-	{\tt APOGEE$\_$ID} 	& 	& \apogee\ \zmass\ designation \\
+	{\tt APOGEE$\_$ID} 	& 	& APOGEE 2MASS designation \\
 	{\tt GAIA$\_$ID} 		&	& \gaia\ identification number \\
 	{\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
 	{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ $\feh$	\\
@@ -814,19 +814,19 @@ participating in the {\it Gaia} Multilateral Agreement.
 	{\tt CHI$\_$WEST} 	& 	& $\chi^2$ fit of West-trained \cannon\ model	\\
 	{\tt RADIUS} 			& R$_\odot$	& Radius determined by \citealt{Mann:2015} relation	\\
 	{\tt MASS} 			& M$_\odot$	& Mass determined by \citealt{Mann:2019} relation	\\
-	{\tt J} 				& mag	& \apogee\ $J$ band photometry	\\
-	{\tt J$\_$ERR} 		& mag	& \apogee\ $J$ band photometry uncertainty	\\
-	{\tt H} 				& mag	& \apogee\ $H$ band photometry	\\
-	{\tt H$\_$ERR} 		& mag	& \apogee\ $H$ band photometry uncertainty	\\
-	{\tt K} 				& mag	& \apogee\ $K$ band photometry	\\
-	{\tt K$\_$ERR} 		& mag	& \apogee\ $K$ band photometry uncertainty	\\
+	{\tt J} 				& mag	& APOGEE $J$ band photometry	\\
+	{\tt J$\_$ERR} 		& mag	& APOGEE $J$ band photometry uncertainty	\\
+	{\tt H} 				& mag	& APOGEE $H$ band photometry	\\
+	{\tt H$\_$ERR} 		& mag	& APOGEE $H$ band photometry uncertainty	\\
+	{\tt K} 				& mag	& APOGEE $K$ band photometry	\\
+	{\tt K$\_$ERR} 		& mag	& APOGEE $K$ band photometry uncertainty	\\
 	{\tt BP$\_$MAG }		& mag	& \gaia\ $BP$ band photometry	\\
 	{\tt RP$\_$MAG} 		& mag	& \gaia\ $RP$ band photometry	\\
 	{\tt G$\_$MAG} 		& mag	& \gaia\ $G$ band photometry	\\
 	{\tt G$\_$ABS} 		& mag	& \gaia\ $G$ band absolute magnitude	\\
 	{\tt BP$\_$RP} 		& mag	& \gaia\ $BP-RP$ color	\\
-	{\tt RA} 				& deg	& \apogee\ radial ascension angle	\\
-	{\tt DEC} 			& deg	& \apogee\ declination angle	\\
+	{\tt RA} 				& deg	& APOGEE radial ascension angle	\\
+	{\tt DEC} 			& deg	& APOGEE declination angle	\\
 	{\tt PMRA} 			& mas yr$^{-1}$	& \gaia\ radial ascension proper motion	\\
 	{\tt PMRA$\_$ERR} 	& mas yr$^{-1}$	& \gaia\ radial ascension proper motion uncertainty	\\
 	{\tt PMDEC} 			& mas yr$^{-1}$	& \gaia\ declination proper motion	\\
@@ -834,8 +834,8 @@ participating in the {\it Gaia} Multilateral Agreement.
 	{\tt PLX} 			& mas	& \gaia\ parallax	\\
 	{\tt PLX$\_$ERR} 		& mas	& \gaia\ parallax uncertainty	\\
 	{\tt DIST} 			& pc	& Distance (1/$\varpi$)	\\
-	{\tt RV$\_$APOGEE} 	& km s$^{-1}$	& \apogee\ radial velocity	\\
-	{\tt RV$\_$APOGEE$\_$ERR} 	& km s$^{-1}$	& \apogee\ radial velocity uncertainty	\\
+	{\tt RV$\_$APOGEE} 	& km s$^{-1}$	& APOGEE radial velocity	\\
+	{\tt RV$\_$APOGEE$\_$ERR} 	& km s$^{-1}$	& APOGEE radial velocity uncertainty	\\
 	{\tt RV$\_$GAIA} 				& km s$^{-1}$	& \gaia\ radial velocity	\\
 	{\tt RV$\_$GAIA$\_$ERR}		& km s$^{-1}$	& \gaia\ radial velocity uncertainty	\\
 	{\tt Vx} 				& km s$^{-1}$	& Cartesian $x$ velocity in Galactocentric coordnates	\\
