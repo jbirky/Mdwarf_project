@@ -356,7 +356,6 @@ sense; it is only good at the percent level.
 
 \begin{figure}
 	\begin{center}
-	% \includegraphics[width=\linewidth]{figures/self_test_spt.png}
 	\includegraphics[width=\linewidth]{figures/crv_test_spt.png}
 	\end{center}
 	\caption{Leave-one-out cross validation test for the West-trained spectral type model. Predictive accuracy, as computed by the scatter in cross validation is 0.9 subtypes.}
@@ -428,7 +427,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \end{figure}
 
 \begin{deluxetable*}{cccccccc}
-\tablecaption{Metallicities of \apogee\ M dwarfs with wide binaries. Reported in this table are the ASPCAP [M/H] and \cannon\ [Fe/H] of the M dwarfs, as well as the metallicity values of their binary companions. The source/survey of the metallicity and spectral classes of the companions are also given. \label{table:binaries}}
+\tablecaption{Metallicities of \apogee\ M dwarfs in wide binaries. Reported in this table are the ASPCAP [M/H] and \cannon\ [Fe/H] of the M dwarfs, as well as the metallicity values of their binary companions. The source/survey of the metallicity and spectral classes of the companions are also given. \label{table:binaries}}
 \tabletypesize{\scriptsize} 
 \tablehead{\colhead{Mdwarf Gaia ID}      & \colhead{Companion Gaia ID}   & \colhead{Mdwarf [M/H]} & \colhead{Mdwarf [Fe/H]} & \colhead{Companion [Fe/H]} & \colhead{Companion source} & \colhead{Separation (AU)}}
 	\startdata
@@ -476,7 +475,7 @@ Out of the total \apogee\ DR14 catalog of 258,475 sources, we selected 254,478 s
 \end{figure*}
 
 
-The three panels of Figure \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly to the main sequence branch. 
+The three panels of Figure \ref{fig:safe_selection} show before and after selection of the sources in \gaia\ color-magnitude space, colored by \thecannon\ determined temperatures, metallicities, and spectral types, with their respective training samples overplotted in orange. Each plot shows the expected gradient: temperature increases with decreasing color, spectral subtype increases with increasing color, and the metallicity gradient is largely perpendicular to the main sequence branch. 
 We also note that applying our model requires very little computational demand: the time to train and test a model on all 14,827 sources was two minutes on a 2.7\,GHz Intel core i7 laptop. 
 
 Table \ref{table:test_results} outlines the parameters included in the test sample catalog, which can be downloaded from the online journal. Included are two versions of the catalog: the first containing all 14,827 sources before selection, and the second containing the 5,875 sources kept after making Selections $1-5$ described in this section.
@@ -484,11 +483,10 @@ Table \ref{table:test_results} outlines the parameters included in the test samp
 % ----------------------------------------
 \subsection{Temperature Validation}
 
-As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combination of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 5,875 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 1,702 sources with both $BV$ photometries measured by APASS, and $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 1,702 sources, colored by their respective spectroscopic metallicities.
+As a validation test of our derived temperatures, we perform a comparison between several color-temperature relations from literature, which use combinations of \zmass\ and visual band photometries to predict temperatures (similarly to the \citealt{Schmidt:2016} evaluation of ASPCAP temperatures). To obtain visual band magnitudes for a set of sources, we cross-matched the 5,875 sources in our ``safe'' test sample to the AAVSO Photometric All-Sky Survey DR9 (APASS; \citealt{Henden:2016}), to obtain a subsample of 1,702 sources with both $BV$ photometries measured by APASS, and \zmass\ $JHK$ photometries from \apogee. Figure \ref{fig:teff_comparisons} shows \cannon\ vs. photometric temperatures on the right, and ASPCAP vs. photometric temperatures on the left for each of the 1,702 sources, colored by their respective spectroscopic metallicities.
 
-Compared to the \citealt{Mann:2015} and \citealt{Boyajian:2012} color-metallicity derived temperatures, both ASPCAP and \cannon\ temperatures show similar scatters of $\sim60\,$K, but offset by a constant.
-We find \cannon\ to be in better agreement with \citealt{Mann:2015} and \citealt{Boyajian:2012}, with ASPCAP overestimating $\teff$ on average $\sim110-140\,$K, and \thecannon\ underestimating $\teff$ on average by $\sim10-20\,$K. \\
-
+Compared to the \citealt{Mann:2015} and \citealt{Boyajian:2012} color-metallicity derived temperatures, both ASPCAP and \cannon\ temperatures show similar scatters of $\sim60\,$K, but are offset by a constant.
+We find \cannon\ to be in better agreement with \citealt{Mann:2015} and \citealt{Boyajian:2012}, with ASPCAP overestimating $\teff$ on average $\sim110-140\,$K, and \thecannon\ underestimating $\teff$ on average by $\sim10-20\,$K, with the largest deviation at the lowest and highest $\teff$s in the latter.
 
 % ----------------------------------------
 \subsection{Metallicity Validation}
@@ -496,8 +494,8 @@ We find \cannon\ to be in better agreement with \citealt{Mann:2015} and \citealt
 As a check of our test sample metallicity reliability, we cross-matched our M dwarf final sample with the \citealt{Elbadry:2018b} catalog of $>$50,000 high-confidence, widely separated binaries identified by \drtwo. 
 In total we found 216 of the \apogee\ M dwarfs to have binary pairs (46 FGK+M, 155 M+M, and 15 WD+M). Out of the 155 M+M pairs, 8 pairs contained both pairs in \apogee. Cross-matching the list of FGK+M dwarf companions with several catalogs/surveys with measured stellar metallicities, we found an additional 7 sources with FGK metallicities from LAMOST \citep{Zhao:2012} and APOGEE (ASPCAP). The metallicity measurements for the 15 M dwarf binaries and their companions are given in Table \ref{table:binaries}, and the overall scatter is $0.08\,$dex--an improvement over the scatter of ASPCAP metallicities which is $0.15\,$dex for these 15 sources.
 
-As expected, the Toomre diagram in Figure \ref{fig:toomre} shows that higher metallicity sources in the sample are concentrated in low velocity space corresponding roughly to the thin disk population, while the thick disk population contains a higher concentration of lower metallicity sources. Separating the two populations into separate histograms (also shown in Figure \ref{fig:toomre}), we find that thick disk sources are nearly 1-$\sigma$ more metal poor than thin disk sources with the average thin disk metallicity being near-solar $\feh=0.00\pm0.17\,$dex, and the average metallicities of the thick disk stars being $\feh=-0.14\pm0.19\,$dex.
-On the other hand, metallicities from ASPCAP show no significant difference in distribution, with an average thin disk metallicity of $\mh=-0.16\pm0.16\,$dex and an average thick disk metallicity of $\mh=-0.23\pm0.17\,$dex.
+As expected, the Toomre diagram in Figure \ref{fig:toomre} shows that higher metallicity sources in the sample are concentrated in low velocity space corresponding roughly to the thin disk population, while the thick disk population contains a higher concentration of lower metallicity sources. Separating the two populations into separate histograms (also shown in Figure \ref{fig:toomre}), we find that thick disk sources are more metal poor than thin disk sources, with the average metallicity of the thin disk stars being near-solar $\feh=0.00\pm0.17\,$dex, and the average metallicity of the thick disk stars being $\feh=-0.14\pm0.19\,$dex.
+Metallicities of the two populations from ASPCAP show a similar distribution, with an average thin disk metallicity of $\mh=-0.16\pm0.16\,$dex and an average thick disk metallicity of $\mh=-0.23\pm0.17\,$dex.
 
 Figure \ref{fig:met_comp} shows that ASPCAP metallicities are systematically more metal-poor than \cannon\ metallicities. We furthermore find that the bias is temperature-dependent: at the hottest temperatures ($\teff>3600\,$K) ASPCAP and \cannon\ metallicities are consistent to a scatter of $0.05-0.06\,$dex and offset by an average of $-0.12-0.15\,$dex, while at the lowest temperatures ($\teff<3200\,$K) ASPCAP and \cannon\ are consistent to a scatter of $\sim-0.13\,$dex and offset by an average of $-0.3\,$dex.
 
