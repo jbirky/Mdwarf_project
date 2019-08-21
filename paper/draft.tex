@@ -138,7 +138,7 @@ but there are spectra taken for many more;
 if it is computationally expensive to obtain labels for a star, and
 there are many stars that need labels;
 or if there are spectral models or techniques that work in one wavelength range or resolution but not in another.
-Existing methods to model M dwarf spectra in the NIR at high resolution are computationally expensive, calibrated over a narrow range of $\teff$ and metallicity, and/or focused on the $J$-band \citep{Lindgren:2016, Lindgren:2017}. \thecannon\ thus fills this niche: it doesn't require using specific lines or opacity information that may be missing from the models; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
+Existing methods to model M dwarf spectra in the NIR at high resolution are computationally expensive, often calibrated over a narrow range of Teff and/or metallicity. \thecannon\ thus fills this niche: it doesn't require using specific lines or opacity information that may be missing from the models; instead it allows us to determine labels from a lot of low level metallicity information present in thousands of lines, and as we demonstrate, does so with very good precision.
 
 Here we take M-dwarf labels from samples of well-characterized stars that are present in the
 SDSS-IV APOGEE sample, and use those labels to train a model and label all of the M dwarfs observed by
@@ -567,13 +567,10 @@ to the less well-understood M dwarf metallicity scale.
 These results find that atmospheric metallicities are systematically metal-poor biased
 compared to \cannon-based metallicities trained on sources with metallicities calibrated
 to those of FGK companions. 
-At the high temperature end ($\teff > 3600$\,K), the ASPCAP metallicity bias is $\sim-0.15\,$dex with a
-scatter of $\sim0.06\,$dex relative to \cannon\ metallicities, and increases to a bias of $\>-0.26\,$dex 
-and scatter of $\>0.1\,$dex at the lower temperature end ($\teff < 3300$\,K) (Figure \ref{fig:met_comp}).
+At the high temperature end ($\teff > 3600$\,K), the ASPCAP metallicity bias is $-0.12-0.15\,$dex with a scatter of $0.05-0.06\,$dex relative to \cannon\ metallicities, and increases to a bias of $-0.3\,$dex and scatter of $0.13\,$dex at the lower temperature end ($\teff < 3200$\,K) (Figure \ref{fig:met_comp}).
 We suspect that this metal-poor bias, while not explored to a great extent in this work, is due 
 to the line lists of the models: 
-an effect in which the optimizer of the pipeline may be lowering the metallicity of the fit 
-to compensate for the missing lines or opacities.
+an effect in which the optimizer of the pipeline may be lowering the continuum level and metallicity of the fit to compensate for the missing lines or opacities.
 Further analysis would need to be done to determine if the metallicity bias
 is found in other model grids (besides the ATLAS/MARCS models used by the ASPCAP pipeline), 
 and if the effect is present at other wavelengths.
