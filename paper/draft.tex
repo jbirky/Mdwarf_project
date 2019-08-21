@@ -69,10 +69,10 @@ Broadway, New York, NY 10003, USA}
 
 \begin{abstract}
 
-M dwarfs have enourmous potential for understanding structure and
+M dwarfs have enormous potential for understanding structure and
 formation on both Galactic and exoplanetary scales
 through their properties and compositions.
-However, current atmospheric models
+However, current atmosphere models
 have limited ability to reproduce spectral features in stars at the 
 coolest temperatures ($T_{\rm eff} < 4200\,$K) and to fully
 exploit the information content of current and upcoming large-scale spectroscopic surveys.
@@ -83,7 +83,7 @@ parameter-inference framework demonstrated to estimate
 stellar-parameter labels ($\teff$, $\logg$, $\feh$, and detailed
 abundances) to high precision.
 Using a training sample of 87 M dwarfs with optically derived labels spanning 
-$2860 < \teff < 4130$\,K calibrated with bolometric temperatures, 
+$2860 < \teff < 4130$\,K calibrated with bolometric temperatures, and
 $-0.5 < \feh < 0.5$\,dex calibrated with FGK binary metallicities, 
 we train a two-parameter model with predictive accuracy (in cross-validation) 
 to 77\,K and 0.09\,dex respectively.
@@ -95,7 +95,8 @@ compared to a subsample of 1,702 sources with color-derived temperatures, and
 \cannon\ metallicites to be in agreement to within 0.08\,dex metallicity
 compared to a subsample of 15 FGK+M or M+M binaries. 
 Finally, our comparison between \cannon\ and APOGEE pipeline (ASPCAP) labels finds that 
-ASPCAP is systematically biased towards reporting higher temperatures and lower metallicities. 
+ASPCAP is systematically biased towards reporting higher temperatures and lower metallicities 
+for M dwarfs. 
 \end{abstract}
 
 \keywords{
@@ -115,15 +116,15 @@ surveys
 %%==========================================================================================
 \section{Introduction} \label{sec:intro}
 
-Low-mass stars, with masses $M_{*} < 0.7\,\msun$ and effective temperatures $T_{\rm eff} < 4000\,$K, are by far the most ubiquitous type of star, comprising $\sim 70 \%$ of the Galaxy's population by number \citep{Bochanski:2010}. With nuclear fusion timescales $\tau>10^{11}$ yr \citep{Laughlin:1997}, the chemical compositions of the M dwarf populations trace the nucleosynthetic processes and interstellar mixing of heavy elements from many generations of shorter-lived, high mass stars, and are a unique probe for piecing together galactic structure and evolution \citep{Bochanski:2010,Woolf:2012}.  
+Low-mass stars, with masses $M_{*} < 0.7\,\msun$ and effective temperatures $T_{\rm eff} < 4000\,$K, are by far the most ubiquitous type of star, comprising $\sim 70 \%$ of the Galaxy's population by number \citep{Bochanski:2010}. With nuclear fusion timescales $\tau>10^{11}$ yr \citep{Laughlin:1997}, the chemical compositions of the M dwarf population traces the nucleosynthetic processes and interstellar mixing of heavy elements from many generations of shorter-lived, high mass stars, and are a unique probe for piecing together Galactic structure and evolution \citep{Bochanski:2010,Woolf:2012}.  
 
-Additionally, the low masses of M dwarfs make for easier detection of planets by radial velocity variability \citep{Trifonov:2018}, high planet-to-star radii ratios make for easier detection of exoplanet transits in light curve observations \citep{Nutzman:2008}, and shorter orbital periods (for a fixed stellar insolation flux) allow for new planet discovery in less observation time than for higher mass stars. For these reasons, M dwarfs are primary candidates for exoplanet searches, including by the NASA \kepler\ \citep[e.g.,][]{Dressing2015} and Transiting Exoplanet Survey Satellite (\tess) \citep[e.g.,][]{Muirhead:2018} missions. As a result, detailed and precise knowledge of M dwarf chemical compositions has become key to constraining the the properties, formation scenarios, and atmospheric conditions of potentially habitable exoplanets observable with the James Webb Space Telescope ({\sl JWST;} \citealt{Clampin2008}). 
+Additionally, the low masses of M dwarfs make for easier detection of planets by radial velocity variability \citep{Trifonov:2018}, high planet-to-star radii ratios make for easier detection of exoplanet transits in light curve observations \citep{Nutzman:2008}, and shorter orbital periods (for a fixed stellar insolation flux) allow for new planet discovery in less observation time than for higher mass stars. For these reasons, M dwarfs are primary candidates for exoplanet searches, including by the NASA \kepler\ \citep[e.g.,][]{Dressing2015} and Transiting Exoplanet Survey Satellite (\tess) \citep[e.g.,][]{Muirhead:2018} missions. As a result, detailed and precise knowledge of M dwarf chemical compositions has become key to constraining the properties, formation scenarios, and atmospheric conditions of potentially habitable exoplanets observable with the James Webb Space Telescope ({\sl JWST;} \citealt{Clampin2008}). 
 
-Advances in instrumentation with the launch of several spectroscopic surveys in the past decade, such as the Sloan Digital Sky Survey \citep[SDSS;][]{Eisenstein:2011,Blanton:2017}, and the Large Sky Area Multi-Object Fiber Spectroscopic Telescope \citep[LAMOST;][]{Zhao:2012} have dramatically increased the sample of known M dwarfs \citep{West:2011,Guo:2015} with catalogs of over 70,000 sources, enabling studies of M dwarf abundances on a Galactic scale.
-The Apache Point Observatory Galactic Evolution Experiment (APOGEE; \citealt{Majewski:2015}) survey as part of the SDSS III/IV mission has introduced the largest sample of M dwarfs observed with high resolution spectroscopy \citep{Desphande:2013}. APOGEE pipeline measurements of $\teff$ and $\feh$ \citep{Perez:2016} for M dwarfs have been determined to precisions 100\,K and 0.18\,dex down to $T_{\rm eff}\sim3550\,$K using atmospheric models \citep{Schmidt:2016}. 
+Advances in instrumentation and the implementation of several spectroscopic surveys in the past decade, such as the Sloan Digital Sky Survey \citep[SDSS;][]{Eisenstein:2011,Blanton:2017} and the Large Sky Area Multi-Object Fiber Spectroscopic Telescope \citep[LAMOST;][]{Zhao:2012}, have dramatically increased the sample of known M dwarfs \citep{West:2011,Guo:2015} with spectroscopic catalogs of over 70,000 sources, enabling studies of M dwarf abundances on a Galactic scale.
+The Apache Point Observatory Galactic Evolution Experiment (APOGEE; \citealt{Majewski:2015}) survey, as part of the SDSS III/IV mission, has introduced the largest sample of M dwarfs observed with high resolution spectroscopy \citep{Desphande:2013}. APOGEE pipeline measurements of $\teff$ and $\feh$ \citep{Perez:2016} for M dwarfs have been determined to precisions 100\,K and 0.18\,dex down to $T_{\rm eff}\sim3550\,$K using atmosphere models \citep{Schmidt:2016}. 
 
-Elemental abundance measurements from high resolution spectra of F, G, and K stars have achieved extremely high precision (down to $0.01-0.03$\,dex; \citealt{Nissen2018}) enabled by improvements in atmospheric models, including realistic 3D local thermodynamic equilibrium (LTE) assumptions \citep{Asplund2005}, and differential abundance techniques using equivalent widths \citep{Bedell2014}. However, the determination of precise metallicities for M dwarfs has remained a long-standing challenge due to the formation of complex diatomic and triatomic molecular bands at M dwarf temperatures, particularly TiO and VO bands dominating the optical spectrum, H$_2$O and CO bands in the infrared, and hydride bands (FeH, CaH, CrH, MgH, etc.) present in the spectra of the latest spectral types \citep{Allard1997}.
-Atmospheric models often fail to reproduce these spectral features \citep[e.g.,][]{Mann:2013c} due to incomplete line lists and opacities, and the presence of millions of weak, blended transitions, and the absence of a clear continuum, all contribute to make it difficult to deconvolve individual features and extract line strengths from equivalent widths. The combination of these effects limit our ability to explore the information content of high resolution spectra using traditional comparison to atmosphere models.
+Elemental abundance measurements from high resolution spectra of F, G, and K stars have achieved extremely high precision (down to $0.01-0.03$\,dex; \citealt{Nissen2018}) enabled by improvements in atmosphere models including realistic 3D local thermodynamic equilibrium (LTE) assumptions \citep{Asplund2005}, and differential abundance techniques using equivalent widths \citep{Bedell2014}. However, the determination of precise metallicities for M dwarfs has remained a long-standing challenge due to the formation of diatomic and triatomic molecules at M dwarf temperatures, with absorption from TiO and VO in the optical, H2O and CO in the infrared, and hydrides (FeH, CaH, CrH, MgH, etc.) present in the spectra of the latest spectral types \citep{Allard1997}.
+Atmospheric models often fail to reproduce these spectral features \citep[e.g.,][]{Mann:2013c} due to incomplete line lists and opacities, and the presence of millions of weak, blended transitions, and the absence of a clear continuum, all contribute to make it difficult to deconvolve individual features and extract line strengths from equivalent widths. The combination of these effects limit our ability to explore the information content of high resolution spectra using traditional methods.
 
 A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star and strong, isolated lines in the spectra of the M dwarf \citep[e.g.][]{Terrien:2012,RojasAyala:2010,Newton:2014,Neves:2014,Lindgren:2016} to developed precise empirical relations (as good as $\sim$0.07\,dex). 
 However these metallicity calibrations do not take advantage of the full wavelength coverage, nor information about the overall spectral shape often used to determine $\teff$ and spectral type. Further, earlier calibrations are generally based on moderate-resolution data \citep[with some exceptions,][]{Neves:2014, Lindgren:2016} that fail to utilize the greater spectral information provided by APOGEE's resolution.
@@ -654,7 +655,12 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/demo_derivatives_teff1.png}
+	\includegraphics[width=16cm]{figures/demo_derivatives_teff1.png} 
+	\end{center}
+\end{figure*}
+
+\begin{figure*}[]
+	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_teff2.png}
 	\end{center}
 \end{figure*}
@@ -671,6 +677,11 @@ participating in the {\it Gaia} Multilateral Agreement.
 \begin{figure*}[]
 	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_feh1.png}
+	\end{center}
+\end{figure*}
+
+\begin{figure*}[]
+	\begin{center}
 	\includegraphics[width=16cm]{figures/demo_derivatives_feh2.png}
 	\end{center}
 \end{figure*}
