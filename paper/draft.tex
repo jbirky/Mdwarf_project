@@ -234,10 +234,10 @@ We note that surface gravity is not included as a training label. The reason for
 \section{Experiments and Results} \label{sec:results}
 
 \subsection{Temperature/Metallicity Model \label{subsec:mann_results}}
-
+2
 \begin{figure}
-	\includegraphics[width=\linewidth]{figures/crv_test_teff.png}
-	\includegraphics[width=\linewidth]{figures/crv_test_fe_h.png}
+	\includegraphics[width=\linewidth]{crv_test_teff.png}
+	\includegraphics[width=\linewidth]{crv_test_fe_h.png}
 	\caption{Consistency test for the Mann-trained temperature/metallicity type model; self-test (top), and leave-one-out cross validation (bottom). Sources with strong rotational broadening (2M08155393+3136392, 2M09174473+4612246, 2M10331367+3409120, 2M15594729+4403595, 2M13400879+4346380), as identified by visual inspection are marked with red circles. Predictive accuracy, as computed by the scatter in cross validation is 77K in temperature, and 0.09 dex in metallicity.} 
 	\label{fig:mann_validation}
 \end{figure}
@@ -347,11 +347,10 @@ This discrepancy flows from the fact that, while the spectral model is good at t
 level, the signal-to-noise of the typical spectra are more than 100.
 That is, the $\chi^2$ values do show that the model is not good in the frequentist
 sense; it is only good at the percent level.
-% \color{gcolor}{This percent-level accuracy of the model in the data domain is also demonstrated...}\color{black} \\
 
 \begin{figure}
 	\begin{center}
-	\includegraphics[width=\linewidth]{figures/crv_test_spt.png}
+	\includegraphics[width=\linewidth]{crv_test_spt.png}
 	\end{center}
 	\caption{Leave-one-out cross validation test for the West-trained spectral type model. Predictive accuracy, as computed by the scatter in cross validation is 0.9 subtypes.}
 	\label{fig:west_validation}
@@ -365,13 +364,13 @@ We trained \thecannon\ on 51 M dwarfs ranging M0-M9 with a one-dimensional spect
 
 
 \begin{figure*}
-	\includegraphics[width=\linewidth]{figures/cannon_chi_dist.png}
+	\includegraphics[width=\linewidth]{cannon_chi_dist.png}
 	\caption{\textit{Left:} the distribution of fits for the training sample and known samples of pre-MS stars (\citealt{Cottaar:2014}) and binary sources \citep{ElBadry:2018,Skinner:2018}; \textit{right:} the distribution of $\chi^2$ fits for all 14,827 sources in the APOGEE--\gaia\ cross match, with color cuts $1<G_{BP}-G_{RP}<6$ and $7.5<M_{G}<20$ and $\varpi>0$. We apply a quality cut of $\chi^2 < 100,000$ to the test sample for those sources we report as ``safe''.}
 	\label{fig:chi_dist}
 \end{figure*}
 
 \begin{figure*}
-	\includegraphics[width=\linewidth]{figures/cmd_selection.png}
+	\includegraphics[width=\linewidth]{cmd_selection.png}
 	\caption{\gaia\ and 2MASS color-magnitude cuts for the 12,037 sources with $\chi^2<100,000$. Over plotted with orange triangles are the 67 out of 87 training sample sources which have parallaxes measured by \gaia. The coordinates for the selected quadrangles are
 	$\left\{ (1.4, 7.5), (2.2, 7.5), (4.2, 14), (3.3, 14) \right\}$ corresponding to ($BP-RP$, $M_G$) for the \gaia\ color-magnitudes shown in the left panel, and 
 	$\left\{ (.7, 4.3), (1.1, 4.3), (.7, 9), (1.1, 9) \right\}$ corresponding to ($J-K$, $M_K$) for the 2MASS color-magnitudes shown in the right panel. }
@@ -399,8 +398,8 @@ Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sou
 
 \begin{figure}
 \begin{center}
-	\includegraphics[width=\linewidth]{figures/ruwe_cut_before.png} \\
-	\includegraphics[width=\linewidth]{figures/ruwe_cut_after.png}
+	\includegraphics[width=\linewidth]{ruwe_cut_before.png} \\
+	\includegraphics[width=\linewidth]{ruwe_cut_after.png}
 	\caption{The left panel shows the test sample of 8,335 sources after applying Selections $1-3$ described in Section \ref{subsec:test_selection}. The right panel shows the same test sample reduced to 6,221 after applying an astrometric quality cut of ${\rm RUWE}<1.2$ (Selection 4). To further remove sources which were likely binary contamination (Selection 5), we cut out sources above the red line which sparsely lay above the majority of the main-sequence with temperatures and metallicities that deviate from the expected gradient, reducing the final test sample to a size of 5,875 sources. The red line shown is constrained by the ($BP-RP$, $M_G$) coordinates $\left\{ (3.5,12), (1.87,7.5) \right\}$.}
 	\label{fig:ruwe_cut}
 \end{center}
@@ -408,7 +407,7 @@ Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sou
 
 \begin{figure*}[]
 \begin{center}
-	\includegraphics[width=.9\linewidth]{figures/aspcap_cannon_validation.png}
+	\includegraphics[width=.9\linewidth]{aspcap_cannon_validation.png}
 	\caption{\cannon\ (right column) and ASPCAP (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 1,702 sources with $V,J,K$ colors. Shown are \cannon\ and ASPCAP temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).}
 	\label{fig:teff_comparisons}
 \end{center}
@@ -416,7 +415,7 @@ Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sou
 
 \begin{figure}
 \begin{center}
-	\includegraphics[width=\linewidth]{figures/wide_binary_met.png}
+	\includegraphics[width=\linewidth]{wide_binary_met.png}
 	\caption{Metallicities of \cannon\ M dwarfs in binaries (x-axis) compared to the metallicities of their companions (y-axis). Label colors show the source and spectral type of the companion metallicities. Metallicity values for each binary pair is compiled in Table \ref{table:binaries}. The overall scatter between the 15 metallicity pairs is 0.08\,dex.}
 \end{center}
 \end{figure}
@@ -446,8 +445,8 @@ Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sou
 
 \begin{figure*}
 \begin{center}
-	\includegraphics[height=5cm]{figures/toomre.png}
-	\includegraphics[height=5cm]{figures/met_hist.png}
+	\includegraphics[height=5cm]{toomre.png}
+	\includegraphics[height=5cm]{met_hist.png}
 	\caption{Toomre diagram showing the distribution of the \cannon\ metallicities (left). Dashed lines at $v_{tot}=70$\,km/s and 180\,km/s show roughly the separation of thin/thick/halo stars. Histogram (right) shows the metallicity distribution of thin and thick disk stars, with blue corresponding to $v_{tot}<70$\,km/s and green corresponding to $70<v_{tot}<180$\,km/s respectively. The average/standard deviation metallicity of the thin disk distribution is $\feh=0.00\pm0.17\,$dex, and the average/standard deviation metallicity of the thick disk distribution is $\feh=-0.14\pm0.19\,$dex.}
 	\label{fig:toomre}
 \end{center}
@@ -455,15 +454,15 @@ Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sou
 
 \begin{figure*}
 \begin{center}
-	\includegraphics[width=.3\linewidth]{figures/met_comp1.png}
-	\includegraphics[width=.3\linewidth]{figures/met_comp2.png}
-	\includegraphics[width=.3\linewidth]{figures/met_comp3.png} 
-	\includegraphics[width=.3\linewidth]{figures/met_comp4.png}
-	\includegraphics[width=.3\linewidth]{figures/met_comp5.png}
-	\includegraphics[width=.3\linewidth]{figures/met_comp6.png} 
-	\includegraphics[width=.3\linewidth]{figures/met_comp7.png}
-	\includegraphics[width=.3\linewidth]{figures/met_comp8.png}
-	\includegraphics[width=.3\linewidth]{figures/met_comp9.png} 
+	\includegraphics[width=.3\linewidth]{met_comp1.png}
+	\includegraphics[width=.3\linewidth]{met_comp2.png}
+	\includegraphics[width=.3\linewidth]{met_comp3.png} 
+	\includegraphics[width=.3\linewidth]{met_comp4.png}
+	\includegraphics[width=.3\linewidth]{met_comp5.png}
+	\includegraphics[width=.3\linewidth]{met_comp6.png} 
+	\includegraphics[width=.3\linewidth]{met_comp7.png}
+	\includegraphics[width=.3\linewidth]{met_comp8.png}
+	\includegraphics[width=.3\linewidth]{met_comp9.png} 
 	\caption{A comparison of ASPCAP and Cannon metallicities for 8,335 test sample sources separated into temperature bins of 100K. We see the scatter and metal-poor bias of ASPCAP metallicities clearly increases at decreasing temperatures.} 
 	\label{fig:met_comp}
 \end{center}
@@ -499,12 +498,12 @@ Figure \ref{fig:met_comp} shows that ASPCAP metallicities are systematically mor
 
 \begin{figure*}
 \begin{center}
-	\includegraphics[width=.47\linewidth]{figures/cmd_teff_full.png}
-	\includegraphics[width=.47\linewidth]{figures/cmd_teff_safe.png} \\
-	\includegraphics[width=.47\linewidth]{figures/cmd_feh_full.png}
-	\includegraphics[width=.47\linewidth]{figures/cmd_feh_safe.png} \\
-	\includegraphics[width=.47\linewidth]{figures/cmd_spt_full.png}
-	\includegraphics[width=.47\linewidth]{figures/cmd_spt_safe.png}
+	\includegraphics[width=.47\linewidth]{cmd_teff_full.png}
+	\includegraphics[width=.47\linewidth]{cmd_teff_safe.png} \\
+	\includegraphics[width=.47\linewidth]{cmd_feh_full.png}
+	\includegraphics[width=.47\linewidth]{cmd_feh_safe.png} \\
+	\includegraphics[width=.47\linewidth]{cmd_spt_full.png}
+	\includegraphics[width=.47\linewidth]{cmd_spt_safe.png}
 	\caption{Full sample of 14,827 M dwarfs colored by \cannon\ labels before selection (left) and final sample selection of 5,875 M dwarfs after applying selection criteria described in Section \ref{subsec:test_selection} (right), to reduce contamination from sources with that are not similar to the training sample (not single, main-sequence M stars, such as pre-main sequence, spectroscopic binaries, and K dwarfs). Overplotted with orange triangles are the M15 and W11 training samples, for their respective \cannon\ test labels. Temperature gradient increases with decreasing color, spectral subtype increases with increasing color, and metallicity gradient increases perpendicularly up from the main sequence branch as expected. Deviations from these gradients seen at the upper boundary of the main sequence is likely remaining contamination from the binary sequence.}
 	\label{fig:safe_selection}
 \end{center}
@@ -646,19 +645,19 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/demo_derivatives_teff1.png} 
+	\includegraphics[width=16cm]{demo_derivatives_teff1.png} 
 	\end{center}
 \end{figure*}
 
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/demo_derivatives_teff2.png}
+	\includegraphics[width=16cm]{demo_derivatives_teff2.png}
 	\end{center}
 \end{figure*}
 
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/demo_derivatives_teff3.png}
+	\includegraphics[width=16cm]{demo_derivatives_teff3.png}
 	\end{center}
 	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallicities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}
 	\label{fig:demo_teff}
@@ -667,19 +666,19 @@ participating in the {\it Gaia} Multilateral Agreement.
 %---------------------------
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/demo_derivatives_feh1.png}
+	\includegraphics[width=16cm]{demo_derivatives_feh1.png}
 	\end{center}
 \end{figure*}
 
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/demo_derivatives_feh2.png}
+	\includegraphics[width=16cm]{demo_derivatives_feh2.png}
 	\end{center}
 \end{figure*}
 
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/demo_derivatives_feh3.png}
+	\includegraphics[width=16cm]{demo_derivatives_feh3.png}
 	\end{center}
 	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying metallicities and similar temperatures. \textit{Third panel:} Derivative of \thecannon\ model with respect to metallicity, taken at the median training metallicity, $\feh=-0.03$\,dex; jackknife computed error at each pixel is shown in red.} \label{fig:demo_feh}
 \end{figure*}
@@ -687,9 +686,9 @@ participating in the {\it Gaia} Multilateral Agreement.
 %---------------------------
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=12cm]{figures/Spectral_Sequence_1.png}
-	\includegraphics[width=12cm]{figures/Spectral_Sequence_2.png}
-	\includegraphics[width=12cm]{figures/Spectral_Sequence_3.png}
+	\includegraphics[width=12cm]{Spectral_Sequence_1.png}
+	\includegraphics[width=12cm]{Spectral_Sequence_2.png}
+	\includegraphics[width=12cm]{Spectral_Sequence_3.png}
 	\end{center}
 	\caption{Spectral sequence of dwarfs in training set M0-M9; separate plots show three detector chips of APOGEE spectrum (black), the best fit Cannon trained model (red) with highlighted spectral type sensitive regions identified in \citealt{Desphande:2013}.} \label{fig:sp_sequence}
 \end{figure*}
@@ -697,7 +696,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 %---------------------------
 \begin{figure*}[]
 	\begin{center}
-	\includegraphics[width=16cm]{figures/derivative_jackknife_spt.png}
+	\includegraphics[width=16cm]{derivative_jackknife_spt.png}
 	\end{center}
 	\caption{Derivative plots for spectral type model taken at the median training spectral type, SPT$=3$; jackknife computed error at each pixel is shown in red.} 
 	\label{fig:west_derivative}
@@ -806,19 +805,19 @@ participating in the {\it Gaia} Multilateral Agreement.
 	{\tt TEFF} 				& K	& Mann-trained \cannon\ effective temperature	\\
 	{\tt FE$\_$H }		& dex	& Mann-trained \cannon\ $\feh$	\\
 	{\tt SPT} 				& 	& West-trained \cannon\ spectral subtype (M0$-$M9)	\\
+	{\tt TEFF$\_$APOGEE} 				& K	& ASPCAP pipeline effective temperature	\\
+	{\tt M$\_$H$\_$APOGEE} 				& dex	& ASPCAP pipeline [M/H]	\\
 	{\tt CHI$\_$MANN} 	& 	& $\chi^2$ fit of Mann-trained \cannon\ model	\\
 	{\tt CHI$\_$WEST} 	& 	& $\chi^2$ fit of West-trained \cannon\ model	\\
-	{\tt RADIUS} 			& R$_\odot$	& Radius determined by \citealt{Mann:2015} relation	\\
-	{\tt MASS} 			& M$_\odot$	& Mass determined by \citealt{Mann:2019} relation	\\
-	{\tt J} 				& mag	& APOGEE $J$ band photometry	\\
-	{\tt J$\_$ERR} 		& mag	& APOGEE $J$ band photometry uncertainty	\\
-	{\tt H} 				& mag	& APOGEE $H$ band photometry	\\
-	{\tt H$\_$ERR} 		& mag	& APOGEE $H$ band photometry uncertainty	\\
-	{\tt K} 				& mag	& APOGEE $K$ band photometry	\\
-	{\tt K$\_$ERR} 		& mag	& APOGEE $K$ band photometry uncertainty	\\
+	{\tt J$\_$MAG} 				& mag	& APOGEE $J$ band photometry	\\
+	{\tt H$\_$MAG} 				& mag	& APOGEE $H$ band photometry	\\
+	{\tt K$\_$MAG} 				& mag	& APOGEE $K$ band photometry	\\
 	{\tt BP$\_$MAG }		& mag	& \gaia\ $BP$ band photometry	\\
 	{\tt RP$\_$MAG} 		& mag	& \gaia\ $RP$ band photometry	\\
 	{\tt G$\_$MAG} 		& mag	& \gaia\ $G$ band photometry	\\
+	{\tt J$\_$ABS} 		& mag	& APOGEE $J$ band absolute magnitude	\\
+	{\tt H$\_$ABS} 		& mag	& APOGEE $H$ band absolute magnitude	\\
+	{\tt K$\_$ABS} 		& mag	& APOGEE $K$ band absolute magnitude	\\
 	{\tt G$\_$ABS} 		& mag	& \gaia\ $G$ band absolute magnitude	\\
 	{\tt BP$\_$RP} 		& mag	& \gaia\ $BP-RP$ color	\\
 	{\tt RA} 				& deg	& APOGEE radial ascension angle	\\
@@ -839,7 +838,8 @@ participating in the {\it Gaia} Multilateral Agreement.
 	{\tt Vz} 				& km s$^{-1}$	& Cartesian $z$ velocity in Galactocentric coordnates	\\
 	{\tt X} 				& pc	& Cartesian $x$ position in Galactocentric coordnates	\\
 	{\tt Y} 				& pc	& Cartesian $y$ position in Galactocentric coordnates	\\
-	{\tt Z} 				& pc	& Cartesian $z$ position in Galactocentric coordnates	
+	{\tt Z} 				& pc	& Cartesian $z$ position in Galactocentric coordnates  \\
+	{\tt SNR} 				& 	& Signal-to-noise ratio of the APOGEE spectrum
 \enddata
 \end{deluxetable*} \label{table:test_results}
 
