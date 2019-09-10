@@ -8,10 +8,6 @@
 \usepackage{booktabs}
 \usepackage{morefloats}
 
-% \usepackage{draftwatermark}
-% \SetWatermarkScale{3}
-% \SetWatermarkLightness{.7}
-
 \newcommand{\code}[1]{\texttt{\detokenize{#1}}}
 \newcommand{\apogee}{\textsl{APOGEE}}
 \newcommand{\thecannon}{\textsl{The Cannon}}
@@ -234,7 +230,7 @@ We note that surface gravity is not included as a training label. The reason for
 \section{Experiments and Results} \label{sec:results}
 
 \subsection{Temperature/Metallicity Model \label{subsec:mann_results}}
-2
+
 \begin{figure}
 	\includegraphics[width=\linewidth]{crv_test_teff.png}
 	\includegraphics[width=\linewidth]{crv_test_fe_h.png}
@@ -405,7 +401,7 @@ Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sou
 \end{center}
 \end{figure}
 
-\begin{figure*}[]
+\begin{figure*}
 \begin{center}
 	\includegraphics[width=.9\linewidth]{aspcap_cannon_validation.png}
 	\caption{\cannon\ (right column) and ASPCAP (left column) temperatures as compared to temperatures estimated color-temperature relations from three different literature sources for a subsample of 1,702 sources with $V,J,K$ colors. Shown are \cannon\ and ASPCAP temperatures (x-axis) compared to temperatures estimated from the \citealt{Mann:2015} $V-J$ and $\feh$ dependent relation (top), and the \citealt{Boyajian:2012} relation $V-K$ and $\feh$ (bottom).}
@@ -589,7 +585,7 @@ new and improved physical models which will, in turn, put \thecannon\ out of bus
 
 %%==========================================================================================
 \acknowledgements
-We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA), Melissa Ness (Columbia), Kevin Covey (WWU), Diogo Souto (Observatário Nacional/MCTI) and Keivan Stassun (Vanderbuilt) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality.
+We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA), Melissa Ness (Columbia), Kevin Covey (WWU), Diogo Souto (Observatário Nacional/MCTI), Keivan Stassun (Vanderbuilt), Anthony Brown (Leiden), Aida Behmard (Caltech) and Christopher Theissen (UCSD) for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality.
 This project was partially supported by
 the US National Aeronautics and Space Administration (NASA grant NNX12AI50G),
 the US National Science Foundation (NSF grant AST-1517237),
@@ -643,19 +639,19 @@ participating in the {\it Gaia} Multilateral Agreement.
 %%==========================================================================================
 %% Figures
 
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_teff1.png} 
 	\end{center}
 \end{figure*}
 
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_teff2.png}
 	\end{center}
 \end{figure*}
 
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_teff3.png}
 	\end{center}
@@ -664,19 +660,19 @@ participating in the {\it Gaia} Multilateral Agreement.
 \end{figure*}
 
 %---------------------------
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_feh1.png}
 	\end{center}
 \end{figure*}
 
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_feh2.png}
 	\end{center}
 \end{figure*}
 
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_feh3.png}
 	\end{center}
@@ -684,7 +680,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 \end{figure*}
 
 %---------------------------
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=12cm]{Spectral_Sequence_1.png}
 	\includegraphics[width=12cm]{Spectral_Sequence_2.png}
@@ -694,7 +690,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 \end{figure*}
 
 %---------------------------
-\begin{figure*}[]
+\begin{figure*}
 	\begin{center}
 	\includegraphics[width=16cm]{derivative_jackknife_spt.png}
 	\end{center}
