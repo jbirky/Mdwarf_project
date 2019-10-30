@@ -100,7 +100,7 @@ The Apache Point Observatory Galactic Evolution Experiment (APOGEE; \citealt{Maj
 Elemental abundance measurements from high resolution spectra of F, G, and K stars have achieved extremely high precision (down to $0.01-0.03$\,dex; \citealt{Nissen2018}) enabled by improvements in atmosphere models including realistic 3D local thermodynamic equilibrium (LTE) assumptions \citep{Asplund2005}, and differential abundance techniques using equivalent widths \citep{Bedell2014}. However, the determination of precise metallicities for M dwarfs has remained a long-standing challenge due to the formation of diatomic and triatomic molecules at M dwarf temperatures, with absorption from TiO and VO in the optical, H2O and CO in the infrared, and hydrides (FeH, CaH, CrH, MgH, etc.) present in the spectra of the latest spectral types \citep{Allard1997}.
 Atmospheric models often fail to reproduce these spectral features \citep[e.g.,][]{Mann:2013c} due to incomplete line lists and opacities. The presence of millions of weak, blended transitions, and the absence of a clear continuum, contribute to make it difficult to deconvolve individual features and extract line strengths from equivalent widths. The combination of these effects limit our ability to explore the information content of high resolution spectra using traditional methods.
 
-A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star and strong, isolated lines in the spectra of the M dwarf \citep[e.g.,][]{Terrien:2012,RojasAyala:2010,Newton:2014,Neves:2014,Lindgren:2016} to developed precise empirical relations (as good as $\sim$0.07\,dex). 
+A number of studies focused on improving M dwarf metallicity precisions have used systems of M dwarfs in common proper motion with an FGK star and strong, isolated lines in the spectra of the M dwarf \citep[e.g.,][]{Terrien:2012,RojasAyala:2010,Newton:2014,Neves:2014,Lindgren:2016} to develope precise empirical relations (as good as $\sim$0.07\,dex). 
 However these metallicity calibrations do not take advantage of the full wavelength coverage available, nor information about the overall spectral shape often used to determine $\teff$ and spectral type. Furthermore, earlier calibrations are generally based on moderate-resolution data \citep[with some exceptions,][]{Neves:2014, Lindgren:2016} that fail to utilize the greater spectral information provided by APOGEE's resolution.
 
 In this work we build a data-driven model for M dwarf APOGEE spectra with \thecannon\ \citep{Ness:2015,Casey:2016,Ho:2017a,Behmard2019}: a fully empirical model which employs no line lists or radiative transfer models. 
@@ -145,7 +145,7 @@ In previous work it has been recommended to use an alternative pseudo-continuum 
 %%==========================================================================================
 \section{Method} \label{sec:methods}
 
-\thecannon\ is a regression model which relies on two assumptions: first, that sources with identical labels have near-identical flux at each wavelength pixel; and second, that the expected flux at each pixel varies continuosly with change in label. 
+\thecannon\ is a regression model which relies on two assumptions: first, that sources with identical labels have near-identical flux at each wavelength pixel; and second, that the expected flux at each pixel varies continuously with change in label. 
 
 Inferring the label of a star with such a model requires two steps: first, the \emph{training step} in which a generative model describing the probability density function of the flux is constructed at each pixel from the set of spectra with known reference labels; and second, the \emph{test step} in which the model is applied to determine the labels of a spectrum.
 
@@ -153,7 +153,7 @@ Following the procedure of \citet{Ness:2015} and \citet{Ho:2017a} we adopt a sim
 \begin{equation}
 	f_{n\lambda} = \theta_{\lambda}^{T} \cdot \ell_{n} + N_{\lambda} \label{eqn:cannon}
 \end{equation} 
-\color{red}{Here we use the noise model}\color{black} $N_{\lambda}=[s_{\lambda}^2 + \sigma_{n\lambda}^2]\xi_{n\lambda}$, where the bracketed term is the root mean sum of the intrinsic scatter of the model at each pixel \emph{$s_{\lambda}$}, and the uncertainty due to instrumental effects \emph{$\sigma_{n\lambda}$}, which is then multiplied times a Gaussian random number $\xi_{n\lambda} \sim \mathcal{N} (0,1)$. Equation (\ref{eqn:cannon}) corresponds to the single-pixel log-likelihood function:
+\color{red}{\bf Here we use the noise model }\color{black} $N_{\lambda}=[s_{\lambda}^2 + \sigma_{n\lambda}^2]\xi_{n\lambda}$, where the bracketed term is the root mean sum of the intrinsic scatter of the model at each pixel \emph{$s_{\lambda}$}, and the uncertainty due to instrumental effects \emph{$\sigma_{n\lambda}$}, which is then multiplied times a Gaussian random number $\xi_{n\lambda} \sim \mathcal{N} (0,1)$. Equation (\ref{eqn:cannon}) corresponds to the single-pixel log-likelihood function:
 \begin{equation}
 	\ln p(f_{n\lambda}|\theta^T_{\lambda}, \ell_n, s^2_n) = 
 	-\frac{1}{2}\frac{[f_{n\lambda} - \theta_{\lambda}^{T} \cdot \ell_{n}]^2}{s_{\lambda}^2 + \sigma_{n\lambda}^2} - \frac{1}{2} \ln(s_{\lambda}^2 + \sigma_{n\lambda}^2) 
@@ -180,12 +180,13 @@ derivatives.
 %%==========================================================================================
 \section{Sample Selection} \label{sec:sample_selection}
 
-\thecannon\ model can in principle be trained on any physical or empirical labels available, giving a wide range of flexibility to the model. However, choosing a training sample with high quality labels is critical to its performance.
+\thecannon\ model can in principle be trained on any physical or empirical labels available \color{red}{\bf beyond those which typically parameterize theoretical atmospheric models ($\teff$, logg, [M/H], etc.), such as additional physical parameters (e.g., mass/age \citealt{Ness:2016}) or empirical proxies for physical parameters (e.g., spectral types, colors, magnitudes), }\color{black} giving a wide range of flexibility to the model. 
+However, choosing a training sample with high quality labels is critical to its performance.
 Limitations of \thecannon\ include that test (output) labels are only accurate if the training labels are accurate, and only precise if the training labels are measured consistently across the training sample.
 It is also critical to have a training sample with the dynamic range to span the entire parameter space of interest, as \thecannon\ does not extrapolate well outside the parameter space of the training sample.
-Finally, \thecannon\ assumes that the dependence of \color{red}{the}\color{black} spectrum on labels is continuous and smooth---and in this implementation, well approximated by quadratic functions. If that isn't true, there will be features that \thecannon\ cannot reproduce.
+Finally, \thecannon\ assumes that the dependence of \color{red}{\bf the }\color{black} spectrum on labels is continuous and smooth---and in this implementation, well approximated by quadratic functions. If that isn't true, there will be features that \thecannon\ cannot reproduce.
 
-For the purpose of this study, we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second, a two-dimensional \emph{physical parameter model}, which describes the temperature and metallicity. The choice of training labels, dimensionality of our data set, and requirements for a good training set \color{red}{are discussed}\color{black} further in Section \ref{sec:discussion}.
+For the purpose of this study, we have constructed two different training samples: first a one-dimensional \emph{spectral type model}, and second, a two-dimensional \emph{physical parameter model}, which describes the temperature and metallicity. The choice of training labels, dimensionality of our data set, and requirements for a good training set \color{red}{\bf are discussed }\color{black} further in Section \ref{sec:discussion}.
 
 % ----------------------------------------
 \subsection{Spectral Type Training Sample}
@@ -195,7 +196,7 @@ The spectral type training sample consists of 51 sources, spanning M0$-$M9 cross
 % ----------------------------------------
 \subsection{Physical Parameter Training Sample}
 
-The physical parameter training sample consists of 87 sources with reference labels distributed over $2859 <T_{\rm eff} < 4131$K, and $-0.48 < \feh < 0.49$\,dex, 41 sources of which are drawn from \citet{Mann:2015} (hereafter M15), and 46 of which are part of a previously unpublished extension sample to M15, analyzed using similar data and identical techniques to M15. The major difference between the extension sample \color{red}{to M15}\color{black} is that the sample had lower-quality or no parallaxes (prior to Gaia data) and hence were omitted from the M15 study and were less vetted for binarity than the M15 sample.
+The physical parameter training sample consists of 87 sources with reference labels distributed over $2859 <T_{\rm eff} < 4131$K, and $-0.48 < \feh < 0.49$\,dex, 41 sources of which are drawn from \citet{Mann:2015} (hereafter M15), and 46 of which are part of a previously unpublished extension sample to M15, analyzed using similar data and identical techniques to M15. The major difference between the extension sample is that the sample had lower-quality or no parallaxes (prior to Gaia data) and hence were omitted from the M15 study and were less vetted for binarity than the M15 sample \color{red}{\bf (however, all sources in the training sample were visually inspected by color-magnitude position for binarity before addition).}\color{black}
 
 The M15 catalog in total contains 183 sources and the extension sample another 500 stars. Both samples were primarily selected from the proper-motion selected CONCH-SHELL \citep{Gaidos:2013} M dwarf catalog. All targets have low-res optical spectra from the SNIFS spectrograph \citep{Lantz:2004} and infrared spectra taken with the SpeX Spectrograph \citep{Rayner:2003}, which have been combined to estimate largely empirical bolometric fluxes. Effective temperatures have been estimated by comparing the SNIFS spectra to BT-SETTL atmospheric models \citep{Allard:2011}. A subsample of 29 sources with measured angular diameters from long-baseline optical interferometry \citep{Boyajian:2012} are used to calibrate the model comparison, including masking of spectral regions poorly reproduced by the model spectra \citep{Mann:2013c}. Based on the difference between assigned $\teff$ values and those from angular diameters, absolute uncertainty on $\teff$ is estimated to be 60K in $\teff$, although the relative uncertainty is likely a factor of $\simeq$2 better.
 
@@ -220,7 +221,7 @@ For the physical parameter model, we trained \thecannon\ on 87 M dwarfs with two
 
 To assess the validity of our model's labels we used a leave-one-out cross validation (LOOCV) test, in which we train a model on all sources but \emph{n}, then apply the \emph{N-1} source trained model to obtain the labels for star \emph{n}. Precision (scatter) and bias of the model for each test are calculated as the standard deviation and mean of the difference in training and test (or LOOCV) labels respectively (Figure \ref{fig:mann_validation}). Since the LOOCV test evaluates both how well the model reproduces the training values \emph{and} penalizes the model for over-fitting, we adopt the LOOCV scatter as the estimate of the model's precision. The set of training, test, and cross-validated labels for each training source is reported in Table \ref{table:mann_results}.
 
-Another mode of analysis we can look at with \thecannon\ is how the derivative of the model changes with respect to given training parameters, which makes our model interpretable for discovering or verifying atomic or molecular lines with strong dependence on different physical parameters. The top two panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh} show two example spectra and model fits for two different temperatures (Figure \ref{fig:demo_teff}), and two different metallicities (Figure \ref{fig:demo_feh}), with atomic and molecular features identified by the abundance analysis of \citet{Souto:2017}. The bottom panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh} show the derivative of flux with respect to temperature and metallicity at each pixel, taken at the median training values. In order to evaluate which spectral features show statistically significant change with respect to input label, we compute \color{red}{the}\color{black} error of the derivative at each pixel using a jackknife statistic (with a 1-$\sigma$ level overplotted in red):
+Another mode of analysis we can \color{red}{\bf utilize }\color{black} with \thecannon\ is how the derivative of the model changes with respect to given training parameters, which makes our model interpretable for discovering or verifying atomic or molecular lines with strong dependence on different physical parameters. The top two panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh} show two example spectra and model fits for two different temperatures (Figure \ref{fig:demo_teff}), and two different metallicities (Figure \ref{fig:demo_feh}), with atomic and molecular features identified by the abundance analysis of \citet{Souto:2017}. The bottom panels of Figures \ref{fig:demo_teff} and \ref{fig:demo_feh} show the derivative of flux with respect to temperature and metallicity at each pixel, taken at the median training values. In order to evaluate which spectral features show statistically significant change with respect to input label, we compute \color{red}{\bf the }\color{black} error of the derivative at each pixel using a jackknife statistic (with a 1-$\sigma$ level overplotted in red):
 \begin{equation}
 	\sigma_{\theta,m}^2 = \frac{N-1}{N} \sum^N_{n=1} (\theta_{/n}^m - \theta^m)^2 
 \end{equation}
@@ -316,7 +317,7 @@ where $\sigma_{\theta,m}$ is the error at pixel \emph{m}, \emph{N} is the total 
 
 The spectra contain roughly 8000 pixels,
 so we might expect the $\chi^2$ values to be close to 8000 in magnitude,
-\color{red}{however, they}\color{black} are much higher.
+\color{red}{\bf however, they }\color{black} are much higher.
 This discrepancy flows from the fact that, while the spectral model is good at the percent
 level, the signal-to-noise of the typical spectra are more than 100.
 That is, the $\chi^2$ values do show that the model is not good in the frequentist
@@ -332,7 +333,7 @@ sense; it is only good at the percent level.
 
 \subsection{Spectral Type Model \label{subsec:west_results}}
 
-We trained \thecannon\ on 51 M dwarfs ranging \color{red}{between}\color{black} M0$-$M9 with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs poorly at reproducing spectral types $>$M8, which confirms that \thecannon\ does not extrapolate well to labels outside of the training sample space. Because of this skew for late-type sources, we report our spectral type model to be precise to $\pm$0.7 spectral types for the range M0-M6. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows LOOCV test for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
+We trained \thecannon\ on 51 M dwarfs ranging \color{red}{\bf between }\color{black} M0$-$M9 with a one-dimensional spectral type label, and obtained a precision of $\pm$0.9 spectral types, also similar to the original training label uncertainty of $\pm$1 spectral type. We note however, that the training sample is distributed heavily towards earlier type sources, with a median spectral type of 3 and only one M8 and one M9 source. As seen in Figure \ref{fig:west_validation}, the model performs poorly at reproducing spectral types $>$M8, which confirms that \thecannon\ does not extrapolate well to labels outside of the training sample space. Because of this skew for late-type sources, we report our spectral type model to be precise to $\pm$0.7 spectral types for the range M0-M6. Repeating the analysis of Section \ref{subsec:mann_results}, Figure \ref{fig:west_validation} shows LOOCV test for the labels reported in Table \ref{table:west_results}, and Figure \ref{fig:west_derivative} shows the derivative of model flux with varying spectral type.
 
 % ----------------------------------------
 
@@ -357,9 +358,9 @@ We trained \thecannon\ on 51 M dwarfs ranging \color{red}{between}\color{black} 
 Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sources which were in the cross-match of \drtwo\ \citep{Brown:2018} and applied \gaia\ color-magnitude cuts of $1<BP-RP<6$ and $7.5<M_G<20$ for sources with only positive parallaxes ($\varpi>0$), yielding a sample of 14,827 sources. From there we applied additional selection criteria, described below, to identify a sample of single, main-sequence M stars, with minimal contamination from reddened K dwarfs, pre-main sequence stars, and binaries:
 
 \begin{enumerate}
-\item \textbf{Quality of fit cut:} We apply a \cannon\ model $\chi^2$ cut of less than 100,000, chosen to remove badly fit sources (such as fast rotators), but include $\chi^2$ values close \color{red}{to}\color{black} the distribution of training sample (Figure \ref{fig:chi_dist}).
+\item \textbf{Quality of fit cut:} We apply a \cannon\ model $\chi^2$ cut of less than 100,000, chosen to remove badly fit sources (such as fast rotators), but include $\chi^2$ values close \color{red}{\bf to }\color{black} the distribution of training sample (Figure \ref{fig:chi_dist}).
 
-\item \textbf{Color-magnitude cuts:} Using \gaia\ and 2MASS photometries we apply the color-magnitude selections shown in Figure \ref{fig:cmd_selection} to remove sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and\color{red}{/or}\color{black} multiples), and subdwarfs below the main sequence.
+\item \textbf{Color-magnitude cuts:} Using \gaia\ and 2MASS photometry we apply the \color{red}{\bf additional }\color{black} color-magnitude selections shown in Figure \ref{fig:cmd_selection} to remove sources above the main sequence (which are likely pre-main sequence, reddened K dwarfs and\color{red}{\bf /or }\color{black} multiples), and subdwarfs below the main sequence.
 
 \item \textbf{Model extrapolation cuts:} Because \thecannon\ does not perform well under extrapolated regions of parameter space, we select only sources inside the range of our training sample with ASPCAP parameters $2800<T_{\rm eff}<4100$ and $-0.5<\mh<0.5$, and with \cannon\ parameters of $2850<T_{\rm eff}<4150$, $-0.5<\feh<0.5$, and $0<SPT<9$.
 
@@ -390,7 +391,8 @@ Out of the total APOGEE DR14 catalog of 258,475 sources, we selected 254,478 sou
 \begin{figure}
 \begin{center}
 	\includegraphics[width=\linewidth]{wide_binary_met.png}
-	\caption{Metallicities of \cannon\ M dwarfs in binaries (x-axis) compared to the metallicities of their companions (y-axis). Label colors show the source and spectral type of the companion metallicities. Metallicity values for each binary pair is compiled in Table \ref{table:binaries}. The overall scatter between the 15 metallicity pairs is 0.08\,dex.}
+	\caption{Metallicities of \cannon\ M dwarfs in binaries (x-axis) compared to the metallicities of their companions (y-axis). Label colors show the source and spectral type of the companion metallicities. Metallicity values for each binary pair is compiled in Table \ref{table:binaries}. The overall scatter between the 15 metallicity pairs is 0.08\,dex.} 
+	\label{fig:wide_binary_met}
 \end{center}
 \end{figure}
 
@@ -460,7 +462,7 @@ We find \cannon\ to be in better agreement with \citet{Mann:2015} and \citet{Boy
 \subsection{Metallicity Validation}
 
 As a check of our test sample metallicity reliability, we cross-matched our M dwarf final sample with the \citet{Elbadry:2018b} catalog of $>$50,000 high-confidence, widely separated binaries identified by \drtwo. 
-In total we found 216 of the APOGEE M dwarfs to have binary pairs (46 FGK+M, 155 M+M, and 15 WD+M). Out of the 155 M+M pairs, 8 pairs contained both pairs in APOGEE. Cross-matching the list of FGK+M dwarf companions with several catalogs/surveys with measured stellar metallicities, we found an additional 7 sources with FGK metallicities from LAMOST \citep{Zhao:2012} and APOGEE (ASPCAP). The metallicity measurements for the 15 M dwarf binaries and their companions are given in Table \ref{table:binaries}, and the overall scatter is $0.08\,$dex--an improvement over the scatter of ASPCAP metallicities which is $0.15\,$dex for these 15 sources. Internal consistency of the two models (the scatter of the 8 M+M pairs both in APOGEE) are 0.06\,dex and 0.12\,dex for \cannon\ and ASPCAP respectively.
+In total we found 216 of the APOGEE M dwarfs to have binary pairs (46 FGK+M, 155 M+M, and 15 WD+M). Out of the 155 M+M pairs, 8 pairs contained both pairs in APOGEE. Cross-matching the list of FGK+M dwarf companions with several catalogs/surveys with measured stellar metallicities, we found an additional 7 sources with FGK metallicities from LAMOST \citep{Zhao:2012} and APOGEE (ASPCAP). The metallicity measurements for the 15 M dwarf binaries and their companions are given in Table \ref{table:binaries} \color{red}{\bf and shown in Figure \ref{fig:wide_binary_met} }\color{black}, and the overall scatter is $0.08\,$dex--an improvement over the scatter of ASPCAP metallicities which is $0.15\,$dex for these 15 sources. Internal consistency of the two models (the scatter of the 8 M+M pairs both in APOGEE) are 0.06\,dex and 0.12\,dex for \cannon\ and ASPCAP respectively.
 
 As expected, the Toomre diagram in Figure \ref{fig:toomre} shows that higher metallicity sources in the sample are concentrated in low velocity space corresponding roughly to the thin disk population; while the thick disk population contains a slightly higher concentration of lower metallicity sources. Separating the two populations into separate histograms (also shown in Figure \ref{fig:toomre}), we find that thick disk sources are marginally more metal poor than thin disk sources, with the mean $\pm$ standard deviation of $\feh=0.00\pm0.17\,$dex for the thin disk distribution, and $\feh=-0.14\pm0.19\,$dex for the thick disk distribution.
 Metallicities of the two populations from ASPCAP show a similar distribution, with the mean $\pm$ standard deviation being $\mh=-0.16\pm0.16\,$dex for thin disk sources and $\mh=-0.23\pm0.17\,$dex for thick disk sources.
@@ -512,7 +514,7 @@ The catalog we have produced is a label transfer from parameters provided
 in our input data (M15) and it implicitly adopts all the biases and
 issues from that input data.
 It is also limited to the stellar-parameter domain of that input catalog.
-That said, this work provides and external validation of the M15 stellar parameters.
+That said, this work provides an external validation of the M15 stellar parameters.
 
 The model we have developed does have limitations, however.
 For example, it delivers chi-squared goodness-of-fit measures that
@@ -544,7 +546,9 @@ At the high temperature end ($\teff > 3600$\,K), the ASPCAP metallicity bias is 
 We suspect that this metal-poor bias, while not explored to a great extent in this work, is due 
 to the line lists of the models: 
 an effect in which the optimizer of the pipeline may be lowering the continuum level and metallicity of the fit to compensate for the missing lines or opacities.
-Further analysis would need to be done to determine if the metallicity bias
+\color{red}{\bf We also note that this analysis was completed using data from Data Release 14 of APOGEE, 
+which did include molecular lines from FeH in the pipeline at the time, which become numerous and strong for $\teff \lesssim 3600$\,K. }\color{black}
+Further analysis would need to be done to \color{red}{\bf quantify the metallicity improvement for M dwarfs in later data releases of APOGEE now available (in which FeH has been included in analysis)}\color{black}, and determine if the metallicity bias
 is found in other model grids (besides the ATLAS/MARCS models used by the ASPCAP pipeline), 
 and if the effect is present at other wavelengths.
 
@@ -563,7 +567,7 @@ new and improved physical models which will, in turn, put \thecannon\ out of bus
 
 %%==========================================================================================
 \acknowledgements
-We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA), Melissa Ness (Columbia), Kevin Covey (WWU), Diogo Souto (Observatário Nacional/MCTI), Keivan Stassun (Vanderbilt), \color{red}{Katia Cunha (NOAO), Anthony Brown (Leiden), Aida Behmard (Caltech) and Christopher Theissen (UCSD)}\color{black} for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality.
+We would like to acknowledge Hans Walter Rix (MPIA), Derek Homeier (Universit{\"a}t Heidelberg), Wolfgang Bradner (MPIA), Anna-Christina Eilers (MPIA), Melissa Ness (Columbia), Kevin Covey (WWU), Diogo Souto (Observatário Nacional/MCTI), Keivan Stassun (Vanderbilt), \color{red}{\bf Katia Cunha (NOAO), Anthony Brown (Leiden), Aida Behmard (Caltech) and Christopher Theissen (UCSD) }\color{black} for constructive discussions in the process of this project, as well as Bertrand Goldman (MPIA) and those who have supported the internship program at the Max Planck Institute f{\"u}r Astronomie for providing JB with funding and hospitality.
 This project was partially supported by
 the US National Aeronautics and Space Administration (NASA grant NNX12AI50G),
 the US National Science Foundation (NSF grant AST-1517237),
@@ -633,7 +637,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_teff3.png}
 	\end{center}
-	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying temperatures, and similar metallicities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}
+	\caption{\textit{Top two panels of each plot:} \color{red}{\bf APOGEE spectra (black), overlaid by the }\color{black} Mann-trained \color{red}{\bf \cannon\ }\color{black} model for \color{red}{\bf two sources of }\color{black} varying temperatures, and similar metallicities. \textit{Third panel of each plot:} Derivative of \thecannon\ model with respect to temperature, taken at the median training temperature, T$_{\rm eff}=3463$K; error estimate computed using a jackknife statistic at each pixel is marked in red, making it possible to distinguish which features vary significantly with change in spectral type, and which are likely due to noise.}
 	\label{fig:demo_teff}
 \end{figure*}
 
@@ -654,7 +658,7 @@ participating in the {\it Gaia} Multilateral Agreement.
 	\begin{center}
 	\includegraphics[width=16cm]{demo_derivatives_feh3.png}
 	\end{center}
-	\caption{\textit{Top two panels of each plot:} Mann-trained model for varying metallicities and similar temperatures. \textit{Third panel:} Derivative of \thecannon\ model with respect to metallicity, taken at the median training metallicity, $\feh=-0.03$\,dex; jackknife computed error at each pixel is shown in red.} \label{fig:demo_feh}
+	\caption{\textit{Top two panels of each plot:} \color{red}{\bf APOGEE spectra (black), overlaid by the }\color{black} Mann-trained \color{red}{\bf \cannon\ }\color{black} model for \color{red}{\bf two sources of }\color{black} varying metallicities and similar temperatures. \textit{Third panel:} Derivative of \thecannon\ model with respect to metallicity, taken at the median training metallicity, $\feh=-0.03$\,dex; jackknife computed error at each pixel is shown in red.} \label{fig:demo_feh}
 \end{figure*}
 
 %---------------------------
